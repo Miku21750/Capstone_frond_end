@@ -75,7 +75,7 @@ export function RegisterForm({
         <CardHeader className={'flex flex-col gap-10'}>
           <CardTitle className={'text-2xl text-center'}>Register to your account</CardTitle>
           <CardDescription>
-            Enter data of registration code 
+            Enter data of registration data to make account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -84,6 +84,10 @@ export function RegisterForm({
               <div className="grid gap-3">
                 <Label htmlFor="email">Name</Label>
                 <Input id="name" type="text"  required />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="email">Age</Label>
+                <Input id="age" type="number"  required />
               </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>

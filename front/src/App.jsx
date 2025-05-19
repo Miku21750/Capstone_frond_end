@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { HomePage } from './Pages/Home_Page'
 import { LoginForm, RegisterForm } from './components/sc-form'
+import { Navigation } from './components/navigation'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -12,7 +13,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/' element={<Navigation />}>
+            <Route index element={<HomePage />} />
+          </Route>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
         </Routes>
