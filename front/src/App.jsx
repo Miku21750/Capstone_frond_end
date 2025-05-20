@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import { HomePage } from './Pages/Home_Page'
 import { LoginForm, RegisterForm } from './components/sc-form'
 import { Navigation } from './components/navigation'
+import { About } from './Pages/about'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
+            <Route path='/about' element={<About />} />
           </Route>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
