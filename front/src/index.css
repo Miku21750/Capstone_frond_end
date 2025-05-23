@@ -107,12 +107,16 @@
   --font-roboto: "Roboto", sans-serif; 
   --font-quicksand: "Quicksand";
   --font-exile: "Exile", system-ui;
---color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-100: oklch(0.99 0 0);
   --color-avocado-200: oklch(0.98 0.04 113.22);
   --color-avocado-300: oklch(0.94 0.11 115.03);
   --color-avocado-400: oklch(0.92 0.19 114.08);
   --color-avocado-500: oklch(0.84 0.18 117.33);
   --color-avocado-600: oklch(0.53 0.12 118.34);
+  --color-cold-1:oklch(0.7828 0.0851 200.34);
+  --color-cold-2:oklch(0.9324 0.0397 204.31);
+  --color-cold-3:oklch(0.8766 0.0622 203.71);
+  --color-cold-4:oklch(0.9753 0.027 196.72);
     }
 
 .dark {

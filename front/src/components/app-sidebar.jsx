@@ -14,132 +14,113 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { Link } from "react-router"
 
 // This is sample data.
 const data = {
   versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   navMain: [
     {
-      title: "Getting Started",
+      title: "Introduction",
       url: "#",
       items: [
         {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
+          title: "Overview",
           url: "#",
           isActive: true,
         },
+      ],
+    },
+    {
+      title: "Types of Skin Diseases",
+      url: "#",
+      items: [
         {
-          title: "Rendering",
+          title: "Acne",
           url: "#",
         },
         {
-          title: "Caching",
+          title: "Eczema",
           url: "#",
         },
         {
-          title: "Styling",
+          title: "Psoriasis",
           url: "#",
         },
         {
-          title: "Optimizing",
+          title: "Rosacea",
           url: "#",
         },
         {
-          title: "Configuring",
+          title: "Fungal Infections",
           url: "#",
         },
         {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
+          title: "Skin Cancer",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "Prevention Tips",
       url: "#",
       items: [
         {
-          title: "Components",
+          title: "Daily Skincare Routine",
           url: "#",
         },
         {
-          title: "File Conventions",
+          title: "Hygiene Advice",
           url: "#",
         },
         {
-          title: "Functions",
+          title: "Lifestyle Choices",
           url: "#",
         },
         {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
+          title: "Sun Protection",
           url: "#",
         },
       ],
     },
     {
-      title: "Architecture",
+      title: "Treatment Options",
       url: "#",
       items: [
         {
-          title: "Accessibility",
+          title: "Over-the-Counter",
           url: "#",
         },
         {
-          title: "Fast Refresh",
+          title: "Prescription",
           url: "#",
         },
         {
-          title: "Next.js Compiler",
+          title: "Natural Remedies",
           url: "#",
         },
         {
-          title: "Supported Browsers",
+          title: "When to Seek Medical Help",
+          url: "#",
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          title: "Myths & Facts",
           url: "#",
         },
         {
-          title: "Turbopack",
+          title: "FAQs",
+          url: "#",
+        },
+        {
+          title: "Resources & References",
+          url: "#",
+        },
+        {
+          title: "Contact / Ask a Dermatologist",
           url: "#",
         },
       ],
@@ -153,11 +134,10 @@ export function AppSidebar({
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} />
+        {/* <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} /> */}
         <SearchForm />
       </SidebarHeader>
       <SidebarContent>
-        {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
@@ -165,8 +145,8 @@ export function AppSidebar({
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                    <SidebarMenuButton className={' font-quicksand'} asChild isActive={item.isActive}>
+                      <Link to={item.url}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
