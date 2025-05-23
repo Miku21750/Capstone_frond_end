@@ -7,6 +7,7 @@ import { HomePage } from './Pages/Home_Page'
 import { LoginForm, RegisterForm } from './components/sc-form'
 import { Navigation } from './components/navigation'
 import { About } from './Pages/about'
+import { Education } from './Pages/Education'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
           </Route>
+            <Route path='/education' element={<Education />} />
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
         </Routes>
