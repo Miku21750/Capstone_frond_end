@@ -18,10 +18,10 @@ function App() {
           <Route path="/" element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path="/about" element={<About />} />
-            <Route path="/education" element={<Education />} />
           </Route>
-          <Route path="/login" element={<LoginForm />}></Route>
-          <Route path="/register" element={<RegisterForm />}></Route>
+          <Route path='/education' element={<Education />} />
+          <Route path='/login' element={<LoginForm />}></Route>
+          <Route path='/register' element={<RegisterForm />}></Route>
         </Routes>
       </BrowserRouter>
     </>
