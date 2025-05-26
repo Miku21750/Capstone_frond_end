@@ -1,6 +1,6 @@
 // src/pages/UploadPenyakit.jsx
 import React, { useRef, useEffect } from 'react';
-import Camera from '../components/camera';
+import Camera from '../components/Camera';
 
 export function UploadPenyakit() {
   const videoRef = useRef(null);
