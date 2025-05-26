@@ -66,7 +66,7 @@ export const HomePage = () => {
         <h1 className='text-5xl font-quicksand font-black'>Feature Yang Disediakan</h1>
         <div className="flex-col p-10 flex gap-10 xl:flex-row">
 
-          <Card className="feature-card flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200 ">
+          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200 ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Bot className='h-10 w-10' ></Bot>
               <CardTitle className={'text-4xl text-center font-quicksand  mx-10'}>Diagnosa Online </CardTitle>
@@ -78,7 +78,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Bandage className='h-10 w-10'></Bandage>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Saran Pengobatan </CardTitle>
@@ -90,7 +90,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Map className='h-10 w-10'></Map>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Pelayanan Terdekat </CardTitle>
@@ -102,7 +102,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Book className='h-10 w-10'></Book>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Edukasi Kesehatan </CardTitle>
@@ -183,7 +183,7 @@ export const HomePage = () => {
         {/* <div className="aspect-video rounded-xl bg-muted/50" /> */}
         <FeedbackForm/>
       </section>
-      <section className='h-fit bg-linear-to-t from-sky-500 to-indigo-500  '>
+      <section className='h-fit bg-linear-to-t from-sky-200 to-indigo-500  '>
         <div className="grid grid-cols-2 items-center justify-center p-10">
           <div className="">
             <h1 className='text-5xl'>Luminou§kin</h1>
@@ -191,21 +191,21 @@ export const HomePage = () => {
           <div className="flex gap-20">
             <div className="">
               <h1 className='text-4xl'>About</h1>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Website</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Our Team</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Contact Us</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Website</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Our Team</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Contact Us</p></Link>
             </div>
             <div className="">
               <h1 className='text-4xl'>Education</h1>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Skin Disease Type</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Drug Recomendation</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Tips health skin</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Skin Disease Type</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Drug Recomendation</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Tips health skin</p></Link>
             </div>
             <div className="">
               <h1 className='text-4xl'>Legal</h1>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Terms of Service</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Privacy Policy</p></Link>
-              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-all '><p>Cookie Policy</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Terms of Service</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Privacy Policy</p></Link>
+              <Link to={'/'} className='hover:text-white active:text-gray-100 transition-al w-fit' ><p >Cookie Policy</p></Link>
             </div>
 
           </div>

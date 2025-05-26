@@ -1,28 +1,42 @@
 import * as React from "react"
+import {
+  BookOpen,
+  Bot,
+  Command,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Send,
+  Settings2,
+  SquareTerminal,
+} from "lucide-react"
 
 import { useState } from "react"
 
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
+import { NavMain } from "@/components/nav-main"
+import { NavProjects } from "@/components/nav-projects"
+import { NavSecondary } from "@/components/nav-secondary"
+import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
+  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
 } from "@/components/ui/sidebar"
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button"
 import { Link } from "react-router"
-
-// This is sample data.
+import { SearchForm } from "./search-form"
 const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   navMain: [
     {
       title: "Introduction",
@@ -30,8 +44,8 @@ const data = {
       items: [
         {
           title: "Overview",
-          url: "#",
-          isActive: true,
+          url: "/education",
+
         },
       ],
     },
@@ -46,19 +60,19 @@ const data = {
       items: [
         {
           title: "Daily Skincare Routine",
-          url: "#",
+          url: "/education/prevention-tips/daily-skincare-routine",
         },
         {
           title: "Hygiene Advice",
-          url: "#",
+          url: "/education/prevention-tips/hygiene-advice",
         },
         {
           title: "Lifestyle Choices",
-          url: "#",
+          url: "/education/prevention-tips/lifestyle-choices",
         },
         {
           title: "Sun Protection",
-          url: "#",
+          url: "/education/prevention-tips/sun-protection",
         },
       ],
     },
@@ -68,47 +82,46 @@ const data = {
       items: [
         {
           title: "Over-the-Counter",
-          url: "#",
+          url: "/education/treatment-option/over-the-counter",
         },
         {
           title: "Prescription",
-          url: "#",
+          url: "/education/treatment-option/prescription",
         },
         {
           title: "Natural Remedies",
-          url: "#",
+          url: "/education/treatment-option/natural-remedies",
         },
         {
           title: "When to Seek Medical Help",
-          url: "#",
+          url: "/education/treatment-option/when-to-seek-help",
         },
       ],
     },
     {
-      title: "More",
+      title: "Other",
       url: "#",
       items: [
         {
           title: "Myths & Facts",
-          url: "#",
+          url: "/education/other/myths-facts",
         },
         {
           title: "FAQs",
-          url: "#",
+          url: "/education/other/faqs",
         },
         {
           title: "Resources & References",
-          url: "#",
+          url: "/education/other/resources-references",
         },
         {
           title: "Contact / Ask a Dermatologist",
-          url: "#",
+          url: "/education/other/ask-a-dermatologist",
         },
       ],
     },
   ],
 }
-
 export function AppSidebar({
   items= [],
   onItemClick,
@@ -130,60 +143,17 @@ export function AppSidebar({
   // Confirm
   // console.log(items);
   return (
-    // <Sidebar>
-    //   <SidebarHeader>
-    //     {/* <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} /> */}
-    //     <SearchForm
-    //       searchKeyword={searchKeyword}
-    //       setSearchKeyword={setSearchKeyword}
-    //     />
-    //   </SidebarHeader>
-    //   <SidebarContent>
-    //     {data.navMain.map((group) => (
-    //       <SidebarGroup key={group.title}>
-    //         <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
-    //         <SidebarGroupContent>
-    //           <SidebarMenu>
-    //             {group.items.map((item) => (
-    //               <SidebarMenuItem key={item.title}>
-    //                 <SidebarMenuButton className={' font-quicksand'} asChild isActive={item.isActive}>
-    //                   <Link to={item.url}>{item.title}</Link>
-    //                 </SidebarMenuButton>
-    //               </SidebarMenuItem>
-    //             ))}
-    //           </SidebarMenu>
-    //         </SidebarGroupContent>
-    //       </SidebarGroup>
-    //     ))}
-    //   </SidebarContent>
-    //   <SidebarRail />
-    // </Sidebar>
+    <Sidebar
+      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+      {...props}>
 
-    <Sidebar>
       <SidebarHeader>
-        <SearchForm
-          searchKeyword={searchKeyword}
-          setSearchKeyword={setSearchKeyword}
-        />
+        <SearchForm className="w-full " />
       </SidebarHeader>
-      <SidebarContent>
-        <SidebarGroup>
-          <div
-            className="flex items-center justify-between cursor-pointer px-2 py-1"
-            onClick={toggleGroup}
-          >
-            <SidebarGroupLabel className="text-base font-semibold">
-              Skin Conditions
-            </SidebarGroupLabel>
-            <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
-              <ChevronRight size={16} />
-            </span>
-          </div>
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              isOpen ? 'opacity-100' : 'max-h-0 opacity-0'
-            }`}
-            >
+      <SidebarContent className={'bg-cold-2/50'}>
+        {data.navMain.map((item) => (
+          <SidebarGroup key={item.title}>
+            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item) =>(
@@ -192,16 +162,18 @@ export function AppSidebar({
                       className="font-quicksand"
                       asChild
                       onClick={() => onItemClick(item)}
-                    >
+                      >
                       <button>{item.name}</button>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
             </SidebarGroupContent>
-          </div>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+          </SidebarGroup>
+        ))}
+      <SidebarFooter>
+        {/* <NavUser user={data.user} /> */}
+      </SidebarFooter>
+      </Sidebar>
   );
 }
