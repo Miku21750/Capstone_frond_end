@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import { useState } from "react"
+
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
 import {
@@ -14,6 +16,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button"
 import { Link } from "react-router"
 
 // This is sample data.
@@ -32,34 +36,9 @@ const data = {
       ],
     },
     {
-      title: "Types of Skin Diseases",
+      title: "Skin Conditions",
       url: "#",
-      items: [
-        {
-          title: "Acne",
-          url: "#",
-        },
-        {
-          title: "Eczema",
-          url: "#",
-        },
-        {
-          title: "Psoriasis",
-          url: "#",
-        },
-        {
-          title: "Rosacea",
-          url: "#",
-        },
-        {
-          title: "Fungal Infections",
-          url: "#",
-        },
-        {
-          title: "Skin Cancer",
-          url: "#",
-        },
-      ],
+      items: [],
     },
     {
       title: "Prevention Tips",
@@ -106,6 +85,8 @@ const data = {
       ],
     },
     {
+      title: "More",
+      url: "#",
       items: [
         {
           title: "Myths & Facts",
@@ -129,33 +110,98 @@ const data = {
 }
 
 export function AppSidebar({
-  ...props
+  items= [],
+  onItemClick,
+  searchKeyword,
+  setSearchKeyword
 }) {
+  const [isOpen, setIsOpen] = useState(true); 
+
+  const toggleGroup = () => {
+    setIsOpen(!isOpen);
+  };
+  // const sidebarItems = items.map((item) => ({
+  //   title: item.name,
+  //   url: `/conditions/${item.name.toLowerCase().replace(/\s+/g, '-')}`, 
+  //   isActive: false,
+  // }));
+  // data.navMain[1].items.push(...sidebarItems);
+
+  // Confirm
+  // console.log(items);
   return (
-    <Sidebar {...props}>
+    // <Sidebar>
+    //   <SidebarHeader>
+    //     {/* <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} /> */}
+    //     <SearchForm
+    //       searchKeyword={searchKeyword}
+    //       setSearchKeyword={setSearchKeyword}
+    //     />
+    //   </SidebarHeader>
+    //   <SidebarContent>
+    //     {data.navMain.map((group) => (
+    //       <SidebarGroup key={group.title}>
+    //         <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
+    //         <SidebarGroupContent>
+    //           <SidebarMenu>
+    //             {group.items.map((item) => (
+    //               <SidebarMenuItem key={item.title}>
+    //                 <SidebarMenuButton className={' font-quicksand'} asChild isActive={item.isActive}>
+    //                   <Link to={item.url}>{item.title}</Link>
+    //                 </SidebarMenuButton>
+    //               </SidebarMenuItem>
+    //             ))}
+    //           </SidebarMenu>
+    //         </SidebarGroupContent>
+    //       </SidebarGroup>
+    //     ))}
+    //   </SidebarContent>
+    //   <SidebarRail />
+    // </Sidebar>
+
+    <Sidebar>
       <SidebarHeader>
-        {/* <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} /> */}
-        <SearchForm />
+        <SearchForm
+          searchKeyword={searchKeyword}
+          setSearchKeyword={setSearchKeyword}
+        />
       </SidebarHeader>
       <SidebarContent>
-        {data.navMain.map((item) => (
-          <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+        <SidebarGroup>
+          <div
+            className="flex items-center justify-between cursor-pointer px-2 py-1"
+            onClick={toggleGroup}
+          >
+            <SidebarGroupLabel className="text-base font-semibold">
+              Skin Conditions
+            </SidebarGroupLabel>
+            <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
+              <ChevronRight size={16} />
+            </span>
+          </div>
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              isOpen ? 'opacity-100' : 'max-h-0 opacity-0'
+            }`}
+            >
             <SidebarGroupContent>
               <SidebarMenu>
-                {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton className={' font-quicksand'} asChild isActive={item.isActive}>
-                      <Link to={item.url}>{item.title}</Link>
+                {items.map((item) =>(
+                  <SidebarMenuItem key={item.name}>
+                    <SidebarMenuButton
+                      className="font-quicksand"
+                      asChild
+                      onClick={() => onItemClick(item)}
+                    >
+                      <button>{item.name}</button>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
             </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
+          </div>
+        </SidebarGroup>
       </SidebarContent>
-      <SidebarRail />
     </Sidebar>
   );
 }

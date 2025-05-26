@@ -3,10 +3,12 @@ const cheerio = require("cheerio")
 const fs = require("fs")
 const path = require("path")
 
-const CACHE_FILE = path.join(__dirname, "skin_conditions.json");
+const CACHE_FILE = path.join(__dirname, "conditions-with-local-paths.json");
 const BASE_URL = "https://dermnetnz.org";
 const BATCH_DELAY = 500; // ms
 const BATCH_SIZE = 5;
+
+// const fetch = require("node-fetch")
 
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -42,23 +44,54 @@ const scrapeListSkinCondition = async () => {
                         const detailRes = await axios.get(item.url);
                         const $$ = cheerio.load(detailRes.data);
                         
-                        const contentElements = $$('.text-block__wrap').find('p, ul, ol, h2, h3');
-                        let fullDescription = '';
+                        const contentElements = $$('.text-block__wrap').children('h1, h2, h3, p, ul, ol');
+                        const sections = []
+                        
+                        let currentSection = {
+                            heading: "Introduction",
+                            level: "h2",
+                            content: ""
+                        };
                 
                         contentElements.each((i, el) =>{
                             const tag = $$(el).get(0).tagName;
-                            if (tag  === 'p'|| tag === 'h2' || tag === 'h3'){
-                                fullDescription += $$(el).text().trim() + '\n\n';
-                            }else if (tag === 'ul'|| tag ==='ol'){
+                            if (tag  === 'h1'|| tag === 'h2' || tag === 'h3'){
+                                //push previous section
+                                if(currentSection.content.trim()) sections.push({ ...currentSection });
+                                //create new curSection
+                                currentSection = {
+                                    heading: $$(el).text().trim(),
+                                    level:tag,
+                                    content: ""
+                                }
+                            } else if(tag === 'p'){
+                                currentSection.content += $$(el).text().trim() + '\n\n';
+                            } else if (tag === 'ul'|| tag ==='ol'){
                                 $$(el).find('li').each((_, li) => {
-                                    fullDescription += '- '+$$(li).text().trim() + '\n'
+                                    currentSection.content += '- ' + $$(li).text().trim() + '\n';
                                 })
-                                fullDescription += '\n'
+                                currentSection.content += '\n'
                             }
                         })
-                        return { name: item.name, description: fullDescription.trim() }
+                        if (currentSection.content.trim()) sections.push(currentSection);
+
+                        const images = [];
+
+                        $$('.gallery__slides__item__image img').each((i, el) => {
+                            const src = $$(el).attr('src');
+                            const alt = $$(el).attr('alt') || "";
+                            const title = $$(el).attr('data-title') || $$(el).attr('data-headline') || "";
+                            if(src){
+                                images.push({
+                                    src: BASE_URL + src,
+                                    alt: alt.trim(),
+                                    title: title.trim(),
+                                })
+                            }
+                        })
+                        return { name: item.name, sections, images };
                     } catch (error) {
-                        return { name: item.name, description: "Failed to fetch description." };
+                        return { name: item.name, sections: "Failed to fetch description.", images: ""};
                     }
                 })
             )
@@ -104,6 +137,32 @@ const scrapeListSkinCondition = async () => {
     }
 }
 
+const bypassHotLink = async (req, res) => {
+    const imageUrl = req.query.url;
+
+    if (!imageUrl || !imageUrl.startsWith('https://')) {
+        return h.response('Invalid URL').code(400);
+    }
+    try {
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+          return res.response(`Failed to fetch image: ${response.statusText}`).code(response.status);
+        }
+        const buffer = await response.buffer();
+        const contentType = response.headers.get('content-type');
+
+        return res.response(buffer)
+          .type(contentType)
+          .header('Cache-Control', 'public, max-age=3600'); // optional caching
+    } catch (error) {
+        console.error('Error fetching image:', error);
+        return h.response('Image fetch failed').code(500);
+    }
+        // const buffer = await response.arrayBuffer();
+        // res.set('Content-Type', response.headers.get('content-type'))
+        // res.send(Buffer.from(buffer));
+}
 module.exports = {
-  scrapeListSkinCondition
+  scrapeListSkinCondition,
+  bypassHotLink
 };

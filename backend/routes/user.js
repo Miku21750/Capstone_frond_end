@@ -9,7 +9,7 @@ const {
     registerUser, 
     loginUser 
 } = require("../controllers/userController");
-const { scrapeListSkinCondition } = require("../controllers/scrappingDataController")
+const { scrapeListSkinCondition, bypassHotLink } = require("../controllers/scrappingDataController")
 
 module.exports =[
     {
@@ -31,5 +31,10 @@ module.exports =[
         method: "GET",
         path: "/api/list-skin-condition",
         handler: scrapeListSkinCondition
+    },
+    {
+        method: "GET",
+        path: "/proxy-image",
+        handler: bypassHotLink
     }
 ];
