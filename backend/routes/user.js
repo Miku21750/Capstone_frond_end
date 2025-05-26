@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const path = require("path")
+
 require("dotenv").config();
 
 //controller
@@ -34,7 +36,13 @@ module.exports =[
     },
     {
         method: "GET",
-        path: "/proxy-image",
-        handler: bypassHotLink
+        path: "/images/{param*}",
+        handler: {
+            directory: {
+                path: path.join(__dirname, '../public/images'), // adjust relative path as needed
+                redirectToSlash: true,
+                index: false,
+            }
+        }
     }
 ];

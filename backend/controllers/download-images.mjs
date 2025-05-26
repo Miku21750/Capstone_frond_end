@@ -21,7 +21,7 @@ const downloadImage = async (url, filename) => {
 };
 
 const downloadAllImages = async () => {
-  const outputDir = path.join(__dirname, '../../public/images/conditions');
+  const outputDir = path.join(__dirname, '../public/images/conditions');
   fs.mkdirSync(outputDir, { recursive: true });
 
   for (const condition of jsonData) {

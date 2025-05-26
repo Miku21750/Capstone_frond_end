@@ -8,7 +8,22 @@ import { LoginForm, RegisterForm } from './components/sc-form'
 import { Navigation } from './components/navigation'
 import { About } from './Pages/about'
 import Education from './Pages/Education'
-import { AskDermatologist, DailySkincareRoutine, Faqs, HygieneAdvice, LifestyleChoices, MythsFact, NaturalRemedies, OverTheCounter, Overviewinfo, Prescription, ResourcesReferences, SunProtection, WhenToSeekHelp } from './components/education-info'
+import { 
+  AskDermatologist, 
+  DailySkincareRoutine, 
+  Faqs, 
+  HygieneAdvice, 
+  LifestyleChoices, 
+  MythsFact, 
+  NaturalRemedies, 
+  OverTheCounter, 
+  Overviewinfo, 
+  Prescription, 
+  ResourcesReferences, 
+  SkinCondition,
+  SunProtection, 
+  WhenToSeekHelp 
+} from './components/education-info'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -24,6 +39,7 @@ function App() {
             <Route index element={<Overviewinfo/>}/>
             <Route path='/education/prevention-tips/daily-skincare-routine' element={<DailySkincareRoutine />}></Route>
             <Route path='/education/prevention-tips/hygiene-advice' element={<HygieneAdvice />}></Route>
+            <Route path='/education/skin-conditions/:name' element={<SkinCondition />}></Route>
             <Route path='/education/prevention-tips/lifestyle-choices' element={<LifestyleChoices />}></Route>
             <Route path='/education/prevention-tips/sun-protection' element={<SunProtection />}></Route>
 

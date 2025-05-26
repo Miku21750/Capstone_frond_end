@@ -3,6 +3,9 @@ const cheerio = require("cheerio")
 const fs = require("fs")
 const path = require("path")
 
+const Hapi = require("@hapi/hapi")
+const Inert = require("@hapi/inert")
+
 const CACHE_FILE = path.join(__dirname, "conditions-with-local-paths.json");
 const BASE_URL = "https://dermnetnz.org";
 const BATCH_DELAY = 500; // ms
@@ -137,27 +140,12 @@ const scrapeListSkinCondition = async () => {
     }
 }
 
-const bypassHotLink = async (req, res) => {
-    const imageUrl = req.query.url;
-
-    if (!imageUrl || !imageUrl.startsWith('https://')) {
-        return h.response('Invalid URL').code(400);
-    }
-    try {
-        const response = await fetch(imageUrl);
-        if (!response.ok) {
-          return res.response(`Failed to fetch image: ${response.statusText}`).code(response.status);
-        }
-        const buffer = await response.buffer();
-        const contentType = response.headers.get('content-type');
-
-        return res.response(buffer)
-          .type(contentType)
-          .header('Cache-Control', 'public, max-age=3600'); // optional caching
-    } catch (error) {
-        console.error('Error fetching image:', error);
-        return h.response('Image fetch failed').code(500);
-    }
+const bypassHotLink = async () => {
+    // directory: {
+    //     path: path.join(__dirname, '../public/images'), // adjust relative path as needed
+    //     redirectToSlash: true,
+    //     index: false,
+    // }
         // const buffer = await response.arrayBuffer();
         // res.set('Content-Type', response.headers.get('content-type'))
         // res.send(Buffer.from(buffer));

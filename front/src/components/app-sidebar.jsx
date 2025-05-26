@@ -12,9 +12,9 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-import { useState } from "react"
+import { useState, useMemo, useRef, useEffect } from "react"
 
-import { SearchForm } from "@/components/search-form"
+// import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
@@ -34,8 +34,16 @@ import {
 } from "@/components/ui/sidebar"
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { SearchForm } from "./search-form"
+// import { AnimatePresence, motion } from "framer-motion"
+import gsap from "gsap"
+
+
+// const collapseVariants = {
+//   hidden: {height: 0, opacity: 0},
+//   visible: { height: "auto", opacity: 1}
+// }
 const data = {
   navMain: [
     {
@@ -123,54 +131,143 @@ const data = {
   ],
 }
 export function AppSidebar({
-  items= [],
+  itemsJson= [],
   onItemClick,
   searchKeyword,
-  setSearchKeyword
+  setSearchKeyword,
+  ...props
 }) {
-  const [isOpen, setIsOpen] = useState(true); 
+  const [openGroups, setOpenGroups] = useState(() =>{
+    return data.navMain.reduce((acc, group) =>{
+      acc[group.title] = true;
+      return acc;
+    }, {})
+  });
 
-  const toggleGroup = () => {
-    setIsOpen(!isOpen);
+  const refs = useRef({});
+
+  const toggleGroup = (groupTitle) => {
+    const isOpen = openGroups[groupTitle];
+    const contentEl = refs.current[groupTitle];
+    setOpenGroups((prev) =>({
+      ...prev,
+      [groupTitle]: !isOpen
+    }))
+
+    if(!contentEl) return
+    if(isOpen){
+      gsap.to(contentEl, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.inOut',
+        onComplete: () =>{
+          contentEl.style.display ="none"
+          contentEl.style.removeProperty("height")
+        }
+      })
+    }else{
+      contentEl.style.display ="block";
+      const fullHeight = contentEl.scrollHeight
+      gsap.fromTo(
+        contentEl,
+        {height: 0, opacity: 0},
+        {height: fullHeight, opacity: 1, duration: 0.4, ease: 'power2.out', onComplete: () => {
+          contentEl.style.height = "auto"
+        }}
+      )
+    }
   };
-  // const sidebarItems = items.map((item) => ({
-  //   title: item.name,
-  //   url: `/conditions/${item.name.toLowerCase().replace(/\s+/g, '-')}`, 
-  //   isActive: false,
-  // }));
-  // data.navMain[1].items.push(...sidebarItems);
 
-  // Confirm
-  // console.log(items);
+
+  const sidebarItems = itemsJson.map((item) => ({
+    title: item.name,
+    url: `/education/skin-conditions/${item.name.toLowerCase().replace(/\s+/g, '-')}`, 
+    isActive: false,
+  }));
+
+  data.navMain[1].items = sidebarItems;
+
+  const filteredNavMain = useMemo(() =>{
+    if(!searchKeyword) return data.navMain;
+
+    return data.navMain.map((group)=>({
+      ...group, 
+      items: group.items.filter((item)=>
+        item.title.toLowerCase().includes(searchKeyword.toLowerCase())
+      )
+    })).filter((group) => group.items.length > 0)
+  }, [searchKeyword])
+
+  useEffect(() =>{
+    Object.entries(refs.current).forEach(([groupTitle, el]) => {
+      if (!el) return;
+      el.style.overflow = "hidden";
+      if (openGroups[groupTitle]) {
+        el.style.display = "block";
+        el.style.height = "auto";
+      } else {
+        el.style.display = "none";
+        el.style.height = "0px";
+      }
+    });
+  }, [])
+
+
+  const navigate = useNavigate();
   return (
     <Sidebar
       className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
       {...props}>
 
       <SidebarHeader>
-        <SearchForm className="w-full " />
+        <SearchForm className="w-full " 
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword?.(e.target.value)}
+        />
       </SidebarHeader>
       <SidebarContent className={'bg-cold-2/50'}>
-        {data.navMain.map((item) => (
-          <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {items.map((item) =>(
-                  <SidebarMenuItem key={item.name}>
-                    <SidebarMenuButton
-                      className="font-quicksand"
-                      asChild
-                      onClick={() => onItemClick(item)}
-                      >
-                      <button>{item.name}</button>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
+        {filteredNavMain.map((group) => {
+          const isOpen = openGroups[group.title]
+          return (
+          <SidebarGroup key={group.title}>
+            <button
+              onClick={() => toggleGroup(group.title)}
+              className="flex items-center justify-between w-full px-4 py-2 text-left font-semibold hover:bg-cold-2/40"
+            >
+              <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
+              <ChevronDown
+                className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                size={16}
+              />
+            </button>
+
+            <div
+              ref={(el) => (refs.current[group.title] = el)}
+              className="overflow-hidden "
+              >
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {group.items.map((item) =>(
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton
+                        className="font-quicksand"
+                        asChild
+                        onClick={() => {
+                          navigate(`${item.url}`)
+                          onItemClick?.(item)
+                        }}
+                        >
+                        <button>{item.title}</button>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </div>
           </SidebarGroup>
-        ))}
+        )})}
+      </SidebarContent>
       <SidebarFooter>
         {/* <NavUser user={data.user} /> */}
       </SidebarFooter>

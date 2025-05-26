@@ -1,7 +1,7 @@
 import { Search } from "lucide-react"
 
 import { Label } from "@/components/ui/label"
-import { SidebarInput } from "@/components/ui/sidebar"
+import { SidebarInput, SidebarGroup, SidebarGroupContent } from "@/components/ui/sidebar"
 
 export function SearchForm({
   searchKeyword,

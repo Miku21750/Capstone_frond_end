@@ -26,7 +26,7 @@ export default function Education() {
             <SiteHeader />
             <div className="flex flex-1">
                 <AppSidebar  
-                    items={filteredConditions}
+                    itemsJson={filteredConditions}
                     onItemClick={(item) => setSelectedCondition(item)}
                     searchKeyword={searchKeyword}
                     setSearchKeyword={setSearchKeyword}
