@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { AlertCircle, MessageCircleQuestion, Moon, Sun, User } from "lucide-react"
+import { Button } from '@/components/ui/button'
+import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react'
 
 export const Overviewinfo = () => {
     return (
@@ -211,7 +213,7 @@ export const HygieneAdvice = () => {
 };
 
 
-// --- LifestyleChoices.jsx ---
+
 import { Heart, BedDouble, Droplet, Dumbbell, Utensils, Smile } from 'lucide-react';
 
 const tips = [
@@ -281,7 +283,7 @@ export const LifestyleChoices = () => {
 
 
 
-// --- SunProtection.jsx ---
+
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
 
 const steps = [
@@ -336,8 +338,7 @@ export const SunProtection = () => {
     );
 };
 
-import { Button } from '@/components/ui/button'
-import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react'
+
 
 export const OverTheCounter = () => {
   return (
@@ -518,24 +519,122 @@ export const WhenToSeekHelp = () => {
 
 export const MythsFact = () => {
   return (
-    <></>
+    <div className="p-6 space-y-8">
+      <h1 className="text-4xl font-bold text-primary">Skin Health Myths & Facts</h1>
+      <div className="grid md:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Myth: Acne only affects teenagers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              <strong>Fact:</strong> While it’s most common during adolescence, many adults continue to experience acne into their 30s, 40s, and beyond. Hormonal changes, stress, and skincare products can all trigger breakouts.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Myth: You don’t need sunscreen on cloudy days</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              <strong>Fact:</strong> UV rays can penetrate clouds and still damage your skin. Daily sunscreen use is crucial for skin health and cancer prevention.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Myth: Tanning clears up acne</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              <strong>Fact:</strong> Tanning can temporarily mask acne but actually worsens it in the long run and increases skin cancer risk.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Myth: Natural remedies are always safe</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              <strong>Fact:</strong> Even natural substances can cause irritation, allergic reactions, or interact with medications. Always consult a dermatologist before trying new treatments.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
   )
 }
 
 export const Faqs = () => {
+    const faqs = [
+    {
+      q: 'What causes acne?',
+      a: 'Acne is caused by clogged pores, bacteria, hormonal changes, and excess oil production.',
+    },
+    {
+      q: 'Can skin diseases be cured permanently?',
+      a: 'Some can be cured, while others like eczema or psoriasis are managed long-term with treatment.',
+    },
+    {
+      q: 'Is it okay to pop pimples?',
+      a: 'It’s best to avoid popping pimples as it can lead to scarring and infection.',
+    },
+    {
+      q: 'What is the best sunscreen to use?',
+      a: 'Look for a broad-spectrum sunscreen with at least SPF 30. Reapply every 2 hours if outdoors.',
+    },
+  ];
   return (
-    <></>
+        <div className="p-6 space-y-8">
+      <h1 className="text-4xl font-bold text-primary">Frequently Asked Questions</h1>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <details key={index} className="p-4 border rounded-md bg-white shadow">
+            <summary className="cursor-pointer text-lg font-semibold text-accent-foreground">{faq.q}</summary>
+            <p className="mt-2 text-muted-foreground">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
   )
 }
 
 export const ResourcesReferences = () => {
   return (
-    <></>
+        <div className="p-6 space-y-8">
+      <h1 className="text-4xl font-bold text-primary">Resources & References</h1>
+      <ul className="list-disc list-inside space-y-2">
+        <li><a className="text-blue-600 underline" href="https://www.aad.org/" target="_blank">American Academy of Dermatology (aad.org)</a></li>
+        <li><a className="text-blue-600 underline" href="https://www.skincancer.org/" target="_blank">Skin Cancer Foundation</a></li>
+        <li><a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central (PMC) – Dermatology Studies</a></li>
+        <li><a className="text-blue-600 underline" href="https://www.who.int/news-room/fact-sheets/detail/skin-diseases" target="_blank">World Health Organization – Skin Disease Facts</a></li>
+      </ul>
+    </div>
   )
 }
 
 export const AskDermatologist = () => {
   return (
-    <></>
+    <div className="p-6 space-y-8  ">
+      <h1 className="text-4xl font-bold text-primary">Contact / Ask a Dermatologist</h1>
+      <p className="text-muted-foreground">Have questions about your skin health? Fill out the form below and our dermatology expert will respond within 24–48 hours.</p>
+      <form className="space-y-4">
+        <div>
+          <label className="block font-medium" htmlFor="name">Full Name</label>
+          <input id="name" type="text" className="w-full border rounded p-2" placeholder="John Doe" />
+        </div>
+        <div>
+          <label className="block font-medium" htmlFor="email">Email Address</label>
+          <input id="email" type="email" className="w-full border rounded p-2" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label className="block font-medium" htmlFor="question">Your Question</label>
+          <textarea id="question" rows={5} className="w-full border rounded p-2" placeholder="Describe your concern in detail..." />
+        </div>
+        <Button type="submit">Send Message</Button>
+      </form>
+    </div>
   )
 }

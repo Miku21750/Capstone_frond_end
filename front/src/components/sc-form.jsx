@@ -39,10 +39,10 @@ export function LoginForm({
     }
   }
   return (
-    <div className={cn("flex flex-col gap-6 items-center justify-center h-screen", className)} {...props}>
-      <Card>
+    <div className={cn("flex flex-col gap-6 items-center justify-center h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover", className)} {...props}>
+      <Card className={'p-5 shadow-2xl shadow-fuchsia-200 w-fit  '}>
         <CardHeader className={'flex flex-col gap-10'}>
-          <CardTitle className={'text-2xl text-center'}>Login to your account</CardTitle>
+          <CardTitle className={'text-4xl w-full'}>Login to your account</CardTitle>
           <CardDescription>
             Enter your email below to login to your account
           </CardDescription>
@@ -52,7 +52,7 @@ export function LoginForm({
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" required />
+                <Input className={''} id="email" type="email" placeholder="m@example.com" required />
               </div>
               <div className="grid gap-3">
                 <div className="flex items-center gap-5">
@@ -63,7 +63,7 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input className={''} id="password" type="password" required />
               </div>
               <div className="flex flex-col gap-3">
                 <Button type="submit" className="w-full">
@@ -117,10 +117,10 @@ export function RegisterForm({
     }
   }
   return (
-    <div className={cn("flex flex-col gap-6 items-center justify-center h-screen", className)} {...props}>
-      <Card>
+    <div className={cn("flex flex-col gap-6 items-center justify-center h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover", className)} {...props}>
+      <Card className={'p-5 shadow-2xl shadow-fuchsia-200 w-fit  '}>
         <CardHeader className={'flex flex-col gap-10'}>
-          <CardTitle className={'text-2xl text-center'}>Register to your account</CardTitle>
+          <CardTitle className={'text-4xl text-center'}>Register to your account</CardTitle>
           <CardDescription>
             Enter data of registration data to make account
           </CardDescription>
@@ -143,11 +143,11 @@ export function RegisterForm({
               <div className="grid gap-3">
                 <div className="flex items-center gap-5">
                   <Label htmlFor="password">Password</Label>
-                  <a
+                  {/* <a
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
                     Forgot your password?
-                  </a>
+                  </a> */}
                 </div>
                 <Input id="password" type="password" required />
               </div>
