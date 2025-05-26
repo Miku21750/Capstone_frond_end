@@ -1,65 +1,19 @@
-import { AppSidebar } from '@/components/app-sidebar'
-import { Button } from '@/components/ui/button'
-import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
-import React from 'react'
-import { useNavigate } from 'react-router'
-export const Education = () => {
-    const navigate = useNavigate();
-    return (
-        <>
-            <SidebarProvider>
-                <AppSidebar />
-                <SidebarInset>
-                    <header className="flex  items-center justify-between px-4 gap-2 py-4 bg-cold-1">
-                        <div className="flex items-center gap-2 px-4">
-                            <SidebarTrigger className="-ml-1" />
-                        </div>
-                        <div className="space-x-4">
-                            <Button
-                                variant={'ghost'}
-                                className="text-white text-lg"
-                                onClick={() => navigate('/')}
-                            >
-                                Home
-                            </Button>
-                            <Button
-                                variant={'ghost'}
-                                className="text-white text-lg"
-                                onClick={() => navigate('/about')}
-                            >
-                                About
-                            </Button>
-                            <Button
-                                variant={'ghost'}
-                                className="text-white text-lg"
-                                onClick={() => navigate('/education')}
-                            >
-                                Education
-                            </Button>
-                        </div>
-
-                        <div className="space-x-4">
-                            <Button
-                                variant={'ghost'}
-                                className="text-white text-lg"
-                                onClick={() => navigate('/login')}
-                            >
-                                Login
-                            </Button>
-                            <Button
-                                variant={'ghost'}
-                                className="text-white text-lg"
-                                onClick={() => navigate('/register')}
-                            >
-                                Register
-                            </Button>
-                        </div>
-                    </header>
-                <section className='relative h-screen bg-cold-4/0'>
-                    
-                </section>
-                </SidebarInset>
-            </SidebarProvider>
-        </>
-    )
+import { AppSidebar } from "@/components/app-sidebar"
+import { SiteHeader } from "@/components/site-header"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { Outlet } from "react-router"
+export default function Education() {
+  return (
+    <div className="[--header-height:calc(theme(spacing.14))]">
+      <SidebarProvider className="flex flex-col">
+        <SiteHeader />
+        <div className="flex flex-1">
+          <AppSidebar />
+          <SidebarInset>
+              <Outlet/>
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </div>
+  )
 }

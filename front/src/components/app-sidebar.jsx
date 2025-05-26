@@ -1,24 +1,36 @@
 import * as React from "react"
+import {
+  BookOpen,
+  Bot,
+  Command,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Send,
+  Settings2,
+  SquareTerminal,
+} from "lucide-react"
 
-import { SearchForm } from "@/components/search-form"
-import { VersionSwitcher } from "@/components/version-switcher"
+import { NavMain } from "@/components/nav-main"
+import { NavProjects } from "@/components/nav-projects"
+import { NavSecondary } from "@/components/nav-secondary"
+import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
+  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
 } from "@/components/ui/sidebar"
 import { Link } from "react-router"
-
-// This is sample data.
+import { SearchForm } from "./search-form"
 const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   navMain: [
     {
       title: "Introduction",
@@ -26,8 +38,8 @@ const data = {
       items: [
         {
           title: "Overview",
-          url: "#",
-          isActive: true,
+          url: "/education",
+
         },
       ],
     },
@@ -67,19 +79,19 @@ const data = {
       items: [
         {
           title: "Daily Skincare Routine",
-          url: "#",
+          url: "/education/prevention-tips/daily-skincare-routine",
         },
         {
           title: "Hygiene Advice",
-          url: "#",
+          url: "/education/prevention-tips/hygiene-advice",
         },
         {
           title: "Lifestyle Choices",
-          url: "#",
+          url: "/education/prevention-tips/lifestyle-choices",
         },
         {
           title: "Sun Protection",
-          url: "#",
+          url: "/education/prevention-tips/sun-protection",
         },
       ],
     },
@@ -89,55 +101,57 @@ const data = {
       items: [
         {
           title: "Over-the-Counter",
-          url: "#",
+          url: "/education/treatment-option/over-the-counter",
         },
         {
           title: "Prescription",
-          url: "#",
+          url: "/education/treatment-option/prescription",
         },
         {
           title: "Natural Remedies",
-          url: "#",
+          url: "/education/treatment-option/natural-remedies",
         },
         {
           title: "When to Seek Medical Help",
-          url: "#",
+          url: "/education/treatment-option/when-to-seek-help",
         },
       ],
     },
     {
+      title: "Other",
+      url: "#",
       items: [
         {
           title: "Myths & Facts",
-          url: "#",
+          url: "/education/other/myths-fact",
         },
         {
           title: "FAQs",
-          url: "#",
+          url: "/education/other/faqs",
         },
         {
           title: "Resources & References",
-          url: "#",
+          url: "/education/other/resources-reference",
         },
         {
           title: "Contact / Ask a Dermatologist",
-          url: "#",
+          url: "/education/other/",
         },
       ],
     },
   ],
 }
-
 export function AppSidebar({
   ...props
 }) {
   return (
-    <Sidebar {...props}>
+    <Sidebar
+      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+      {...props}>
       <SidebarHeader>
-        {/* <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]} /> */}
-        <SearchForm />
+        <SearchForm className="w-full " />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className={'bg-cold-2/50'}>
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
@@ -155,7 +169,9 @@ export function AppSidebar({
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarRail />
+      <SidebarFooter>
+        {/* <NavUser user={data.user} /> */}
+      </SidebarFooter>
     </Sidebar>
   );
 }
