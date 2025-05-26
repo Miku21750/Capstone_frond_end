@@ -1,4 +1,5 @@
 const Hapi = require("@hapi/hapi")
+const Inert = require("@hapi/inert")
 const connectDB = require("./db");
 const userRoutes = require("./routes/user");
 
@@ -15,7 +16,7 @@ const init = async () => {
         }
     })
 
-    // await server.register(require("@hapi/inert"))
+    await server.register(Inert)
     server.route(userRoutes)
 
     await server.start();

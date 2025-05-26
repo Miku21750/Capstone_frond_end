@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router'
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
@@ -6,6 +7,85 @@ import { AlertCircle, MessageCircleQuestion, Moon, Sun, User } from "lucide-reac
 import { Button } from '@/components/ui/button'
 import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react'
 
+import ApiRequest from '@/api'
+
+
+export const SkinCondition = () => {
+  const name = useParams();
+  const [conditions, setConditions] = useState([])
+  const [selectedCondition, setSelectedCondition] = useState(null)
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  useEffect(() =>{
+      ApiRequest.get('/api/list-skin-condition')
+          .then(res => {
+            setConditions(res.data)
+            const matched = res.data.find(
+              condition => slugify(condition.name) === name.name
+            );
+            
+            console.log(
+              "Searching for:",
+              name,
+              "in",
+              res.data.map((c) => slugify(c.name))
+            );
+            setSelectedCondition(matched || null)
+
+            console.log("Route param:", name);
+            console.log("All names:", conditions.map(c => slugify(c.name)));
+
+          })
+          .catch(err => console.error("Failed to fetch conditions", err))
+  },[name])
+
+  const slugify = (str) => 
+    str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+  
+
+  if (!selectedCondition) {
+    return (
+      <section className="p-4">
+        <p className="text-red-500 font-medium">Condition not found.</p>
+      </section>
+    );
+  }
+
+  const filteredConditions = conditions.filter((condition) =>
+      condition.name.toLowerCase().includes(searchKeyword.toLowerCase())
+  );
+  console.log(selectedCondition)
+  return(
+    <section className='relative h-screen bg-cold-4/0'>
+        <h2 className='text-2xl font-bold mb-4'>{selectedCondition.name}</h2>
+        {selectedCondition.images.map((image, index) =>(
+          <img
+            key={index}
+            src={`http://localhost:4000${image.localPath}`} // e.g., "/images/conditions/actinic-keratosis/0.jpg"
+            alt={image.alt}
+            title={image.title}
+            className="rounded shadow-md mb-4"
+          />
+        ))}
+        {selectedCondition.sections.map((section, index) => (
+          <div key={index} className='mb-6'>
+            {section.level === 'h1' && (
+              <h1 className="text-3xl font-extrabold mb-2">{section.heading}</h1>
+            )}
+            {section.level === 'h2' && (
+              <h2 className="text-2xl font-bold mb-2">{section.heading}</h2>
+            )}
+            {section.level === "h3" && (
+              <h3 className="text-xl font-semibold mb-1">{section.heading}</h3>
+            )}
+            <p className="whitespace-pre-wrap text-base text-gray-800">
+              {section.content}
+            </p>
+          </div>
+        ))}
+    </section>
+  )
+}
 export const Overviewinfo = () => {
     return (
         <section className="p-5 flex flex-col gap-5 bg-cold-2">

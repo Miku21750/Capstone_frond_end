@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const path = require("path")
+
 require("dotenv").config();
 
 //controller
@@ -9,7 +11,7 @@ const {
     registerUser, 
     loginUser 
 } = require("../controllers/userController");
-const { scrapeListSkinCondition } = require("../controllers/scrappingDataController")
+const { scrapeListSkinCondition, bypassHotLink } = require("../controllers/scrappingDataController")
 
 module.exports =[
     {
@@ -31,5 +33,16 @@ module.exports =[
         method: "GET",
         path: "/api/list-skin-condition",
         handler: scrapeListSkinCondition
+    },
+    {
+        method: "GET",
+        path: "/images/{param*}",
+        handler: {
+            directory: {
+                path: path.join(__dirname, '../public/images'), // adjust relative path as needed
+                redirectToSlash: true,
+                index: false,
+            }
+        }
     }
 ];
