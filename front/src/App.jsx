@@ -8,7 +8,7 @@ import { LoginForm, RegisterForm } from './components/sc-form'
 import { Navigation } from './components/navigation'
 import { About } from './Pages/about'
 import Education from './Pages/Education'
-import { DailySkincareRoutine, HygieneAdvice, LifestyleChoices, NaturalRemedies, OverTheCounter, Overviewinfo, Prescription, SunProtection, WhenToSeekHelp } from './components/education-info'
+import { AskDermatologist, DailySkincareRoutine, Faqs, HygieneAdvice, LifestyleChoices, MythsFact, NaturalRemedies, OverTheCounter, Overviewinfo, Prescription, ResourcesReferences, SunProtection, WhenToSeekHelp } from './components/education-info'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -32,7 +32,11 @@ function App() {
             <Route path='/education/treatment-option/natural-remedies' element={<NaturalRemedies/>}/>
             <Route path='/education/treatment-option/when-to-seek-help' element={<WhenToSeekHelp/>}/>
 
-            
+            <Route path='/education/treatment-option/when-to-seek-help' element={<WhenToSeekHelp/>}/>
+            <Route path="/education/other/myths-facts" element={<MythsFact/>}/>
+            <Route path="/education/other/faqs" element={<Faqs/>}/>
+            <Route path="/education/other/resources-references" element={<ResourcesReferences/>}/>
+            <Route path="/education/other/ask-a-dermatologist" element={<AskDermatologist/>}/>
           </Route>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>

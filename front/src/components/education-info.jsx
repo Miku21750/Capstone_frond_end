@@ -515,3 +515,27 @@ export const WhenToSeekHelp = () => {
     </div>
   )
 }
+
+export const MythsFact = () => {
+  return (
+    <></>
+  )
+}
+
+export const Faqs = () => {
+  return (
+    <></>
+  )
+}
+
+export const ResourcesReferences = () => {
+  return (
+    <></>
+  )
+}
+
+export const AskDermatologist = () => {
+  return (
+    <></>
+  )
+}

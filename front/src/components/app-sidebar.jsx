@@ -123,7 +123,7 @@ const data = {
       items: [
         {
           title: "Myths & Facts",
-          url: "/education/other/myths-fact",
+          url: "/education/other/myths-facts",
         },
         {
           title: "FAQs",
@@ -131,11 +131,11 @@ const data = {
         },
         {
           title: "Resources & References",
-          url: "/education/other/resources-reference",
+          url: "/education/other/resources-references",
         },
         {
           title: "Contact / Ask a Dermatologist",
-          url: "/education/other/",
+          url: "/education/other/ask-a-dermatologist",
         },
       ],
     },
