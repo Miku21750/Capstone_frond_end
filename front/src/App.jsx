@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import { HomePage } from './Pages/Home_Page'
-import { LoginForm, RegisterForm } from './components/sc-form'
-import { Navigation } from './components/navigation'
-import { About } from './Pages/about'
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import { HomePage } from './Pages/Home_Page';
+import { LoginForm, RegisterForm } from './components/sc-form';
+import { Navigation } from './components/navigation';
+import { About } from './Pages/about';
+import { UploadPenyakit } from './pages/UploadPenyakit';
 import Education from './Pages/Education'
 import { 
   AskDermatologist, 
@@ -25,7 +23,7 @@ import {
   WhenToSeekHelp 
 } from './components/education-info'
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -34,6 +32,7 @@ function App() {
           <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
+            <Route path="/upload-penyakit" element={<UploadPenyakit />} />
           </Route>
           <Route path='/education' element={<Education />} >
             <Route index element={<Overviewinfo/>}/>
@@ -61,4 +60,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
