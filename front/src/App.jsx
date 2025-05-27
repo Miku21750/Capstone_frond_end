@@ -78,7 +78,6 @@ function App() {
             <Route path='/education/treatment-option/natural-remedies' element={<NaturalRemedies/>}/>
             <Route path='/education/treatment-option/when-to-seek-help' element={<WhenToSeekHelp/>}/>
 
-            <Route path='/education/treatment-option/when-to-seek-help' element={<WhenToSeekHelp/>}/>
             <Route path="/education/other/myths-facts" element={<MythsFact/>}/>
             <Route path="/education/other/faqs" element={<Faqs/>}/>
             <Route path="/education/other/resources-references" element={<ResourcesReferences/>}/>

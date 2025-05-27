@@ -233,9 +233,9 @@ export function AppSidebar({
           <SidebarGroup key={group.title}>
             <button
               onClick={() => toggleGroup(group.title)}
-              className="flex items-center justify-between w-full px-4 py-2 text-left font-semibold hover:bg-cold-2/40"
+              className="flex items-center justify-between w-full px-4 py-2 text-left font-semibold hover:bg-cold-2/90"
             >
-              <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
+              <SidebarGroupLabel className={'text-lg'}>{group.title}</SidebarGroupLabel>
               <ChevronDown
                 className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                 size={16}
