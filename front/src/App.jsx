@@ -1,23 +1,10 @@
-<<<<<<< HEAD
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import { HomePage } from './Pages/Home_Page';
 import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
 import { About } from './Pages/about';
-import { Education } from './Pages/education';
 import { UploadPenyakit } from './pages/UploadPenyakit';
-
-=======
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import { HomePage } from './Pages/Home_Page'
-import { LoginForm, RegisterForm } from './components/sc-form'
-import { Navigation } from './components/navigation'
-import { About } from './Pages/about'
 import Education from './Pages/Education'
 import { 
   AskDermatologist, 
@@ -35,35 +22,17 @@ import {
   SunProtection, 
   WhenToSeekHelp 
 } from './components/education-info'
->>>>>>> upstream/main
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-<<<<<<< HEAD
-    <BrowserRouter>
-      <Routes>
-        {/* Routes yang menggunakan layout Navigation */}
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<HomePage />} />
-          <Route path="about" element={<About />} />
-          <Route path="education" element={<Education />} />
-          <Route path="upload-penyakit" element={<UploadPenyakit />} />
-        </Route>
-
-        {/* Routes tanpa Navigation */}
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-      </Routes>
-    </BrowserRouter>
-  );
-=======
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
+            <Route path="/upload-penyakit" element={<UploadPenyakit />} />
           </Route>
           <Route path='/education' element={<Education />} >
             <Route index element={<Overviewinfo/>}/>
@@ -89,7 +58,6 @@ function App() {
       </BrowserRouter>
     </>
   )
->>>>>>> upstream/main
 }
 
 export default App;
