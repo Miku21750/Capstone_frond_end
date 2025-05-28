@@ -22,8 +22,8 @@ import {
   SunProtection, 
   WhenToSeekHelp 
 } from './components/education-info'
+import { Dashboard } from './Pages/Dashboard';
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -52,6 +52,7 @@ function App() {
             <Route path="/education/other/resources-references" element={<ResourcesReferences/>}/>
             <Route path="/education/other/ask-a-dermatologist" element={<AskDermatologist/>}/>
           </Route>
+          <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
         </Routes>
