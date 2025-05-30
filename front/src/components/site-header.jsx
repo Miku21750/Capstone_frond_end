@@ -20,12 +20,12 @@ export function SiteHeader() {
   return (
     <header
       className="bg-cold-1 fixed top-0 z-50 flex w-full items-center border-b">
-      <div className="flex h-(--header-height) w-full items-center gap-2 px-4 ">
+      <div className="flex h-(--header-height) w-full items-center gap-2 px-4 justify-between">
+        <div className="space-x-4 flex items-center">
         <Button className="h-8 w-8" variant="ghost" size="icon" onClick={toggleSidebar}>
           <SidebarIcon />
         </Button>
         <Separator orientation="vertical" className="mr-2 h-4" />
-        <div className="space-x-4">
           <Button
             variant={'ghost'}
             className="text-white text-lg"
