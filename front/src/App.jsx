@@ -6,7 +6,6 @@ import { Navigation } from './components/navigation';
 import { About } from './Pages/About';
 import { UploadPenyakit } from './pages/UploadPenyakit';
 import GateKeeping from './utils/gateKeeping';
-import Education from './Pages/Education'
 import { 
   AskDermatologist, 
   DailySkincareRoutine, 
@@ -24,7 +23,7 @@ import {
   WhenToSeekHelp 
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
-import Education from './Pages/Information';
+import Information from './Pages/Information';
 function App() {
   return (
     <>
@@ -34,7 +33,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
           </Route>
-          <Route path='/education' element={<Education />} >
+          <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
             <Route path='/education/prevention-tips/daily-skincare-routine' element={<DailySkincareRoutine />}></Route>
             <Route path='/education/prevention-tips/hygiene-advice' element={<HygieneAdvice />}></Route>

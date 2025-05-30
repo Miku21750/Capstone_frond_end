@@ -144,8 +144,8 @@ export const Dashboard = () => {
       title: "App Activity",
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
-        ["Total Scans", user.scans.length],
-        ["Last Scan", user.scans[0]?.date],
+        ["Total Scans", scans.length],
+        ["Last Scan", (new Date(scans[0]?.uploadedAt).toLocaleDateString())],
         ["Scan Frequency", "Every 2 weeks"],
       ],
       bg: "bg-sky-100",
@@ -256,7 +256,7 @@ export const Dashboard = () => {
                     className="mb-4 shadow-md"
                   >
                     <CardHeader>
-                      <CardTitle>{scan.date}</CardTitle>
+                      <CardTitle>{new Date(scan.uploadedAt).toLocaleDateString()}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex gap-4 items-start">
                       <img
@@ -298,7 +298,7 @@ export const Dashboard = () => {
                 ].map((action, i) => (
                   <Card
                     key={i}
-                    ref={(el) => (cardRefs.current[sections.length + user.scans.length + i] = el)}
+                    ref={(el) => (cardRefs.current[sections.length + scans.length + i] = el)}
                   >
                     <CardHeader>
                       <CardTitle>{action.title}</CardTitle>
