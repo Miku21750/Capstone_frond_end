@@ -3,9 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import { HomePage } from './Pages/Home_Page';
 import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
-import { About } from './Pages/about';
+import { About } from './Pages/About';
 import { UploadPenyakit } from './pages/UploadPenyakit';
-import Education from './Pages/Education'
 import { 
   AskDermatologist, 
   DailySkincareRoutine, 
@@ -23,8 +22,8 @@ import {
   WhenToSeekHelp 
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
+import Education from './Pages/Information';
 function App() {
-
   return (
     <>
       <BrowserRouter>
