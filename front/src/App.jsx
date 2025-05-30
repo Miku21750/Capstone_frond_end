@@ -24,6 +24,7 @@ import {
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
+import { NearbyClinics } from './Pages/Maps';
 function App() {
   return (
     <>
@@ -52,6 +53,7 @@ function App() {
             <Route path="/education/other/ask-a-dermatologist" element={<AskDermatologist/>}/>
           </Route>
           <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/maps' element={<NearbyClinics/>}></Route>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
           
