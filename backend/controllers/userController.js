@@ -8,6 +8,25 @@ const getUser= async (request, h) => {
     let infos = await User.find(params).lean();
     return h.response(infos)
 }
+
+const getUserProfile = async (request, h) => {
+    try {
+        const authHeader = request.headers.authorization;
+        if (!authHeader || !authHeader.startsWith("Bearer ")) return h.response({ message: "Unauthorized" }).code(401);
+
+        const token = authHeader.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decoded.id;
+
+        const user = await User.findById(userId).select("-password").lean();
+
+        if(!user) return h.response({message: "User not found"}).code(404);
+
+        return h.response(user).code(200)    
+    } catch (error) {
+        return h.response({ message: "Failed to fetch user profile", error: error.message }).code(500);
+    }
+}
 const registerUser = async (request, h) => {
     const { 
         name,
@@ -45,7 +64,7 @@ const loginUser = async (request, h) => {
     const {email, password} = request.payload;
 
     try {
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email }).select("+password")
         if(!user) return h.response({ msg: "Invalid email or password" }).code(401);
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -62,5 +81,6 @@ const loginUser = async (request, h) => {
 module.exports = {
   registerUser,
   loginUser,
-  getUser
+  getUser,
+  getUserProfile
 };

@@ -1,7 +1,9 @@
 const fs = require('fs')
 const path = require('path');
+const jwt = require('jsonwebtoken')
 
 const PenyakitUser = require('../models/PenyakitUser')
+const User = require('../models/User')
 
 const getDataSkinController = async (request, h) => {
     let params = request.query
@@ -9,9 +11,25 @@ const getDataSkinController = async (request, h) => {
     return h.response(infos)
 }
 
+const getDataUserSkinController = async (request, h) => {
+    try {
+        const authHeader = request.headers.authorization;
+        if(!authHeader || !authHeader.startsWith("Bearer ")) return h.response({message: "Unauthorized"}).code(401);
+
+        const token = authHeader.split(" ")[1]
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        const scan = await PenyakitUser.find({userId : decoded.id }).sort({uploadedAt: -1}).lean()
+
+        return h.response(scan).code(200)
+    } catch (error) {
+        return h.response({ message: "Failed to fetch scans", error: error.message }).code(500);
+    }
+}
+
 const detectSkinController = async (request, h) => {
     const { image } = request.payload;
-    const { id: userId, name: userName } = request.auth.credentials;
+    const { id: userId } = request.auth.credentials;
 
     if(!image) return h.response({message: 'no file uploaded'}).code(400)
 
@@ -26,12 +44,12 @@ const detectSkinController = async (request, h) => {
 
         image.on('end', async () => {
             try {
-                const record = new PenyakitUser({path: relativePath, userId, userName})
+                const record = new PenyakitUser({path: relativePath, userId})
                 await record.save();
 
                 resolve(h.response({message: 'upload successfull', filename}).code(200))
             } catch (error) {
-                console.error('MongoDB save error:', err);
+                console.error('MongoDB save error:', error);
                 reject(h.response({ message: 'Database save failed' }).code(500));
             }
         })
@@ -68,5 +86,6 @@ const deletePhotoController = async (request, h) => {
 module.exports = {
   detectSkinController,
   getDataSkinController,
-  deletePhotoController
+  getDataUserSkinController,
+  deletePhotoController,
 };

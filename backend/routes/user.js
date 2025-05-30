@@ -8,13 +8,15 @@ require("dotenv").config();
 //controller
 const { 
     getUser,
+    getUserProfile,
     registerUser, 
     loginUser 
 } = require("../controllers/userController");
 const {
     detectSkinController,
     getDataSkinController,
-    deletePhotoController
+    getDataUserSkinController,
+    deletePhotoController,
 } = require('../controllers/detectSkinController')
 const { scrapeListSkinCondition, bypassHotLink } = require("../controllers/scrappingDataController")
 
@@ -23,6 +25,11 @@ module.exports =[
         method: "GET",
         path: "/api/user",
         handler: getUser
+    },
+    {
+        method: "GET",
+        path: "/api/user/detail",
+        handler: getUserProfile
     },
     {
         method: "POST",
@@ -58,6 +65,11 @@ module.exports =[
         method: "GET",
         path: "/api/dataPhoto",
         handler: getDataSkinController
+    },
+    {
+        method: "GET",
+        path: "/api/users/dataScans",
+        handler: getDataUserSkinController
     },
     {
         method: "DELETE",

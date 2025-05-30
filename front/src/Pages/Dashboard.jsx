@@ -1,34 +1,76 @@
+import { useEffect, useState } from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
+
+import ApiRequest from "@/api";
+
 export const Dashboard = () => {
-  const user = {
-    name: "Jane Doe",
-    email: "jane@example.com",
-    age: 28,
-    gender: "Female",
-    avatar: "/user-avatar.jpg",
-    lastLogin: "May 25, 2025",
-    scans: [
-      {
-        id: "scan-001",
-        date: "2025-05-20",
-        result: "Eczema Detected",
-        image: "/scans/eczema.jpg",
-        recommendation: "Use moisturizer and avoid harsh soaps.",
-      },
-      {
-        id: "scan-002",
-        date: "2025-04-10",
-        result: "No signs of skin disease",
-        image: "/scans/normal.jpg",
-        recommendation: "Maintain daily skincare routine.",
-      },
-    ],
-  };
+  const [scans, setScans] = useState([]);
+  const [user, setUser] = useState({
+    name: "Loading....",
+    age: "",
+    address: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    gender: "",
+    avatar: "/user-avatar.jpg", 
+    lastLogin: "", 
+  })
+  // const user = {
+  //   name: "Jane Doe",
+  //   email: "jane@example.com",
+  //   age: 28,
+  //   gender: "Female",
+  //   avatar: "/user-avatar.jpg",
+  //   lastLogin: "May 25, 2025",
+  //   scans: [
+  //     {
+  //       id: "scan-001",
+  //       date: "2025-05-20",
+  //       result: "Eczema Detected",
+  //       image: "/scans/eczema.jpg",
+  //       recommendation: "Use moisturizer and avoid harsh soaps.",
+  //     },
+  //     {
+  //       id: "scan-002",
+  //       date: "2025-04-10",
+  //       result: "No signs of skin disease",
+  //       image: "/scans/normal.jpg",
+  //       recommendation: "Maintain daily skincare routine.",
+  //     },
+  //   ],
+  // };
+
+  useEffect(() =>{
+    //fetch user
+    const fetchUserProfile = async () => {
+      try {
+        const res = await ApiRequest.get("/api/user/detail")
+        setUser(res.data)
+      } catch (error) {
+        console.error("failed to fetch data user : ",error)
+      }
+    }
+
+    //fetch image scanner
+    const fetchUserScans = async () => {
+      try {
+        const res = await ApiRequest.get("/api/users/dataScans")
+        setScans(res.data)
+      } catch (error) {
+        console.error("Falied to load dara : ", error)
+      }
+    }
+
+    fetchUserScans();
+    fetchUserProfile();
+  }, [])
 
   return (
     <div className="flex min-h-screen bg-muted/30">
@@ -93,20 +135,20 @@ export const Dashboard = () => {
           {/* Scan History */}
           <TabsContent value="scans">
             <ScrollArea className="h-[400px] pr-4">
-              {user.scans.map((scan) => (
-                <Card key={scan.id} className="mb-4">
+              {scans.length > 0 ? scans.map((scan) => (
+                <Card key={scan._id} className="mb-4">
                   <CardHeader>
-                    <CardTitle>{scan.date}</CardTitle>
+                    <CardTitle>{new Date(scan.uploadedAt).toLocaleDateString()}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex gap-6">
-                    <img src={scan.image} alt="Scan" className="h-32 w-32 object-cover rounded-lg" />
+                    <img src={`http://localhost:4000${scan.path}`} alt="Scan" className="h-32 w-32 object-cover rounded-lg" />
                     <div>
-                      <p><strong>Result:</strong> {scan.result}</p>
-                      <p><strong>Recommendation:</strong> {scan.recommendation}</p>
+                      {/* <p><strong>Result:</strong> {scan.result}</p>
+                      <p><strong>Recommendation:</strong> {scan.recommendation}</p> */}
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              )): <p>No scans yet.</p>}
             </ScrollArea>
           </TabsContent>
 

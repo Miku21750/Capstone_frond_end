@@ -55,7 +55,7 @@ export const Navigation = () => {
                 <Button
                   variant={'ghost'}
                   className="text-white text-lg"
-                  onClick={() => navigate('/upload-penyakit')}
+                  onClick={() => navigate('/dashboard')}
                 >
                   Dashboard
                 </Button>

@@ -6,7 +6,20 @@ const UserSchema = new mongoose.Schema({
     address: String,
     username: String,
     email: { type: String, unique: true },
-    password: String,
+    password: { type: String, select: false },
+    phoneNumber: String,
+    gender: {
+        type: String,
+        enum: ["male", "female"]
+    },
+},{
+    timestamps: true,
+    toJSON: {
+        transform: function(doc, ret){
+            delete ret.password;
+            return ret;
+        }
+    }
 })
 
 module.exports = mongoose.model("User", UserSchema);
