@@ -1,8 +1,12 @@
 // src/pages/UploadPenyakit.jsx
 import React, { useRef, useEffect } from 'react';
 import Camera from '../components/Camera';
+import ApiRequest from '@/api';
+import { useNavigate } from 'react-router';
 
 export function UploadPenyakit() {
+  const navigate = useNavigate();
+
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const selectRef = useRef(null);
@@ -15,14 +19,34 @@ export function UploadPenyakit() {
       cameraSelect: selectRef.current,
     });
     cameraRef.current.launch();
+
+    return() =>{
+      cameraRef.current?.stop()
+    }
   }, []);
 
   const handleTakePicture = async () => {
     const blob = await cameraRef.current.takePicture();
     if (blob) {
-      const url = URL.createObjectURL(blob);
-      alert('Foto berhasil diambil!');
-      console.log('URL blob:', url);
+      const formData = new FormData();
+      formData.append('image', blob, 'penyakit.jpg')
+
+      try {
+        const res = await ApiRequest.post('/api/detect-skin',formData,  {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+          })
+        if(res){
+          alert('foto berhasil diunggah')
+          navigate('/')
+        }else{
+          alert('gagal mengunggah foto')
+        }
+      } catch (error) {
+        console.error('Upload error:', error);
+        alert('Terjadi kesalahan saat mengunggah.');
+      }
     }
   };
 

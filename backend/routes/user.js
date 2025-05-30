@@ -11,6 +11,11 @@ const {
     registerUser, 
     loginUser 
 } = require("../controllers/userController");
+const {
+    detectSkinController,
+    getDataSkinController,
+    deletePhotoController
+} = require('../controllers/detectSkinController')
 const { scrapeListSkinCondition, bypassHotLink } = require("../controllers/scrappingDataController")
 
 module.exports =[
@@ -35,6 +40,34 @@ module.exports =[
         handler: scrapeListSkinCondition
     },
     {
+        method: "POST",
+        path: "/api/detect-skin",
+        options: {
+            payload:{
+                output: "stream",
+                parse: true,
+                multipart: true,
+                allow: 'multipart/form-data',
+                maxBytes: 10485760,
+            },
+            auth: 'jwt',
+            handler: detectSkinController
+        },
+    },
+    {
+        method: "GET",
+        path: "/api/dataPhoto",
+        handler: getDataSkinController
+    },
+    {
+        method: "DELETE",
+        path: "/api/dataPhoto/{id}",
+        options:{
+            auth: "jwt",   
+            handler: deletePhotoController
+        }
+    },
+    {
         method: "GET",
         path: "/images/{param*}",
         handler: {
@@ -44,5 +77,5 @@ module.exports =[
                 index: false,
             }
         }
-    }
+    },
 ];

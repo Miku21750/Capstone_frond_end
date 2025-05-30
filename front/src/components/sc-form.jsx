@@ -18,6 +18,7 @@ export function LoginForm({
   className,
   ...props
 }) {
+  const navigate = useNavigate();
 
   //handle login - miku21
   const handleLogin = async (e) => {
@@ -29,10 +30,7 @@ export function LoginForm({
       const res = await ApiRequest.post("/api/login", {email, password})
       localStorage.setItem("token", res.data.token);
       alert("Login Successfull")
-      /**
-       * TODO : GIVE BELOW THIS CODE TO DASHBOARD
-       */
-
+      navigate("/upload-penyakit");
       //end
     } catch (error) {
       alert(error.response?.data?.msg || "Login failed");

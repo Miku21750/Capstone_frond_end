@@ -5,6 +5,7 @@ import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
 import { About } from './Pages/about';
 import { UploadPenyakit } from './pages/UploadPenyakit';
+import GateKeeping from './utils/gateKeeping';
 import Education from './Pages/Education'
 import { 
   AskDermatologist, 
@@ -32,7 +33,6 @@ function App() {
           <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
-            <Route path="/upload-penyakit" element={<UploadPenyakit />} />
           </Route>
           <Route path='/education' element={<Education />} >
             <Route index element={<Overviewinfo/>}/>
@@ -54,6 +54,10 @@ function App() {
           </Route>
           <Route path='/login' element={<LoginForm />}></Route>
           <Route path='/register' element={<RegisterForm />}></Route>
+          
+          <Route element={<GateKeeping />}>
+            <Route path='/upload-penyakit' element={<UploadPenyakit />}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
