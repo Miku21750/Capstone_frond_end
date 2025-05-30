@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from "react-router"
-export default function Education() {
+export default function Information() {
     const navigate = useNavigate();
     const [conditions, setConditions] = useState([])
     const [selectedCondition, setSelectedCondition] = useState(null)

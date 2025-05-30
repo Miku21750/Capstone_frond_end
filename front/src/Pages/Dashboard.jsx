@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useState, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import {
   Card,
@@ -21,10 +21,9 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
 import { Stethoscope, Sun, Timer, User2 } from "lucide-react";
+import ApiRequest from "@/api";
 
 export const Dashboard = () => {
-  const avatarRef = useRef(null);
-  const cardRefs = useRef([]);
 
   // GSAP Animations - scoped safely
   useLayoutEffect(() => {
@@ -48,33 +47,70 @@ export const Dashboard = () => {
     return () => ctx.revert(); // cleanup
   }, []);
 
-  const user = {
-    name: "Jane Doe",
-    email: "jane@example.com",
-    age: 28,
-    location: "New York, USA",
-    Phone: "+1 234 567 890",
-    DateOfBirth: "1997-05-15",
-    gender: "Female",
-    avatar: "/user-avatar.jpg",
-    lastLogin: "May 25, 2025",
-    scans: [
-      {
-        id: "scan-001",
-        date: "2025-05-20",
-        result: "Eczema Detected",
-        image: "/scans/eczema.jpg",
-        recommendation: "Use moisturizer and avoid harsh soaps.",
-      },
-      {
-        id: "scan-002",
-        date: "2025-04-10",
-        result: "No signs of skin disease",
-        image: "/scans/normal.jpg",
-        recommendation: "Maintain daily skincare routine.",
-      },
-    ],
-  };
+  
+  const [scans, setScans] = useState([]);
+  const [user, setUser] = useState({
+    name: "Loading....",
+    age: "",
+    address: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    gender: "",
+    avatar: "/user-avatar.jpg", 
+    lastLogin: "", 
+  })
+  const avatarRef = useRef(null);
+  const cardRefs = useRef([]);
+  // const user = {
+  //   name: "Jane Doe",
+  //   email: "jane@example.com",
+  //   age: 28,
+  //   gender: "Female",
+  //   avatar: "/user-avatar.jpg",
+  //   lastLogin: "May 25, 2025",
+  //   scans: [
+  //     {
+  //       id: "scan-001",
+  //       date: "2025-05-20",
+  //       result: "Eczema Detected",
+  //       image: "/scans/eczema.jpg",
+  //       recommendation: "Use moisturizer and avoid harsh soaps.",
+  //     },
+  //     {
+  //       id: "scan-002",
+  //       date: "2025-04-10",
+  //       result: "No signs of skin disease",
+  //       image: "/scans/normal.jpg",
+  //       recommendation: "Maintain daily skincare routine.",
+  //     },
+  //   ],
+  // };
+
+  useEffect(() =>{
+    //fetch user
+    const fetchUserProfile = async () => {
+      try {
+        const res = await ApiRequest.get("/api/user/detail")
+        setUser(res.data)
+      } catch (error) {
+        console.error("failed to fetch data user : ",error)
+      }
+    }
+
+    //fetch image scanner
+    const fetchUserScans = async () => {
+      try {
+        const res = await ApiRequest.get("/api/users/dataScans")
+        setScans(res.data)
+      } catch (error) {
+        console.error("Falied to load dara : ", error)
+      }
+    }
+
+    fetchUserScans();
+    fetchUserProfile();
+  }, [])
 
   // Card Section Definitions
   const sections = [
@@ -108,8 +144,8 @@ export const Dashboard = () => {
       title: "App Activity",
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
-        ["Total Scans", user.scans.length],
-        ["Last Scan", user.scans[0]?.date],
+        ["Total Scans", scans.length],
+        ["Last Scan", (new Date(scans[0]?.uploadedAt).toLocaleDateString())],
         ["Scan Frequency", "Every 2 weeks"],
       ],
       bg: "bg-sky-100",
@@ -213,30 +249,30 @@ export const Dashboard = () => {
             {/* Scans */}
             <TabsContent value="scans">
               <ScrollArea className="h-[500px] pr-4">
-                {user.scans.map((scan, i) => (
+                {scans.length > 0 ? scans.map((scan, i) => (
                   <Card
-                    key={scan.id}
+                    key={scan._id}
                     ref={(el) => (cardRefs.current[sections.length + i] = el)}
                     className="mb-4 shadow-md"
                   >
                     <CardHeader>
-                      <CardTitle>{scan.date}</CardTitle>
+                      <CardTitle>{new Date(scan.uploadedAt).toLocaleDateString()}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex gap-4 items-start">
                       <img
-                        src={scan.image}
+                        src={`http://localhost:4000${scan.path}`}
                         alt="Scan"
                         className="h-32 w-32 object-cover rounded-lg"
                       />
                       <div>
-                        <p className="font-medium">Result:</p>
+                        {/* <p className="font-medium">Result:</p>
                         <p>{scan.result}</p>
                         <p className="font-medium mt-2">Recommendation:</p>
-                        <p>{scan.recommendation}</p>
+                        <p>{scan.recommendation}</p> */}
                       </div>
                     </CardContent>
                   </Card>
-                ))}
+                )): <p>No scans yet.</p>}
               </ScrollArea>
             </TabsContent>
 
@@ -262,7 +298,7 @@ export const Dashboard = () => {
                 ].map((action, i) => (
                   <Card
                     key={i}
-                    ref={(el) => (cardRefs.current[sections.length + user.scans.length + i] = el)}
+                    ref={(el) => (cardRefs.current[sections.length + scans.length + i] = el)}
                   >
                     <CardHeader>
                       <CardTitle>{action.title}</CardTitle>

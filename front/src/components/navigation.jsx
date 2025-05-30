@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Outlet } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router';
 
 export const Navigation = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token); // Set to true if token exists
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    /**
+     * TODO :
+     * GIVE NOTIIFICATION lOGOUT SUCCESS
+     */
+    navigate("/");
+  };
   return (
     <div className="relative h-screen">
       <header className="absolute top-0 left-0 w-full z-50">
@@ -35,20 +50,49 @@ export const Navigation = () => {
           </div>
 
           <div className="space-x-4">
-            <Button
-              variant={'ghost'}
-              className="text-white text-lg"
-              onClick={() => navigate('/login')}
-            >
-              Login
-            </Button>
-            <Button
-              variant={'ghost'}
-              className="text-white text-lg"
-              onClick={() => navigate('/register')}
-            >
-              Register
-            </Button>
+            {isLoggedIn ? (
+              <>
+                <Button
+                  variant={'ghost'}
+                  className="text-white text-lg"
+                  onClick={() => navigate('/dashboard')}
+                >
+                  Dashboard
+                </Button>
+                <Button
+                  variant={'ghost'}
+                  className="text-white text-lg"
+                  onClick={() => navigate('/upload-penyakit')}
+                >
+                  Deteksi Kulit
+                </Button>
+                <Button
+                  variant={'ghost'}
+                  className="text-white text-lg"
+                  onClick={handleLogout}
+                >
+                  Logoout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant={'ghost'}
+                  className="text-white text-lg"
+                  onClick={() => navigate('/login')}
+                >
+                  Login
+                </Button>
+                <Button
+                  variant={'ghost'}
+                  className="text-white text-lg"
+                  onClick={() => navigate('/register')}
+                >
+                  Register
+                </Button>
+              
+              </>
+            )}
           </div>
         </nav>
       </header>

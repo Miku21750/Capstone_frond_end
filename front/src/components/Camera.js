@@ -96,9 +96,15 @@ export default class Camera {
   async launch() {
     this.#currentStream = await this.#getStream();
     if (this.#currentStream) {
+      Camera.stopAllStreams();
       Camera.addNewStream(this.#currentStream);
       this.#videoElement.srcObject = this.#currentStream;
-      this.#videoElement.play();
+
+      try {
+        await this.#videoElement.play();
+      } catch (error) {
+        console.warn('Video play interrupted:', error);
+      }
       this.#clearCanvas();
     }
   }

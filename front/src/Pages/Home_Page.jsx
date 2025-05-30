@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Bandage, Book, Bot, Camera, Image, LineChart, Map, Play, Text } from 'lucide-react'
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -16,6 +16,7 @@ import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export const HomePage = () => {
+  const navigate = useNavigate();
     const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -41,10 +42,10 @@ export const HomePage = () => {
           <h2 className="text-4xl md:text-5xl font-bold max-w-xl">Accessible Healthcare for Every Community</h2>
           <p className="text-lg md:text-xl max-w-lg">Connecting rural areas with professional medical solutions through advanced technology and compassionate care.</p>
           <div className="flex gap-5">
-            <Button href="#learn-more" className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-medium transition">
+            <Button href="#learn-more" className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/upload-penyakit')}>
               Diagnose
             </Button>
-            <Button href="#learn-more" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium transition">
+            <Button href="#learn-more" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/education')}>
               Learn More
             </Button>
           </div>
