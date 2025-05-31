@@ -34,10 +34,6 @@ export function SiteHeader() {
           icon: 'success',
           confirmButtonText: 'OK'
         });
-    /**
-     * TODO :
-     * GIVE NOTIIFICATION lOGOUT SUCCESS
-     */
     navigate("/");
   };
   return (

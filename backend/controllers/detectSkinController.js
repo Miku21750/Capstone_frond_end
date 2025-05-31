@@ -21,7 +21,7 @@ const getDataUserSkinController = async (request, h) => {
 
         const scan = await PenyakitUser.find({userId : decoded.id }).sort({uploadedAt: -1}).lean()
 
-        return h.response(scan).code(200)
+        return h.response(scan).type('application/json; charset=utf-8').code(200)
     } catch (error) {
         return h.response({ message: "Failed to fetch scans", error: error.message }).code(500);
     }
@@ -44,10 +44,21 @@ const detectSkinController = async (request, h) => {
 
         image.on('end', async () => {
             try {
-                const record = new PenyakitUser({path: relativePath, userId})
+                const aiResult = {
+                    prediction: request.payload.prediction || '',
+                    confidence: request.payload.confidence || 0,
+                    penjelasan: request.payload.penjelasan || '',
+                    obat: request.payload.obat || '',
+                    cara_pakai: request.payload.cara_pakai || ''
+                };
+                const record = new PenyakitUser({
+                    path: relativePath,
+                    userId,
+                    ...aiResult
+                })
                 await record.save();
 
-                resolve(h.response({message: 'upload successfull', filename}).code(200))
+                resolve(h.response({message: 'upload successfull', filename}).type('application/json; charset=utf-8').code(200))
             } catch (error) {
                 console.error('MongoDB save error:', error);
                 reject(h.response({ message: 'Database save failed' }).code(500));

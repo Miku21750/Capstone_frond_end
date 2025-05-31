@@ -265,10 +265,16 @@ export const Dashboard = () => {
                         className="h-32 w-32 object-cover rounded-lg"
                       />
                       <div>
-                        {/* <p className="font-medium">Result:</p>
-                        <p>{scan.result}</p>
-                        <p className="font-medium mt-2">Recommendation:</p>
-                        <p>{scan.recommendation}</p> */}
+                        <p className="font-medium">Result:</p>
+                        <p>{scan.prediction}</p>
+                        <p className="font-medium">Confidence:</p>
+                        <p>{(scan.confidence * 100).toFixed(2)}%</p>
+                        <p className="font-medium">Detail:</p>
+                        <p>{scan.penjelasan}</p>
+                        <p className="font-medium mt-2">Obat:</p>
+                        <p>{scan.obat}</p>
+                        <p className="font-medium mt-2">Cara Pakai:</p>
+                        <p>{scan.cara_pakai}</p>
                       </div>
                     </CardContent>
                   </Card>
