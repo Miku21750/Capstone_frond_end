@@ -1,0 +1,72 @@
+[
+    {
+        "penyakit_en": "Acne",
+        "penyakit_id": "Jerawat",
+        "penjelasan": "Jerawat adalah kondisi kulit saat pori-pori tersumbat, menyebabkan komedo atau benjolan merah.",
+        "obat": "Benzoyl Peroxide 5%",
+        "cara_pakai": "Oleskan tipis ke area berjerawat 1–2 kali sehari setelah mencuci wajah."
+    },
+    {
+        "penyakit_en": "Cellulitis",
+        "penyakit_id": "Selulitis",
+        "penjelasan": "Selulitis adalah infeksi kulit dan jaringan bawah kulit akibat bakteri.",
+        "obat": "Antibiotik oral (mis. Amoksisilin)",
+        "cara_pakai": "Minum sesuai resep dokter, biasanya 2-3 kali sehari selama 5–7 hari."
+    },
+    {
+        "penyakit_en": "Impetigo",
+        "penyakit_id": "Impetigo",
+        "penjelasan": "Impetigo adalah infeksi kulit menular yang ditandai dengan luka lepuh berkerak.",
+        "obat": "Salep Mupirocin",
+        "cara_pakai": "Oleskan tipis pada luka 3 kali sehari selama 5–10 hari."
+    },
+    {
+        "penyakit_en": "Eczema",
+        "penyakit_id": "Eksim",
+        "penjelasan": "Eksim adalah peradangan kulit yang menyebabkan gatal, kemerahan, dan kering.",
+        "obat": "Krim Hidrokortison",
+        "cara_pakai": "Oleskan tipis-tipis di area terkena, 2 kali sehari."
+    },
+    {
+        "penyakit_en": "Athlete’s Foot",
+        "penyakit_id": "Kaki Atlet",
+        "penjelasan": "Kaki atlet adalah infeksi jamur di sela jari kaki yang menyebabkan gatal dan mengelupas.",
+        "obat": "Krim Clotrimazole",
+        "cara_pakai": "Oleskan ke area yang terinfeksi 2 kali sehari selama 2–4 minggu."
+    },
+    {
+        "penyakit_en": "Nail Fungus",
+        "penyakit_id": "Jamur Kuku",
+        "penjelasan": "Infeksi jamur pada kuku yang menyebabkan perubahan warna, penebalan, dan rapuh.",
+        "obat": "Obat antijamur oral (mis. Terbinafine)",
+        "cara_pakai": "Minum 1 tablet per hari sesuai resep dokter selama beberapa minggu."
+    },
+    {
+        "penyakit_en": "Ringworm",
+        "penyakit_id": "Kurap",
+        "penjelasan": "Kurap adalah infeksi jamur berbentuk lingkaran pada kulit.",
+        "obat": "Salep Ketoconazole",
+        "cara_pakai": "Oleskan ke bagian kulit 2 kali sehari selama 2 minggu."
+    },
+    {
+        "penyakit_en": "Cutaneous Larva Migrans",
+        "penyakit_id": "Larva Migran Kulit",
+        "penjelasan": "Infeksi kulit akibat larva parasit dari hewan yang menembus kulit manusia.",
+        "obat": "Albendazole oral",
+        "cara_pakai": "Minum 1 tablet per hari selama 3 hari sesuai anjuran dokter."
+    },
+    {
+        "penyakit_en": "Chickenpox",
+        "penyakit_id": "Cacar Air",
+        "penjelasan": "Cacar air adalah infeksi virus yang menyebabkan ruam berisi cairan dan gatal.",
+        "obat": "Antihistamin + Lotion Calamine",
+        "cara_pakai": "Oleskan lotion ke ruam, antihistamin diminum jika gatal."
+    },
+    {
+        "penyakit_en": "Shingles",
+        "penyakit_id": "Herpes Zoster",
+        "penjelasan": "Herpes zoster adalah reaktivasi virus cacar air, menimbulkan ruam menyakitkan.",
+        "obat": "Acyclovir oral",
+        "cara_pakai": "Minum 5x sehari selama 7 hari (harus sesuai resep dokter)."
+    }
+]

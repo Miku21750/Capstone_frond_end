@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Archive } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import axios from 'axios';
 
 export function UploadPenyakit() {
   const navigate = useNavigate();
@@ -48,32 +49,49 @@ export function UploadPenyakit() {
 
     if (blob) {
       const formData = new FormData();
-      formData.append('image', blob, 'penyakit.jpg');
+      formData.append('file', blob, 'penyakit.jpg');
 
       try {
         Swal.fire({
           title: 'Mengunggah Foto...',
-          text: 'Mohon tunggu, foto sedang diunggah.',
+          text: 'Mohon tunggu, foto sedang diproses.',
           didOpen: () => {
             Swal.showLoading();
           },
           showConfirmButton: false,
           allowOutsideClick: false,
         })
-        const res = await ApiRequest.post('/api/detect-skin', formData, {
-          headers: {
+        
+        const resAI = await axios.post("http://localhost:8000/predict", formData, {
+          headers:{
             'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        if (res) {
+          }
+        })
+        
+        if (resAI) {
+          formData.append('image', file);
+          formData.append('prediction', resAI.data.prediction);
+          formData.append('confidence', resAI.data.confidence);
+          formData.append('penjelasan', resAI.data.penjelasan);
+          formData.append('obat', resAI.data.obat);
+          formData.append('cara_pakai', resAI.data.cara_pakai);
+          const res = await ApiRequest.post('/api/detect-skin', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
           Swal.fire({
             title: 'Foto Berhasil',
-            text: 'Foto berhasil diunggah dan diproses.',
+            html: `
+              <p><strong>Kepercayaan:</strong> ${(resAI.data.confidence * 100).toFixed(2)}%</p>
+              <p><strong>Penjelasan:</strong> ${resAI.data.penjelasan}</p>
+              <p><strong>Obat:</strong> ${resAI.data.obat}</p>
+              <p><strong>Cara Pakai:</strong> ${resAI.data.cara_pakai}</p>
+            `,
             icon: 'success',
             confirmButtonText: 'OK',
           });
-          navigate('/');
+          navigate('/dashboard');
         } else {
           Swal.fire({
             title: 'Gagal Unggah',
@@ -103,7 +121,7 @@ export function UploadPenyakit() {
   setLoading(true);
 
   const formData = new FormData();
-  formData.append('image', file, file.name || 'penyakit.jpg');
+  formData.append('file', file, file.name || 'penyakit.jpg');
 
   try {
     Swal.fire({
@@ -116,20 +134,40 @@ export function UploadPenyakit() {
       allowOutsideClick: false,
     });
 
-    const res = await ApiRequest.post('/api/detect-skin', formData, {
-      headers: {
+    /**
+     * TODO :
+     * Make a card for a response processed AI
+    */
+    const resAI = await axios.post("http://localhost:8000/predict", formData, {
+      headers:{
         'Content-Type': 'multipart/form-data',
-      },
-    });
-
-    if (res) {
+      }
+    })
+    
+    if (resAI) {
+      formData.append('image', file);
+      formData.append('prediction', resAI.data.prediction);
+      formData.append('confidence', resAI.data.confidence);
+      formData.append('penjelasan', resAI.data.penjelasan);
+      formData.append('obat', resAI.data.obat);
+      formData.append('cara_pakai', resAI.data.cara_pakai);
+      const res = await ApiRequest.post('/api/detect-skin', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       Swal.fire({
         title: 'Foto Berhasil',
-        text: 'Foto berhasil diunggah dan diproses.',
+        html: `
+          <p><strong>Kepercayaan:</strong> ${(resAI.data.confidence * 100).toFixed(2)}%</p>
+          <p><strong>Penjelasan:</strong> ${resAI.data.penjelasan}</p>
+          <p><strong>Obat:</strong> ${resAI.data.obat}</p>
+          <p><strong>Cara Pakai:</strong> ${resAI.data.cara_pakai}</p>
+        `,
         icon: 'success',
         confirmButtonText: 'OK',
       });
-      navigate('/');
+      navigate('/dashboard');
     } else {
       Swal.fire({
         title: 'Gagal Unggah',

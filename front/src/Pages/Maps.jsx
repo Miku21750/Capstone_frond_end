@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -26,6 +26,7 @@ const customIcon = new L.Icon({
 
 function UserLocationMarker({ setUserPosition }) {
   const map = useMap();
+  const [position, setPosition] = useState(null);
 
   useEffect(() => {
     if (!navigator.geolocation) return;
@@ -34,76 +35,126 @@ function UserLocationMarker({ setUserPosition }) {
       (position) => {
         const userLatLng = [position.coords.latitude, position.coords.longitude];
         map.setView(userLatLng, 14);
+        setPosition(userLatLng)
         setUserPosition(userLatLng);
       },
-      () => {
-        console.error("Unable to retrieve your location");
+      (err) => {
+        console.error("Unable to retrieve your location", err);
       }
     );
   }, [map, setUserPosition]);
 
-  return null;
+  return position ? (
+    <Marker position={position}>
+      <Popup>You are here</Popup>
+    </Marker>
+  ) : null;
 }
 
+const getDistance = ([lat1, lon1], [lat2, lon2]) =>{
+  const toRad = (value) => (value * Math.PI) / 100;
+  const R = 6371;
+
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a = 
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * 
+    Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
+const formatDistance = (km) => {
+  return km < 1
+    ? `${Math.round(km * 1000)} m`
+    : `${km.toFixed(2)} km`;
+};
+
+
 export const NearbyClinics = () => {
+  const mapRef = useRef(null)
+  const markerRefs = useRef({}); 
+
   const [userPosition, setUserPosition] = useState(null);
   const [clinics, setClinics] = useState([]);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false); // State for loading
+  const [selectedClinic, setSelectedClinic] = useState(null);
 
-  useEffect(() => {
-    const fetchClinics = async () => {
-      if (!userPosition) return;
-      const [lat, lon] = userPosition;
+  const fetchClinics = async (radius = 10000) => {
+    if (!userPosition) return;
+    const [lat, lon] = userPosition;
 
-      
-      Swal.fire({
-        title: 'Loading clinics...',
-        text: 'Please wait while we fetch nearby clinics.',
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading();
-        },
+    // Show SweetAlert loading
+    const getZoomLevel = (radius) => {
+      if (radius <= 5000) return 14;
+      if (radius <= 10000) return 13;
+      if (radius <= 15000) return 12;
+      if (radius <= 20000) return 11;
+      return 10;
+    };
+    Swal.fire({
+      title: 'Loading clinics...',
+      html: `Searching within ${radius / 1000} km radius...`,
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    const zoom = getZoomLevel(radius);
+    mapRef.current.flyTo([lat, lon], zoom, {
+      animate: true,
+      duration: 1.2,
+    });
+    const query = `
+      [out:json][timeout:25];
+      (
+        node["amenity"="clinic"](around:${radius},${lat},${lon});
+        node["amenity"="hospital"](around:${radius},${lat},${lon});
+        node["amenity"="doctors"](around:${radius},${lat},${lon});
+        node["amenity"="pharmacy"](around:${radius},${lat},${lon});
+      );
+      out body;
+      >;
+      out skel qt;
+    `;
+
+    try {
+      const res = await axios.post("https://overpass-api.de/api/interpreter", query, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
 
-      const query = `
-        [out:json][timeout:25];
-        (
-          node["amenity"="clinic"](around:10000,${lat},${lon});
-          node["amenity"="hospital"](around:10000,${lat},${lon});
-          node["amenity"="doctors"](around:10000,${lat},${lon});
-          node["amenity"="pharmacy"](around:10000,${lat},${lon});
-        );
-        out body;
-        >;
-        out skel qt;
-      `;
-
-      try {
-        const res = await axios.post("https://overpass-api.de/api/interpreter", query, {
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        });
-
-        const elements = res.data.elements || [];
-        if (elements.length === 0) {
-          console.log("No clinic data found in the queried area.");
-        }
-        const clinicsData = elements.map((el, idx) => ({
-          id: idx,
-          name: el.tags.name || "Unnamed Clinic",
-          position: [el.lat, el.lon],
-          description: el.tags.amenity || "Clinic/Health service",
-        }));
+      const elements = res.data.elements || [];
+      if (elements.length === 0) {
+        fetchClinics(radius + 5000);
+      } else{
+        const clinicsData = elements
+          .filter(el => el.lat && el.lon)
+          .map((el, idx) => ({
+            id: el.id || idx,
+            name: el.tags.name || "Unnamed Clinic",
+            position: [el.lat, el.lon],
+            description: el.tags.amenity || "Clinic/Health service",
+            distance: getDistance(userPosition, [el.lat, el.lon]),
+            address: el.tags["addr:full"] || null,
+            city: el.tags["addr:city"] || null,
+            operatorType: el.tags["operator:type"] || null,
+            healthcare: el.tags["healthcare"] || null,
+            source: el.tags["source"] || null,
+          })).sort((a,b) => a.distance - b.distance);
         setClinics(clinicsData);
-      } catch (err) {
-        console.error("Error fetching clinic data", err);
-      } finally {
-
         Swal.close();
       }
-    };
-
-    fetchClinics();
+    } catch (err) {
+      console.error("Error fetching clinic data", err);
+    } finally {
+      // Close the SweetAlert loading after the data is fetched
+    }
+  };
+  useEffect(() => {
+    if (userPosition) fetchClinics();
   }, [userPosition]);
 
   const filteredClinics = clinics.filter((clinic) =>
@@ -130,14 +181,22 @@ export const NearbyClinics = () => {
                   key={clinic.id}
                   className="text-sm p-2 border rounded hover:bg-muted cursor-pointer"
                   onClick={() => {
-                    if (clinic.position) {
-                      setUserPosition(clinic.position);
+                    setSelectedClinic(clinic)
+                    if (mapRef.current){
+                      mapRef.current.flyTo(clinic.position, 14, {
+                        animate: true,
+                        duration: 1.5,
+                      });
+                    }
+                    const marker = markerRefs.current[clinic.id];
+                    if (marker) {
+                      marker.openPopup();
                     }
                   }}
                 >
                   <strong>{clinic.name}</strong>
                   <br />
-                  <span className="text-xs text-muted-foreground">{clinic.description}</span>
+                  <span className="text-xs text-muted-foreground">{clinic.description} | {formatDistance(clinic.distance)}</span>
                 </li>
               ))}
             </ul>
@@ -149,8 +208,22 @@ export const NearbyClinics = () => {
         <CardHeader>
           <CardTitle className="text-2xl text-center">Clinic Map</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="relative">
+          <div className="absolute bottom-3 right-4 z-[1000]">
+            <button
+              onClick={() => {
+                if (userPosition && mapRef.current) {
+                  mapRef.current.flyTo(userPosition, 14, { animate: true, duration: 1.2 });
+                }
+              }}
+              className="bg-white border px-3 py-1 rounded shadow hover:bg-muted transition"
+            >
+              📍 Center on Me
+            </button>
+          </div>
+
           <MapContainer
+            ref={mapRef}
             center={userPosition || [0, 0]}
             zoom={13}
             scrollWheelZoom={true}
@@ -185,12 +258,21 @@ export const NearbyClinics = () => {
                   key={clinic.id}
                   position={clinic.position}
                   icon={customIcon}
+                  ref={(ref) => {
+                    if (ref) markerRefs.current[clinic.id] = ref;
+                  }}
                 >
                   <Popup>
                     <div className="text-sm">
                       <strong>{clinic.name}</strong>
                       <br />
-                      {clinic.description}
+                      {clinic.address && <div>{clinic.address}</div>}
+                      {clinic.city && <div>📍 {clinic.city}</div>}
+                      <div>🏥 {clinic.description}</div>
+                      {clinic.healthcare && <div>🩺 Healthcare: {clinic.healthcare}</div>}
+                      {clinic.operatorType && <div>🏷️ Operator: {clinic.operatorType}</div>}
+                      {clinic.source && <div>🔍 Source: {clinic.source}</div>}
+                      <div>📏 {formatDistance(clinic.distance)}</div>
                     </div>
                   </Popup>
                 </Marker>
@@ -200,6 +282,16 @@ export const NearbyClinics = () => {
             {userPosition && (
               <Marker position={userPosition}>
                 <Popup>You are here</Popup>
+              </Marker>
+            )}
+
+            {selectedClinic && (
+              <Marker position={selectedClinic.position} icon={customIcon}>
+                <Popup>
+                  <strong>{selectedClinic.name}</strong>
+                  <br />
+                  {selectedClinic.description}
+                </Popup>
               </Marker>
             )}
           </MapContainer>
