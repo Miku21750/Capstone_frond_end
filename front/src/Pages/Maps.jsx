@@ -10,7 +10,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import axios from "axios";
-import Swal from "sweetalert2"; // Import SweetAlert2
+import Swal from "sweetalert2"; 
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
