@@ -50,6 +50,7 @@ export function UploadPenyakit() {
     if (blob) {
       const formData = new FormData();
       formData.append('file', blob, 'penyakit.jpg');
+      formData.append('image', blob);
 
       try {
         Swal.fire({
@@ -69,7 +70,6 @@ export function UploadPenyakit() {
         })
         
         if (resAI) {
-          formData.append('image', file);
           formData.append('prediction', resAI.data.prediction);
           formData.append('confidence', resAI.data.confidence);
           formData.append('penjelasan', resAI.data.penjelasan);
@@ -122,6 +122,7 @@ export function UploadPenyakit() {
 
   const formData = new FormData();
   formData.append('file', file, file.name || 'penyakit.jpg');
+  formData.append('image', file);
 
   try {
     Swal.fire({
@@ -145,7 +146,6 @@ export function UploadPenyakit() {
     })
     
     if (resAI) {
-      formData.append('image', file);
       formData.append('prediction', resAI.data.prediction);
       formData.append('confidence', resAI.data.confidence);
       formData.append('penjelasan', resAI.data.penjelasan);
