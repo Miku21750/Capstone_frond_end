@@ -10,7 +10,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import axios from "axios";
-import Swal from "sweetalert2"; // Import SweetAlert2
+import Swal from "sweetalert2"; 
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -49,14 +49,14 @@ export const NearbyClinics = () => {
   const [userPosition, setUserPosition] = useState(null);
   const [clinics, setClinics] = useState([]);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false); // State for loading
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => {
     const fetchClinics = async () => {
       if (!userPosition) return;
       const [lat, lon] = userPosition;
 
-      // Show SweetAlert loading
+      
       Swal.fire({
         title: 'Loading clinics...',
         text: 'Please wait while we fetch nearby clinics.',
@@ -98,7 +98,7 @@ export const NearbyClinics = () => {
       } catch (err) {
         console.error("Error fetching clinic data", err);
       } finally {
-        // Close the SweetAlert loading after the data is fetched
+
         Swal.close();
       }
     };

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Outlet } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 export const Navigation = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -15,6 +16,12 @@ export const Navigation = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+    Swal.fire({
+      title: 'Logout Successful',
+      text: 'You have been logged out successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
     /**
      * TODO :
      * GIVE NOTIIFICATION lOGOUT SUCCESS
@@ -71,7 +78,7 @@ export const Navigation = () => {
                   className="text-white text-lg"
                   onClick={handleLogout}
                 >
-                  Logoout
+                  Logout
                 </Button>
               </>
             ) : (
