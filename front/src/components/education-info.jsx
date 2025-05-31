@@ -13,30 +13,34 @@ import ApiRequest from '@/api'
 import Swal from 'sweetalert2'; 
 
 export const SkinCondition = () => {
-  const name = useParams();
+  const { name } = useParams();
   const [conditions, setConditions] = useState([]);
   const [selectedCondition, setSelectedCondition] = useState(null);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    
-    Swal.fire({
-      title: 'Loading conditions...',
-      text: 'Please wait while we fetch the data.',
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading(); 
-      }
-    });
+  
+    if (conditions.length === 0 && loading) {
+      Swal.fire({
+        title: 'Loading conditions...',
+        text: 'Please wait while we fetch the data.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+    }
 
     ApiRequest.get('/api/list-skin-condition')
       .then(res => {
         setConditions(res.data);
         const matched = res.data.find(
-          condition => slugify(condition.name) === name.name
+          condition => slugify(condition.name) === name
         );
 
         setSelectedCondition(matched || null);
+        setLoading(false);
       })
       .catch(err => {
         console.error("Failed to fetch conditions", err);
@@ -45,14 +49,35 @@ export const SkinCondition = () => {
           title: 'Oops...',
           text: 'Something went wrong while fetching the data.',
         });
+        setLoading(false);
       })
       .finally(() => {
-        Swal.close(); 
+        Swal.close();
       });
-  }, [name]);
+  }, [name, conditions.length, loading]);
+
+  useEffect(() => {
+  
+  
+    if (conditions.length > 0) {
+      const matched = conditions.find(
+        condition => slugify(condition.name) === name
+      );
+      setSelectedCondition(matched || null);
+    }
+  }, [name, conditions]);
 
   const slugify = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+
+  if (loading && conditions.length === 0) {
+    return (
+      <section className="p-4 text-center">
+        <p className="text-gray-600">Loading content...</p>
+      </section>
+    );
+  }
 
   if (!selectedCondition) {
     return (
