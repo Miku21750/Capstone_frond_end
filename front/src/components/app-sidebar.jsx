@@ -38,6 +38,7 @@ import { Link, useNavigate } from "react-router"
 import { SearchForm } from "./search-form"
 // import { AnimatePresence, motion } from "framer-motion"
 import gsap from "gsap"
+import { icon } from "leaflet"
 
 
 // const collapseVariants = {
@@ -48,6 +49,7 @@ const data = {
   navMain: [
     {
       title: "Introduction",
+      icon: BookOpen,
       url: "#",
       items: [
         {
@@ -59,11 +61,13 @@ const data = {
     },
     {
       title: "Skin Conditions",
+      icon: BookOpen,
       url: "#",
       items: [],
     },
     {
       title: "Prevention Tips",
+      icon: BookOpen,
       url: "#",
       items: [
         {
@@ -86,6 +90,7 @@ const data = {
     },
     {
       title: "Treatment Options",
+      icon: BookOpen,
       url: "#",
       items: [
         {
@@ -108,6 +113,7 @@ const data = {
     },
     {
       title: "Other",
+      icon: BookOpen,
       url: "#",
       items: [
         {
@@ -226,16 +232,16 @@ export function AppSidebar({
           onChange={(e) => setSearchKeyword?.(e.target.value)}
         />
       </SidebarHeader>
-      <SidebarContent className={'bg-cold-2/50'}>
+      <SidebarContent className={'bg-cold-2/50 scrollbar-thin overflow-y-auto'}>
         {filteredNavMain.map((group) => {
           const isOpen = openGroups[group.title]
           return (
           <SidebarGroup key={group.title}>
             <button
               onClick={() => toggleGroup(group.title)}
-              className="flex items-center justify-between w-full px-4 py-2 text-left font-semibold hover:bg-cold-2/90"
+              className="flex items-center justify-between w-full px-2 py-2 text-left font-semibold hover:bg-cold-2/90"
             >
-              <SidebarGroupLabel className={'text-lg'}>{group.title}</SidebarGroupLabel>
+              <SidebarGroupLabel className={'text-lg inline-flex gap-5'}>{group.title} <group.icon/> </SidebarGroupLabel>
               <ChevronDown
                 className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                 size={16}
