@@ -12,10 +12,11 @@ import L from "leaflet";
 import axios from "axios";
 import Swal from "sweetalert2"; 
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 const customIcon = new L.Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
@@ -161,9 +162,10 @@ export const NearbyClinics = () => {
     clinic.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col lg:flex-row items-start justify-center min-h-screen bg-muted/30 p-6 gap-6">
-      <Card className="w-full lg:w-[300px] h-[500px]">
+      <Card className="w-full lg:w-[300px] h-fit">
         <CardHeader>
           <CardTitle className="text-xl">Nearby Clinics</CardTitle>
         </CardHeader>
@@ -202,9 +204,14 @@ export const NearbyClinics = () => {
             </ul>
           </ScrollArea>
         </CardContent>
+        <CardFooter>
+          <Button variant={'outline' } onClick={() => navigate('/dashboard')}>
+            Go to Dashboard
+          </Button>
+        </CardFooter>
       </Card>
 
-      <Card className="flex-1 w-full h-[500px]">
+      <Card className="flex-1 w-full h-fit">
         <CardHeader>
           <CardTitle className="text-2xl text-center">Clinic Map</CardTitle>
         </CardHeader>
@@ -227,7 +234,7 @@ export const NearbyClinics = () => {
             center={userPosition || [0, 0]}
             zoom={13}
             scrollWheelZoom={true}
-            className="h-[420px] w-full rounded-lg z-0"
+            className="h-[600px] w-full rounded-lg z-0"
           >
             <UserLocationMarker setUserPosition={setUserPosition} />
 

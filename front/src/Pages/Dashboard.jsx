@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect, useRef } from "react";
+import { useEffect, useState, useLayoutEffect, useRef, use } from "react";
 import gsap from "gsap";
 import {
   Card,
@@ -22,6 +22,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
 import { Stethoscope, Sun, Timer, User2 } from "lucide-react";
 import ApiRequest from "@/api";
+import { useNavigate } from "react-router";
 
 export const Dashboard = () => {
 
@@ -104,7 +105,7 @@ export const Dashboard = () => {
         const res = await ApiRequest.get("/api/users/dataScans")
         setScans(res.data)
       } catch (error) {
-        console.error("Falied to load dara : ", error)
+        console.error("Falied to load data : ", error)
       }
     }
 
@@ -142,28 +143,39 @@ export const Dashboard = () => {
     },
     {
       title: "App Activity",
+      span: 2,
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
         ["Total Scans", scans.length],
         ["Last Scan", (new Date(scans[0]?.uploadedAt).toLocaleDateString())],
         ["Scan Frequency", "Every 2 weeks"],
+        ["Average Scan Confidence", `${(scans.reduce((acc, scan) => acc + scan.confidence, 0) / scans.length * 100).toFixed(2)}%`],
+        ["Next Scheduled Checkup", "June 15, 2025"],
+        
       ],
       bg: "bg-sky-100",
     },
-    {
-      title: "Environmental Exposure",
-      icon: <Sun className="h-6 w-6 text-gray-500" />,
-      content: [
-        ["Sun Exposure", "Moderate"],
-        ["Pollution Level", "Low"],
-        ["Sunscreen Usage", "Daily"],
-        ["Routine", "Morning & Night"],
-        ["Product Usage", "Cleanser, Moisturizer, Sunscreen"],
-      ],
-      bg: "bg-amber-100",
-    },
+    // {
+    //   title: "Environmental Exposure",
+    //   icon: <Sun className="h-6 w-6 text-gray-500" />,
+    //   content: [
+    //     ["Sun Exposure", "Moderate"],
+    //     ["Pollution Level", "Low"],
+    //     ["Sunscreen Usage", "Daily"],
+    //     ["Routine", "Morning & Night"],
+    //     ["Product Usage", "Cleanser, Moisturizer, Sunscreen"],
+    //   ],
+    //   bg: "bg-amber-100",
+    // },
   ];
 
+  const navigateButton = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Education", path: "/education" },
+  ]
+
+  const navigate = useNavigate();
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-gray-100 to-white text-gray-800">
       <SidebarProvider>
@@ -190,11 +202,12 @@ export const Dashboard = () => {
             </CardContent>
           </Card>
 
-          {["Home", "About", "Education"].map((label, i) => (
-            <Button key={i} className="w-full mb-2" variant="ghost">
-              {label}
+           {navigateButton.map((nav) => (
+            <Button key={nav.label} className="w-full mb-2" variant="ghost" onClick={() => navigate(nav.path)}>
+              {nav.label}
             </Button>
           ))}
+
           <Button className="w-full mt-2" variant="destructive">
             Logout
           </Button>
@@ -225,7 +238,7 @@ export const Dashboard = () => {
                   <Card
                     key={section.title}
                     ref={(el) => (cardRefs.current[idx] = el)}
-                    className="bg-white shadow-lg"
+                    className={`mb-4 shadow-md ${section.span ? "col-span-2" : ""} bg-white rounded-lg`}
                   >
                     <CardHeader className={`${section.bg} flex justify-between items-center p-4 rounded-t-lg`}>
                       <CardTitle className="text-xl font-semibold">
@@ -263,8 +276,11 @@ export const Dashboard = () => {
                         src={`http://localhost:4000${scan.path}`}
                         alt="Scan"
                         className="h-32 w-32 object-cover rounded-lg"
+                        loading="lazy"
                       />
                       <div>
+            <p>this is the thing {scan.path}</p>
+
                         <p className="font-medium">Result:</p>
                         <p>{scan.prediction}</p>
                         <p className="font-medium">Confidence:</p>
@@ -290,6 +306,7 @@ export const Dashboard = () => {
                     title: "Scan Your Skin",
                     description: "Upload a new photo of your skin condition and get analysis.",
                     button: "Upload & Scan",
+
                   },
                   {
                     title: "Update Profile Info",
@@ -300,6 +317,7 @@ export const Dashboard = () => {
                     title: "Check the nearest clinic",
                     description: "Find the nearest clinic for your skin condition.",
                     button: "Find Clinic",
+                    url: "/maps",
                   },
                 ].map((action, i) => (
                   <Card
@@ -311,7 +329,7 @@ export const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <p>{action.description}</p>
-                      <Button className="mt-3">{action.button}</Button>
+                      <Button className="mt-3" onClick={() => navigate(action.url)}>{action.button}</Button>
                     </CardContent>
                   </Card>
                 ))}

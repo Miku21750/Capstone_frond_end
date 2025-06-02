@@ -58,7 +58,22 @@ const detectSkinController = async (request, h) => {
                 })
                 await record.save();
 
-                resolve(h.response({message: 'upload successfull', filename}).type('application/json; charset=utf-8').code(200))
+                resolve(
+                    h
+                        .response({
+                            message: 'Upload successful',
+                            filename,
+                            path: relativePath, 
+                            prediction: aiResult.prediction,
+                            confidence: aiResult.confidence,
+                            penjelasan: aiResult.penjelasan,
+                            obat: aiResult.obat,
+                            cara_pakai: aiResult.cara_pakai,
+                        })
+                        .type('application/json; charset=utf-8')
+                        .code(200)
+                );
+
             } catch (error) {
                 console.error('MongoDB save error:', error);
                 reject(h.response({ message: 'Database save failed' }).code(500));
