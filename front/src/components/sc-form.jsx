@@ -46,7 +46,7 @@ export function LoginForm({
         confirmButtonText: 'OK',
         timer: 2000,
       })
-      navigate("/upload-penyakit");
+      navigate("/dashboard");
 
     } catch (error) {
             Swal.fire({
