@@ -10,38 +10,74 @@ import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react'
 import ApiRequest from '@/api'
 
 
+import Swal from 'sweetalert2'; 
+
 export const SkinCondition = () => {
-  const name = useParams();
-  const [conditions, setConditions] = useState([])
-  const [selectedCondition, setSelectedCondition] = useState(null)
+  const { name } = useParams();
+  const [conditions, setConditions] = useState([]);
+  const [selectedCondition, setSelectedCondition] = useState(null);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+  
+    if (conditions.length === 0 && loading) {
+      Swal.fire({
+        title: 'Loading conditions...',
+        text: 'Please wait while we fetch the data.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+    }
+
     ApiRequest.get('/api/list-skin-condition')
       .then(res => {
-        setConditions(res.data)
+        setConditions(res.data);
         const matched = res.data.find(
-          condition => slugify(condition.name) === name.name
+          condition => slugify(condition.name) === name
         );
 
-        console.log(
-          "Searching for:",
-          name,
-          "in",
-          res.data.map((c) => slugify(c.name))
-        );
-        setSelectedCondition(matched || null)
-
-        console.log("Route param:", name);
-        console.log("All names:", conditions.map(c => slugify(c.name)));
-
+        setSelectedCondition(matched || null);
+        setLoading(false);
       })
-      .catch(err => console.error("Failed to fetch conditions", err))
-  }, [name])
+      .catch(err => {
+        console.error("Failed to fetch conditions", err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong while fetching the data.',
+        });
+        setLoading(false);
+      })
+      .finally(() => {
+        Swal.close();
+      });
+  }, [name, conditions.length, loading]);
+
+  useEffect(() => {
+  
+  
+    if (conditions.length > 0) {
+      const matched = conditions.find(
+        condition => slugify(condition.name) === name
+      );
+      setSelectedCondition(matched || null);
+    }
+  }, [name, conditions]);
 
   const slugify = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
+
+  if (loading && conditions.length === 0) {
+    return (
+      <section className="p-4 text-center">
+        <p className="text-gray-600">Loading content...</p>
+      </section>
+    );
+  }
 
   if (!selectedCondition) {
     return (
@@ -54,102 +90,97 @@ export const SkinCondition = () => {
   const filteredConditions = conditions.filter((condition) =>
     condition.name.toLowerCase().includes(searchKeyword.toLowerCase())
   );
-  console.log(selectedCondition)
- const tocSections = [];
-let currentH2 = null;
 
-selectedCondition.sections.forEach((section, index) => {
-  section.id = `section-${index}`; 
+  const tocSections = [];
+  let currentH2 = null;
 
-  if (section.level === 'h2') {
-    currentH2 = {
-      ...section,
-      children: [],
-    };
-    tocSections.push(currentH2);
-  } else if (section.level === 'h3' && currentH2) {
-    currentH2.children.push(section);
-  }
-});
+  selectedCondition.sections.forEach((section, index) => {
+    section.id = `section-${index}`;
+
+    if (section.level === 'h2') {
+      currentH2 = {
+        ...section,
+        children: [],
+      };
+      tocSections.push(currentH2);
+    } else if (section.level === 'h3' && currentH2) {
+      currentH2.children.push(section);
+    }
+  });
 
   return (
-    <div className="flex flex-col lg:flex-row gap-12 min-h-screen bg-gray-50 px-6 py-10">
- <section className="flex-1 max-w-4xl">
-  <h1 className="text-5xl font-extrabold text-cold-9 mb-10">
-    {selectedCondition.name}
-  </h1>
+    <>
+      <div className="flex flex-col lg:flex-row gap-12 min-h-screen bg-cold-2 px-6 py-10 lg:pr-72 ">
+        <section className="flex-1 max-w-4xl">
+          <h1 className="text-5xl font-extrabold text-cold-9 mb-10">
+            {selectedCondition.name}
+          </h1>
 
-  <div className="space-y-10">
+          <div className="space-y-10">
+            {tocSections.map((section) => (
+              <article key={section.id} id={section.id} className="bg-white p-6 rounded shadow-sm border scroll-mt-20">
+                <h2 className="text-2xl font-semibold mb-4">{section.heading}</h2>
+                <p className="whitespace-pre-wrap text-base text-gray-800 leading-relaxed">
+                  {section.content}
+                </p>
 
-    {tocSections.map((section) => (
-      <article key={section.id} id={section.id} className="bg-white p-6 rounded shadow-sm border scroll-mt-20">
-        <h2 className="text-2xl font-semibold mb-4">{section.heading}</h2>
-        <p className="whitespace-pre-wrap text-base text-gray-800 leading-relaxed">
-          {section.content}
-        </p>
-
-        {section.children.map((child, idx) => (
-          <div key={child.id} id={child.id} className="mt-6 ml-6 pl-4 border-l border-gray-200">
-            <h3 className="text-xl font-medium mb-2">{child.heading}</h3>
-            <p className="whitespace-pre-wrap text-gray-800 leading-relaxed">
-              {child.content}
-            </p>
+                {section.children.map((child, idx) => (
+                  <div key={child.id} id={child.id} className="mt-6 ml-6 pl-4 border-l border-gray-200">
+                    <h3 className="text-xl font-medium mb-2">{child.heading}</h3>
+                    <p className="whitespace-pre-wrap text-gray-800 leading-relaxed">
+                      {child.content}
+                    </p>
+                  </div>
+                ))}
+              </article>
+            ))}
           </div>
-        ))}
-      </article>
-    ))}
-  </div>
 
+          <div className="mt-16">
+            <h2 className="text-2xl font-semibold mb-6">Image Gallery</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {selectedCondition.images.map((image, index) => (
+                <figure key={index} className="group relative overflow-hidden rounded shadow-md">
+                  <img
+                    src={`http://localhost:4000${image.localPath}`}
+                    alt={image.alt}
+                    title={image.title}
+                    className="w-full h-auto object-cover transition-transform duration-200 group-hover:scale-105 cursor-pointer"
+                  />
+                  <figcaption className="text-sm text-gray-600 mt-2">{image.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
 
-  <div className="mt-16">
-    <h2 className="text-2xl font-semibold mb-6">Image Gallery</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {selectedCondition.images.map((image, index) => (
-        <figure key={index} className="group relative overflow-hidden rounded shadow-md">
-          <img
-            src={`http://localhost:4000${image.localPath}`}
-            alt={image.alt}
-            title={image.title}
-            className="w-full h-auto object-cover transition-transform duration-200 group-hover:scale-105 cursor-pointer"
-          />
-          <figcaption className="text-sm text-gray-600 mt-2">{image.title}</figcaption>
-        </figure>
-      ))}
-    </div>
-  </div>
-</section>
-
-      
-      <aside className="hidden lg:block w-64 sticky top-10 bg-white shadow p-4 rounded text-sm h-150 overflow-auto">
-        <h2 className="font-semibold mb-3 text-2xl">On this page</h2>
-        <ul className="space-y-2 text-gray-700">
-          {tocSections.map((section) => (
-            <li key={section.id}>
-              <a href={`#${section.id}`} className="font-medium hover:text-blue-600">
-                {section.heading}
-              </a>
-              {section.children.length > 0 && (
-                <ul className="ml-4 mt-1 space-y-1 text-gray-600 border-l border-gray-200 pl-2">
-                  {section.children.map((child) => (
-                    <li key={child.id}>
-                      <a href={`#${child.id}`} className="hover:text-blue-600 block">
-                        {child.heading}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      
-     
-    </div>
-
-  )
-}
+        <aside className="hidden lg:block fixed right-0 top-(--header-height) w-64 h-[calc(100svh-var(--header-height))] bg-white shadow-lg p-6 overflow-y-auto border-l z-30">
+          <h2 className="font-semibold mb-3 text-2xl">On this page</h2>
+          <ul className="space-y-2 text-gray-700">
+            {tocSections.map((section) => (
+              <li key={section.id}>
+                <a href={`#${section.id}`} className="font-medium hover:text-blue-600">
+                  {section.heading}
+                </a>
+                {section.children.length > 0 && (
+                  <ul className="ml-4 mt-1 space-y-1 text-gray-600 border-l border-gray-200 pl-2">
+                    {section.children.map((child) => (
+                      <li key={child.id}>
+                        <a href={`#${child.id}`} className="hover:text-blue-600 block">
+                          {child.heading}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+    </>
+  );
+};
 export const Overviewinfo = () => {
   return (
     <section className="p-5 flex flex-col gap-5 bg-cold-2">
@@ -231,7 +262,7 @@ export const Overviewinfo = () => {
 export const DailySkincareRoutine = () => {
   return (
     <div className="">
-      <Card>
+      <Card className={" p-6 "}> 
         <CardHeader>
           <CardTitle className="text-3xl font-bold">
             🕐 Daily Skincare Routine
@@ -283,7 +314,7 @@ export const DailySkincareRoutine = () => {
           <Separator />
 
 
-          <section>
+          <section className='bg-cold-3 p-4 rounded-md border border-cold-4 mt-6'>
             <h3 className="text-lg font-semibold mb-1">Helpful Habits & Tips</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Clean pillowcases and face towels regularly.</li>

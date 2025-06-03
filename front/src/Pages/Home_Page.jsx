@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Bandage, Book, Bot, Camera, Image, LineChart, Map, Play, Text } from 'lucide-react';
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -16,6 +16,7 @@ import { useRef } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -41,19 +42,19 @@ export const HomePage = () => {
           <h2 className="text-4xl md:text-5xl font-bold max-w-xl">Accessible Healthcare for Every Community</h2>
           <p className="text-lg md:text-xl max-w-lg">Connecting rural areas with professional medical solutions through advanced technology and compassionate care.</p>
           <div className="flex gap-5">
-            <Button href="#learn-more" className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-medium transition">
+            <Button href="#learn-more" className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/upload-penyakit')}>
               Diagnose
             </Button>
-            <Button href="#learn-more" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium transition">
+            <Button href="#learn-more" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/education')}>
               Learn More
             </Button>
           </div>
         </div>
       </section>
       <section className=" flex  h-fit items-center gap-x-10 p-10 bg-cold-4">
-        {/* <div className="aspect-video rounded-xl bg-muted/50" /> */}
+
         <div className=" text-center mx-30">
-          {/* <h1 className='text-5xl '>Tujuan Kami</h1> */}
+
           <svg className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
             <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
           </svg>
@@ -67,7 +68,8 @@ export const HomePage = () => {
       <section ref={containerRef} className="h-fit xl:h-screen flex flex-col justify-center bg-cold-1 gap-10 items-center">
         <h1 className="text-5xl font-quicksand font-black">Feature Yang Disediakan</h1>
         <div className="flex-col p-10 flex gap-10 xl:flex-row">
-          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200 ">
+
+          <Card className="feature-card border-t-10 border-sky-300 hover:shadow-2xl  flex flex-col justify-between  ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Bot className="h-10 w-10"></Bot>
               <CardTitle className={'text-4xl text-center font-quicksand  mx-10'}>Diagnosa Online </CardTitle>
@@ -79,7 +81,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card border-t-10 border-sky-300 hover:shadow-2xl  flex flex-col justify-between ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Bandage className="h-10 w-10"></Bandage>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Saran Pengobatan </CardTitle>
@@ -91,7 +93,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card border-t-10 border-sky-300 hover:shadow-2xl  flex flex-col justify-between ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Map className="h-10 w-10"></Map>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Pelayanan Terdekat </CardTitle>
@@ -103,7 +105,7 @@ export const HomePage = () => {
               <Button variant="outline">Try Out</Button>
             </CardFooter>
           </Card>
-          <Card className="feature-card hover:shadow-2xl hover:px-10 flex flex-col justify-between hover:bg-linear-to-r from-cyan-200 to-blue-200">
+          <Card className="feature-card border-t-10 border-sky-300 hover:shadow-2xl  flex flex-col justify-between ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
               <Book className="h-10 w-10"></Book>
               <CardTitle className={'text-4xl text-center font-quicksand'}>Edukasi Kesehatan </CardTitle>
@@ -123,7 +125,7 @@ export const HomePage = () => {
           <h1 className="text-5xl font-quicksand font-black">User Testimoni</h1>
           <div className="flex gap-5">
             <figure className="shadow-2xl md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 h-full">
-              {/* <img className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="" alt="IMG" width="384" height="512" /> */}
+
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
                 <blockquote>
                   <p className="text-lg font-medium">“Finally, I can understand my skin problem without traveling 3 hours to the clinic.”</p>
@@ -135,7 +137,7 @@ export const HomePage = () => {
               </div>
             </figure>
             <figure className="shadow-2xl md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 h-full">
-              {/* <img className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="" alt="IMG" width="384" height="512" /> */}
+
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
                 <blockquote>
                   <p className="text-lg font-medium">“This helps us reach more people faster and give them accurate skin care advice.”</p>
@@ -147,7 +149,7 @@ export const HomePage = () => {
               </div>
             </figure>
             <figure className="shadow-2xl md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 h-full">
-              {/* <img className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="" alt="IMG" width="384" height="512" /> */}
+
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4 flex flex-col">
                 <blockquote>
                   <p className="text-lg font-medium">“We use Luminou§kin in our digital literacy sessions. It empowers local youth.”</p>
@@ -161,56 +163,83 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="h-fit bg-cold-2 items-center gap-10 p-5">
-        {/* <div className="aspect-video rounded-xl bg-muted/50" /> */}
-        <FeedbackForm />
+      <section className='h-fit bg-cold-2 items-center gap-10 p-5'>
+
+        <FeedbackForm/>
       </section>
-      <section className="h-fit bg-linear-to-t from-sky-200 to-indigo-500  ">
-        <div className="grid grid-cols-2 items-center justify-center p-10">
-          <div className="">
-            <h1 className="text-5xl">Luminou§kin</h1>
+      <section className="bg-blue-400 text-white px-6 py-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+
+          <div>
+            <h1 className="text-4xl font-bold mb-4">Luminou§kin</h1>
+            <p className="text-sm">Solusi digital inklusif untuk kesehatan kulit masyarakat Indonesia.</p>
           </div>
-          <div className="flex gap-20">
-            <div className="">
-              <h1 className="text-4xl">About</h1>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Website</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Our Team</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Contact Us</p>
-              </Link>
-            </div>
-            <div className="">
-              <h1 className="text-4xl">Education</h1>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Skin Disease Type</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Drug Recomendation</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Tips health skin</p>
-              </Link>
-            </div>
-            <div className="">
-              <h1 className="text-4xl">Legal</h1>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Terms of Service</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Privacy Policy</p>
-              </Link>
-              <Link to={'/'} className="hover:text-white active:text-gray-100 transition-al w-fit">
-                <p>Cookie Policy</p>
-              </Link>
-            </div>
+
+
+          <div>
+            <h2 className="text-xl font-semibold mb-3">About</h2>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Website
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div className="flex w-full bg-blue-200 justify-center">
-          <p className="text-center">@2025 Luminou§kin - All Right reserved</p>
+
+
+          <div>
+            <h2 className="text-xl font-semibold mb-3">Education</h2>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Skin Disease Type
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Drug Recommendation
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Tips Health Skin
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+
+          <div>
+            <h2 className="text-xl font-semibold mb-3">Legal</h2>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-gray-300">
+                  Cookie Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </>
