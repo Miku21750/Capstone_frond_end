@@ -1,0 +1,23 @@
+{
+  "name": "capstone_frond_end",
+  "version": "1.0.0",
+  "description": "Repository for Front End Website Capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajarpratama26/Capstone_frond_end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fajarpratama26/Capstone_frond_end/issues"
+  },
+  "homepage": "https://github.com/fajarpratama26/Capstone_frond_end#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
