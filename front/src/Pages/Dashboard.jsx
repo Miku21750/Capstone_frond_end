@@ -40,10 +40,23 @@ import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
 import { Stethoscope, Sun, Timer, User2 } from "lucide-react";
 import ApiRequest from "@/api";
 import { useNavigate } from "react-router";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import DatePicker from "@/components/ui/calendar";
+import { Separator } from "@/components/ui/separator";
 
 export const Dashboard = () => {
 
-  // GSAP Animations - scoped safely
+  const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [birthDate, setBirthDate] = useState('')
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token); // Set to true if token exists
+  }, []);
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(avatarRef.current, {
@@ -468,7 +481,6 @@ export const Dashboard = () => {
                         loading="lazy"
                       />
                       <div>
-            <p>this is the thing {scan.path}</p>
 
                         <p className="font-medium">Result:</p>
                         <p>{scan.prediction}</p>
@@ -502,7 +514,7 @@ export const Dashboard = () => {
                     title: "Update Profile Info",
                     description: "Keep your profile up to date for better recommendations.",
                     button: "Edit Profile",
-                    // url: "/maps",
+                    onClick: () => setOpen(true),
                   },
                   {
                     title: "Check the nearest clinic",
@@ -520,7 +532,13 @@ export const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <p>{action.description}</p>
-                      <Button className="mt-3" onClick={() => navigate(action.url)}>{action.button}</Button>
+                      <Button className="mt-3" onClick={() => {
+                          if (action.onClick) {
+                            action.onClick();
+                          } else if (action.url) {
+                            navigate(action.url);
+                          }
+                        }} >{action.button}</Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -529,6 +547,43 @@ export const Dashboard = () => {
           </Tabs>
         </main>
       </SidebarProvider>
+      <Dialog open={open} onOpenChange={setOpen}>
+        
+        <DialogContent >
+          <DialogTitle>Edit Profile</DialogTitle>
+          <DialogDescription>
+            Update your profile information to keep it current.
+          </DialogDescription>
+          <div className="flex">
+           <div className="flex-1 space-y-4 flex flex-col">
+             <Label htmlFor="full-name" className="block mb-2">Full Name</Label>
+             <Input id="full-name" placeholder="Name" />
+             <Label htmlFor="email" className="block mb-2">Email</Label>
+             <Input id="email" placeholder="Email" />
+             <Label htmlFor="phone" className="block mb-2">Phone Number</Label>
+             <Input id="phone" placeholder="Phone Number" />
+             <Label htmlFor="address" className="block mb-2">Address</Label>
+             <Input id="address" placeholder="Address" />
+             <Label htmlFor="date-picker" className="block mb-2">Date of Birth</Label>
+             <DatePicker id="date-picker" value={birthDate} onChange={setBirthDate} />
+              <Label htmlFor="photo-profile" className="block mb-2">Profile Photo</Label>
+             <Input id="photo-profile" type="file" accept="image/*" className="mt-2" />
+           </div>
+           <Separator orientation="vertical" className="mx-4" />
+           <div className="flex-1 space-y-4">
+              <Label htmlFor="height" className="block mb-2">Height</Label>
+              <Input id="height" placeholder="Height" type={'number'} />
+              <Label htmlFor="weight" className="block mb-2">Weight</Label>
+              <Input id="weight" placeholder="Weight" type={'number'} />
+              
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline">Cancel</Button>
+            <Button>Confirm</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
