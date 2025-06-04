@@ -18,6 +18,23 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
+import { 
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Bar,
+  BarChart
+ } from "recharts";
+
+ import Swal from "sweetalert2";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
 import { Stethoscope, Sun, Timer, User2 } from "lucide-react";
@@ -87,6 +104,16 @@ export const Dashboard = () => {
   //     },
   //   ],
   // };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    Swal.fire({
+      title: 'Logout Successful',
+      text: 'You have been logged out successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+    navigate("/");
+  };
 
   useEffect(() =>{
     //fetch user
@@ -113,6 +140,60 @@ export const Dashboard = () => {
     fetchUserProfile();
   }, [])
 
+  const sortedScans = [...scans].sort(
+    (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+  );
+
+  const lastDiagnosis = sortedScans[0]?.prediction || "-";
+  const lastMedication = sortedScans[0]?.obat || "-";
+  const lastInstruction = sortedScans[0]?.cara_pakai || "-";
+
+  const conditionSet = new Set(scans.map(scan => scan.prediction));
+  const uniqueConditionsCount = conditionSet.size;
+
+  const conditionCounts = scans.reduce((acc, scan) => {
+    acc[scan.prediction] = (acc[scan.prediction] || 0) + 1;
+    return acc;
+  }, {});
+  const mostCommonCondition = Object.entries(conditionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "-";
+
+  const totalScans = scans.length;
+  let averageGapDays = 0;
+  
+  if (sortedScans.length > 1) {
+    const gaps = [];
+    for (let i = 1; i < sortedScans.length; i++) {
+      const prevDate = new Date(sortedScans[i - 1].uploadedAt).getTime();
+      const currDate = new Date(sortedScans[i].uploadedAt).getTime();
+      const diffDays = Math.abs(currDate - prevDate) / (1000 * 60 * 60 * 24); // convert ms to days
+      gaps.push(diffDays);
+    }
+    const totalGap = gaps.reduce((sum, gap) => sum + gap, 0);
+    averageGapDays = totalGap / gaps.length;
+  }
+
+  const scanFrequency =
+  averageGapDays === 0
+    ? "Only 1 scan"
+    : averageGapDays < 7
+    ? `Every ${averageGapDays.toFixed(1)} day${averageGapDays < 2 ? "" : "s"}`
+    : `Every ${(averageGapDays / 7).toFixed(1)} week${averageGapDays / 7 < 2 ? "" : "s"}`;
+
+  const lastScanDate = sortedScans.length
+  ? new Date(sortedScans[0].uploadedAt).toLocaleDateString()
+  : "-";
+
+
+  const averageConfidence = scans.length
+  ? (
+      scans.reduce((acc, scan) => {
+        const conf = parseFloat(scan.confidence);
+        return !isNaN(conf) ? acc + conf : acc;
+      }, 0) / scans.length * 100
+    ).toFixed(2)
+  : "0.00";
+
+
   // Card Section Definitions
   const sections = [
     {
@@ -130,14 +211,14 @@ export const Dashboard = () => {
       bg: "bg-emerald-100",
     },
     {
-      title: "Skin & Health Details",
+      title: "Recent Diagnosis Summary",
       icon: <Stethoscope className="h-6 w-6 text-gray-500" />,
       content: [
-        ["Skin Type", "Oily"],
-        ["Known Allergies", "Pollen, Nuts"],
-        ["Chronic Conditions", "Eczema"],
-        ["Preferred Clinic", "HealthSkin Center"],
-        ["Last Skin Checkup", "April 14, 2025"],
+        ["Most Common Condition", mostCommonCondition],
+        ["Last Diagnosed", lastDiagnosis],
+        ["Most Recent Medication", lastMedication],
+        ["Application Instructions", lastInstruction],
+        ["Total Conditions Identified", uniqueConditionsCount],
       ],
       bg: "bg-pink-100",
     },
@@ -146,11 +227,11 @@ export const Dashboard = () => {
       span: 2,
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
-        ["Total Scans", scans.length],
-        ["Last Scan", (new Date(scans[0]?.uploadedAt).toLocaleDateString())],
-        ["Scan Frequency", "Every 2 weeks"],
-        ["Average Scan Confidence", `${(scans.reduce((acc, scan) => acc + scan.confidence, 0) / scans.length * 100).toFixed(2)}%`],
-        ["Next Scheduled Checkup", "June 15, 2025"],
+        ["Total Scans", totalScans],
+        ["Last Scan", lastScanDate],
+        ["Scan Frequency", scanFrequency],
+        ["Average Scan Confidence", `${averageConfidence}%`],
+        // ["Next Scheduled Checkup", "June 15, 2025"],
         
       ],
       bg: "bg-sky-100",
@@ -174,6 +255,59 @@ export const Dashboard = () => {
     { label: "About", path: "/about" },
     { label: "Education", path: "/education" },
   ]
+
+  //chart
+  const dailyStatsMap = {}
+
+  scans.forEach(scan => {
+    const date = new Date(scan.uploadedAt).toLocaleDateString();
+    if (!dailyStatsMap[date]) {
+      dailyStatsMap[date] = {
+        date,
+        scans: 0,
+        confidenceSum: 0,
+        diseases: {},
+      };
+    }
+
+    dailyStatsMap[date].scans += 1;
+    dailyStatsMap[date].confidenceSum += parseFloat(scan.confidence || 0);
+    const disease = scan.prediction || "Unknown";
+    dailyStatsMap[date].diseases[disease] = (dailyStatsMap[date].diseases[disease] || 0) + 1;
+  });
+
+  const diseasePerDay = {};
+
+  scans.forEach(scan => {
+    const date = new Date(scan.uploadedAt).toLocaleDateString("en-GB"); // or "id-ID"
+    const disease = scan.prediction;
+
+    if (!diseasePerDay[date]) diseasePerDay[date] = {};
+    if (!diseasePerDay[date][disease]) diseasePerDay[date][disease] = 0;
+
+    diseasePerDay[date][disease]++;
+  });
+
+  const diseaseNames = Array.from(
+    new Set(scans.map(scan => scan.prediction))
+  );
+
+  const diseasePerDayChartData = Object.entries(diseasePerDay).map(([date, counts]) => {
+    const entry = { date };
+    diseaseNames.forEach(disease => {
+      entry[disease] = counts[disease] || 0;
+    });
+    return entry;
+  });
+
+  const chartData = Object.values(dailyStatsMap).map(entry => ({
+    date: entry.date,
+    scans: entry.scans,
+    confidence: (entry.confidenceSum / entry.scans).toFixed(2),
+    ...entry.diseases
+  }))
+
+
 
   const navigate = useNavigate();
   return (
@@ -208,7 +342,7 @@ export const Dashboard = () => {
             </Button>
           ))}
 
-          <Button className="w-full mt-2" variant="destructive">
+          <Button className="w-full mt-2" variant="destructive" onClick={handleLogout}>
             Logout
           </Button>
         </Sidebar>
@@ -234,6 +368,61 @@ export const Dashboard = () => {
             {/* Profile Info */}
             <TabsContent value="profile">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card className="col-span-2 shadow-md bg-white rounded-lg mt-6">
+                  <CardHeader className="bg-indigo-100 flex justify-between items-center p-4 rounded-t-lg">
+                    <CardTitle className="text-xl font-semibold">Condition Distribution</CardTitle>
+                  </CardHeader>
+                  <CardContent className="py-6 px-6 space-y-10">
+                    <div>
+                      <p className="text-lg font-medium mb-2">Scans Per Day</p>
+                      <ResponsiveContainer width="100%" height={250}>
+                        <LineChart data={chartData}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="date" />
+                          <YAxis allowDecimals={false} />
+                          <Tooltip />
+                          <Legend />
+                          <Line type="monotone" dataKey="scans" stroke="#8884d8" strokeWidth={2} />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-medium mb-2">Diseases per Day</p>
+                      <ResponsiveContainer width="100%" height={300}>
+                        <BarChart data={diseasePerDayChartData}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="date" />
+                          <YAxis allowDecimals={false} />
+                          <Tooltip />
+                          <Legend />
+                          {diseaseNames.map((disease, index) => (
+                            <Bar
+                              key={disease}
+                              dataKey={disease}
+                              stackId={undefined} // not stacked
+                              fill={["#8884d8", "#82ca9d", "#ffc658", "#ff7300", "#387908"][index % 5]}
+                            />
+                          ))}
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-medium mb-2">Average Confidence Over Time</p>
+                      <ResponsiveContainer width="100%" height={250}>
+                        <LineChart data={chartData}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="date" />
+                          <YAxis domain={[0, 1]} tickFormatter={(v) => `${(v * 100).toFixed(0)}%`} />
+                          <Tooltip formatter={(value) => `${(value * 100).toFixed(2)}%`} />
+                          <Legend />
+                          <Line type="monotone" dataKey="confidence" stroke="#00bcd4" strokeWidth={2} />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </CardContent>
+                </Card>
                 {sections.map((section, idx) => (
                   <Card
                     key={section.title}
@@ -306,12 +495,14 @@ export const Dashboard = () => {
                     title: "Scan Your Skin",
                     description: "Upload a new photo of your skin condition and get analysis.",
                     button: "Upload & Scan",
+                    url: "/upload-penyakit",
 
                   },
                   {
                     title: "Update Profile Info",
                     description: "Keep your profile up to date for better recommendations.",
                     button: "Edit Profile",
+                    // url: "/maps",
                   },
                   {
                     title: "Check the nearest clinic",

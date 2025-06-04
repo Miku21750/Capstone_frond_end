@@ -1,36 +1,36 @@
-import HorizontalScrollSection from '@/components/card-scroller'
-import { FeedbackForm } from '@/components/FeedbackForm'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Bandage, Book, Bot, Camera, Image, LineChart, Map, Play, Text } from 'lucide-react'
-import React from 'react'
-import { Link, useNavigate } from 'react-router'
+import HorizontalScrollSection from '@/components/card-scroller';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Bandage, Book, Bot, Camera, Image, LineChart, Map, Play, Text } from 'lucide-react';
+import React from 'react';
+import { Link, useNavigate } from 'react-router';
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const HomePage = () => {
   const navigate = useNavigate();
-    const containerRef = useRef(null);
+  const containerRef = useRef(null);
 
   useGSAP(() => {
-    gsap.from(".feature-card", {
+    gsap.from('.feature-card', {
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 50%",
-        toggleActions: "play none none reverse",
+        start: 'top 50%',
+        toggleActions: 'play none none reverse',
       },
       opacity: 0,
       y: 100,
       duration: 1,
       stagger: 0.5,
-      ease: "power2.out",
+      ease: 'power2.out',
     });
   }, []);
   return (
@@ -65,13 +65,13 @@ export const HomePage = () => {
           </blockquote>
         </div>
       </section>
-      <section ref={containerRef} className='h-fit xl:h-screen flex flex-col justify-center bg-cold-1 gap-10 items-center'>
-        <h1 className='text-5xl font-quicksand font-black'>Feature Yang Disediakan</h1>
+      <section ref={containerRef} className="h-fit xl:h-screen flex flex-col justify-center bg-cold-1 gap-10 items-center">
+        <h1 className="text-5xl font-quicksand font-black">Feature Yang Disediakan</h1>
         <div className="flex-col p-10 flex gap-10 xl:flex-row">
 
           <Card className="feature-card border-t-10 border-sky-300 hover:shadow-2xl  flex flex-col justify-between  ">
             <CardHeader className={'flex flex-col items-center justify-center'}>
-              <Bot className='h-10 w-10' ></Bot>
+              <Bot className="h-10 w-10"></Bot>
               <CardTitle className={'text-4xl text-center font-quicksand  mx-10'}>Diagnosa Online </CardTitle>
             </CardHeader>
             <CardContent>
@@ -120,25 +120,19 @@ export const HomePage = () => {
         </div>
       </section>
       <HorizontalScrollSection />
-      <section className='h-screen bg-cold-3 flex flex-col gap-5 p-4 items-center justify-center'>
+      <section className="h-screen bg-cold-3 flex flex-col gap-5 p-4 items-center justify-center">
         <div className="flex flex-col gap-20 ">
-          <h1 className='text-5xl font-quicksand font-black'>User Testimoni</h1>
+          <h1 className="text-5xl font-quicksand font-black">User Testimoni</h1>
           <div className="flex gap-5">
             <figure className="shadow-2xl md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 h-full">
 
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
                 <blockquote>
-                  <p className="text-lg font-medium">
-                    “Finally, I can understand my skin problem without traveling 3 hours to the clinic.”
-                  </p>
+                  <p className="text-lg font-medium">“Finally, I can understand my skin problem without traveling 3 hours to the clinic.”</p>
                 </blockquote>
                 <figcaption className="font-medium">
-                  <div className="text-sky-500 dark:text-sky-400">
-                    Ria, Nusa Tenggara Timur
-                  </div>
-                  <div className="text-slate-700 dark:text-slate-500">
-                    Housewife
-                  </div>
+                  <div className="text-sky-500 dark:text-sky-400">Ria, Nusa Tenggara Timur</div>
+                  <div className="text-slate-700 dark:text-slate-500">Housewife</div>
                 </figcaption>
               </div>
             </figure>
@@ -146,17 +140,11 @@ export const HomePage = () => {
 
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
                 <blockquote>
-                  <p className="text-lg font-medium">
-                    “This helps us reach more people faster and give them accurate skin care advice.”
-                  </p>
+                  <p className="text-lg font-medium">“This helps us reach more people faster and give them accurate skin care advice.”</p>
                 </blockquote>
                 <figcaption className="font-medium">
-                  <div className="text-sky-500 dark:text-sky-400">
-                    Pak Peri, Kalimantan Barat
-                  </div>
-                  <div className="text-slate-700 dark:text-slate-500">
-                    Puskesmas Staff
-                  </div>
+                  <div className="text-sky-500 dark:text-sky-400">Pak Peri, Kalimantan Barat</div>
+                  <div className="text-slate-700 dark:text-slate-500">Puskesmas Staff</div>
                 </figcaption>
               </div>
             </figure>
@@ -164,17 +152,11 @@ export const HomePage = () => {
 
               <div className="pt-6 md:p-8 text-center md:text-left space-y-4 flex flex-col">
                 <blockquote>
-                  <p className="text-lg font-medium">
-                    “We use Luminou§kin in our digital literacy sessions. It empowers local youth.”
-                  </p>
+                  <p className="text-lg font-medium">“We use Luminou§kin in our digital literacy sessions. It empowers local youth.”</p>
                 </blockquote>
                 <figcaption className="font-medium">
-                  <div className="text-sky-500 dark:text-sky-400">
-                    Aji, Sulawasi Selatan
-                  </div>
-                  <div className="text-slate-700 dark:text-slate-500">
-                    Mahasiswa IT & Volunteer
-                  </div>
+                  <div className="text-sky-500 dark:text-sky-400">Aji, Sulawasi Selatan</div>
+                  <div className="text-slate-700 dark:text-slate-500">Mahasiswa IT & Volunteer</div>
                 </figcaption>
               </div>
             </figure>
