@@ -6,7 +6,7 @@
 
 ## 📌 Latar Belakang Masalah
 
-Penyakit kulit menular seperti **impetigo, scabies, kurap, panu**, dan **eksim** masih menjadi masalah kesehatan yang meluas, terutama di daerah **3T (Tertinggal, Terdepan, Terluar)**. Masalah ini dipicu oleh:
+Penyakit kulit menular seperti **impetigo, eksim, panu, infeksi cacing tambang**, dan **eksim** masih menjadi masalah kesehatan yang meluas, terutama di daerah **3T (Tertinggal, Terdepan, Terluar)**. Masalah ini dipicu oleh:
 
 - Kurangnya kesadaran akan gejala awal dan pencegahan.
 - Minimnya akses ke tenaga medis dan obat-obatan.
