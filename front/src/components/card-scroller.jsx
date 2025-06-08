@@ -63,8 +63,8 @@ export default function HorizontalScrollSection() {
     <section ref={sectionRef} className="relative w-full h-fit overflow-hidden">
       {/* Intro Header */}
       <div className="min-h-[60vh] flex flex-col items-center justify-center bg-center bg-cover text-center px-6 py-12" style={{ backgroundImage: "url('/howitworks.jpg')" }}>
-        <h1 className="text-5xl text-[#002d52] font-bold mb-4">How It Works</h1>
-        <p className="text-xl text-[#002d52] max-w-2xl">Scroll horizontally to explore how our skin diagnosis journey works — from uploading an image to tracking your health progress.</p>
+        <h1 className="text-5xl text-[#002d52] font-bold mb-4">Cara Kerjanya</h1>
+        <p className="text-xl text-[#002d52] max-w-2xl">Scroll secara horizontal untuk menjelajahi cara kerja perjalanan diagnosis kulit kami — mulai dari mengunggah gambar hingga melacak kemajuan kesehatan Anda.</p>
         <div className="mt-10 animate-bounce text-[#002d52]">↓ Scroll</div>
       </div>
 
@@ -109,42 +109,42 @@ export default function HorizontalScrollSection() {
 
 const cardsData = [
   {
-    title: 'Capture or Upload',
-    description: 'Begin by capturing a clear image or uploading one from your device. Make sure lighting is good for better results.',
+    title: 'Tangkap atau Unggah',
+    description: 'Mulailah dengan mengambil gambar yang jelas atau mengunggahnya dari perangkat Anda. Pastikan pencahayaannya bagus untuk hasil yang lebih baik.',
     icon: Camera,
     bg: 'bg-[#3674B5]',
     actions: [
-      { label: 'Upload', tooltip: 'Select a photo from your device' },
-      { label: 'Take Photo', tooltip: 'Use your camera to capture' },
+      { label: 'Unggah', tooltip: 'Pilih foto dari perangkat Anda' },
+      { label: 'Ambil Foto', tooltip: 'Gunakan kamera Anda untuk mengambil foto' },
     ],
   },
   {
-    title: 'Diagnosis Results',
-    description: 'Get an AI-driven diagnosis with a detailed breakdown and medical suggestions.',
+    title: 'Hasil Diagnosis',
+    description: 'Dapatkan diagnosis berbasis AI dengan uraian terperinci dan saran medis.',
     icon: Image,
     bg: 'bg-[#3674B5]',
     actions: [],
   },
   {
-    title: 'Nearby Clinics',
-    description: 'Locate and connect with nearby clinics for further advice and prescriptions.',
+    title: 'Klinik Terdekat',
+    description: 'Temukan dan hubungi klinik terdekat untuk mendapatkan saran dan resep lebih lanjut.',
     icon: Map,
     bg: 'bg-[#3674B5]',
     actions: [
-      { label: 'Save', tooltip: 'Save this clinic to your dashboard' },
-      { label: 'Delete', tooltip: 'Remove from your list' },
+      { label: 'Simpan', tooltip: 'Simpan klinik ini ke dasbor Anda' },
+      { label: 'Hapus', tooltip: 'Hapus dari daftar Anda' },
     ],
   },
   {
-    title: 'Health Education',
-    description: 'Access a knowledge hub with videos and articles to better understand skin care.',
+    title: 'Pendidikan Kesehatan',
+    description: 'Akses pusat pengetahuan dengan video dan artikel untuk lebih memahami perawatan kulit.',
     icon: Play,
     bg: 'bg-[#3674B5]',
     actions: [],
   },
   {
-    title: 'Health Dashboard',
-    description: "Track your treatment, monitor conditions, and view insights on your skin's progress.",
+    title: 'Dashboard Kesehatan',
+    description: 'Lacak perawatan Anda, pantau kondisi, dan lihat wawasan tentang kemajuan kulit Anda.',
     icon: LineChart,
     bg: 'bg-[#3674B5]',
     actions: [],

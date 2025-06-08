@@ -36,13 +36,13 @@ const data = {
       ],
     },
     {
-      title: 'Skin Conditions',
+      title: 'Kondisi Kulit',
       icon: BookOpen,
       url: '#',
       items: [],
     },
     {
-      title: 'Prevention Tips',
+      title: 'Tips Pencegahan',
       icon: BookOpen,
       url: '#',
       items: [

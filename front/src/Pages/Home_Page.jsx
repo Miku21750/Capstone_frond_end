@@ -37,14 +37,14 @@ export const HomePage = () => {
 
         <div className="relative z-10 flex flex-col justify-center items-center md:items-start text-center md:text-left min-h-[80vh] pt-24 md:pt-40 px-6 md:px-20 text-white space-y-6">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold max-w-xl leading-tight">Luminou§kin</h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold max-w-xl leading-snug">Accessible Healthcare for Every Community</h2>
-          <p className="text-base sm:text-lg md:text-xl max-w-lg">Connecting rural areas with professional medical solutions through advanced technology and compassionate care.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold max-w-xl leading-snug">Pelayanan Kesehatan yang Dapat Diakses oleh Setiap Komunitas</h2>
+          <p className="text-base sm:text-lg md:text-xl max-w-lg">Menghubungkan daerah pedesaan dengan solusi medis profesional melalui teknologi canggih dan perawatan penuh kasih sayang.</p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4">
             <Button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/upload-penyakit')}>
-              Diagnose
+              Diagnosa
             </Button>
             <Button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium transition" onClick={() => navigate('/education')}>
-              Learn More
+              Pelajari Lebih Lanjut
             </Button>
           </div>
         </div>
@@ -81,7 +81,7 @@ export const HomePage = () => {
                 <p className="text-sm sm:text-base text-[#002d52] text-center font-light">{feature.desc}</p>
               </CardContent>
               <CardFooter className="flex justify-center">
-                <Button variant="outline">Try Out</Button>
+                <Button variant="outline">Coba</Button>
               </CardFooter>
             </Card>
           ))}
@@ -93,12 +93,27 @@ export const HomePage = () => {
       {/* TESTIMONIAL SECTION */}
       <section className="bg-cover bg-fixed bg-center py-16 px-4" style={{ backgroundImage: "url('/hahaay.jpg')" }}>
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl text-[#002d52] font-black mb-12">User Testimoni</h1>
+          <h1 className="text-3xl sm:text-4xl text-[#002d52] font-black mb-12">Kesaksian Pengguna</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { quote: 'Finally, I can understand my skin problem without traveling 3 hours to the clinic.', name: 'Ria, Nusa Tenggara Timur', role: 'Housewife' },
-              { quote: 'This helps us reach more people faster and give them accurate skin care advice.', name: 'Pak Peri, Kalimantan Barat', role: 'Puskesmas Staff' },
-              { quote: 'We use Luminou§kin in our digital literacy sessions. It empowers local youth.', name: 'Aji, Sulawesi Selatan', role: 'Mahasiswa IT & Volunteer' },
+              {
+                quote:
+                  'Saya merasa sangat terbantu. Diagnosisnya tepat dan solusinya mudah dimengerti. Luminouskin sangat bermanfaat, terutama bagi kami di pelosok yang akses kesehatannya terbatas. Sebelumnya, saya harus menunggu kunjungan tenaga medis yang datang sebulan sekali. Tapi sekarang, hanya dengan foto dari kamera HP saya, saya sudah bisa tahu masalah kulit yang saya alami dan bagaimana mengatasinya. Sebagai petani dan ibu dari tiga anak, waktu saya sangat terbatas, jadi kemudahan ini benar-benar menyelamatkan saya.',
+                name: 'Dian, Papua Barat',
+                role: 'Petani & Ibu 3 Anak',
+              },
+              {
+                quote:
+                  'Akhirnya, saya bisa memahami masalah kulit saya tanpa harus menempuh perjalanan 3 jam ke klinik. Awalnya saya ragu, tapi setelah mencoba Luminouskin dan melihat hasil diagnosanya, saya jadi lebih yakin. Penjelasannya jelas, tidak menggunakan istilah medis yang sulit dipahami, dan saya merasa dilayani seperti di klinik sungguhan. Ini sangat membantu ibu rumah tangga seperti saya yang tinggal jauh dari fasilitas kesehatan.',
+                name: 'Ria, Nusa Tenggara Timur',
+                role: 'Ibu Rumah Tangga',
+              },
+              {
+                quote:
+                  'Layanan ini membantu kami menjangkau lebih banyak orang dengan cepat dan memberikan saran perawatan kulit yang akurat. Di puskesmas kami yang terletak di daerah cukup terpencil, jumlah tenaga medis terbatas. Dengan Luminouskin, kami bisa mengedukasi warga tentang kondisi kulit mereka bahkan sebelum mereka datang langsung. Ini bukan hanya soal teknologi, tapi soal meningkatkan kualitas hidup masyarakat pedesaan.',
+                name: 'Ardi Sitorus, Kalimantan Barat',
+                role: 'Mahasiswa IT & Volunteer',
+              },
             ].map((t, i) => (
               <figure key={i} className="shadow-xl bg-[#3674B5] rounded-xl p-8 text-white">
                 <blockquote>
