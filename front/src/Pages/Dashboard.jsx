@@ -1,10 +1,38 @@
-import { useEffect, useState, useLayoutEffect, useRef, use } from 'react';
-import gsap from 'gsap';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Bar, BarChart } from 'recharts';
+import { useEffect, useState, useLayoutEffect, useRef, use } from "react";
+import gsap from "gsap";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/tabs";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+import { 
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Bar,
+  BarChart
+ } from "recharts";
 
  import Swal from "sweetalert2";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -35,7 +63,7 @@ export const Dashboard = () => {
         y: -20,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
 
       gsap.from(cardRefs.current, {
@@ -43,25 +71,26 @@ export const Dashboard = () => {
         opacity: 0,
         duration: 0.6,
         stagger: 0.15,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
 
     return () => ctx.revert(); // cleanup
   }, []);
 
+  
   const [scans, setScans] = useState([]);
   const [user, setUser] = useState({
-    name: 'Loading....',
-    age: '',
-    address: '',
-    username: '',
-    email: '',
-    phoneNumber: '',
-    gender: '',
-    avatar: '/user-avatar.jpg',
-    lastLogin: '',
-  });
+    name: "Loading....",
+    age: "",
+    address: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    gender: "",
+    avatar: "/user-avatar.jpg", 
+    lastLogin: "", 
+  })
   const avatarRef = useRef(null);
   const cardRefs = useRef([]);
   // const user = {
@@ -89,61 +118,61 @@ export const Dashboard = () => {
   //   ],
   // };
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     Swal.fire({
       title: 'Logout Successful',
       text: 'You have been logged out successfully.',
       icon: 'success',
-      confirmButtonText: 'OK',
+      confirmButtonText: 'OK'
     });
-    navigate('/');
+    navigate("/");
   };
 
-  useEffect(() => {
+  useEffect(() =>{
     //fetch user
     const fetchUserProfile = async () => {
       try {
-        const res = await ApiRequest.get('/api/user/detail');
-        setUser(res.data);
+        const res = await ApiRequest.get("/api/user/detail")
+        setUser(res.data)
       } catch (error) {
-        console.error('failed to fetch data user : ', error);
+        console.error("failed to fetch data user : ",error)
       }
-    };
+    }
 
     //fetch image scanner
     const fetchUserScans = async () => {
       try {
-        const res = await ApiRequest.get('/api/users/dataScans');
-        setScans(res.data);
+        const res = await ApiRequest.get("/api/users/dataScans")
+        setScans(res.data)
       } catch (error) {
-        console.error('Falied to load data : ', error);
+        console.error("Falied to load data : ", error)
       }
-    };
+    }
 
     fetchUserScans();
     fetchUserProfile();
-  }, []);
+  }, [])
 
   const sortedScans = [...scans].sort(
     (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
   );
 
-  const lastDiagnosis = sortedScans[0]?.prediction || '-';
-  const lastMedication = sortedScans[0]?.obat || '-';
-  const lastInstruction = sortedScans[0]?.cara_pakai || '-';
+  const lastDiagnosis = sortedScans[0]?.prediction || "-";
+  const lastMedication = sortedScans[0]?.obat || "-";
+  const lastInstruction = sortedScans[0]?.cara_pakai || "-";
 
-  const conditionSet = new Set(scans.map((scan) => scan.prediction));
+  const conditionSet = new Set(scans.map(scan => scan.prediction));
   const uniqueConditionsCount = conditionSet.size;
 
   const conditionCounts = scans.reduce((acc, scan) => {
     acc[scan.prediction] = (acc[scan.prediction] || 0) + 1;
     return acc;
   }, {});
-  const mostCommonCondition = Object.entries(conditionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '-';
+  const mostCommonCondition = Object.entries(conditionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "-";
 
   const totalScans = scans.length;
   let averageGapDays = 0;
-
+  
   if (sortedScans.length > 1) {
     const gaps = [];
     for (let i = 1; i < sortedScans.length; i++) {
@@ -169,56 +198,56 @@ export const Dashboard = () => {
 
 
   const averageConfidence = scans.length
-    ? (
-        (scans.reduce((acc, scan) => {
-          const conf = parseFloat(scan.confidence);
-          return !isNaN(conf) ? acc + conf : acc;
-        }, 0) /
-          scans.length) *
-        100
-      ).toFixed(2)
-    : '0.00';
+  ? (
+      scans.reduce((acc, scan) => {
+        const conf = parseFloat(scan.confidence);
+        return !isNaN(conf) ? acc + conf : acc;
+      }, 0) / scans.length * 100
+    ).toFixed(2)
+  : "0.00";
+
 
   // Card Section Definitions
   const sections = [
     {
-      title: 'Personal Information',
+      title: "Personal Information",
       icon: <User2 className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Full Name', user.name],
-        ['Email', user.email],
-        ['Gender', user.gender],
-        ['Age', user.age],
-        ['Last Login', user.lastLogin],
-        ['Location', user.location],
-        ['Phone', user.Phone],
+        ["Full Name", user.name],
+        ["Email", user.email],
+        ["Gender", user.gender],
+        ["Age", user.age],
+        ["Last Login", user.lastLogin],
+        ["Location", user.location],
+        ["Phone", user.Phone],
       ],
-      bg: 'bg-emerald-100',
+      bg: "bg-emerald-100",
     },
     {
-      title: 'Recent Diagnosis Summary',
+      title: "Recent Diagnosis Summary",
       icon: <Stethoscope className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Most Common Condition', mostCommonCondition],
-        ['Last Diagnosed', lastDiagnosis],
-        ['Most Recent Medication', lastMedication],
-        ['Application Instructions', lastInstruction],
-        ['Total Conditions Identified', uniqueConditionsCount],
+        ["Most Common Condition", mostCommonCondition],
+        ["Last Diagnosed", lastDiagnosis],
+        ["Most Recent Medication", lastMedication],
+        ["Application Instructions", lastInstruction],
+        ["Total Conditions Identified", uniqueConditionsCount],
       ],
-      bg: 'bg-pink-100',
+      bg: "bg-pink-100",
     },
     {
-      title: 'App Activity',
+      title: "App Activity",
       span: 2,
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Total Scans', totalScans],
-        ['Last Scan', lastScanDate],
-        ['Scan Frequency', scanFrequency],
-        ['Average Scan Confidence', `${averageConfidence}%`],
+        ["Total Scans", totalScans],
+        ["Last Scan", lastScanDate],
+        ["Scan Frequency", scanFrequency],
+        ["Average Scan Confidence", `${averageConfidence}%`],
         // ["Next Scheduled Checkup", "June 15, 2025"],
+        
       ],
-      bg: 'bg-sky-100',
+      bg: "bg-sky-100",
     },
     // {
     //   title: "Environmental Exposure",
@@ -235,15 +264,15 @@ export const Dashboard = () => {
   ];
 
   const navigateButton = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Education', path: '/education' },
-  ];
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Education", path: "/education" },
+  ]
 
   //chart
-  const dailyStatsMap = {};
+  const dailyStatsMap = {}
 
-  scans.forEach((scan) => {
+  scans.forEach(scan => {
     const date = new Date(scan.uploadedAt).toLocaleDateString();
     if (!dailyStatsMap[date]) {
       dailyStatsMap[date] = {
@@ -256,14 +285,14 @@ export const Dashboard = () => {
 
     dailyStatsMap[date].scans += 1;
     dailyStatsMap[date].confidenceSum += parseFloat(scan.confidence || 0);
-    const disease = scan.prediction || 'Unknown';
+    const disease = scan.prediction || "Unknown";
     dailyStatsMap[date].diseases[disease] = (dailyStatsMap[date].diseases[disease] || 0) + 1;
   });
 
   const diseasePerDay = {};
 
-  scans.forEach((scan) => {
-    const date = new Date(scan.uploadedAt).toLocaleDateString('en-GB'); // or "id-ID"
+  scans.forEach(scan => {
+    const date = new Date(scan.uploadedAt).toLocaleDateString("en-GB"); // or "id-ID"
     const disease = scan.prediction;
 
     if (!diseasePerDay[date]) diseasePerDay[date] = {};
@@ -278,18 +307,20 @@ export const Dashboard = () => {
 
   const diseasePerDayChartData = Object.entries(diseasePerDay).map(([date, counts]) => {
     const entry = { date };
-    diseaseNames.forEach((disease) => {
+    diseaseNames.forEach(disease => {
       entry[disease] = counts[disease] || 0;
     });
     return entry;
   });
 
-  const chartData = Object.values(dailyStatsMap).map((entry) => ({
+  const chartData = Object.values(dailyStatsMap).map(entry => ({
     date: entry.date,
     scans: entry.scans,
     confidence: (entry.confidenceSum / entry.scans).toFixed(2),
-    ...entry.diseases,
-  }));
+    ...entry.diseases
+  }))
+
+
 
   const navigate = useNavigate();
   return (
@@ -383,7 +414,7 @@ export const Dashboard = () => {
                               key={disease}
                               dataKey={disease}
                               stackId={undefined} // not stacked
-                              fill={['#8884d8', '#82ca9d', '#ffc658', '#ff7300', '#387908'][index % 5]}
+                              fill={["#8884d8", "#82ca9d", "#ffc658", "#ff7300", "#387908"][index % 5]}
                             />
                           ))}
                         </BarChart>
@@ -451,23 +482,20 @@ export const Dashboard = () => {
                       />
                       <div>
 
-                          <p className="font-medium">Result:</p>
-                          <p>{scan.prediction}</p>
-                          <p className="font-medium">Confidence:</p>
-                          <p>{(scan.confidence * 100).toFixed(2)}%</p>
-                          <p className="font-medium">Detail:</p>
-                          <p>{scan.penjelasan}</p>
-                          <p className="font-medium mt-2">Obat:</p>
-                          <p>{scan.obat}</p>
-                          <p className="font-medium mt-2">Cara Pakai:</p>
-                          <p>{scan.cara_pakai}</p>
-                        </div>
+                        <p className="font-medium">Result:</p>
+                        <p>{scan.prediction}</p>
+                        <p className="font-medium">Confidence:</p>
+                        <p>{(scan.confidence * 100).toFixed(2)}%</p>
+                        <p className="font-medium">Detail:</p>
+                        <p>{scan.penjelasan}</p>
+                        <p className="font-medium mt-2">Obat:</p>
+                        <p>{scan.obat}</p>
+                        <p className="font-medium mt-2">Cara Pakai:</p>
+                        <p>{scan.cara_pakai}</p>
+                      </div>
                     </CardContent>
                   </Card>
-                  ))
-                 : 
-                  <p>No scans yet.</p>
-                }
+                )): <p>No scans yet.</p>}
               </ScrollArea>
             </TabsContent>
 
@@ -476,10 +504,11 @@ export const Dashboard = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
-                    title: 'Scan Your Skin',
-                    description: 'Upload a new photo of your skin condition and get analysis.',
-                    button: 'Upload & Scan',
-                    url: '/upload-penyakit',
+                    title: "Scan Your Skin",
+                    description: "Upload a new photo of your skin condition and get analysis.",
+                    button: "Upload & Scan",
+                    url: "/upload-penyakit",
+
                   },
                   {
                     title: "Update Profile Info",
@@ -488,10 +517,10 @@ export const Dashboard = () => {
                     onClick: () => setOpen(true),
                   },
                   {
-                    title: 'Check the nearest clinic',
-                    description: 'Find the nearest clinic for your skin condition.',
-                    button: 'Find Clinic',
-                    url: '/maps',
+                    title: "Check the nearest clinic",
+                    description: "Find the nearest clinic for your skin condition.",
+                    button: "Find Clinic",
+                    url: "/maps",
                   },
                 ].map((action, i) => (
                   <Card
