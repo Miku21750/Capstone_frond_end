@@ -124,7 +124,9 @@ export const Dashboard = () => {
     fetchUserProfile();
   }, []);
 
-  const sortedScans = [...scans].sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+  const sortedScans = [...scans].sort(
+    (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+  );
 
   const lastDiagnosis = sortedScans[0]?.prediction || '-';
   const lastMedication = sortedScans[0]?.obat || '-';
@@ -155,9 +157,16 @@ export const Dashboard = () => {
   }
 
   const scanFrequency =
-    averageGapDays === 0 ? 'Only 1 scan' : averageGapDays < 7 ? `Every ${averageGapDays.toFixed(1)} day${averageGapDays < 2 ? '' : 's'}` : `Every ${(averageGapDays / 7).toFixed(1)} week${averageGapDays / 7 < 2 ? '' : 's'}`;
+  averageGapDays === 0
+    ? "Only 1 scan"
+    : averageGapDays < 7
+    ? `Every ${averageGapDays.toFixed(1)} day${averageGapDays < 2 ? "" : "s"}`
+    : `Every ${(averageGapDays / 7).toFixed(1)} week${averageGapDays / 7 < 2 ? "" : "s"}`;
 
-  const lastScanDate = sortedScans.length ? new Date(sortedScans[0].uploadedAt).toLocaleDateString() : '-';
+  const lastScanDate = sortedScans.length
+  ? new Date(sortedScans[0].uploadedAt).toLocaleDateString()
+  : "-";
+
 
   const averageConfidence = scans.length
     ? (
@@ -263,7 +272,9 @@ export const Dashboard = () => {
     diseasePerDay[date][disease]++;
   });
 
-  const diseaseNames = Array.from(new Set(scans.map((scan) => scan.prediction)));
+  const diseaseNames = Array.from(
+    new Set(scans.map(scan => scan.prediction))
+  );
 
   const diseasePerDayChartData = Object.entries(diseasePerDay).map(([date, counts]) => {
     const entry = { date };
@@ -287,27 +298,30 @@ export const Dashboard = () => {
         <Sidebar>
           <Card className="max-w-3xl mb-4 shadow-md rounded-xl border-0">
             <CardHeader>
-              <CardTitle className="text-center text-2xl font-semibold">Your Profile</CardTitle>
+              <CardTitle className="text-center text-2xl font-semibold">
+                Your Profile
+              </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-4 items-center text-center">
-              <Avatar ref={avatarRef} className="h-24 w-24 ring-2 ring-emerald-500">
+              <Avatar
+                ref={avatarRef}
+                className="h-24 w-24 ring-2 ring-emerald-500"
+              >
                 <AvatarImage src={user.avatar} />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div className="space-y-1">
                 <p className="font-medium">{user.name}</p>
                 <p className="text-sm text-muted-foreground">{user.email}</p>
-                <p className="text-sm">
-                  {user.age} • {user.gender}
-                </p>
+                <p className="text-sm">{user.age} • {user.gender}</p>
               </div>
             </CardContent>
           </Card>
 
-          {navigateButton.map((nav) => (
-            <button key={nav.label} className="bg-red-300 w-full mb-2" onClick={() => navigate(nav.path)}>
+           {navigateButton.map((nav) => (
+            <Button key={nav.label} className="w-full mb-2" variant="ghost" onClick={() => navigate(nav.path)}>
               {nav.label}
-            </button>
+            </Button>
           ))}
 
           <Button className="w-full mt-2" variant="destructive" onClick={handleLogout}>
@@ -316,12 +330,18 @@ export const Dashboard = () => {
         </Sidebar>
 
         <main className="flex-1 p-6 overflow-auto">
-          <h1 className="text-3xl font-bold mb-6 tracking-tight">Welcome back, {user.name} 👋</h1>
+          <h1 className="text-3xl font-bold mb-6 tracking-tight">
+            Welcome back, {user.name} 👋
+          </h1>
 
           <Tabs defaultValue="profile">
             <TabsList className="mb-6 bg-white rounded-lg shadow flex-wrap">
-              {['profile', 'scans', 'actions'].map((tab) => (
-                <TabsTrigger key={tab} value={tab} className="text-lg px-6 py-2 capitalize">
+              {["profile", "scans", "actions"].map((tab) => (
+                <TabsTrigger
+                  key={tab}
+                  value={tab}
+                  className="text-lg px-6 py-2 capitalize"
+                >
                   {tab.replace(/^\w/, (c) => c.toUpperCase())}
                 </TabsTrigger>
               ))}
@@ -386,9 +406,15 @@ export const Dashboard = () => {
                   </CardContent>
                 </Card>
                 {sections.map((section, idx) => (
-                  <Card key={section.title} ref={(el) => (cardRefs.current[idx] = el)} className={`mb-4 shadow-md ${section.span ? 'col-span-2' : ''} bg-white rounded-lg`}>
+                  <Card
+                    key={section.title}
+                    ref={(el) => (cardRefs.current[idx] = el)}
+                    className={`mb-4 shadow-md ${section.span ? "col-span-2" : ""} bg-white rounded-lg`}
+                  >
                     <CardHeader className={`${section.bg} flex justify-between items-center p-4 rounded-t-lg`}>
-                      <CardTitle className="text-xl font-semibold">{section.title}</CardTitle>
+                      <CardTitle className="text-xl font-semibold">
+                        {section.title}
+                      </CardTitle>
                       {section.icon}
                     </CardHeader>
                     <CardContent className="space-y-1 py-4 px-6">
@@ -468,7 +494,10 @@ export const Dashboard = () => {
                     url: '/maps',
                   },
                 ].map((action, i) => (
-                  <Card key={i} ref={(el) => (cardRefs.current[sections.length + scans.length + i] = el)}>
+                  <Card
+                    key={i}
+                    ref={(el) => (cardRefs.current[sections.length + scans.length + i] = el)}
+                  >
                     <CardHeader>
                       <CardTitle>{action.title}</CardTitle>
                     </CardHeader>
