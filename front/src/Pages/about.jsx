@@ -12,6 +12,7 @@ export const About = () => {
           <p className="text-base md:text-lg max-w-xl italic">Ini perjalanan kami, dan kamu adalah bagian penting di dalamnya.</p>
         </div>
       </section>
+<<<<<<< HEAD
       <section id="about" class="pt-16 pb-8 bg-[#FAF8F1]">
         <div class="container mx-auto px-4">
           <div class="flex justify-between gap-6 flex-col md:flex-row items-stretch">
@@ -19,15 +20,31 @@ export const About = () => {
               <div class="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
                 <h3 class="text-center font-bold font-sans text-white uppercase text-4xl md:text-5xl mb-4">Visi</h3>
                 <p class="text-lg md:text-xl leading-relaxed text-center font-sans text-white">
+=======
+      <section id="about" className="pt-16 pb-8 bg-[#FAF8F1]">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-6">
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
+                <h3 className="text-center font-bold font-sans text-[#ffffff] uppercase text-4xl md:text-5xl mb-4">Visi</h3>
+                <p className="text-lg md:text-xl leading-relaxed text-center font-sans text-[#ffff]">
+>>>>>>> upstream/main
                   Menjadi solusi digital yang inklusif dan terpercaya dalam mendukung kesehatan kulit masyarakat Indonesia, khususnya di wilayah 3T, dengan berkontribusi pada pencapaian SDGs Goal 3: Good Health & Well-Being.
                 </p>
               </div>
             </div>
+<<<<<<< HEAD
 
             <div class="md:w-1/2 px-4 h-full">
               <div class="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
                 <h3 class="text-center font-bold font-sans text-white uppercase text-4xl md:text-5xl mb-4">Misi</h3>
                 <div class="space-y-4 text-white text-lg md:text-xl leading-relaxed text-center font-sans">
+=======
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
+                <h3 className="text-center font-bold font-sans text-[#ffffff] uppercase text-4xl md:text-5xl mb-4">Misi</h3>
+                <div className="space-y-4 text-[#ffffff] text-lg md:text-xl leading-relaxed text-center font-sans">
+>>>>>>> upstream/main
                   <p>Menyediakan platform digital yang mampu melakukan deteksi dini penyakit kulit menular ringan melalui klasifikasi gambar berbasis teknologi.</p>
                   <p>Memberikan rekomendasi pengobatan yang aman, cepat, dan berbasis Obat Bebas Terbatas (OBT), untuk masyarakat dengan keterbatasan akses layanan medis.</p>
                   <p>Mengedukasi masyarakat tentang pentingnya penanganan penyakit kulit menular secara dini, agar tidak menyebar dan menimbulkan masalah kesehatan yang lebih besar.</p>

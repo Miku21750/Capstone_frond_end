@@ -16,6 +16,7 @@ import ApiRequest from "@/api"
 import Swal from "sweetalert2"
 import { useState } from "react"
 import { CheckIcon, Mars, Venus } from "lucide-react"
+import DatePicker from "./ui/calendar"
 export function LoginForm({
   className,
   ...props
@@ -116,6 +117,9 @@ export function RegisterForm({
   className,
   ...props
 }) {
+
+  const [birth, setBirth] = useState("");
+
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -183,10 +187,6 @@ export function RegisterForm({
                 <Input className={'p-5 md:text-xl'} id="name" type="text"  required />
               </div>
               <div className="grid gap-3">
-                <Label className={'text-xl'} htmlFor="email">Age</Label>
-                <Input className={'p-5 md:text-xl'} id="age" type="number"  required />
-              </div>
-              <div className="grid gap-3">
                 <Label className={'text-xl'} htmlFor="email">Email</Label>
                 <Input className={'p-5 md:text-xl'} id="email" type="email" placeholder="m@example.com" required />
               </div>
@@ -197,8 +197,11 @@ export function RegisterForm({
                 <Input className={'p-5 md:text-xl'} id="password" type="password" required />
               </div>
               <div className="grid gap-3">
+                <Label className={'text-xl'} htmlFor="age">Birth</Label>
+                <DatePicker value={birth} onChange={setBirth} />
+              </div>
+              <div className="grid gap-3">
                 <Label className={'text-xl'} htmlFor="gender">Gender</Label>
-                {/* Make selected able radio button with icon in it */}
                 <div className="flex justify-around items-center gap-4">
                   <label className="flex items-center gap-2">
                     <Input onChange={handleGenderChange} type="radio" name="gender" value="male" className="hidden"/>
