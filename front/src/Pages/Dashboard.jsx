@@ -6,17 +6,6 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Bar, BarChart } from 'recharts';
 
-<<<<<<< HEAD
-import Swal from 'sweetalert2';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Sidebar, SidebarProvider } from '@/components/ui/sidebar';
-import { Stethoscope, Sun, Timer, User2 } from 'lucide-react';
-import ApiRequest from '@/api';
-import { useNavigate } from 'react-router';
-
-export const Dashboard = () => {
-  // GSAP Animations - scoped safely
-=======
  import Swal from "sweetalert2";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
@@ -40,7 +29,6 @@ export const Dashboard = () => {
     setIsLoggedIn(!!token); // Set to true if token exists
   }, []);
 
->>>>>>> upstream/main
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(avatarRef.current, {
@@ -419,18 +407,6 @@ export const Dashboard = () => {
             {/* Scans */}
             <TabsContent value="scans">
               <ScrollArea className="h-[500px] pr-4">
-<<<<<<< HEAD
-                {scans.length > 0 ? (
-                  scans.map((scan, i) => (
-                    <Card key={scan._id} ref={(el) => (cardRefs.current[sections.length + i] = el)} className="mb-4 shadow-md">
-                      <CardHeader>
-                        <CardTitle>{new Date(scan.uploadedAt).toLocaleDateString()}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex gap-4 items-start">
-                        <img src={`http://localhost:4000${scan.path}`} alt="Scan" className="h-32 w-32 object-cover rounded-lg" loading="lazy" />
-                        <div>
-                          <p>this is the thing {scan.path}</p>
-=======
                 {scans.length > 0 ? scans.map((scan, i) => (
                   <Card
                     key={scan._id}
@@ -448,7 +424,6 @@ export const Dashboard = () => {
                         loading="lazy"
                       />
                       <div>
->>>>>>> upstream/main
 
                           <p className="font-medium">Result:</p>
                           <p>{scan.prediction}</p>
@@ -461,12 +436,12 @@ export const Dashboard = () => {
                           <p className="font-medium mt-2">Cara Pakai:</p>
                           <p>{scan.cara_pakai}</p>
                         </div>
-                      </CardContent>
-                    </Card>
+                    </CardContent>
+                  </Card>
                   ))
-                ) : (
+                 : 
                   <p>No scans yet.</p>
-                )}
+                }
               </ScrollArea>
             </TabsContent>
 
@@ -481,17 +456,10 @@ export const Dashboard = () => {
                     url: '/upload-penyakit',
                   },
                   {
-<<<<<<< HEAD
-                    title: 'Update Profile Info',
-                    description: 'Keep your profile up to date for better recommendations.',
-                    button: 'Edit Profile',
-                    // url: "/maps",
-=======
                     title: "Update Profile Info",
                     description: "Keep your profile up to date for better recommendations.",
                     button: "Edit Profile",
                     onClick: () => setOpen(true),
->>>>>>> upstream/main
                   },
                   {
                     title: 'Check the nearest clinic',
@@ -506,11 +474,6 @@ export const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <p>{action.description}</p>
-<<<<<<< HEAD
-                      <Button className="mt-3" onClick={() => navigate(action.url)}>
-                        {action.button}
-                      </Button>
-=======
                       <Button className="mt-3" onClick={() => {
                           if (action.onClick) {
                             action.onClick();
@@ -518,7 +481,6 @@ export const Dashboard = () => {
                             navigate(action.url);
                           }
                         }} >{action.button}</Button>
->>>>>>> upstream/main
                     </CardContent>
                   </Card>
                 ))}
