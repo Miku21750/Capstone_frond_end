@@ -9,7 +9,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, LineChart, L
  import Swal from "sweetalert2";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
-import { Stethoscope, Sun, Timer, User2 } from "lucide-react";
+import { Stethoscope, Sun, Timer, User2, Mars, Venus } from "lucide-react";
 import ApiRequest from "@/api";
 import { useNavigate } from "react-router";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -20,9 +20,19 @@ import { Separator } from "@/components/ui/separator";
 
 export const Dashboard = () => {
 
-  const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [birthDate, setBirthDate] = useState('')
+  const [open, setOpen] = useState(false);
+  const [birthDate, setBirthDate] = useState(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    height: "",
+    weight: "",
+  });
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -51,6 +61,11 @@ export const Dashboard = () => {
   }, []);
 
   const [scans, setScans] = useState([]);
+  const [selectedGender, setSelectedGender] = useState("");
+  const handleGenderChange = (e) => {
+    setSelectedGender(e.target.value);
+  };
+
   const [user, setUser] = useState({
     name: 'Loading....',
     age: '',
@@ -64,30 +79,6 @@ export const Dashboard = () => {
   });
   const avatarRef = useRef(null);
   const cardRefs = useRef([]);
-  // const user = {
-  //   name: "Jane Doe",
-  //   email: "jane@example.com",
-  //   age: 28,
-  //   gender: "Female",
-  //   avatar: "/user-avatar.jpg",
-  //   lastLogin: "May 25, 2025",
-  //   scans: [
-  //     {
-  //       id: "scan-001",
-  //       date: "2025-05-20",
-  //       result: "Eczema Detected",
-  //       image: "/scans/eczema.jpg",
-  //       recommendation: "Use moisturizer and avoid harsh soaps.",
-  //     },
-  //     {
-  //       id: "scan-002",
-  //       date: "2025-04-10",
-  //       result: "No signs of skin disease",
-  //       image: "/scans/normal.jpg",
-  //       recommendation: "Maintain daily skincare routine.",
-  //     },
-  //   ],
-  // };
   const handleLogout = () => {
     localStorage.removeItem('token');
     Swal.fire({
@@ -103,8 +94,19 @@ export const Dashboard = () => {
     //fetch user
     const fetchUserProfile = async () => {
       try {
-        const res = await ApiRequest.get('/api/user/detail');
-        setUser(res.data);
+        const res = await ApiRequest.get("/api/user/detail")
+        setUser(res.data)
+        setFormData({
+          name: res.data.name || "",
+          email: res.data.email || "",
+          phoneNumber: res.data.phoneNumber || "",
+          address: res.data.address || "",
+          height: res.data.height || "",
+          weight: res.data.weight || "",
+        });
+        if (res.data.birthDate) {
+          setBirthDate(new Date(res.data.birthDate));
+        }
       } catch (error) {
         console.error('failed to fetch data user : ', error);
       }
@@ -288,8 +290,62 @@ export const Dashboard = () => {
     date: entry.date,
     scans: entry.scans,
     confidence: (entry.confidenceSum / entry.scans).toFixed(2),
-    ...entry.diseases,
-  }));
+    ...entry.diseases
+  }))
+
+
+  const calculateBMI = (weightKg, heightCm) => {
+    const heightM = heightCm / 100;
+    const bmi = weightKg / (heightM * heightM);
+    return parseFloat(bmi.toFixed(2));
+  };
+
+
+  //edit data
+
+  const [photoFile, setPhotoFile] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const handleSubmit = async () => {
+    const form = new FormData();
+    for(let key in formData) form.append(key, formData[key]);
+    if(birthDate) form.append("birthDate", birthDate.toISOString());
+    if(photoFile) form.append("avatar", photoFile);
+    if(removePhoto) form.append("removePhoto", "true");
+    try {
+      const token = localStorage.getItem("token");
+
+      const body = {
+        ...formData,
+        birthDate,
+      }
+
+      await ApiRequest.put("/api/user/detail", form)
+
+      Swal.fire({
+        icon: "success",
+        title: "Profile Updated",
+        text: "Your profile information has been updated successfully.",
+      })
+
+      setOpen(false);
+      setRemovePhoto(false); 
+      setPhotoFile(null);
+      setPhotoPreview(null);
+
+      const refreshed = await ApiRequest.get("/api/user/detail");
+      setUser(refreshed.data);
+    } catch (error) {
+      console.error("Request error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: error.response?.data?.message || "Something went wrong.",
+      });
+    }
+  }
+
+  //remove photo 
+  const [removePhoto, setRemovePhoto] = useState(false);
 
   const navigate = useNavigate();
   return (
@@ -307,7 +363,7 @@ export const Dashboard = () => {
                 ref={avatarRef}
                 className="h-24 w-24 ring-2 ring-emerald-500"
               >
-                <AvatarImage src={user.avatar} />
+                <AvatarImage src={`http://localhost:4000${user.avatar}`} />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div className="space-y-1">
@@ -527,31 +583,112 @@ export const Dashboard = () => {
           </DialogDescription>
           <div className="flex">
            <div className="flex-1 space-y-4 flex flex-col">
-             <Label htmlFor="full-name" className="block mb-2">Full Name</Label>
-             <Input id="full-name" placeholder="Name" />
-             <Label htmlFor="email" className="block mb-2">Email</Label>
-             <Input id="email" placeholder="Email" />
-             <Label htmlFor="phone" className="block mb-2">Phone Number</Label>
-             <Input id="phone" placeholder="Phone Number" />
-             <Label htmlFor="address" className="block mb-2">Address</Label>
-             <Input id="address" placeholder="Address" />
-             <Label htmlFor="date-picker" className="block mb-2">Date of Birth</Label>
-             <DatePicker id="date-picker" value={birthDate} onChange={setBirthDate} />
-              <Label htmlFor="photo-profile" className="block mb-2">Profile Photo</Label>
-             <Input id="photo-profile" type="file" accept="image/*" className="mt-2" />
+            <div className="relative w-32 h-32 group cursor-pointer">
+              <img 
+                src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `http://localhost:4000${user.avatar}`)} 
+                alt="Profile Avatar"
+                className="w-full h-full object-cover rounded-lg border-2 border-gray-300" 
+                onClick={() => document.getElementById("avatarInput").click()}
+              />
+              
+              {(!removePhoto && (photoPreview || user.avatar)) && (
+                <button
+                  className="absolute top-1 right-1 bg-white rounded-full shadow p-1 text-red-500 hover:bg-red-100 z-10"
+                  onClick={(e) =>{
+                    e.stopPropagation();
+                    setRemovePhoto(true);
+                    setPhotoFile(null);
+                    setPhotoPreview(null);
+                  }}
+                >
+                  X
+                </button>
+              )}
+
+              <Input
+                type="file"
+                id="avatarInput"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files[0]
+                  if(file){
+                    setPhotoFile(file);
+                    setPhotoPreview(URL.createObjectURL(file));
+                    setRemovePhoto(false);
+                  }
+                }}
+              />
+            </div>
+          
+            <Label htmlFor="full-name" className="block mb-2">Full Name</Label>
+            <Input id="full-name" placeholder="Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name:e.target.value})}/>
+            <Label htmlFor="email" className="block mb-2">Email</Label>
+            <Input id="email" placeholder="Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email:e.target.value})}/>
+            <Label htmlFor="phone" className="block mb-2">Phone Number</Label>
+            <Input id="phone" placeholder="Phone Number" value={formData.phoneNumber} onChange={(e) => setFormData({ ...formData, phoneNumber:e.target.value})}/>
+            <Label htmlFor="address" className="block mb-2">Address</Label>
+            <Input id="address" placeholder="Address" value={formData.address} onChange={(e) => setFormData({ ...formData, address:e.target.value})}/>
+            <Label htmlFor="date-picker" className="block mb-2">Date of Birth</Label>
+            <DatePicker id="date-picker" value={birthDate} onChange={setBirthDate} />
+            <Label className={'text-xl'} htmlFor="gender">Gender</Label>
+            <div className="flex justify-around items-center gap-4">
+              <label className="flex items-center gap-2">
+                <Input onChange={handleGenderChange} type="radio" name="gender" value="male" className="hidden"/>
+                <span className="flex flex-col items-center justify-center w-20 h-20 ring-3 ring-sky-300 rounded-5">
+                  {selectedGender === "male"  ? 
+                  <>
+                  <p className="text-lg font-black">Male</p>
+                  <Mars className="w-10 h-10 text-blue-500 transition-all"/>
+                  </>
+                  : 
+                  <>
+                  <p className="text-lg font-black">Male</p>
+                  <Mars className="w-4 h-4 text-blue-500 transition-all"/>
+                  </>
+                  }
+                </span>
+              </label>
+              <label className="flex items-center gap-2">
+                <Input onChange={handleGenderChange} type="radio" name="gender" value="female" className="hidden" />
+                <span className="flex flex-col items-center justify-center w-20 h-20 ring-2 ring-pink-300 rounded-5">
+                  {selectedGender === "female" ? <>
+                  <p className="text-lg font-black">Female</p>
+                  <Venus className="w-10 h-10 text-pink-500 transition-all"/>
+                  </> : <>
+                  <p className="text-lg font-black">Female</p>
+                  <Venus className="w-4 h-4 text-pink-500 transition-all"/>
+                  </>}
+                </span>
+              </label>
+            </div>
+            {/* <Label htmlFor="photo-profile" className="block mb-2">Profile Photo</Label>
+            <Input id="photo-profile" type="file" accept="image/*" className="mt-2" onChange={(e) => setPhotoFile(e.target.files[0])}/>
+            {user.avatar && (
+              <button
+                onClick={() => {
+                  setRemovePhoto(true);
+                  setPhotoFile(null);
+                }}
+                className="text-red-500 text-sm underline mt-2"
+              >
+                Remove Photo
+              </button>
+            )} */}
+
            </div>
            <Separator orientation="vertical" className="mx-4" />
            <div className="flex-1 space-y-4">
               <Label htmlFor="height" className="block mb-2">Height</Label>
-              <Input id="height" placeholder="Height" type={'number'} />
+              <Input id="height" placeholder="Height" type={'number'} value={formData.height} onChange={(e) => setFormData({ ...formData, height:e.target.value})}/>
               <Label htmlFor="weight" className="block mb-2">Weight</Label>
-              <Input id="weight" placeholder="Weight" type={'number'} />
+              <Input id="weight" placeholder="Weight" type={'number'} value={formData.weight} onChange={(e) => setFormData({ ...formData, weight:e.target.value})}/>
               
             </div>
           </div>
           <DialogFooter>
             <Button variant="outline">Cancel</Button>
-            <Button>Confirm</Button>
+            <Button onClick={handleSubmit}>Confirm</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
