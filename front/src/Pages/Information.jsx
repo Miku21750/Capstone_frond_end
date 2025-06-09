@@ -23,7 +23,7 @@ export default function Information() {
     return (
         <div className="[--header-height:calc(theme(spacing.14))]">
             <SidebarProvider className="flex flex-col">
-            <SiteHeader />
+            <SiteHeader searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
             <div className="flex flex-1">
                 <AppSidebar  
                     itemsJson={filteredConditions}

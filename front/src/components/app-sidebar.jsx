@@ -198,7 +198,7 @@ export function AppSidebar({ itemsJson = [], onItemClick, searchKeyword, setSear
   return (
     <Sidebar className="top-(--header-height) h-[calc(100svh-var(--header-height))]!" {...props}>
       <SidebarHeader>
-        <SearchForm className="w-full " value={searchKeyword} onChange={(e) => setSearchKeyword?.(e.target.value)} />
+        <SearchForm className="w-full md:hidden" value={searchKeyword} onChange={(e) => setSearchKeyword?.(e.target.value)} />
       </SidebarHeader>
       <SidebarContent className={'bg-[#E9F3F4] scrollbar-thin overflow-y-auto'}>
         {filteredNavMain.map((group) => {
