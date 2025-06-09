@@ -50,7 +50,7 @@ export const SkinCondition = () => {
       .finally(() => {
         Swal.close();
       });
-  }, [name, conditions.length, loading]);
+  }, [name, loading, conditions.length]); // Add conditions.length to dependency array
 
   useEffect(() => {
     if (conditions.length > 0) {
@@ -67,16 +67,22 @@ export const SkinCondition = () => {
 
   if (loading && conditions.length === 0) {
     return (
-      <section className="p-4 text-center">
-        <p className="text-gray-600">Loading content...</p>
+      <section className="flex items-center justify-center min-h-[60vh] p-4 bg-gray-50">
+        <div className="text-center">
+          <p className="text-lg font-medium text-gray-700">Loading content...</p>
+          {/* You could add a simple spinner here if Swal is not visible */}
+        </div>
       </section>
     );
   }
 
   if (!selectedCondition) {
     return (
-      <section className="p-4">
-        <p className="text-red-500 font-medium">Condition not found.</p>
+      <section className="flex items-center justify-center min-h-[60vh] p-4 bg-gray-50">
+        <div className="text-center">
+          <p className="text-xl font-semibold text-red-600">Condition not found.</p>
+          <p className="text-gray-600 mt-2">Please check the URL or try searching for another condition.</p>
+        </div>
       </section>
     );
   }
@@ -87,7 +93,7 @@ export const SkinCondition = () => {
   let currentH2 = null;
 
   selectedCondition.sections.forEach((section, index) => {
-    section.id = `section-${index}`;
+    section.id = `section-${index}`; // Ensure unique IDs for scrolling
 
     if (section.level === 'h2') {
       currentH2 = {
@@ -101,53 +107,76 @@ export const SkinCondition = () => {
   });
 
   return (
-    <>
-      <div className="flex flex-col lg:flex-row gap-12 min-h-screen bg-[#E9F3F4] px-6 py-10 lg:pr-72 ">
-        <section className="flex-1 max-w-4xl">
-          <h1 className="text-5xl font-extrabold text-cold-9 mb-10">{selectedCondition.name}</h1>
+    <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-screen bg-[#E9F3F4] text-gray-800">
+      {/* Main content area */}
+      <section className="flex-1 w-auto lg:mr-80 px-4 py-8 lg:px-8 lg:py-12">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-6 sm:mb-10 leading-tight">
+          {selectedCondition.name}
+        </h1>
 
-          <div className="space-y-10">
-            {tocSections.map((section) => (
-              <article key={section.id} id={section.id} className="bg-white p-6 rounded shadow-sm border scroll-mt-20">
-                <h2 className="text-2xl font-semibold mb-4">{section.heading}</h2>
-                <p className="whitespace-pre-wrap text-base text-gray-800 leading-relaxed">{section.content}</p>
+        <div className="space-y-8 sm:space-y-10">
+          {tocSections.map((section) => (
+            <article key={section.id} id={section.id} className="bg-white p-6 sm:p-8 rounded-lg shadow-md border border-gray-100 scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-4">{section.heading}</h2>
+              <p className="whitespace-pre-wrap text-base leading-relaxed text-gray-700">
+                {section.content}
+              </p>
 
-                {section.children.map((child, idx) => (
-                  <div key={child.id} id={child.id} className="mt-6 ml-6 pl-4 border-l border-gray-200">
-                    <h3 className="text-xl font-medium mb-2">{child.heading}</h3>
-                    <p className="whitespace-pre-wrap text-gray-800 leading-relaxed">{child.content}</p>
-                  </div>
-                ))}
-              </article>
-            ))}
-          </div>
+              {section.children.map((child, idx) => (
+                <div key={child.id} id={child.id} className="mt-6 sm:mt-8 ml-4 sm:ml-8 pl-4 border-l-4 border-blue-200">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-blue-600 mb-2">{child.heading}</h3>
+                  <p className="whitespace-pre-wrap text-base leading-relaxed text-gray-700">
+                    {child.content}
+                  </p>
+                </div>
+              ))}
+            </article>
+          ))}
+        </div>
 
-          <div className="mt-16">
-            <h2 className="text-2xl font-semibold mb-6">Image Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {selectedCondition.images && selectedCondition.images.length > 0 && (
+          <div className="mt-12 sm:mt-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Image Gallery</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {selectedCondition.images.map((image, index) => (
-                <figure key={index} className="group relative overflow-hidden rounded shadow-md">
-                  <img src={`http://localhost:4000${image.localPath}`} alt={image.alt} title={image.title} className="w-full h-auto object-cover transition-transform duration-200 group-hover:scale-105 cursor-pointer" />
-                  <figcaption className="text-sm text-gray-600 mt-2">{image.title}</figcaption>
+                <figure key={index} className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-100">
+                  <img
+                    src={`http://localhost:4000${image.localPath}`}
+                    alt={image.alt || 'Skin condition image'}
+                    title={image.title || image.alt || 'Skin condition image'}
+                    className="w-full h-48 sm:h-56 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                  />
+                  <figcaption className="p-3 text-sm text-gray-600">
+                    {image.title || image.alt}
+                  </figcaption>
                 </figure>
               ))}
             </div>
           </div>
-        </section>
+        )}
+      </section>
 
-        <aside className="hidden lg:block fixed right-0 top-(--header-height) w-64 h-[calc(100svh-var(--header-height))] bg-white shadow-lg p-6 overflow-y-auto border-l z-30">
-          <h2 className="font-semibold mb-3 text-2xl">On this page</h2>
-          <ul className="space-y-2 text-gray-700">
+      {/* Right-aligned Table of Contents (TOC) sidebar */}
+      <aside className="hidden lg:block fixed right-0 top-0 h-screen w-80 bg-white shadow-xl border-l border-gray-100 p-8 overflow-y-auto z-30">
+        <div className="pt-24"> {/* Adjust padding to account for fixed header if present */}
+          <h2 className="font-bold text-3xl text-blue-800 mb-6">On this page</h2>
+          <ul className="space-y-3 text-gray-700">
             {tocSections.map((section) => (
               <li key={section.id}>
-                <a href={`#${section.id}`} className="font-medium hover:text-blue-600">
+                <a
+                  href={`#${section.id}`}
+                  className="font-semibold text-lg hover:text-blue-600 transition-colors duration-200 block py-1"
+                >
                   {section.heading}
                 </a>
                 {section.children.length > 0 && (
-                  <ul className="ml-4 mt-1 space-y-1 text-gray-600 border-l border-gray-200 pl-2">
+                  <ul className="ml-5 mt-2 space-y-2 text-gray-600 border-l-2 border-blue-100 pl-4">
                     {section.children.map((child) => (
                       <li key={child.id}>
-                        <a href={`#${child.id}`} className="hover:text-blue-600 block">
+                        <a
+                          href={`#${child.id}`}
+                          className="hover:text-blue-600 transition-colors duration-200 block py-1"
+                        >
                           {child.heading}
                         </a>
                       </li>
@@ -157,9 +186,9 @@ export const SkinCondition = () => {
               </li>
             ))}
           </ul>
-        </aside>
-      </div>
-    </>
+        </div>
+      </aside>
+    </div>
   );
 };
 export const Overviewinfo = () => {
@@ -273,7 +302,7 @@ export const DailySkincareRoutine = () => {
 
           <Separator />
 
-          <div className="grid grid-cols-2 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Card className={'ring-2 ring-amber-200 '}>
               <CardHeader>
                 <CardTitle className="text-xl font-semibold mb-1">

@@ -33,25 +33,28 @@ export const FeedbackForm = () => {
   };
   return (
     <>
-      <Card className="">
-        <CardHeader>
-          <CardTitle className="text-4xl font-semibold text-center">🗣 Kami Sangat Mengharapkan Masukan Anda</CardTitle>
+<Card className="w-full max-w-4xl mx-auto">
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="text-3xl md:text-4xl font-semibold text-center">
+            🗣 Kami Sangat Mengharapkan Masukan Anda
+          </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 md:p-6">
           {submitted ? (
-            <div className="text-center text-green-600 font-medium">✅ Terima kasih! Masukan Anda membantu meningkatkan akses kesehatan untuk semua orang.</div>
+           <div className="text-center text-green-600 font-medium text-base md:text-lg py-8">
+              ✅ Terima kasih! Masukan Anda membantu meningkatkan akses kesehatan untuk semua orang.
+            </div>
           ) : (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 grid grid-cols-2 gap-x-15 items-center">
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 md:gap-x-15 gap-y-6 items-start">
+
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Nama Anda (Opsional)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g. Ria from NTT" {...field} />
-                      </FormControl>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Nama Anda (Optional)</FormLabel>
+                      <FormControl><Input placeholder="e.g. Ria from NTT" {...field} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -60,11 +63,9 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="region"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Provinsi/Kota</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g. Nusa Tenggara Timur" {...field} />
-                      </FormControl>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Provinsi / Kota</FormLabel>
+                      <FormControl><Input placeholder="e.g. Nusa Tenggara Timur" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -74,8 +75,8 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="method"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Apakah Anda menggunakan unggah gambar atau kamera?</FormLabel>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Apakah Anda menggunakan unggah gambar atau kamera?</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -99,8 +100,8 @@ export const FeedbackForm = () => {
                     const [hover, setHover] = useState(null);
 
                     return (
-                      <FormItem>
-                        <FormLabel className={'text-xl'}>Apakah diagnosisnya membantu?</FormLabel>
+                      <FormItem className="col-span-2">
+                        <FormLabel className={'text-base md:text-xl'}>Apakah Diagnosisnya membantu?</FormLabel>
                         <div style={{ display: 'flex', gap: '5px' }}>
                           {[1, 2, 3, 4, 5].map((rating) => (
                             <Star
@@ -123,8 +124,8 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="drugAdviceClear"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Apakah saran obatnya jelas?</FormLabel>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Apakah Saran Obatnya jelas?</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -144,8 +145,8 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="nearbyHelp"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Sudahkah Anda mencoba mencari bantuan di sekitar sini?</FormLabel>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Sudahkah Anda mencoba mencari bantuan di sekitar sini?</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -165,8 +166,8 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="learnMore"
                   render={() => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Apa yang ingin Anda pelajari lebih lanjut?</FormLabel>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Apa yang ingin Anda pelajari lebih lanjut?</FormLabel>
                       <div className="flex flex-wrap gap-2">
                         {['Pencegahan', 'Pemanfaatan Obat', 'Kebersihan Kulit', 'Klinik Lokal', 'Lainnya'].map((option) => (
                           <FormField
@@ -200,11 +201,9 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Email (Optional)</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="email@example.com" {...field} />
-                      </FormControl>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Email (Optional)</FormLabel>
+                      <FormControl><Input type="email" placeholder="email@example.com" {...field} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -213,11 +212,9 @@ export const FeedbackForm = () => {
                   control={form.control}
                   name="comments"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className={'text-xl'}>Saran / Komentar Anda</FormLabel>
-                      <FormControl>
-                        <Textarea className={' resize-none'} rows={4} placeholder="Your experience, suggestions, or issues..." {...field} />
-                      </FormControl>
+                    <FormItem className="col-span-2">
+                      <FormLabel className={'text-base md:text-xl'}>Saran / Komentar Anda</FormLabel>
+                      <FormControl><Textarea className={' resize-none'} rows={4} placeholder="Your experience, suggestions, or issues..." {...field} /></FormControl>
                     </FormItem>
                   )}
                 />
