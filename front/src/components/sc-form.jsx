@@ -125,11 +125,13 @@ export function RegisterForm({
   const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    const age = e.target.age.value;
+    // const age = e.target.age.value;
     // const address = e.target.address.value;
     // const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    // const birth = e.target.birth.value;
+    const gender = e.target.gender.value;
 
     try {
       // Loading Swal
@@ -144,7 +146,7 @@ export function RegisterForm({
       });
       const res = await ApiRequest.post("/api/register",{
         name,
-        age,
+        gender,
         email,
         password
       });
@@ -157,6 +159,7 @@ export function RegisterForm({
       })
       navigate("/login");
     } catch (error) {
+      console.error("Registration error:", error);
       Swal.fire({
         title: 'Registration Failed',
         text: `${error.response?.data?.msg || "Registration failed"}`,
@@ -198,13 +201,13 @@ export function RegisterForm({
               </div>
               <div className="grid gap-3">
                 <Label className={'text-xl'} htmlFor="age">Birth</Label>
-                <DatePicker value={birth} onChange={setBirth} />
+                <DatePicker value={birth} id="birth" onChange={setBirth} />
               </div>
               <div className="grid gap-3">
                 <Label className={'text-xl'} htmlFor="gender">Gender</Label>
                 <div className="flex justify-around items-center gap-4">
                   <label className="flex items-center gap-2">
-                    <Input onChange={handleGenderChange} type="radio" name="gender" value="male" className="hidden"/>
+                    <Input onChange={handleGenderChange} type="radio" name="gender" value="male" id="gender" className="hidden"/>
                     <span className="flex flex-col items-center justify-center w-20 h-20 ring-3 ring-sky-300 rounded-5">
                       {selectedGender === "male"  ? 
                       <>
