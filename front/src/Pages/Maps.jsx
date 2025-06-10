@@ -164,146 +164,161 @@ export const NearbyClinics = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col lg:flex-row items-start justify-center min-h-screen bg-muted/30 p-6 gap-6">
-      <Card className="w-full lg:w-[300px] h-fit">
-        <CardHeader>
-          <CardTitle className="text-xl">Nearby Clinics</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Input
-            placeholder="Search clinics..."
-            className="mb-3"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <ScrollArea className="h-[400px] pr-2">
-            <ul className="space-y-2">
-              {filteredClinics.map((clinic) => (
-                <li
-                  key={clinic.id}
-                  className="text-sm p-2 border rounded hover:bg-muted cursor-pointer"
-                  onClick={() => {
-                    setSelectedClinic(clinic)
-                    if (mapRef.current){
-                      mapRef.current.flyTo(clinic.position, 14, {
-                        animate: true,
-                        duration: 1.5,
-                      });
-                    }
-                    const marker = markerRefs.current[clinic.id];
-                    if (marker) {
-                      marker.openPopup();
-                    }
-                  }}
-                >
-                  <strong>{clinic.name}</strong>
-                  <br />
-                  <span className="text-xs text-muted-foreground">{clinic.description} | {formatDistance(clinic.distance)}</span>
-                </li>
-              ))}
-            </ul>
-          </ScrollArea>
-        </CardContent>
-        <CardFooter>
-          <Button variant={'outline' } onClick={() => navigate('/dashboard')}>
-            Go to Dashboard
-          </Button>
-        </CardFooter>
-      </Card>
+<div className="flex flex-col lg:flex-row items-stretch justify-center min-h-screen  p-4 lg:p-6 gap-4 lg:gap-6 bg-gray-100"> 
+  <Card className="w-full lg:w-[400px] flex-shrink-0 flex flex-col border-t-5 border-t-sky-400 shadow-lg hover:shadow-xl transition-all duration-300"> 
+    <CardHeader className="pb-2"> 
+      <CardTitle className="text-3xl font-bold text-gray-800">Nearby Clinics</CardTitle>
+      <p className="text-sm text-gray-500 mt-1">Find clinics, hospitals, and pharmacies near you.</p> 
+    </CardHeader>
+    <CardContent className="flex-grow pt-2"> 
+      <Input
+        placeholder="Search clinics..."
+        className="mb-3 border-gray-300 focus-visible:ring-sky-400"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      
+      {filteredClinics.length > 0 ? (
+        <ScrollArea className="h-[calc(100vh-350px)] lg:h-[400px] pr-2"> 
+          <ul className="space-y-3"> 
+            {filteredClinics.map((clinic) => (
+              <li
+                key={clinic.id}
+                className={`p-3 border rounded-lg transition-all duration-200 ease-in-out cursor-pointer
+                           ${selectedClinic?.id === clinic.id ? 'bg-blue-50 border-blue-400 shadow-md' : 'hover:bg-gray-50 border-gray-200'}`}
+                onClick={() => {
+                  setSelectedClinic(clinic);
+                  if (mapRef.current) {
+                    mapRef.current.flyTo(clinic.position, 14, {
+                      animate: true,
+                      duration: 1.5,
+                    });
+                  }
+                  const marker = markerRefs.current[clinic.id];
+                  if (marker) {
+                    marker.openPopup();
+                  }
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <strong className="text-base text-gray-700">{clinic.name}</strong>
+                  <span className="text-sm font-semibold text-blue-600">{formatDistance(clinic.distance)}</span>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">{clinic.description}</p>
+                {clinic.address && <p className="text-xs text-gray-400 mt-1 truncate">{clinic.address}</p>} 
+              </li>
+            ))}
+          </ul>
+        </ScrollArea>
+      ) : (
+        <div className="text-center text-gray-500 py-10">
+          <p>No clinics found. Try broadening your search or adjusting the radius.</p>
+        </div>
+      )}
+    </CardContent>
+    <CardFooter className="flex flex-col gap-3 pt-4"> 
+      <Button
+        variant="secondary"
+        className="w-full text-blue-700 border-blue-700 hover:bg-blue-50"
+        onClick={() => navigate('/dashboard')}
+      >
+        Go to Dashboard
+      </Button>
+      <Button
+        variant="outline"
+        className="w-full text-gray-700 border-gray-300 hover:bg-gray-50"
+        onClick={() => navigate('/')}
+      >
+        Go to Homepage
+      </Button>
+    </CardFooter>
+  </Card>
 
-      <Card className="flex-1 w-full h-fit">
-        <CardHeader>
-          <CardTitle className="text-2xl text-center">Clinic Map</CardTitle>
-        </CardHeader>
-        <CardContent className="relative">
-          <div className="absolute bottom-3 right-4 z-[1000]">
-            <button
-              onClick={() => {
-                if (userPosition && mapRef.current) {
-                  mapRef.current.flyTo(userPosition, 14, { animate: true, duration: 1.2 });
-                }
+  
+  <Card className="flex-1 w-full flex flex-col border-t-5 border-t-sky-400 shadow-lg hover:shadow-xl transition-all duration-300"> 
+    <CardHeader className="pb-2">
+      <CardTitle className="text-4xl text-center text-gray-800">Clinic Map</CardTitle>
+    </CardHeader>
+    <CardContent className="relative flex-grow p-0 overflow-hidden rounded-b-lg"> 
+      <div className="absolute bottom-4 right-4 z-[1000] space-y-2"> 
+        <button
+          onClick={() => {
+            if (userPosition && mapRef.current) {
+              mapRef.current.flyTo(userPosition, 14, { animate: true, duration: 1.2 });
+            }
+          }}
+          className="bg-white border border-gray-300 px-4 py-2 rounded-full shadow-lg hover:bg-gray-100 transition-all text-gray-700 flex items-center gap-2"
+        >
+          <span className="text-lg">📍</span> Center on Me
+        </button>
+      </div>
+
+      <MapContainer
+        ref={mapRef}
+        center={userPosition || [0, 0]}
+        zoom={13}
+        scrollWheelZoom={true}
+        className="h-[400px] lg:h-[600px] w-full z-0" 
+      >
+        <UserLocationMarker setUserPosition={setUserPosition} />
+
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="OpenStreetMap Default">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+
+          <LayersControl.BaseLayer name="Topographic View">
+            <TileLayer
+              url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> contributors'
+            />
+          </LayersControl.BaseLayer>
+
+          <LayersControl.BaseLayer name="Humanitarian View">
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, Humanitarian style'
+            />
+          </LayersControl.BaseLayer>
+
+          {filteredClinics.map((clinic) => (
+            <Marker
+              key={clinic.id}
+              position={clinic.position}
+              icon={customIcon}
+              ref={(ref) => {
+                if (ref) markerRefs.current[clinic.id] = ref;
               }}
-              className="bg-white border px-3 py-1 rounded shadow hover:bg-muted transition"
             >
-              📍 Center on Me
-            </button>
-          </div>
-
-          <MapContainer
-            ref={mapRef}
-            center={userPosition || [0, 0]}
-            zoom={13}
-            scrollWheelZoom={true}
-            className="h-[600px] w-full rounded-lg z-0"
-          >
-            <UserLocationMarker setUserPosition={setUserPosition} />
-
-            <LayersControl position="topright">
-              <LayersControl.BaseLayer checked name="OpenStreetMap Default">
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-              </LayersControl.BaseLayer>
-
-              <LayersControl.BaseLayer name="Topographic View">
-                <TileLayer
-                  url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-                  attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a>'
-                />
-              </LayersControl.BaseLayer>
-
-              <LayersControl.BaseLayer name="Humanitarian View">
-                <TileLayer
-                  url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-                  attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, Humanitarian style'
-                />
-              </LayersControl.BaseLayer>
-
-              {filteredClinics.map((clinic) => (
-                <Marker
-                  key={clinic.id}
-                  position={clinic.position}
-                  icon={customIcon}
-                  ref={(ref) => {
-                    if (ref) markerRefs.current[clinic.id] = ref;
-                  }}
-                >
-                  <Popup>
-                    <div className="text-sm">
-                      <strong>{clinic.name}</strong>
-                      <br />
-                      {clinic.address && <div>{clinic.address}</div>}
-                      {clinic.city && <div>📍 {clinic.city}</div>}
-                      <div>🏥 {clinic.description}</div>
-                      {clinic.healthcare && <div>🩺 Healthcare: {clinic.healthcare}</div>}
-                      {clinic.operatorType && <div>🏷️ Operator: {clinic.operatorType}</div>}
-                      {clinic.source && <div>🔍 Source: {clinic.source}</div>}
-                      <div>📏 {formatDistance(clinic.distance)}</div>
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
-            </LayersControl>
-
-            {userPosition && (
-              <Marker position={userPosition}>
-                <Popup>You are here</Popup>
-              </Marker>
-            )}
-
-            {selectedClinic && (
-              <Marker position={selectedClinic.position} icon={customIcon}>
-                <Popup>
-                  <strong>{selectedClinic.name}</strong>
+              <Popup>
+                <div className="text-sm">
+                  <strong className="text-base text-blue-700">{clinic.name}</strong>
                   <br />
-                  {selectedClinic.description}
-                </Popup>
-              </Marker>
-            )}
-          </MapContainer>
-        </CardContent>
-      </Card>
-    </div>
+                  {clinic.address && <div className="text-gray-600">{clinic.address}</div>}
+                  {clinic.city && <div className="text-gray-600">📍 {clinic.city}</div>}
+                  <div className="text-gray-600">🏥 {clinic.description}</div>
+                  {clinic.healthcare && <div className="text-gray-600">🩺 Healthcare: {clinic.healthcare}</div>}
+                  {clinic.operatorType && <div className="text-gray-600">🏷️ Operator: {clinic.operatorType}</div>}
+                  {clinic.source && <div className="text-gray-600">🔍 Source: {clinic.source}</div>}
+                  <div className="font-semibold text-blue-600 mt-1">📏 {formatDistance(clinic.distance)}</div>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+          
+          {userPosition && (
+            <Marker position={userPosition}>
+              <Popup>You are here</Popup>
+            </Marker>
+          )}
+        </LayersControl>
+        
+      </MapContainer>
+    </CardContent>
+  </Card>
+</div>
   );
 };

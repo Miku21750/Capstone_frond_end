@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { AlertCircle, MessageCircleQuestion, Moon, Sun, User } from "lucide-react"
-import { Button } from '@/components/ui/button'
-import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { AlertCircle, MessageCircleQuestion, Moon, Sun, User } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Sparkles, Stethoscope, Leaf, Pill } from 'lucide-react';
 
-import ApiRequest from '@/api'
+import ApiRequest from '@/api';
 
-
-import Swal from 'sweetalert2'; 
+import Swal from 'sweetalert2';
 
 export const SkinCondition = () => {
   const { name } = useParams();
   const [conditions, setConditions] = useState([]);
   const [selectedCondition, setSelectedCondition] = useState(null);
-  const [searchKeyword, setSearchKeyword] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  
     if (conditions.length === 0 && loading) {
       Swal.fire({
         title: 'Loading conditions...',
@@ -28,22 +26,20 @@ export const SkinCondition = () => {
         allowOutsideClick: false,
         didOpen: () => {
           Swal.showLoading();
-        }
+        },
       });
     }
 
     ApiRequest.get('/api/list-skin-condition')
-      .then(res => {
+      .then((res) => {
         setConditions(res.data);
-        const matched = res.data.find(
-          condition => slugify(condition.name) === name
-        );
+        const matched = res.data.find((condition) => slugify(condition.name) === name);
 
         setSelectedCondition(matched || null);
         setLoading(false);
       })
-      .catch(err => {
-        console.error("Failed to fetch conditions", err);
+      .catch((err) => {
+        console.error('Failed to fetch conditions', err);
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -54,48 +50,50 @@ export const SkinCondition = () => {
       .finally(() => {
         Swal.close();
       });
-  }, [name, conditions.length, loading]);
+  }, [name, loading, conditions.length]); // Add conditions.length to dependency array
 
   useEffect(() => {
-  
-  
     if (conditions.length > 0) {
-      const matched = conditions.find(
-        condition => slugify(condition.name) === name
-      );
+      const matched = conditions.find((condition) => slugify(condition.name) === name);
       setSelectedCondition(matched || null);
     }
   }, [name, conditions]);
 
   const slugify = (str) =>
-    str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)+/g, '');
 
   if (loading && conditions.length === 0) {
     return (
-      <section className="p-4 text-center">
-        <p className="text-gray-600">Loading content...</p>
+      <section className="flex items-center justify-center min-h-[60vh] p-4 bg-gray-50">
+        <div className="text-center">
+          <p className="text-lg font-medium text-gray-700">Loading content...</p>
+          {/* You could add a simple spinner here if Swal is not visible */}
+        </div>
       </section>
     );
   }
 
   if (!selectedCondition) {
     return (
-      <section className="p-4">
-        <p className="text-red-500 font-medium">Condition not found.</p>
+      <section className="flex items-center justify-center min-h-[60vh] p-4 bg-gray-50">
+        <div className="text-center">
+          <p className="text-xl font-semibold text-red-600">Condition not found.</p>
+          <p className="text-gray-600 mt-2">Please check the URL or try searching for another condition.</p>
+        </div>
       </section>
     );
   }
 
-  const filteredConditions = conditions.filter((condition) =>
-    condition.name.toLowerCase().includes(searchKeyword.toLowerCase())
-  );
+  const filteredConditions = conditions.filter((condition) => condition.name.toLowerCase().includes(searchKeyword.toLowerCase()));
 
   const tocSections = [];
   let currentH2 = null;
 
   selectedCondition.sections.forEach((section, index) => {
-    section.id = `section-${index}`;
+    section.id = `section-${index}`; // Ensure unique IDs for scrolling
 
     if (section.level === 'h2') {
       currentH2 = {
@@ -109,64 +107,76 @@ export const SkinCondition = () => {
   });
 
   return (
-    <>
-      <div className="flex flex-col lg:flex-row gap-12 min-h-screen bg-cold-2 px-6 py-10 lg:pr-72 ">
-        <section className="flex-1 max-w-4xl">
-          <h1 className="text-5xl font-extrabold text-cold-9 mb-10">
-            {selectedCondition.name}
-          </h1>
+    <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-screen bg-[#E9F3F4] text-gray-800">
+      {/* Main content area */}
+      <section className="flex-1 w-auto lg:mr-80 px-4 py-8 lg:px-8 lg:py-12">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-6 sm:mb-10 leading-tight">
+          {selectedCondition.name}
+        </h1>
 
-          <div className="space-y-10">
-            {tocSections.map((section) => (
-              <article key={section.id} id={section.id} className="bg-white p-6 rounded shadow-sm border scroll-mt-20">
-                <h2 className="text-2xl font-semibold mb-4">{section.heading}</h2>
-                <p className="whitespace-pre-wrap text-base text-gray-800 leading-relaxed">
-                  {section.content}
-                </p>
+        <div className="space-y-8 sm:space-y-10">
+          {tocSections.map((section) => (
+            <article key={section.id} id={section.id} className="bg-white p-6 sm:p-8 rounded-lg shadow-md border border-gray-100 scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-4">{section.heading}</h2>
+              <p className="whitespace-pre-wrap text-base leading-relaxed text-gray-700">
+                {section.content}
+              </p>
 
-                {section.children.map((child, idx) => (
-                  <div key={child.id} id={child.id} className="mt-6 ml-6 pl-4 border-l border-gray-200">
-                    <h3 className="text-xl font-medium mb-2">{child.heading}</h3>
-                    <p className="whitespace-pre-wrap text-gray-800 leading-relaxed">
-                      {child.content}
-                    </p>
-                  </div>
-                ))}
-              </article>
-            ))}
-          </div>
+              {section.children.map((child, idx) => (
+                <div key={child.id} id={child.id} className="mt-6 sm:mt-8 ml-4 sm:ml-8 pl-4 border-l-4 border-blue-200">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-blue-600 mb-2">{child.heading}</h3>
+                  <p className="whitespace-pre-wrap text-base leading-relaxed text-gray-700">
+                    {child.content}
+                  </p>
+                </div>
+              ))}
+            </article>
+          ))}
+        </div>
 
-          <div className="mt-16">
-            <h2 className="text-2xl font-semibold mb-6">Image Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {selectedCondition.images && selectedCondition.images.length > 0 && (
+          <div className="mt-12 sm:mt-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Image Gallery</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {selectedCondition.images.map((image, index) => (
-                <figure key={index} className="group relative overflow-hidden rounded shadow-md">
+                <figure key={index} className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-100">
                   <img
                     src={`http://localhost:4000${image.localPath}`}
-                    alt={image.alt}
-                    title={image.title}
-                    className="w-full h-auto object-cover transition-transform duration-200 group-hover:scale-105 cursor-pointer"
+                    alt={image.alt || 'Skin condition image'}
+                    title={image.title || image.alt || 'Skin condition image'}
+                    className="w-full h-48 sm:h-56 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
                   />
-                  <figcaption className="text-sm text-gray-600 mt-2">{image.title}</figcaption>
+                  <figcaption className="p-3 text-sm text-gray-600">
+                    {image.title || image.alt}
+                  </figcaption>
                 </figure>
               ))}
             </div>
           </div>
-        </section>
+        )}
+      </section>
 
-        <aside className="hidden lg:block fixed right-0 top-(--header-height) w-64 h-[calc(100svh-var(--header-height))] bg-white shadow-lg p-6 overflow-y-auto border-l z-30">
-          <h2 className="font-semibold mb-3 text-2xl">On this page</h2>
-          <ul className="space-y-2 text-gray-700">
+      {/* Right-aligned Table of Contents (TOC) sidebar */}
+      <aside className="hidden lg:block fixed right-0 top-0 h-screen w-80 bg-white shadow-xl border-l border-gray-100 p-8 overflow-y-auto z-30">
+        <div className="pt-24"> {/* Adjust padding to account for fixed header if present */}
+          <h2 className="font-bold text-3xl text-blue-800 mb-6">On this page</h2>
+          <ul className="space-y-3 text-gray-700">
             {tocSections.map((section) => (
               <li key={section.id}>
-                <a href={`#${section.id}`} className="font-medium hover:text-blue-600">
+                <a
+                  href={`#${section.id}`}
+                  className="font-semibold text-lg hover:text-blue-600 transition-colors duration-200 block py-1"
+                >
                   {section.heading}
                 </a>
                 {section.children.length > 0 && (
-                  <ul className="ml-4 mt-1 space-y-1 text-gray-600 border-l border-gray-200 pl-2">
+                  <ul className="ml-5 mt-2 space-y-2 text-gray-600 border-l-2 border-blue-100 pl-4">
                     {section.children.map((child) => (
                       <li key={child.id}>
-                        <a href={`#${child.id}`} className="hover:text-blue-600 block">
+                        <a
+                          href={`#${child.id}`}
+                          className="hover:text-blue-600 transition-colors duration-200 block py-1"
+                        >
                           {child.heading}
                         </a>
                       </li>
@@ -176,17 +186,17 @@ export const SkinCondition = () => {
               </li>
             ))}
           </ul>
-        </aside>
-      </div>
-    </>
+        </div>
+      </aside>
+    </div>
   );
 };
 export const Overviewinfo = () => {
   return (
-    <section className="p-5 flex flex-col gap-5 bg-cold-2">
+    <section className="p-5 flex flex-col gap-5 bg-[#E9F3F4]">
       <h1 className={' text-4xl font-quicksand font-bold'}>Introduction</h1>
       <h1 className={' text-2xl font-quicksand'}>Understanding Skin Diseases</h1>
-      <div className=" grid grid-cols-2  gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <Card>
           <CardHeader>
             <MessageCircleQuestion className="h-10 w-10" />
@@ -194,11 +204,12 @@ export const Overviewinfo = () => {
           </CardHeader>
           <CardContent className="text-base leading-relaxed text-muted-foreground">
             Skin diseases are a wide range of conditions that affect the skin, including infections, inflammation, allergic reactions, and autoimmune disorders.
-            <br /><br />
-            These conditions may cause rashes, itching, redness, swelling, blisters, or other changes in skin appearance or texture. While some skin diseases are temporary and harmless, others may require long-term treatment or signal deeper health issues.
+            <br />
+            <br />
+            These conditions may cause rashes, itching, redness, swelling, blisters, or other changes in skin appearance or texture. While some skin diseases are temporary and harmless, others may require long-term treatment or signal
+            deeper health issues.
           </CardContent>
         </Card>
-
 
         <Card>
           <CardHeader>
@@ -215,7 +226,6 @@ export const Overviewinfo = () => {
           </CardContent>
         </Card>
 
-
         <Card>
           <CardHeader>
             <User className="w-10 h-10" />
@@ -224,14 +234,21 @@ export const Overviewinfo = () => {
           <CardContent className="text-base leading-relaxed text-muted-foreground">
             Skin diseases can affect anyone regardless of age, gender, or ethnicity.
             <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li><Badge>Infants:</Badge> Conditions like diaper rash and cradle cap.</li>
-              <li><Badge>Teens:</Badge> Acne due to hormonal changes.</li>
-              <li><Badge>Adults:</Badge> Eczema, psoriasis, infections, or sun damage.</li>
-              <li><Badge>Seniors:</Badge> Age-related conditions such as dry skin and skin cancer.</li>
+              <li>
+                <Badge>Infants:</Badge> Conditions like diaper rash and cradle cap.
+              </li>
+              <li>
+                <Badge>Teens:</Badge> Acne due to hormonal changes.
+              </li>
+              <li>
+                <Badge>Adults:</Badge> Eczema, psoriasis, infections, or sun damage.
+              </li>
+              <li>
+                <Badge>Seniors:</Badge> Age-related conditions such as dry skin and skin cancer.
+              </li>
             </ul>
           </CardContent>
         </Card>
-
 
         <Card>
           <CardHeader>
@@ -241,12 +258,24 @@ export const Overviewinfo = () => {
           <CardContent className="text-base leading-relaxed text-muted-foreground">
             Millions suffer from various skin conditions every year. The most common include:
             <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li><Badge variant={'destructive'}>Acne:</Badge> Pores clogged with oil and dead skin cells.</li>
-              <li><Badge variant={'destructive'}>Eczema:</Badge> Itchy and inflamed patches caused by environmental or genetic factors.</li>
-              <li><Badge variant={'destructive'}>Psoriasis:</Badge> Autoimmune condition that causes thick, scaly skin.</li>
-              <li><Badge variant={'destructive'}>Rosacea:</Badge> Redness and visible blood vessels often on the face.</li>
-              <li><Badge variant={'destructive'}>Fungal infections:</Badge> Like athlete’s foot or ringworm, usually due to moisture and bacteria.</li>
-              <li><Badge variant={'destructive'}>Skin cancer:</Badge> Often due to long-term sun exposure and UV damage.</li>
+              <li>
+                <Badge variant={'destructive'}>Acne:</Badge> Pores clogged with oil and dead skin cells.
+              </li>
+              <li>
+                <Badge variant={'destructive'}>Eczema:</Badge> Itchy and inflamed patches caused by environmental or genetic factors.
+              </li>
+              <li>
+                <Badge variant={'destructive'}>Psoriasis:</Badge> Autoimmune condition that causes thick, scaly skin.
+              </li>
+              <li>
+                <Badge variant={'destructive'}>Rosacea:</Badge> Redness and visible blood vessels often on the face.
+              </li>
+              <li>
+                <Badge variant={'destructive'}>Fungal infections:</Badge> Like athlete’s foot or ringworm, usually due to moisture and bacteria.
+              </li>
+              <li>
+                <Badge variant={'destructive'}>Skin cancer:</Badge> Often due to long-term sun exposure and UV damage.
+              </li>
             </ul>
           </CardContent>
         </Card>
@@ -255,57 +284,68 @@ export const Overviewinfo = () => {
         <h1></h1>
       </div>
     </section>
-  )
-}
-
+  );
+};
 
 export const DailySkincareRoutine = () => {
   return (
     <div className="">
-      <Card className={" p-6 "}> 
+      <Card className={' p-6 '}>
         <CardHeader>
-          <CardTitle className="text-3xl font-bold">
-            🕐 Daily Skincare Routine
-          </CardTitle>
+          <CardTitle className="text-3xl font-bold">🕐 Daily Skincare Routine</CardTitle>
         </CardHeader>
 
         <CardContent className="text-base leading-relaxed text-muted-foreground space-y-4">
-
           <section>
-            <p>
-              A consistent daily skincare routine helps maintain a clean, hydrated, and balanced skin barrier.
-              It prevents breakouts, early signs of aging, and protects your skin from environmental stress like pollution or UV rays.
-            </p>
+            <p>A consistent daily skincare routine helps maintain a clean, hydrated, and balanced skin barrier. It prevents breakouts, early signs of aging, and protects your skin from environmental stress like pollution or UV rays.</p>
           </section>
 
           <Separator />
 
-
-          <div className="grid grid-cols-2 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Card className={'ring-2 ring-amber-200 '}>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold mb-1"><Sun /> Morning Skincare Steps</CardTitle>
+                <CardTitle className="text-xl font-semibold mb-1">
+                  <Sun /> Morning Skincare Steps
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-3 space-y-1">
-                  <li><Badge className={'bg-amber-300'}>1</Badge> <strong>Cleanser:</strong> Gently wash your face to remove oil and sweat from sleep.</li>
-                  <li><Badge className={'bg-amber-300'}>2</Badge> <strong>Toner:</strong> Balances your skin's pH and preps it for moisturizers.</li>
-                  <li><Badge className={'bg-amber-300'}>3</Badge> <strong>Moisturizer:</strong> Keeps the skin hydrated and smooth.</li>
-                  <li><Badge className={'bg-amber-300'}>4</Badge> <strong>Sunscreen (SPF 30+):</strong> Essential to protect from UV damage, even indoors.</li>
+                  <li>
+                    <Badge className={'bg-amber-300'}>1</Badge> <strong>Cleanser:</strong> Gently wash your face to remove oil and sweat from sleep.
+                  </li>
+                  <li>
+                    <Badge className={'bg-amber-300'}>2</Badge> <strong>Toner:</strong> Balances your skin's pH and preps it for moisturizers.
+                  </li>
+                  <li>
+                    <Badge className={'bg-amber-300'}>3</Badge> <strong>Moisturizer:</strong> Keeps the skin hydrated and smooth.
+                  </li>
+                  <li>
+                    <Badge className={'bg-amber-300'}>4</Badge> <strong>Sunscreen (SPF 30+):</strong> Essential to protect from UV damage, even indoors.
+                  </li>
                 </ul>
               </CardContent>
             </Card>
             <Card className={'ring-2 ring-fuchsia-200 '}>
-
               <CardHeader>
-                <CardTitle className="text-xl font-semibold mb-1"><Moon /> Evening Skincare Steps</CardTitle>
+                <CardTitle className="text-xl font-semibold mb-1">
+                  <Moon /> Evening Skincare Steps
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-3 space-y-1">
-                  <li><Badge className={'bg-fuchsia-200'}>1</Badge> <strong>Makeup Remover/Cleansing Oil:</strong> Removes makeup and impurities.</li>
-                  <li><Badge className={'bg-fuchsia-200'}>2</Badge> <strong>Gentle Cleanser:</strong> Follow up to deeply clean pores.</li>
-                  <li><Badge className={'bg-fuchsia-200'}>3</Badge> <strong>Night Moisturizer:</strong> Heals and hydrates overnight.</li>
-                  <li><Badge className={'bg-fuchsia-200'}>4</Badge> <strong>Serum or Treatment:</strong> Use products with ingredients like Vitamin C or Retinol based on your skin type.</li>
+                  <li>
+                    <Badge className={'bg-fuchsia-200'}>1</Badge> <strong>Makeup Remover/Cleansing Oil:</strong> Removes makeup and impurities.
+                  </li>
+                  <li>
+                    <Badge className={'bg-fuchsia-200'}>2</Badge> <strong>Gentle Cleanser:</strong> Follow up to deeply clean pores.
+                  </li>
+                  <li>
+                    <Badge className={'bg-fuchsia-200'}>3</Badge> <strong>Night Moisturizer:</strong> Heals and hydrates overnight.
+                  </li>
+                  <li>
+                    <Badge className={'bg-fuchsia-200'}>4</Badge> <strong>Serum or Treatment:</strong> Use products with ingredients like Vitamin C or Retinol based on your skin type.
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -313,8 +353,7 @@ export const DailySkincareRoutine = () => {
 
           <Separator />
 
-
-          <section className='bg-cold-3 p-4 rounded-md border border-cold-4 mt-6'>
+          <section className="bg-cold-3 p-4 rounded-md border border-cold-4 mt-6">
             <h3 className="text-lg font-semibold mb-1">Helpful Habits & Tips</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Clean pillowcases and face towels regularly.</li>
@@ -330,64 +369,43 @@ export const DailySkincareRoutine = () => {
   );
 };
 
-
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 export const HygieneAdvice = () => {
   return (
     <div className="p-6 mx-auto ">
       <h2 className="text-3xl font-bold mb-4">🧼 Personal Hygiene for Healthy Skin</h2>
-      <p className="text-muted-foreground mb-6">
-        Maintaining good hygiene helps prevent bacterial build-up, clogged pores, and inflammation. Here are
-        essential habits to keep your skin clean, balanced, and resilient.
-      </p>
+      <p className="text-muted-foreground mb-6">Maintaining good hygiene helps prevent bacterial build-up, clogged pores, and inflammation. Here are essential habits to keep your skin clean, balanced, and resilient.</p>
 
       <Accordion type="multiple" className="space-y-4">
         <AccordionItem value="1">
           <AccordionTrigger>Wash Your Face Twice Daily</AccordionTrigger>
-          <AccordionContent>
-            Morning cleansing removes oils and sweat from the night, while evening washing eliminates pollutants,
-            sunscreen, and debris. Use a gentle cleanser tailored to your skin type.
-          </AccordionContent>
+          <AccordionContent>Morning cleansing removes oils and sweat from the night, while evening washing eliminates pollutants, sunscreen, and debris. Use a gentle cleanser tailored to your skin type.</AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="2">
           <AccordionTrigger>Change Pillowcases and Towels Frequently</AccordionTrigger>
-          <AccordionContent>
-            Dirty fabrics accumulate oil, bacteria, and skin cells. Change pillowcases every 2–3 days and towels
-            at least twice a week.
-          </AccordionContent>
+          <AccordionContent>Dirty fabrics accumulate oil, bacteria, and skin cells. Change pillowcases every 2–3 days and towels at least twice a week.</AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="3">
           <AccordionTrigger>Keep Hands and Nails Clean</AccordionTrigger>
-          <AccordionContent>
-            Touching your face with unwashed hands transfers microbes. Regularly clip and clean nails, which
-            often harbor dirt and germs.
-          </AccordionContent>
+          <AccordionContent>Touching your face with unwashed hands transfers microbes. Regularly clip and clean nails, which often harbor dirt and germs.</AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="4">
           <AccordionTrigger>Sanitize Personal Tools</AccordionTrigger>
-          <AccordionContent>
-            Razors, tweezers, and makeup brushes can introduce bacteria if not cleaned. Sanitize tools weekly to
-            avoid infection or acne breakouts.
-          </AccordionContent>
+          <AccordionContent>Razors, tweezers, and makeup brushes can introduce bacteria if not cleaned. Sanitize tools weekly to avoid infection or acne breakouts.</AccordionContent>
         </AccordionItem>
       </Accordion>
 
       <div className="mt-10 bg-blue-50 p-4 rounded-xl border border-blue-100">
         <h3 className="font-semibold mb-2 text-blue-800">💡 Pro Tip:</h3>
-        <p className="text-blue-700">
-          Avoid over-washing your skin — stripping away natural oils can cause dryness and even trigger more oil
-          production.
-        </p>
+        <p className="text-blue-700">Avoid over-washing your skin — stripping away natural oils can cause dryness and even trigger more oil production.</p>
       </div>
     </div>
   );
 };
-
-
 
 import { Heart, BedDouble, Droplet, Dumbbell, Utensils, Smile } from 'lucide-react';
 
@@ -428,10 +446,7 @@ export const LifestyleChoices = () => {
   return (
     <div className="p-6 max-w-6xl mx-auto mt-12">
       <h2 className="text-3xl font-bold mb-4">🌿 Lifestyle Habits for Radiant Skin</h2>
-      <p className="text-muted-foreground mb-8">
-        Your daily choices shape your skin’s health. These long-term strategies help prevent flare-ups,
-        irritation, and premature aging — supporting a natural glow.
-      </p>
+      <p className="text-muted-foreground mb-8">Your daily choices shape your skin’s health. These long-term strategies help prevent flare-ups, irritation, and premature aging — supporting a natural glow.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tips.map((tip, index) => (
@@ -447,17 +462,11 @@ export const LifestyleChoices = () => {
 
       <div className="mt-10 bg-green-50 p-4 rounded-xl border border-green-100">
         <h3 className="font-semibold mb-2 text-green-800">🧠 Mental Note:</h3>
-        <p className="text-green-700">
-          Consistency is key — small daily improvements lead to significant long-term changes in your skin’s
-          resilience and clarity.
-        </p>
+        <p className="text-green-700">Consistency is key — small daily improvements lead to significant long-term changes in your skin’s resilience and clarity.</p>
       </div>
     </div>
   );
 };
-
-
-
 
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
 
@@ -488,10 +497,7 @@ export const SunProtection = () => {
   return (
     <div className="p-6 ">
       <h2 className="text-3xl font-bold mb-4">☀️ Sun Protection Essentials</h2>
-      <p className="text-muted-foreground mb-6">
-        UV exposure is the #1 cause of premature aging, hyperpigmentation, and skin cancer. Here's how to guard
-        your skin every day.
-      </p>
+      <p className="text-muted-foreground mb-6">UV exposure is the #1 cause of premature aging, hyperpigmentation, and skin cancer. Here's how to guard your skin every day.</p>
 
       <div className="space-y-6 border-l-4 border-yellow-400 pl-9 relative">
         {steps.map((step, index) => (
@@ -505,28 +511,23 @@ export const SunProtection = () => {
 
       <div className="mt-10 bg-yellow-50 p-4 rounded-xl border border-yellow-100">
         <h3 className="font-semibold mb-2 text-yellow-800">⚠️ Did You Know?</h3>
-        <p className="text-yellow-700">
-          Even short sun exposure (like walking to class or work) adds up. Make sunscreen a non-negotiable habit!
-        </p>
+        <p className="text-yellow-700">Even short sun exposure (like walking to class or work) adds up. Make sunscreen a non-negotiable habit!</p>
       </div>
     </div>
   );
 };
-
-
 
 export const OverTheCounter = () => {
   return (
     <div className="px-6 py-10 space-y-8 max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-semibold text-cold-7">
-            Over-the-Counter (OTC) Treatments for Skin Conditions
-          </CardTitle>
+          <CardTitle className="text-3xl font-semibold text-cold-7">Over-the-Counter (OTC) Treatments for Skin Conditions</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
           <p>
-            Over-the-counter (OTC) treatments are non-prescription medications available at pharmacies, drugstores, and online. They’re often the first line of defense for managing common skin conditions like acne, eczema, and fungal infections. OTC products vary by active ingredients, purpose, and skin compatibility.
+            Over-the-counter (OTC) treatments are non-prescription medications available at pharmacies, drugstores, and online. They’re often the first line of defense for managing common skin conditions like acne, eczema, and fungal
+            infections. OTC products vary by active ingredients, purpose, and skin compatibility.
           </p>
 
           <Accordion type="single" collapsible className="w-full">
@@ -534,7 +535,8 @@ export const OverTheCounter = () => {
               <AccordionTrigger className="text-lg font-medium">Acne Treatments</AccordionTrigger>
               <AccordionContent>
                 <p>
-                  Ingredients like <strong>benzoyl peroxide</strong> (kills acne-causing bacteria), <strong>salicylic acid</strong> (exfoliates pores), and <strong>adapalene</strong> (a retinoid) are commonly used. These are available as cleansers, creams, and gels.
+                  Ingredients like <strong>benzoyl peroxide</strong> (kills acne-causing bacteria), <strong>salicylic acid</strong> (exfoliates pores), and <strong>adapalene</strong> (a retinoid) are commonly used. These are available as
+                  cleansers, creams, and gels.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -564,22 +566,18 @@ export const OverTheCounter = () => {
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 export const Prescription = () => {
   return (
     <div className="px-6 py-10 space-y-8 max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-semibold text-cold-7">
-            Prescription Treatments
-          </CardTitle>
+          <CardTitle className="text-3xl font-semibold text-cold-7">Prescription Treatments</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5 text-base text-muted-foreground">
-          <p>
-            When OTC medications are not effective, doctors may prescribe stronger topical or oral medications. These are tailored to the individual’s condition and health history, and often require careful monitoring.
-          </p>
+          <p>When OTC medications are not effective, doctors may prescribe stronger topical or oral medications. These are tailored to the individual’s condition and health history, and often require careful monitoring.</p>
 
           <ul className="list-disc list-inside space-y-3">
             <li>
@@ -607,8 +605,8 @@ export const Prescription = () => {
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 export const NaturalRemedies = () => {
   return (
@@ -616,14 +614,10 @@ export const NaturalRemedies = () => {
       <Card>
         <CardHeader className="flex items-center gap-4">
           <Leaf className="text-green-500 w-8 h-8" />
-          <CardTitle className="text-3xl font-semibold text-green-800">
-            Natural Remedies
-          </CardTitle>
+          <CardTitle className="text-3xl font-semibold text-green-800">Natural Remedies</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
-          <p>
-            Some people prefer natural or home remedies to treat mild skin conditions. While not always scientifically proven, many of these options can offer relief when used safely.
-          </p>
+          <p>Some people prefer natural or home remedies to treat mild skin conditions. While not always scientifically proven, many of these options can offer relief when used safely.</p>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <li>
@@ -648,8 +642,8 @@ export const NaturalRemedies = () => {
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 export const WhenToSeekHelp = () => {
   return (
@@ -657,14 +651,10 @@ export const WhenToSeekHelp = () => {
       <Card>
         <CardHeader className="flex items-center gap-4">
           <Stethoscope className="text-red-500 w-8 h-8" />
-          <CardTitle className="text-3xl font-semibold text-red-700">
-            When to Seek Medical Help
-          </CardTitle>
+          <CardTitle className="text-3xl font-semibold text-red-700">When to Seek Medical Help</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
-          <p>
-            Not all skin problems can be treated at home. In some cases, it’s crucial to consult a dermatologist or primary care physician.
-          </p>
+          <p>Not all skin problems can be treated at home. In some cases, it’s crucial to consult a dermatologist or primary care physician.</p>
 
           <ul className="space-y-3">
             <li>
@@ -689,8 +679,8 @@ export const WhenToSeekHelp = () => {
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 export const MythsFact = () => {
   return (
@@ -739,8 +729,8 @@ export const MythsFact = () => {
         </Card>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Faqs = () => {
   const faqs = [
@@ -773,22 +763,38 @@ export const Faqs = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const ResourcesReferences = () => {
   return (
     <div className="p-6 space-y-8">
       <h1 className="text-4xl font-bold text-primary">Resources & References</h1>
       <ul className="list-disc list-inside space-y-2">
-        <li><a className="text-blue-600 underline" href="https://www.aad.org/" target="_blank">American Academy of Dermatology (aad.org)</a></li>
-        <li><a className="text-blue-600 underline" href="https://www.skincancer.org/" target="_blank">Skin Cancer Foundation</a></li>
-        <li><a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central (PMC) – Dermatology Studies</a></li>
-        <li><a className="text-blue-600 underline" href="https://www.who.int/news-room/fact-sheets/detail/skin-diseases" target="_blank">World Health Organization – Skin Disease Facts</a></li>
+        <li>
+          <a className="text-blue-600 underline" href="https://www.aad.org/" target="_blank">
+            American Academy of Dermatology (aad.org)
+          </a>
+        </li>
+        <li>
+          <a className="text-blue-600 underline" href="https://www.skincancer.org/" target="_blank">
+            Skin Cancer Foundation
+          </a>
+        </li>
+        <li>
+          <a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">
+            PubMed Central (PMC) – Dermatology Studies
+          </a>
+        </li>
+        <li>
+          <a className="text-blue-600 underline" href="https://www.who.int/news-room/fact-sheets/detail/skin-diseases" target="_blank">
+            World Health Organization – Skin Disease Facts
+          </a>
+        </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export const AskDermatologist = () => {
   return (
@@ -797,19 +803,25 @@ export const AskDermatologist = () => {
       <p className="text-muted-foreground">Have questions about your skin health? Fill out the form below and our dermatology expert will respond within 24–48 hours.</p>
       <form className="space-y-4">
         <div>
-          <label className="block font-medium" htmlFor="name">Full Name</label>
+          <label className="block font-medium" htmlFor="name">
+            Full Name
+          </label>
           <input id="name" type="text" className="w-full border rounded p-2" placeholder="John Doe" />
         </div>
         <div>
-          <label className="block font-medium" htmlFor="email">Email Address</label>
+          <label className="block font-medium" htmlFor="email">
+            Email Address
+          </label>
           <input id="email" type="email" className="w-full border rounded p-2" placeholder="you@example.com" />
         </div>
         <div>
-          <label className="block font-medium" htmlFor="question">Your Question</label>
+          <label className="block font-medium" htmlFor="question">
+            Your Question
+          </label>
           <textarea id="question" rows={5} className="w-full border rounded p-2" placeholder="Describe your concern in detail..." />
         </div>
         <Button type="submit">Send Message</Button>
       </form>
     </div>
-  )
-}
+  );
+};

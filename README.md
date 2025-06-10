@@ -2,9 +2,11 @@
 
 **Luminouskin** adalah proyek capstone hasil kolaborasi lintas tim (Front-End, Back-End, dan Machine Learning) yang bertujuan menyediakan solusi digital untuk deteksi dini dan edukasi penyakit kulit menular yang umum di Indonesia. Proyek ini dikembangkan sebagai kontribusi nyata terhadap *Sustainable Development Goals* (SDGs) – Goal 3: Good Health & Well-Being, khususnya Target 3.3: *Mengakhiri epidemi dan melawan penyakit menular*.
 
+---
+
 ## 📌 Latar Belakang Masalah
 
-Penyakit kulit menular seperti **impetigo, scabies, kurap, panu**, dan **eksim** masih menjadi masalah kesehatan yang meluas, terutama di daerah **3T (Tertinggal, Terdepan, Terluar)**. Masalah ini dipicu oleh:
+Penyakit kulit menular seperti **impetigo, eksim, panu, infeksi cacing tambang**, dan **eksim** masih menjadi masalah kesehatan yang meluas, terutama di daerah **3T (Tertinggal, Terdepan, Terluar)**. Masalah ini dipicu oleh:
 
 - Kurangnya kesadaran akan gejala awal dan pencegahan.
 - Minimnya akses ke tenaga medis dan obat-obatan.
@@ -13,11 +15,40 @@ Penyakit kulit menular seperti **impetigo, scabies, kurap, panu**, dan **eksim**
 
 Akibatnya, penyakit ini mudah menyebar, sulit dikendalikan, dan berdampak pada masyarakat berpenghasilan rendah maupun komunitas umum.
 
+---
+
 ## 🎯 Tujuan Proyek
 
 - Menyediakan **deteksi dini otomatis** penyakit kulit menular ringan menggunakan model *Computer Vision*.
 - Memberikan **edukasi pengobatan dan pencegahan** berbasis AI untuk masyarakat umum.
 - Menghadirkan antarmuka aplikasi yang **user-friendly dan informatif** agar dapat diakses di daerah dengan keterbatasan infrastruktur.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+### 🔹 Front-End
+- Vite + React + TailwindCSS
+- Fitur utama:
+  - Upload gambar kulit
+  - Antarmuka diagnosis ringan dan edukatif
+  - Peta apotek/klinik terdekat (opsional)
+
+### 🔹 Back-End
+- HAPI.js dan FastAPI
+- MongoDB (Database)
+- Fungsi:
+  - Integrasi model ML untuk prediksi penyakit
+  - API endpoint untuk komunikasi frontend ↔ backend
+  - Penyimpanan dan manajemen riwayat konsultasi
+
+### 🔹 Machine Learning
+- Model CNN (Convolutional Neural Network) untuk klasifikasi gambar penyakit kulit
+- Transfer learning dengan dataset augmented
+- Evaluasi model: Accuracy, Precision, Recall, F1-Score, ROC AUC
+- Pipeline terstruktur untuk training, evaluasi, dan deployment model
+
+---
 
 ## 📦 Dataset
 
@@ -31,29 +62,7 @@ Akibatnya, penyakit ini mudah menyebar, sulit dikendalikan, dan berdampak pada m
 - Judul: *Skin Disease Dataset* (by Subir Biswas)  
 - Link: [https://www.kaggle.com/datasets/subirbiswas19/skin-disease-dataset](https://www.kaggle.com/datasets/subirbiswas19/skin-disease-dataset)
 
-## 🛠️ Teknologi yang Digunakan
-
-### 🔹 Front-End
-- Framework: TailwindCss
-- Fitur utama:
-  - Upload gambar kulit
-  - Antarmuka diagnosis ringan dan edukatif
-  - Peta apotek/klinik terdekat
-  - 
-
-### 🔹 Back-End
-- API Server: FastAPI / Flask
-- Database: Mongo DB
-- Integrasi:
-  - Model ML untuk prediksi penyakit
-  - Sistem rekomendasi berbasis hasil prediksi
-  - Endpoints untuk komunikasi antara client dan server
-
-### 🔹 Machine Learning
-- Model CNN (Convolutional Neural Network) untuk klasifikasi gambar penyakit kulit
-- Transfer learning dengan dataset augmented
-- Evaluasi model: Accuracy, Precision, Recall, F1-Score, ROC AUC
-- Pipeline terstruktur untuk training, evaluasi, dan deployment model
+---
 
 ## 🔍 Fitur Unggulan
 
@@ -64,6 +73,8 @@ Akibatnya, penyakit ini mudah menyebar, sulit dikendalikan, dan berdampak pada m
 - 📃 Riwayat konsultasi yang tersimpan secara lokal atau di cloud
 - 📣 Form aspirasi masyarakat daerah 3T untuk menjembatani suara ke pemerintah daerah (on going)
 
+---
+
 ## 🤝 Kolaborasi Tim
 
 | Peran          | Tanggung Jawab                                         |
@@ -71,6 +82,104 @@ Akibatnya, penyakit ini mudah menyebar, sulit dikendalikan, dan berdampak pada m
 | Front-End      | Desain UI/UX, implementasi fitur input/output user    |
 | Back-End       | API, integrasi model ML, pengelolaan database         |
 | Machine Learning | Training model, evaluasi, optimasi pipeline prediksi |
+
+---
+
+## 💻 📥 Cara Instalasi dan Menjalankan Aplikasi
+
+### 🔧 Persyaratan
+- Node.js & npm
+- Python 3.8+
+- pip
+- MongoDB (lokal atau cloud)
+
+### 🗂 Struktur Folder
+
+```
+
+.
+├── front/                 # Front-End (Vite)
+├── backend/               # Back-End (HAPI.js / FastAPI)
+├── AI-image-detection/    # ML Service (FastAPI + TensorFlow)
+
+````
+
+### 🔹 1. Clone Repositori
+
+```bash
+git clone <URL_REPO>
+cd <nama-folder-repo>
+````
+
+### 🔹 2. Install Dependensi
+
+#### Front-End
+
+```bash
+cd front
+npm install
+```
+
+#### Backend
+
+```bash
+cd ../backend
+npm install
+```
+
+#### AI/ML Service
+
+```bash
+cd ../AI-image-detection
+pip install -r requirements.txt
+```
+
+### 🔹 3. Setup File Environment
+
+#### `front/.env`
+
+```env
+VITE_API_BASE_URL=http://localhost:9000
+```
+
+#### `backend/.env`
+
+```env
+MONGO_URI=mongodb://localhost:27017/luminouskin
+JWT_SECRET=your_secret_key
+```
+
+### 🔹 4. Menjalankan Aplikasi
+
+#### Front-End
+
+```bash
+cd front
+npm run dev
+```
+
+#### Backend (HAPI.js)
+
+```bash
+cd backend
+npm run dev
+```
+
+#### AI/ML FastAPI
+
+```bash
+cd AI-image-detection
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### 🔹 5. Jalankan Web Scraper (Opsional)
+
+```bash
+cd backend
+node controllers/download-images.mjs
+```
+
+---
 
 ## 🌍 Dampak yang Diharapkan
 

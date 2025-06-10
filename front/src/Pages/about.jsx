@@ -6,7 +6,7 @@ export const About = () => {
       <section className="relative w-full h-screen bg-cover bg-center bg-fixed bg-[url('/papuakulit.jpg')]">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="relative flex flex-col justify-center items-start h-full px-6 md:px-20 text-white space-y-6 text-left">
-          <h2 className="text-xl md:text-6xl font-bold font-sans text-[#ffffff] max-w-4xl">Kulit sehat, hidup lebih nyaman</h2>
+          <h2 className="text-5xl md:text-6xl font-bold font-sans text-[#ffffff] max-w-4xl">Kulit sehat, hidup lebih nyaman</h2>
           <h3 className="text-2xl md:text-4xl font-sans max-w-3xl">Kami hadir untuk bantu kamu mengenali masalah kulit lebih cepat tanpa takut, malu, atau biaya mahal.</h3>
           <h4 className="text-2xl md:text-4xl font-sans max-w-3xl">Dengan dukungan teknologi dan tenaga farmasi, kami ingin menjangkau mereka yang jauh dari akses medis.</h4>
           <p className="text-base md:text-lg max-w-xl italic">Ini perjalanan kami, dan kamu adalah bagian penting di dalamnya.</p>
@@ -14,19 +14,20 @@ export const About = () => {
       </section>
       <section id="about" className="pt-16 pb-8 bg-[#FAF8F1]">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="w-full md:w-1/2 px-4 mb-6">
+          <div className="flex justify-between gap-6 flex-col md:flex-row items-stretch">
+            <div className="md:w-1/2 px-4 h-full">
               <div className="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
-                <h3 className="text-center font-bold font-sans text-[#ffffff] uppercase text-4xl md:text-5xl mb-4">Visi</h3>
-                <p className="text-lg md:text-xl leading-relaxed text-center font-sans text-[#ffff]">
+                <h3 className="text-center font-bold font-sans text-white uppercase text-4xl md:text-5xl mb-4">Visi</h3>
+                <p className="text-lg md:text-xl leading-relaxed text-center font-sans text-white">
                   Menjadi solusi digital yang inklusif dan terpercaya dalam mendukung kesehatan kulit masyarakat Indonesia, khususnya di wilayah 3T, dengan berkontribusi pada pencapaian SDGs Goal 3: Good Health & Well-Being.
                 </p>
               </div>
             </div>
-            <div className="w-full md:w-1/2 px-4 mb-6">
+
+            <div className="md:w-1/2 px-4 h-full">
               <div className="bg-[#3B6790] rounded-2xl p-8 shadow-lg h-full flex flex-col justify-center">
-                <h3 className="text-center font-bold font-sans text-[#ffffff] uppercase text-4xl md:text-5xl mb-4">Misi</h3>
-                <div className="space-y-4 text-[#ffffff] text-lg md:text-xl leading-relaxed text-center font-sans">
+                <h3 className="text-center font-bold font-sans text-white uppercase text-4xl md:text-5xl mb-4">Misi</h3>
+                <div className="space-y-4 text-white text-lg md:text-xl leading-relaxed text-center font-sans">
                   <p>Menyediakan platform digital yang mampu melakukan deteksi dini penyakit kulit menular ringan melalui klasifikasi gambar berbasis teknologi.</p>
                   <p>Memberikan rekomendasi pengobatan yang aman, cepat, dan berbasis Obat Bebas Terbatas (OBT), untuk masyarakat dengan keterbatasan akses layanan medis.</p>
                   <p>Mengedukasi masyarakat tentang pentingnya penanganan penyakit kulit menular secara dini, agar tidak menyebar dan menimbulkan masalah kesehatan yang lebih besar.</p>
@@ -43,11 +44,6 @@ export const About = () => {
             Proyek ini muncul dari keprihatinan kami terhadap kasus penyakit kulit menular ringan di berbagai daerah di Indonesia, terutama di wilayah 3T (Tertinggal, Terdepan, dan Terluar). Kami menyadari bahwa penyakit seperti impetigo,
             panu, kurap, eksim, dan lain-lain sering dianggap sepele, padahal jika tidak ditangani dengan cepat dan benar, bisa menyebar luas dan menyebabkan infeksi pada kulit sehingga dapat menimbulkan rasa tidak nyaman, tidak percaya
             diri, dan dapat menularkan kepada orang lain, terutama untuk daerah yang aksesnya terhadap layanan medis masih jauh, terbatas, dan terhalang oleh biaya konsultasi yang lumayan mahal.
-          </p>
-          <p className="text-xl md:text-2xl leading-relaxed text-center font-sans">
-            Selama masa eksplorasi ide project, kami mencoba untuk menggabungkan sudut pandang teknologi dan domain knowledge yang kami miliki pada bidang farmasi. Pengetahuan tersebut menjadi landasan penting dalam merancang sistem
-            rekomendasi obat berdasarkan hasil klasifikasi gambar. Obat-obat yang kami gunakan dalam rekomendasi adalah kategori Obat Bebas Terbatas (OBT) yang aman jika digunakan tanpa resep dokter—sehingga relevan untuk kondisi masyarakat
-            yang tidak bisa langsung berkonsultasi dengan tenaga medis karena terhalang jarak dan biaya yang lumayan mahal.
           </p>
         </div>
       </section>
