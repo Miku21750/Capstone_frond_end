@@ -12,7 +12,10 @@ const verifyToken = async (request, h) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        request.auth = { userId:decoded.id }
+        request.auth = { 
+            isAuthenticated: true,
+            credentials: { id: decoded.id } 
+        }
         return h.continue;
     } catch (error) {
         return h.response({ message: "Invalid token" }).code(401).takeover();

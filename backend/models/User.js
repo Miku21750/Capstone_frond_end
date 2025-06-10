@@ -12,6 +12,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         enum: ["male", "female"]
     },
+    birthDate: Date,
+    avatar: String,
+    height: Number,
+    weight: Number,
+    bmi: Number,
+    lastLogin: Date,
 },{
     timestamps: true,
     toJSON: {
