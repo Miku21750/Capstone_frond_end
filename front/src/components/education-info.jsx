@@ -110,9 +110,42 @@ export const SkinCondition = () => {
     <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-screen bg-[#E9F3F4] text-gray-800">
       {/* Main content area */}
       <section className="flex-1 w-auto lg:mr-80 px-4 py-8 lg:px-8 lg:py-12">
+
+
         <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-6 sm:mb-10 leading-tight">
           {selectedCondition.name}
         </h1>
+
+        <div className=" p-5 lg:hidden"> 
+          <h2 className="font-bold text-2xl text-blue-800 mb-6">On this page</h2>
+          <ul className="space-y-3 text-gray-700 border-4 w-fit p-5 border-blue-200 rounded-lg">
+            {tocSections.map((section) => (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  className="font-semibold text-sm hover:text-blue-600 transition-colors duration-200 block py-1"
+                >
+                  {section.heading}
+                </a>
+                {section.children.length > 0 && (
+                  <ul className="ml-5 mt-2 space-y-1 text-gray-600 border-l-2 border-blue-100 pl-4">
+                    {section.children.map((child) => (
+                      <li key={child.id}>
+                        <a
+                          href={`#${child.id}`}
+                          className="hover:text-blue-600 transition-colors duration-200 block py-1"
+                        >
+                          {child.heading}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div> 
+
 
         <div className="space-y-8 sm:space-y-10">
           {tocSections.map((section) => (
@@ -158,7 +191,7 @@ export const SkinCondition = () => {
 
       {/* Right-aligned Table of Contents (TOC) sidebar */}
       <aside className="hidden lg:block fixed right-0 top-0 h-screen w-80 bg-white shadow-xl border-l border-gray-100 p-8 overflow-y-auto z-30">
-        <div className="pt-24"> {/* Adjust padding to account for fixed header if present */}
+        <div className="pt-24"> 
           <h2 className="font-bold text-3xl text-blue-800 mb-6">On this page</h2>
           <ul className="space-y-3 text-gray-700">
             {tocSections.map((section) => (
