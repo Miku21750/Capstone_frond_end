@@ -94,7 +94,8 @@ const deletePhotoController = async (request, h) => {
     try {
         const photo = await PenyakitUser.findById(id)
         if(!photo) return h.response({ message: "Photo not found "}).code(404);
-        if(photo.userId !== userId) return h.response({ message: "Unauthorized"}).code(403);
+        console.log(photo.userId.toString(), userId.toString())
+        if(photo.userId.toString() !== userId.toString()) return h.response({ message: "Unauthorized"}).code(403);
 
         const filePath = path.join(__dirname, "../public", photo.path);
 

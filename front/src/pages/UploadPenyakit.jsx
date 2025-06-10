@@ -55,7 +55,7 @@ export function UploadPenyakit() {
     try {
       Swal.fire({ title: 'Mengunggah...', didOpen: () => Swal.showLoading(), showConfirmButton: false });
 
-      const resAI = await axios.post("http://localhost:8000/predict", formData, {
+      const resAI = await axios.post(import.meta.env.VITE_ML_BASE_URL, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log(resAI.data);
