@@ -6,6 +6,7 @@ COPY . .
 
 COPY .env .env
 
+COPY package*.json ./
 RUN npm install
 
 EXPOSE 4000
