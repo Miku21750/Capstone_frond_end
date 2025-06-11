@@ -25,12 +25,12 @@ import { icon } from 'leaflet';
 const data = {
   navMain: [
     {
-      title: 'Introduction',
+      title: 'Perkenalan',
       icon: BookOpen,
       url: '#',
       items: [
         {
-          title: 'Overview',
+          title: 'Ringkasan',
           url: '/education',
         },
       ],
@@ -47,65 +47,65 @@ const data = {
       url: '#',
       items: [
         {
-          title: 'Daily Skincare Routine',
+          title: 'Rutinitas Perawatan Kulit Harian',
           url: '/education/prevention-tips/daily-skincare-routine',
         },
         {
-          title: 'Hygiene Advice',
+          title: 'Saran Kebersihan',
           url: '/education/prevention-tips/hygiene-advice',
         },
         {
-          title: 'Lifestyle Choices',
+          title: 'Pilihan Gaya Hidup',
           url: '/education/prevention-tips/lifestyle-choices',
         },
         {
-          title: 'Sun Protection',
+          title: 'Perlindungan dari Sinar Matahari',
           url: '/education/prevention-tips/sun-protection',
         },
       ],
     },
     {
-      title: 'Treatment Options',
+      title: 'Pilihan Pengobatan',
       icon: BookOpen,
       url: '#',
       items: [
         {
-          title: 'Over-the-Counter',
+          title: 'Obat Bebas',
           url: '/education/treatment-option/over-the-counter',
         },
         {
-          title: 'Prescription',
+          title: 'Resep Dokter',
           url: '/education/treatment-option/prescription',
         },
         {
-          title: 'Natural Remedies',
+          title: 'Pengobatan Alami',
           url: '/education/treatment-option/natural-remedies',
         },
         {
-          title: 'When to Seek Medical Help',
+          title: 'Kapan Harus Mencari Bantuan Medis',
           url: '/education/treatment-option/when-to-seek-help',
         },
       ],
     },
     {
-      title: 'Other',
+      title: 'Lainnya',
       icon: BookOpen,
       url: '#',
       items: [
         {
-          title: 'Myths & Facts',
+          title: 'Mitos & Fakta',
           url: '/education/other/myths-facts',
         },
         {
-          title: 'FAQs',
+          title: 'Pertanyaan Umum (FAQ)',
           url: '/education/other/faqs',
         },
         {
-          title: 'Resources & References',
+          title: 'Sumber & Referensi',
           url: '/education/other/resources-references',
         },
         {
-          title: 'Contact / Ask a Dermatologist',
+          title: 'Kontak / Tanya ke Dokter Kulit',
           url: '/education/other/ask-a-dermatologist',
         },
       ],
