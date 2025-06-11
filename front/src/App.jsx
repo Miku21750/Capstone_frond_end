@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { HomePage } from './Pages/Home_Page';
 import { LoginForm, RegisterForm } from './components/sc-form';
@@ -24,7 +24,9 @@ import {
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
+// import { FeedbackPage } from './components/feedbacks';
 import { NearbyClinics } from './Pages/Maps';
+// import './utils/il8n'
 function App() {
   return (
     <>
@@ -33,6 +35,7 @@ function App() {
           <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
+            {/* <Route path='/feedback' element={<FeedbackPage />} /> */}
           </Route>
           <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
