@@ -4,7 +4,7 @@ import { HomePage } from './Pages/Home_Page';
 import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
 import { About } from './Pages/about';
-import { UploadPenyakit } from './Pages/UploadPenyakit';
+import { UploadPenyakit } from './pages/UploadPenyakit';
 import GateKeeping from './utils/GateKeeping';
 import { 
   AskDermatologist, 
