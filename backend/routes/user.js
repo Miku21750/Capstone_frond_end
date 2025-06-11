@@ -10,7 +10,8 @@ const {
     getUser,
     getUserProfile,
     registerUser, 
-    loginUser 
+    loginUser,
+    updateUserProfile, 
 } = require("../controllers/userController");
 const {
     detectSkinController,
@@ -40,6 +41,20 @@ module.exports =[
         method: "POST",
         path: "/api/login",
         handler: loginUser,
+    },
+    {
+        method: "PUT",
+        path: "/api/user/detail", 
+        options: {
+            payload: {
+            output: "stream", 
+            parse: true,
+            allow: "multipart/form-data",
+            multipart: true,
+            maxBytes: 10 * 1024 * 1024,
+            }
+        },
+        handler: updateUserProfile,
     },
     {
         method: "GET",

@@ -6,7 +6,7 @@ export const About = () => {
       <section className="relative w-full h-screen bg-cover bg-center bg-fixed bg-[url('/papuakulit.jpg')]">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="relative flex flex-col justify-center items-start h-full px-6 md:px-20 text-white space-y-6 text-left">
-          <h2 className="text-xl md:text-6xl font-bold font-sans text-[#ffffff] max-w-4xl">Kulit sehat, hidup lebih nyaman</h2>
+          <h2 className="text-5xl md:text-6xl font-bold font-sans text-[#ffffff] max-w-4xl">Kulit sehat, hidup lebih nyaman</h2>
           <h3 className="text-2xl md:text-4xl font-sans max-w-3xl">Kami hadir untuk bantu kamu mengenali masalah kulit lebih cepat tanpa takut, malu, atau biaya mahal.</h3>
           <h4 className="text-2xl md:text-4xl font-sans max-w-3xl">Dengan dukungan teknologi dan tenaga farmasi, kami ingin menjangkau mereka yang jauh dari akses medis.</h4>
           <p className="text-base md:text-lg max-w-xl italic">Ini perjalanan kami, dan kamu adalah bagian penting di dalamnya.</p>

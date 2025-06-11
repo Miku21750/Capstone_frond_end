@@ -63,7 +63,7 @@ export const HomePage = () => {
       </section>
 
       {/* FEATURES SECTION */}
-      <section ref={containerRef} className="bg-white py-16 px-4">
+      <section ref={containerRef} className="bg-white py-16 px-4 bg-[url('/howitworks.jpg')] bg-cover bg-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#002d52] font-quicksand font-black text-center mb-10">Fitur yang Disediakan</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {[
@@ -91,7 +91,7 @@ export const HomePage = () => {
       <HorizontalScrollSection />
 
       {/* TESTIMONIAL SECTION */}
-      <section className="bg-cover bg-fixed bg-center py-16 px-4" style={{ backgroundImage: "url('/hahaay.jpg')" }}>
+      <section className="bg-cover bg-fixed bg-center py-16 px-4 bg-[url('/hahaay.jpg')]"  >
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl text-[#002d52] font-black mb-12">Kesaksian Pengguna</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -129,8 +129,8 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* FEEDBACK SECTION */}
-      <section className="bg-[#e9f4f4] px-4 py-10">
+      {/* Feedback Form Section */}
+      <section className='h-fit bg-[#e9f4f4] items-center gap-10 p-5 md:p-10'>
         <FeedbackForm />
       </section>
 
@@ -138,11 +138,12 @@ export const HomePage = () => {
       <section className="bg-[#3B6790] text-white px-6 py-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
-            <h1 className="text-3xl font-bold mb-4">Luminou§kin</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Luminou§kin</h1>
             <p className="text-sm">Solusi digital inklusif untuk kesehatan kulit masyarakat Indonesia.</p>
           </div>
+
           <div>
-            <h2 className="text-xl font-semibold mb-3">About</h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-3">About</h2>
             <ul className="space-y-1 text-sm">
               <li>
                 <Link to="/" className="hover:text-gray-300">
@@ -162,7 +163,7 @@ export const HomePage = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-3">Education</h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-3">Education</h2>
             <ul className="space-y-1 text-sm">
               <li>
                 <Link to="/" className="hover:text-gray-300">
@@ -182,7 +183,7 @@ export const HomePage = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-3">Legal</h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-3">Legal</h2>
             <ul className="space-y-1 text-sm">
               <li>
                 <Link to="/" className="hover:text-gray-300">
