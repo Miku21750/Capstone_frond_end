@@ -89,7 +89,7 @@ export default function HorizontalScrollSection() {
                                     {/* Illustration (if any) */}
                   {card.ilustration && (
                     <div className="flex justify-center mt-4">
-                      <img src={card.ilustration} alt={card.title} className="w-50 h-50 md:w-80 md:h-80 ring-4 rounded-2xl ring-fuchsia-400" />
+                      <img src={card.ilustration} alt={card.title} className="w-60 h-50 md:w-90 md:h-80 ring-4 rounded-2xl ring-fuchsia-400" />
                     </div>
                   )}
                   <div className="flex flex-col items-center gap-2 md:gap-3">

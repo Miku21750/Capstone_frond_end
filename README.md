@@ -139,7 +139,8 @@ pip install -r requirements.txt
 #### `front/.env`
 
 ```env
-VITE_API_BASE_URL=http://localhost:9000
+VITE_API_BASE_URL=http://localhost:4000
+VITE_ML_BASE_URL=http://localhost:8000
 ```
 
 #### `backend/.env`
@@ -177,6 +178,17 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```bash
 cd backend
 node controllers/download-images.mjs
+```
+
+### Catatan:
+> Jika gambar tidak muncul, atau terjadi error saat upload gambar, pastikan folder berikut dibuat:
+
+```
+
+backend/public/images/
+├── conditions/
+└── uploads/
+
 ```
 
 ---
