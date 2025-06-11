@@ -8,7 +8,7 @@ const init = async () => {
     await connectDB();
 
     const server = Hapi.server({
-        port:4000,
+        port: process.env.PORT || 4000,
         host:'localhost',
         routes:{
             cors:{
