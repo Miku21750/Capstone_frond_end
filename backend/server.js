@@ -4,6 +4,7 @@ const connectDB = require("./db");
 const userRoutes = require("./routes/user");
 const HapiJwt = require("@hapi/jwt");
 
+require('dotenv').config(); 
 const init = async () => {
     await connectDB();
 
