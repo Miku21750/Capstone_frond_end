@@ -69,7 +69,7 @@ export const SkinCondition = () => {
     return (
       <section className="flex items-center justify-center min-h-[60vh] p-4 bg-gray-50">
         <div className="text-center">
-          <p className="text-lg font-medium text-gray-700">Loading content...</p>
+          <p className="text-lg font-medium text-gray-700">Memuat konten...</p>
           {/* You could add a simple spinner here if Swal is not visible */}
         </div>
       </section>
@@ -117,7 +117,7 @@ export const SkinCondition = () => {
         </h1>
 
         <div className=" p-5 lg:hidden"> 
-          <h2 className="font-bold text-2xl text-blue-800 mb-6">On this page</h2>
+          <h2 className="font-bold text-2xl text-blue-800 mb-6">Di halaman ini</h2>
           <ul className="space-y-3 text-gray-700 border-4 w-fit p-5 border-blue-200 rounded-lg">
             {tocSections.map((section) => (
               <li key={section.id}>
@@ -169,7 +169,7 @@ export const SkinCondition = () => {
 
         {selectedCondition.images && selectedCondition.images.length > 0 && (
           <div className="mt-12 sm:mt-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Image Gallery</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Galeri Gambar</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {selectedCondition.images.map((image, index) => (
                 <figure key={index} className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-100">
@@ -227,34 +227,34 @@ export const SkinCondition = () => {
 export const Overviewinfo = () => {
   return (
     <section className="p-5 flex flex-col gap-5 bg-[#E9F3F4]">
-      <h1 className={' text-4xl font-quicksand font-bold'}>Introduction</h1>
-      <h1 className={' text-2xl font-quicksand'}>Understanding Skin Diseases</h1>
+      <h1 className={' text-4xl font-quicksand font-bold'}>Perkenalan</h1>
+      <h1 className={' text-2xl font-quicksand'}>Memahami Penyakit Kulit</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <Card>
           <CardHeader>
             <MessageCircleQuestion className="h-10 w-10" />
-            <CardTitle className="text-2xl font-bold">What is a Skin Disease?</CardTitle>
+            <CardTitle className="text-2xl font-bold">Apa itu Penyakit Kulit?</CardTitle>
           </CardHeader>
           <CardContent className="text-base leading-relaxed text-muted-foreground">
-            Skin diseases are a wide range of conditions that affect the skin, including infections, inflammation, allergic reactions, and autoimmune disorders.
+            Penyakit kulit adalah berbagai macam kondisi yang memengaruhi kulit, termasuk infeksi, peradangan, reaksi alergi, dan gangguan autoimun.
             <br />
             <br />
-            These conditions may cause rashes, itching, redness, swelling, blisters, or other changes in skin appearance or texture. While some skin diseases are temporary and harmless, others may require long-term treatment or signal
-            deeper health issues.
+            Kondisi ini dapat menyebabkan ruam, gatal, kemerahan, pembengkakan, lepuh, atau perubahan lain pada tampilan atau tekstur kulit. Sementara beberapa penyakit kulit bersifat sementara dan tidak berbahaya, yang lain mungkin
+            memerlukan perawatan jangka panjang atau menandakan masalah kesehatan yang lebih dalam.
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
             <AlertCircle className="w-10 h-10" />
-            <CardTitle className="text-2xl font-bold">Why is Skin Health Important?</CardTitle>
+            <CardTitle className="text-2xl font-bold">Mengapa Kesehatan Kulit Penting?</CardTitle>
           </CardHeader>
           <CardContent className="text-base leading-relaxed text-muted-foreground">
-            Your skin is the largest organ in your body and acts as the first line of defense against pathogens and harmful environmental factors.
+            Kulit Anda adalah organ terbesar di tubuh Anda dan bertindak sebagai garis pertahanan pertama melawan patogen dan faktor lingkungan yang berbahaya.
             <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li>It regulates body temperature and prevents water loss.</li>
-              <li>Healthy skin reflects overall well-being and self-confidence.</li>
-              <li>Neglected skin can lead to chronic diseases and infections.</li>
+              <li>Mengatur suhu tubuh dan mencegah hilangnya air.</li>
+              <li>Kulit yang sehat mencerminkan kesejahteraan dan kepercayaan diri secara keseluruhan.</li>
+              <li>Kulit yang terabaikan dapat menyebabkan penyakit kronis dan infeksi.</li>
             </ul>
           </CardContent>
         </Card>
@@ -262,22 +262,22 @@ export const Overviewinfo = () => {
         <Card>
           <CardHeader>
             <User className="w-10 h-10" />
-            <CardTitle className="text-2xl font-bold">Who Can Be Affected?</CardTitle>
+            <CardTitle className="text-2xl font-bold">Siapa yang Dapat Terkena Dampak?</CardTitle>
           </CardHeader>
           <CardContent className="text-base leading-relaxed text-muted-foreground">
-            Skin diseases can affect anyone regardless of age, gender, or ethnicity.
+            Penyakit kulit dapat menyerang siapa saja tanpa memandang usia, jenis kelamin, atau suku.
             <ul className="list-disc pl-6 mt-3 space-y-1">
               <li>
-                <Badge>Infants:</Badge> Conditions like diaper rash and cradle cap.
+                <Badge>Bayi:</Badge>Kondisi seperti ruam popok dan kerak kepala.
               </li>
               <li>
-                <Badge>Teens:</Badge> Acne due to hormonal changes.
+                <Badge>Remaja:</Badge> Jerawat karena perubahan hormonal.
               </li>
               <li>
-                <Badge>Adults:</Badge> Eczema, psoriasis, infections, or sun damage.
+                <Badge>Dewasa:</Badge>Eksim, psoriasis, infeksi, atau kerusakan akibat sinar matahari.
               </li>
               <li>
-                <Badge>Seniors:</Badge> Age-related conditions such as dry skin and skin cancer.
+                <Badge>Senior:</Badge> Kondisi terkait usia seperti kulit kering dan kanker kulit.
               </li>
             </ul>
           </CardContent>
@@ -286,28 +286,28 @@ export const Overviewinfo = () => {
         <Card>
           <CardHeader>
             <Sun className="w-10 h-10" />
-            <CardTitle className="text-2xl font-bold">Most Common Skin Conditions</CardTitle>
+            <CardTitle className="text-2xl font-bold">Kondisi Kulit yang Paling Umum</CardTitle>
           </CardHeader>
           <CardContent className="text-base leading-relaxed text-muted-foreground">
-            Millions suffer from various skin conditions every year. The most common include:
+            Jutaan orang menderita berbagai kondisi kulit setiap tahun. Yang paling umum meliputi:
             <ul className="list-disc pl-6 mt-3 space-y-1">
               <li>
-                <Badge variant={'destructive'}>Acne:</Badge> Pores clogged with oil and dead skin cells.
+                <Badge variant={'destructive'}>Jerawat:</Badge> Pori-pori tersumbat oleh minyak dan sel kulit mati.
               </li>
               <li>
-                <Badge variant={'destructive'}>Eczema:</Badge> Itchy and inflamed patches caused by environmental or genetic factors.
+                <Badge variant={'destructive'}>Eksim:</Badge> Bercak gatal dan meradang yang disebabkan oleh faktor lingkungan atau genetik.
               </li>
               <li>
-                <Badge variant={'destructive'}>Psoriasis:</Badge> Autoimmune condition that causes thick, scaly skin.
+                <Badge variant={'destructive'}>Psoriasis:</Badge> Kondisi autoimun yang menyebabkan kulit tebal dan bersisik.
               </li>
               <li>
-                <Badge variant={'destructive'}>Rosacea:</Badge> Redness and visible blood vessels often on the face.
+                <Badge variant={'destructive'}>Rosacea:</Badge> Kemerahan dan pembuluh darah terlihat sering pada wajah.
               </li>
               <li>
-                <Badge variant={'destructive'}>Fungal infections:</Badge> Like athlete’s foot or ringworm, usually due to moisture and bacteria.
+                <Badge variant={'destructive'}>Infeksi jamur:</Badge> Seperti kutu air atau kurap, biasanya disebabkan oleh kelembaban dan bakteri.
               </li>
               <li>
-                <Badge variant={'destructive'}>Skin cancer:</Badge> Often due to long-term sun exposure and UV damage.
+                <Badge variant={'destructive'}>Kanker kulit:</Badge> Sering kali disebabkan oleh paparan sinar matahari jangka panjang dan kerusakan UV.
               </li>
             </ul>
           </CardContent>
@@ -325,12 +325,15 @@ export const DailySkincareRoutine = () => {
     <div className="">
       <Card className={' p-6 '}>
         <CardHeader>
-          <CardTitle className="text-3xl font-bold">🕐 Daily Skincare Routine</CardTitle>
+          <CardTitle className="text-3xl font-bold">🕐 Rutinitas Perawatan Kulit Harian</CardTitle>
         </CardHeader>
 
         <CardContent className="text-base leading-relaxed text-muted-foreground space-y-4">
           <section>
-            <p>A consistent daily skincare routine helps maintain a clean, hydrated, and balanced skin barrier. It prevents breakouts, early signs of aging, and protects your skin from environmental stress like pollution or UV rays.</p>
+            <p>
+              Rutinitas perawatan kulit harian yang konsisten membantu menjaga lapisan kulit tetap bersih, terhidrasi, dan seimbang. Rutinitas ini mencegah timbulnya jerawat, tanda-tanda awal penuaan, dan melindungi kulit Anda dari tekanan
+              lingkungan seperti polusi atau sinar UV.
+            </p>
           </section>
 
           <Separator />
@@ -339,22 +342,22 @@ export const DailySkincareRoutine = () => {
             <Card className={'ring-2 ring-amber-200 '}>
               <CardHeader>
                 <CardTitle className="text-xl font-semibold mb-1">
-                  <Sun /> Morning Skincare Steps
+                  <Sun /> Langkah-langkah Perawatan Kulit di Pagi Hari
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-3 space-y-1">
                   <li>
-                    <Badge className={'bg-amber-300'}>1</Badge> <strong>Cleanser:</strong> Gently wash your face to remove oil and sweat from sleep.
+                    <Badge className={'bg-amber-300'}>1</Badge> <strong>Pembersih:</strong> Cuci wajah Anda dengan lembut untuk menghilangkan minyak dan keringat akibat tidur.
                   </li>
                   <li>
-                    <Badge className={'bg-amber-300'}>2</Badge> <strong>Toner:</strong> Balances your skin's pH and preps it for moisturizers.
+                    <Badge className={'bg-amber-300'}>2</Badge> <strong>Toner:</strong> Menyeimbangkan pH kulit Anda dan mempersiapkannya untuk pelembab.
                   </li>
                   <li>
-                    <Badge className={'bg-amber-300'}>3</Badge> <strong>Moisturizer:</strong> Keeps the skin hydrated and smooth.
+                    <Badge className={'bg-amber-300'}>3</Badge> <strong>Pelembab:</strong> Menjaga kulit tetap terhidrasi dan halus.
                   </li>
                   <li>
-                    <Badge className={'bg-amber-300'}>4</Badge> <strong>Sunscreen (SPF 30+):</strong> Essential to protect from UV damage, even indoors.
+                    <Badge className={'bg-amber-300'}>4</Badge> <strong>Sunscreen (SPF 30+):</strong> Penting untuk melindungi dari kerusakan UV, bahkan di dalam ruangan.
                   </li>
                 </ul>
               </CardContent>
@@ -362,22 +365,23 @@ export const DailySkincareRoutine = () => {
             <Card className={'ring-2 ring-fuchsia-200 '}>
               <CardHeader>
                 <CardTitle className="text-xl font-semibold mb-1">
-                  <Moon /> Evening Skincare Steps
+                  <Moon />
+                  Langkah-langkah Perawatan Kulit Malam Hari
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-3 space-y-1">
                   <li>
-                    <Badge className={'bg-fuchsia-200'}>1</Badge> <strong>Makeup Remover/Cleansing Oil:</strong> Removes makeup and impurities.
+                    <Badge className={'bg-fuchsia-200'}>1</Badge> <strong>Penghapus Makeup/Minyak Pembersih:</strong> Menghapus riasan dan kotoran.
                   </li>
                   <li>
-                    <Badge className={'bg-fuchsia-200'}>2</Badge> <strong>Gentle Cleanser:</strong> Follow up to deeply clean pores.
+                    <Badge className={'bg-fuchsia-200'}>2</Badge> <strong>Pembersih Lembut:</strong> Lanjutkan dengan membersihkan pori-pori secara mendalam.
                   </li>
                   <li>
-                    <Badge className={'bg-fuchsia-200'}>3</Badge> <strong>Night Moisturizer:</strong> Heals and hydrates overnight.
+                    <Badge className={'bg-fuchsia-200'}>3</Badge> <strong>Pelembab Malam:</strong> Menyembuhkan dan menghidrasi sepanjang malam.
                   </li>
                   <li>
-                    <Badge className={'bg-fuchsia-200'}>4</Badge> <strong>Serum or Treatment:</strong> Use products with ingredients like Vitamin C or Retinol based on your skin type.
+                    <Badge className={'bg-fuchsia-200'}>4</Badge> <strong>Serum atau Perawatan:</strong>Gunakan produk dengan bahan-bahan seperti Vitamin C atau Retinol berdasarkan jenis kulit Anda.
                   </li>
                 </ul>
               </CardContent>
@@ -387,13 +391,13 @@ export const DailySkincareRoutine = () => {
           <Separator />
 
           <section className="bg-cold-3 p-4 rounded-md border border-cold-4 mt-6">
-            <h3 className="text-lg font-semibold mb-1">Helpful Habits & Tips</h3>
+            <h3 className="text-lg font-semibold mb-1">Kebiasaan & Tips yang Bermanfaat</h3>
             <ul className="list-disc pl-6 space-y-1">
-              <li>Clean pillowcases and face towels regularly.</li>
-              <li>Avoid touching your face during the day.</li>
-              <li>Drink at least 8 glasses of water daily.</li>
-              <li>Don’t over-exfoliate – 1–2 times a week is enough.</li>
-              <li>Choose products based on your skin type (oily, dry, sensitive, combination).</li>
+              <li>Gantilah sarung bantal dan handuk wajah secara rutin.</li>
+              <li>Hindari menyentuh wajah saat beraktivitas.</li>
+              <li>Minumlah setidaknya 8 gelas air setiap hari.</li>
+              <li>Jangan terlalu sering eksfoliasi – cukup 1–2 kali seminggu.</li>
+              <li>Pilih produk perawatan sesuai jenis kulit Anda (berminyak, kering, sensitif, kombinasi).</li>
             </ul>
           </section>
         </CardContent>
@@ -407,34 +411,38 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 export const HygieneAdvice = () => {
   return (
     <div className="p-6 mx-auto ">
-      <h2 className="text-3xl font-bold mb-4">🧼 Personal Hygiene for Healthy Skin</h2>
-      <p className="text-muted-foreground mb-6">Maintaining good hygiene helps prevent bacterial build-up, clogged pores, and inflammation. Here are essential habits to keep your skin clean, balanced, and resilient.</p>
+      <h2 className="text-3xl font-bold mb-4">🧼 Kebersihan Pribadi untuk Kulit Sehat</h2>
+      <p className="text-muted-foreground mb-6">
+        Menjaga kebersihan yang baik membantu mencegah penumpukan bakteri, pori-pori tersumbat, dan peradangan. Berikut adalah kebiasaan penting untuk menjaga kulit tetap bersih, seimbang, dan tahan terhadap gangguan.
+      </p>
 
       <Accordion type="multiple" className="space-y-4">
         <AccordionItem value="1">
-          <AccordionTrigger>Wash Your Face Twice Daily</AccordionTrigger>
-          <AccordionContent>Morning cleansing removes oils and sweat from the night, while evening washing eliminates pollutants, sunscreen, and debris. Use a gentle cleanser tailored to your skin type.</AccordionContent>
+          <AccordionTrigger>Cuci Wajah Dua Kali Sehari</AccordionTrigger>
+          <AccordionContent>
+            Mencuci wajah di pagi hari menghilangkan minyak dan keringat selama tidur, sedangkan malam hari membersihkan polusi, tabir surya, dan kotoran. Gunakan pembersih lembut yang sesuai dengan jenis kulit Anda.
+          </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="2">
-          <AccordionTrigger>Change Pillowcases and Towels Frequently</AccordionTrigger>
-          <AccordionContent>Dirty fabrics accumulate oil, bacteria, and skin cells. Change pillowcases every 2–3 days and towels at least twice a week.</AccordionContent>
+          <AccordionTrigger>Ganti Sarung Bantal dan Handuk Secara Rutin</AccordionTrigger>
+          <AccordionContent>Kain yang kotor menumpuk minyak, bakteri, dan sel kulit mati. Gantilah sarung bantal setiap 2–3 hari dan handuk minimal dua kali seminggu.</AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="3">
-          <AccordionTrigger>Keep Hands and Nails Clean</AccordionTrigger>
-          <AccordionContent>Touching your face with unwashed hands transfers microbes. Regularly clip and clean nails, which often harbor dirt and germs.</AccordionContent>
+          <AccordionTrigger>Jaga Kebersihan Tangan dan Kuku</AccordionTrigger>
+          <AccordionContent>Menyentuh wajah dengan tangan yang kotor memindahkan mikroba. Potong dan bersihkan kuku secara teratur karena kuku sering menyimpan kotoran dan kuman.</AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="4">
-          <AccordionTrigger>Sanitize Personal Tools</AccordionTrigger>
-          <AccordionContent>Razors, tweezers, and makeup brushes can introduce bacteria if not cleaned. Sanitize tools weekly to avoid infection or acne breakouts.</AccordionContent>
+          <AccordionTrigger>Sanitasi Alat Pribadi</AccordionTrigger>
+          <AccordionContent>Pisau cukur, pinset, dan kuas makeup dapat membawa bakteri jika tidak dibersihkan. Sanitasi alat-alat ini setiap minggu untuk menghindari infeksi atau jerawat.</AccordionContent>
         </AccordionItem>
       </Accordion>
 
       <div className="mt-10 bg-blue-50 p-4 rounded-xl border border-blue-100">
-        <h3 className="font-semibold mb-2 text-blue-800">💡 Pro Tip:</h3>
-        <p className="text-blue-700">Avoid over-washing your skin — stripping away natural oils can cause dryness and even trigger more oil production.</p>
+        <h3 className="font-semibold mb-2 text-blue-800">💡 Kiat Profesional:</h3>
+        <p className="text-blue-700">Hindari terlalu sering mencuci kulit — menghilangkan minyak alami dapat menyebabkan kulit kering dan bahkan memicu lebih banyak produksi minyak.</p>
       </div>
     </div>
   );
@@ -444,33 +452,33 @@ import { Heart, BedDouble, Droplet, Dumbbell, Utensils, Smile } from 'lucide-rea
 
 const tips = [
   {
-    title: 'Hydrate Daily',
-    desc: 'Drink at least 2 liters of water daily. Hydration supports cell regeneration and detoxification.',
+    title: 'Minum Air Secukupnya',
+    desc: 'Minumlah setidaknya 2 liter air setiap hari. Hidrasi membantu regenerasi sel dan detoksifikasi tubuh.',
     icon: <Droplet className="w-6 h-6 text-blue-500" />,
   },
   {
-    title: 'Get Enough Sleep',
-    desc: 'Sleep helps repair skin, balances hormones, and reduces puffiness or dullness.',
+    title: 'Cukupi Waktu Tidur',
+    desc: 'Tidur membantu memperbaiki kulit, menyeimbangkan hormon, dan mengurangi mata bengkak atau kulit kusam.',
     icon: <BedDouble className="w-6 h-6 text-purple-500" />,
   },
   {
-    title: 'Exercise Regularly',
-    desc: 'Boosts circulation, delivering oxygen to the skin and promoting healthy tone.',
+    title: 'Olahraga Secara Teratur',
+    desc: 'Meningkatkan sirkulasi darah, mengantarkan oksigen ke kulit, dan menjaga warna kulit tetap sehat.',
     icon: <Dumbbell className="w-6 h-6 text-green-500" />,
   },
   {
-    title: 'Eat a Balanced Diet',
-    desc: 'Fruits, vegetables, healthy fats, and lean proteins support your skin from within.',
+    title: 'Konsumsi Makanan Seimbang',
+    desc: 'Buah, sayur, lemak sehat, dan protein tanpa lemak membantu menutrisi kulit dari dalam.',
     icon: <Utensils className="w-6 h-6 text-amber-500" />,
   },
   {
-    title: 'Avoid Smoking & Alcohol',
-    desc: 'They damage collagen, dry your skin, and promote premature aging.',
+    title: 'Hindari Merokok & Alkohol',
+    desc: 'Merokok dan alkohol merusak kolagen, membuat kulit kering, dan mempercepat penuaan.',
     icon: <Heart className="w-6 h-6 text-red-500" />,
   },
   {
-    title: 'Manage Stress',
-    desc: 'Chronic stress can lead to flare-ups, acne, or eczema. Practice mindfulness and relaxation.',
+    title: 'Kelola Stres',
+    desc: 'Stres kronis dapat menyebabkan jerawat, eksim, atau gangguan kulit lainnya. Lakukan relaksasi dan mindfulness.',
     icon: <Smile className="w-6 h-6 text-pink-500" />,
   },
 ];
@@ -478,8 +486,8 @@ const tips = [
 export const LifestyleChoices = () => {
   return (
     <div className="p-6 max-w-6xl mx-auto mt-12">
-      <h2 className="text-3xl font-bold mb-4">🌿 Lifestyle Habits for Radiant Skin</h2>
-      <p className="text-muted-foreground mb-8">Your daily choices shape your skin’s health. These long-term strategies help prevent flare-ups, irritation, and premature aging — supporting a natural glow.</p>
+      <h2 className="text-3xl font-bold mb-4">🌿 Kebiasaan Gaya Hidup untuk Kulit yang Bercahaya</h2>
+      <p className="text-muted-foreground mb-8">Pilihan harian Anda membentuk kesehatan kulit Anda. Strategi jangka panjang ini membantu mencegah iritasi, peradangan, dan penuaan dini — mendukung kilau alami kulit.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tips.map((tip, index) => (
@@ -494,34 +502,33 @@ export const LifestyleChoices = () => {
       </div>
 
       <div className="mt-10 bg-green-50 p-4 rounded-xl border border-green-100">
-        <h3 className="font-semibold mb-2 text-green-800">🧠 Mental Note:</h3>
-        <p className="text-green-700">Consistency is key — small daily improvements lead to significant long-term changes in your skin’s resilience and clarity.</p>
+        <h3 className="font-semibold mb-2 text-green-800">🧠 Catatan Penting:</h3>
+        <p className="text-green-700">Konsistensi adalah kunci — perbaikan kecil yang dilakukan setiap hari akan menghasilkan perubahan besar jangka panjang dalam ketahanan dan kejernihan kulit Anda.</p>
       </div>
     </div>
   );
 };
 
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
-
 const steps = [
   {
-    title: 'Apply Sunscreen Daily',
-    desc: 'Choose a broad-spectrum SPF 30+ and apply generously to exposed skin — even on overcast days.',
+    title: 'Gunakan Tabir Surya Setiap Hari',
+    desc: 'Pilih SPF 30+ spektrum luas dan aplikasikan secara merata ke kulit yang terpapar — bahkan saat cuaca mendung.',
     icon: <Sun className="w-6 h-6 text-yellow-500" />,
   },
   {
-    title: 'Reapply Every 2 Hours',
-    desc: 'Sunscreen loses its effectiveness over time, especially after sweating or swimming.',
+    title: 'Oleskan Ulang Setiap 2 Jam',
+    desc: 'Tabir surya kehilangan efektivitasnya seiring waktu, terutama setelah berkeringat atau berenang.',
     icon: <Clock3 className="w-6 h-6 text-orange-500" />,
   },
   {
-    title: 'Wear Protective Clothing',
-    desc: 'Use wide-brimmed hats, UV-protective sunglasses, and long sleeves when outdoors.',
+    title: 'Gunakan Pakaian Pelindung',
+    desc: 'Gunakan topi bertepi lebar, kacamata hitam pelindung UV, dan pakaian berlengan panjang saat berada di luar ruangan.',
     icon: <Shield className="w-6 h-6 text-blue-500" />,
   },
   {
-    title: 'Avoid Peak UV Hours',
-    desc: 'The sun’s rays are strongest from 10 AM – 4 PM. Seek shade when possible.',
+    title: 'Hindari Jam UV Tertinggi',
+    desc: 'Sinar matahari paling kuat antara pukul 10 pagi – 4 sore. Cari tempat teduh jika memungkinkan.',
     icon: <Glasses className="w-6 h-6 text-purple-500" />,
   },
 ];
@@ -529,8 +536,8 @@ const steps = [
 export const SunProtection = () => {
   return (
     <div className="p-6 ">
-      <h2 className="text-3xl font-bold mb-4">☀️ Sun Protection Essentials</h2>
-      <p className="text-muted-foreground mb-6">UV exposure is the #1 cause of premature aging, hyperpigmentation, and skin cancer. Here's how to guard your skin every day.</p>
+      <h2 className="text-3xl font-bold mb-4">☀️ Perlindungan Matahari yang Esensial</h2>
+      <p className="text-muted-foreground mb-6">Paparan sinar UV adalah penyebab utama penuaan dini, hiperpigmentasi, dan kanker kulit. Berikut cara melindungi kulit Anda setiap hari.</p>
 
       <div className="space-y-6 border-l-4 border-yellow-400 pl-9 relative">
         {steps.map((step, index) => (
@@ -543,8 +550,8 @@ export const SunProtection = () => {
       </div>
 
       <div className="mt-10 bg-yellow-50 p-4 rounded-xl border border-yellow-100">
-        <h3 className="font-semibold mb-2 text-yellow-800">⚠️ Did You Know?</h3>
-        <p className="text-yellow-700">Even short sun exposure (like walking to class or work) adds up. Make sunscreen a non-negotiable habit!</p>
+        <h3 className="font-semibold mb-2 text-yellow-800">⚠️ Tahukah Anda?</h3>
+        <p className="text-yellow-700">Bahkan paparan matahari yang singkat (seperti berjalan ke sekolah atau tempat kerja) bisa berdampak. Jadikan penggunaan tabir surya sebagai kebiasaan yang tidak bisa ditawar!</p>
       </div>
     </div>
   );
@@ -555,37 +562,37 @@ export const OverTheCounter = () => {
     <div className="px-6 py-10 space-y-8 max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-semibold text-cold-7">Over-the-Counter (OTC) Treatments for Skin Conditions</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-cold-7">Perawatan Tanpa Resep (OTC) untuk Kondisi Kulit</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
           <p>
-            Over-the-counter (OTC) treatments are non-prescription medications available at pharmacies, drugstores, and online. They’re often the first line of defense for managing common skin conditions like acne, eczema, and fungal
-            infections. OTC products vary by active ingredients, purpose, and skin compatibility.
+            Perawatan tanpa resep (OTC) adalah obat yang bisa dibeli tanpa resep dokter, tersedia di apotek dan toko daring. Biasanya digunakan sebagai lini pertama untuk mengatasi kondisi kulit umum seperti jerawat, eksim, dan infeksi
+            jamur. Produk OTC bervariasi berdasarkan bahan aktif, tujuan, dan kecocokan dengan jenis kulit.
           </p>
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-lg font-medium">Acne Treatments</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-medium">Perawatan Jerawat</AccordionTrigger>
               <AccordionContent>
                 <p>
-                  Ingredients like <strong>benzoyl peroxide</strong> (kills acne-causing bacteria), <strong>salicylic acid</strong> (exfoliates pores), and <strong>adapalene</strong> (a retinoid) are commonly used. These are available as
-                  cleansers, creams, and gels.
+                  Bahan seperti <strong>benzoyl peroxide</strong> (membunuh bakteri penyebab jerawat), <strong>salicylic acid</strong> (mengelupas pori-pori), dan <strong>adapalene</strong> (retinoid) sering digunakan. Tersedia dalam bentuk
+                  pembersih, krim, dan gel.
                 </p>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger className="text-lg font-medium">Eczema Relief</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-medium">Mengatasi Eksim</AccordionTrigger>
               <AccordionContent>
                 <p>
-                  OTC creams containing <strong>colloidal oatmeal</strong>, <strong>ceramides</strong>, or <strong>hydrocortisone</strong> help soothe inflammation, itchiness, and dryness.
+                  Krim OTC yang mengandung <strong>colloidal oatmeal</strong>, <strong>ceramides</strong>, atau <strong>hydrocortisone</strong> membantu meredakan peradangan, gatal, dan kulit kering.
                 </p>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger className="text-lg font-medium">Fungal Infections</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-medium">Infeksi Jamur</AccordionTrigger>
               <AccordionContent>
                 <p>
-                  <strong>Clotrimazole</strong>, <strong>miconazole</strong>, and <strong>terbinafine</strong> are common antifungal creams for athlete's foot, ringworm, and yeast infections.
+                  <strong>Clotrimazole</strong>, <strong>miconazole</strong>, dan <strong>terbinafine</strong> adalah krim antijamur umum untuk kutu air, kurap, dan infeksi jamur lainnya.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -593,7 +600,7 @@ export const OverTheCounter = () => {
 
           <div className="bg-cold-2 p-4 rounded-md border-l-4 border-cold-4">
             <p>
-              <strong>Important:</strong> Always read product labels and perform a patch test before trying a new OTC treatment. If symptoms persist, consult a healthcare provider.
+              <strong>Penting:</strong> Selalu baca label produk dan lakukan tes tempel sebelum mencoba perawatan OTC baru. Jika gejala tidak membaik, konsultasikan dengan tenaga medis.
             </p>
           </div>
         </CardContent>
@@ -607,32 +614,32 @@ export const Prescription = () => {
     <div className="px-6 py-10 space-y-8 max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-semibold text-cold-7">Prescription Treatments</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-cold-7">Perawatan dengan Resep Dokter</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5 text-base text-muted-foreground">
-          <p>When OTC medications are not effective, doctors may prescribe stronger topical or oral medications. These are tailored to the individual’s condition and health history, and often require careful monitoring.</p>
+          <p>Jika obat tanpa resep tidak efektif, dokter dapat meresepkan obat topikal atau oral yang lebih kuat. Perawatan ini disesuaikan dengan kondisi dan riwayat kesehatan individu, serta sering memerlukan pemantauan ketat.</p>
 
           <ul className="list-disc list-inside space-y-3">
             <li>
-              <strong>Topical Steroids:</strong> For severe eczema or psoriasis, corticosteroids reduce inflammation and redness.
+              <strong>Steroid Topikal:</strong> Untuk eksim atau psoriasis parah, kortikosteroid mengurangi peradangan dan kemerahan.
             </li>
             <li>
-              <strong>Oral Antibiotics:</strong> Used for infected acne or bacterial skin infections.
+              <strong>Antibiotik Oral:</strong> Digunakan untuk jerawat yang terinfeksi atau infeksi kulit akibat bakteri.
             </li>
             <li>
-              <strong>Biologics:</strong> Advanced injectable treatments for chronic conditions like psoriasis.
+              <strong>Biologis:</strong> Perawatan suntik canggih untuk kondisi kronis seperti psoriasis.
             </li>
             <li>
-              <strong>Retinoids:</strong> Prescription-strength retinoids like tretinoin help with acne and aging.
+              <strong>Retinoid:</strong> Retinoid dengan kekuatan resep seperti tretinoin membantu jerawat dan penuaan kulit.
             </li>
             <li>
-              <strong>Immunosuppressants:</strong> For autoimmune skin diseases like lupus.
+              <strong>Imunosupresan:</strong> Untuk penyakit kulit autoimun seperti lupus.
             </li>
           </ul>
 
           <div className="bg-yellow-50 p-4 rounded-md border-l-4 border-yellow-400">
             <p>
-              <strong>Note:</strong> Always follow your doctor’s instructions and inform them about side effects. Some prescriptions can interact with other medications or require blood work.
+              <strong>Catatan:</strong> Selalu ikuti instruksi dokter dan beri tahu jika ada efek samping. Beberapa resep dapat berinteraksi dengan obat lain atau memerlukan pemeriksaan darah.
             </p>
           </div>
         </CardContent>
@@ -647,29 +654,29 @@ export const NaturalRemedies = () => {
       <Card>
         <CardHeader className="flex items-center gap-4">
           <Leaf className="text-green-500 w-8 h-8" />
-          <CardTitle className="text-3xl font-semibold text-green-800">Natural Remedies</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-green-800">Pengobatan Alami</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
-          <p>Some people prefer natural or home remedies to treat mild skin conditions. While not always scientifically proven, many of these options can offer relief when used safely.</p>
+          <p>Beberapa orang memilih pengobatan alami atau rumahan untuk kondisi kulit ringan. Meskipun tidak selalu terbukti secara ilmiah, beberapa pilihan ini dapat memberikan kelegaan jika digunakan dengan aman.</p>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <li>
-              <strong>Aloe Vera:</strong> Soothes burns, sunburn, and irritation.
+              <strong>Lidah Buaya:</strong> Menenangkan luka bakar, sengatan matahari, dan iritasi.
             </li>
             <li>
-              <strong>Tea Tree Oil:</strong> Antiseptic and anti-inflammatory, useful for acne and fungal infections.
+              <strong>Minyak Pohon Teh:</strong> Antiseptik dan anti-inflamasi, bermanfaat untuk jerawat dan infeksi jamur.
             </li>
             <li>
-              <strong>Oatmeal Baths:</strong> Calms itchiness and eczema flare-ups.
+              <strong>Mandi Oatmeal:</strong> Meredakan gatal dan flare-up eksim.
             </li>
             <li>
-              <strong>Coconut Oil:</strong> Moisturizing and has mild antimicrobial properties.
+              <strong>Minyak Kelapa:</strong> Melembapkan dan memiliki sifat antimikroba ringan.
             </li>
           </ul>
 
           <div className="bg-green-100 p-4 rounded-md border-l-4 border-green-400">
             <p>
-              <strong>Caution:</strong> Always do a patch test before using essential oils. Avoid using natural remedies as a substitute for professional care if the condition worsens.
+              <strong>Perhatian:</strong> Selalu lakukan uji tempel sebelum menggunakan minyak esensial. Jangan gunakan pengobatan alami sebagai pengganti perawatan profesional jika kondisi memburuk.
             </p>
           </div>
         </CardContent>
@@ -684,29 +691,29 @@ export const WhenToSeekHelp = () => {
       <Card>
         <CardHeader className="flex items-center gap-4">
           <Stethoscope className="text-red-500 w-8 h-8" />
-          <CardTitle className="text-3xl font-semibold text-red-700">When to Seek Medical Help</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-red-700">Kapan Harus Mencari Bantuan Medis</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-base text-muted-foreground">
-          <p>Not all skin problems can be treated at home. In some cases, it’s crucial to consult a dermatologist or primary care physician.</p>
+          <p>Tidak semua masalah kulit bisa diobati di rumah. Dalam beberapa kasus, sangat penting untuk berkonsultasi dengan dokter kulit atau dokter umum.</p>
 
           <ul className="space-y-3">
             <li>
-              <strong>Rapid Spread:</strong> If a rash or infection spreads quickly or is accompanied by fever.
+              <strong>Penyebaran Cepat:</strong> Jika ruam atau infeksi menyebar cepat atau disertai demam.
             </li>
             <li>
-              <strong>Persistent Symptoms:</strong> When conditions don’t improve with OTC treatment.
+              <strong>Gejala yang Bertahan:</strong> Ketika kondisi tidak membaik dengan pengobatan OTC.
             </li>
             <li>
-              <strong>Pain or Bleeding:</strong> Open wounds, sores, or moles that bleed or change shape.
+              <strong>Nyeri atau Pendarahan:</strong> Luka terbuka, luka yang berdarah, atau tahi lalat yang berubah bentuk.
             </li>
             <li>
-              <strong>Systemic Symptoms:</strong> Such as fatigue, swelling, or joint pain—may indicate underlying issues.
+              <strong>Gejala Sistemik:</strong> Seperti kelelahan, pembengkakan, atau nyeri sendi — bisa jadi indikasi masalah yang lebih dalam.
             </li>
           </ul>
 
           <div className="bg-red-50 p-4 rounded-md border-l-4 border-red-400">
             <p>
-              <strong>Reminder:</strong> Early diagnosis can prevent serious complications. Don’t hesitate to seek professional care.
+              <strong>Pengingat:</strong> Diagnosis dini dapat mencegah komplikasi serius. Jangan ragu untuk mencari pertolongan medis profesional.
             </p>
           </div>
         </CardContent>
@@ -718,45 +725,45 @@ export const WhenToSeekHelp = () => {
 export const MythsFact = () => {
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-4xl font-bold text-primary">Skin Health Myths & Facts</h1>
+      <h1 className="text-4xl font-bold text-primary">Mitos & Fakta Tentang Kesehatan Kulit</h1>
       <div className="grid md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Myth: Acne only affects teenagers</CardTitle>
+            <CardTitle className="text-xl">Mitos: Jerawat hanya dialami remaja</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              <strong>Fact:</strong> While it’s most common during adolescence, many adults continue to experience acne into their 30s, 40s, and beyond. Hormonal changes, stress, and skincare products can all trigger breakouts.
+              <strong>Fakta:</strong> Meski paling umum terjadi saat remaja, banyak orang dewasa mengalami jerawat hingga usia 30-an, 40-an, bahkan lebih. Perubahan hormon, stres, dan produk perawatan kulit bisa memicunya.
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Myth: You don’t need sunscreen on cloudy days</CardTitle>
+            <CardTitle className="text-xl">Mitos: Tidak perlu tabir surya saat mendung</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              <strong>Fact:</strong> UV rays can penetrate clouds and still damage your skin. Daily sunscreen use is crucial for skin health and cancer prevention.
+              <strong>Fakta:</strong> Sinar UV bisa menembus awan dan tetap merusak kulit. Penggunaan tabir surya harian penting untuk kesehatan kulit dan pencegahan kanker.
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Myth: Tanning clears up acne</CardTitle>
+            <CardTitle className="text-xl">Mitos: Berjemur bisa menyembuhkan jerawat</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              <strong>Fact:</strong> Tanning can temporarily mask acne but actually worsens it in the long run and increases skin cancer risk.
+              <strong>Fakta:</strong> Berjemur mungkin menutupi jerawat sementara, tetapi justru memperparahnya dalam jangka panjang dan meningkatkan risiko kanker kulit.
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Myth: Natural remedies are always safe</CardTitle>
+            <CardTitle className="text-xl">Mitos: Obat alami selalu aman</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              <strong>Fact:</strong> Even natural substances can cause irritation, allergic reactions, or interact with medications. Always consult a dermatologist before trying new treatments.
+              <strong>Fakta:</strong> Bahkan bahan alami bisa menyebabkan iritasi, alergi, atau berinteraksi dengan obat lain. Selalu konsultasikan dengan dokter kulit sebelum mencoba perawatan baru.
             </p>
           </CardContent>
         </Card>
@@ -764,29 +771,28 @@ export const MythsFact = () => {
     </div>
   );
 };
-
 export const Faqs = () => {
   const faqs = [
     {
-      q: 'What causes acne?',
-      a: 'Acne is caused by clogged pores, bacteria, hormonal changes, and excess oil production.',
+      q: 'Apa penyebab jerawat?',
+      a: 'Jerawat disebabkan oleh pori-pori yang tersumbat, bakteri, perubahan hormon, dan produksi minyak berlebih.',
     },
     {
-      q: 'Can skin diseases be cured permanently?',
-      a: 'Some can be cured, while others like eczema or psoriasis are managed long-term with treatment.',
+      q: 'Apakah penyakit kulit bisa sembuh total?',
+      a: 'Beberapa bisa sembuh total, namun ada juga yang seperti eksim atau psoriasis yang dikelola jangka panjang dengan pengobatan.',
     },
     {
-      q: 'Is it okay to pop pimples?',
-      a: 'It’s best to avoid popping pimples as it can lead to scarring and infection.',
+      q: 'Apakah boleh memencet jerawat?',
+      a: 'Sebaiknya hindari memencet jerawat karena bisa menyebabkan bekas luka dan infeksi.',
     },
     {
-      q: 'What is the best sunscreen to use?',
-      a: 'Look for a broad-spectrum sunscreen with at least SPF 30. Reapply every 2 hours if outdoors.',
+      q: 'Tabir surya apa yang terbaik digunakan?',
+      a: 'Gunakan tabir surya spektrum luas dengan SPF minimal 30. Oleskan ulang setiap 2 jam jika berada di luar ruangan.',
     },
   ];
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-4xl font-bold text-primary">Frequently Asked Questions</h1>
+      <h1 className="text-4xl font-bold text-primary">Pertanyaan yang Sering Diajukan</h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <details key={index} className="p-4 border rounded-md bg-white shadow">
@@ -802,7 +808,7 @@ export const Faqs = () => {
 export const ResourcesReferences = () => {
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-4xl font-bold text-primary">Resources & References</h1>
+      <h1 className="text-4xl font-bold text-primary">Sumber & Referensi</h1>
       <ul className="list-disc list-inside space-y-2">
         <li>
           <a className="text-blue-600 underline" href="https://www.aad.org/" target="_blank">
@@ -816,12 +822,12 @@ export const ResourcesReferences = () => {
         </li>
         <li>
           <a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">
-            PubMed Central (PMC) – Dermatology Studies
+            PubMed Central (PMC) – Studi Dermatologi
           </a>
         </li>
         <li>
           <a className="text-blue-600 underline" href="https://www.who.int/news-room/fact-sheets/detail/skin-diseases" target="_blank">
-            World Health Organization – Skin Disease Facts
+            Organisasi Kesehatan Dunia – Fakta Penyakit Kulit
           </a>
         </li>
       </ul>
@@ -831,29 +837,29 @@ export const ResourcesReferences = () => {
 
 export const AskDermatologist = () => {
   return (
-    <div className="p-6 space-y-8  ">
-      <h1 className="text-4xl font-bold text-primary">Contact / Ask a Dermatologist</h1>
-      <p className="text-muted-foreground">Have questions about your skin health? Fill out the form below and our dermatology expert will respond within 24–48 hours.</p>
+    <div className="p-6 space-y-8">
+      <h1 className="text-4xl font-bold text-primary">Hubungi / Tanya Dokter Kulit</h1>
+      <p className="text-muted-foreground">Punya pertanyaan tentang kesehatan kulit Anda? Isi formulir di bawah ini dan ahli dermatologi kami akan merespons dalam 24–48 jam.</p>
       <form className="space-y-4">
         <div>
           <label className="block font-medium" htmlFor="name">
-            Full Name
+            Nama Lengkap
           </label>
           <input id="name" type="text" className="w-full border rounded p-2" placeholder="John Doe" />
         </div>
         <div>
           <label className="block font-medium" htmlFor="email">
-            Email Address
+            Alamat Email
           </label>
-          <input id="email" type="email" className="w-full border rounded p-2" placeholder="you@example.com" />
+          <input id="email" type="email" className="w-full border rounded p-2" placeholder="anda@example.com" />
         </div>
         <div>
           <label className="block font-medium" htmlFor="question">
-            Your Question
+            Pertanyaan Anda
           </label>
-          <textarea id="question" rows={5} className="w-full border rounded p-2" placeholder="Describe your concern in detail..." />
+          <textarea id="question" rows={5} className="w-full border rounded p-2" placeholder="Jelaskan masalah Anda secara detail..." />
         </div>
-        <Button type="submit">Send Message</Button>
+        <Button type="submit">Kirim Pesan</Button>
       </form>
     </div>
   );
