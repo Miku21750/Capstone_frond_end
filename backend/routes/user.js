@@ -19,6 +19,10 @@ const {
     getDataUserSkinController,
     deletePhotoController,
 } = require('../controllers/detectSkinController')
+const {
+    getFeedback,
+    submitFeedback,
+} = require("../controllers/feedbackController")
 const { scrapeListSkinCondition, bypassHotLink } = require("../controllers/scrappingDataController")
 
 module.exports =[
@@ -93,6 +97,16 @@ module.exports =[
             auth: "jwt",   
             handler: deletePhotoController
         }
+    },
+    {
+        method: "GET",
+        path: "/api/feedback",
+        handler: getFeedback
+    },
+    {
+        method: "POST",
+        path: "/api/feedback",
+        handler: submitFeedback
     },
     {
         method: "GET",

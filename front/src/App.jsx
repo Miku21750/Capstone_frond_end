@@ -24,18 +24,20 @@ import {
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
-// import { FeedbackPage } from './components/feedbacks';
+import { FeedbackPage } from './components/feedbacks';
 import { NearbyClinics } from './Pages/Maps';
+import GoogleTranslate from './components/translate'; 
+
 // import './utils/il8n'
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Navigation />}>
+        {/* <GoogleTranslate /> */}
+          <Routes>
+            <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
-            {/* <Route path='/feedback' element={<FeedbackPage />} /> */}
+            <Route path='/feedback' element={<FeedbackPage />} />
           </Route>
           <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
@@ -64,7 +66,6 @@ function App() {
             <Route path='/upload-penyakit' element={<UploadPenyakit />}/>
           </Route>
         </Routes>
-      </BrowserRouter>
     </>
   )
 }

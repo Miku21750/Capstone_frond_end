@@ -11,7 +11,12 @@ import ApiRequest from '@/api';
 
 import Swal from 'sweetalert2';
 
+
 export const SkinCondition = () => {
+
+
+  
+
   const { name } = useParams();
   const [conditions, setConditions] = useState([]);
   const [selectedCondition, setSelectedCondition] = useState(null);
@@ -110,8 +115,6 @@ export const SkinCondition = () => {
     <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-screen bg-[#E9F3F4] text-gray-800">
       {/* Main content area */}
       <section className="flex-1 w-auto lg:mr-80 px-4 py-8 lg:px-8 lg:py-12">
-
-
         <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-6 sm:mb-10 leading-tight">
           {selectedCondition.name}
         </h1>
@@ -510,6 +513,7 @@ export const LifestyleChoices = () => {
 };
 
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
+import GoogleTranslate from './translate';
 const steps = [
   {
     title: 'Gunakan Tabir Surya Setiap Hari',

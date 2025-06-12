@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Link } from 'react-router';
 import { useNavigate } from 'react-router';
-
+import CookieConsent from './cookies-consent';
 import ApiRequest from '@/api';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
@@ -51,6 +51,7 @@ export function LoginForm({ className, ...props }) {
   };
   return (
     <div className={cn("flex  gap-6 items-center justify-around h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover", className)} {...props}>
+      <CookieConsent />
       <Card className={'p-5 shadow-2xl shadow-fuchsia-200 w-fit  '}>
         {/* <CardHeader className={'flex flex-col gap-10'}>
           <CardTitle className={'text-4xl w-full'}></CardTitle>
