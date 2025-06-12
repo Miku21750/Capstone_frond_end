@@ -513,7 +513,7 @@ export const LifestyleChoices = () => {
 };
 
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
-import GoogleTranslate from './translate';
+// import GoogleTranslate from './translate';
 const steps = [
   {
     title: 'Gunakan Tabir Surya Setiap Hari',
