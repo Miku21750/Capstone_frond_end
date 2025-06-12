@@ -6,7 +6,7 @@ import { Navigation } from './components/navigation';
 import { About } from './Pages/About';
 import { UploadPenyakit } from './pages/UploadPenyakit';
 import GateKeeping from './utils/gateKeeping';
-import { 
+import EducationalVideos, { 
   AskDermatologist, 
   DailySkincareRoutine, 
   Faqs, 
@@ -36,6 +36,7 @@ function App() {
           </Route>
           <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
+            <Route path='/education/educational-video' element={<EducationalVideos/>}></Route>
             <Route path='/education/prevention-tips/daily-skincare-routine' element={<DailySkincareRoutine />}></Route>
             <Route path='/education/prevention-tips/hygiene-advice' element={<HygieneAdvice />}></Route>
             <Route path='/education/skin-conditions/:name' element={<SkinCondition />}></Route>
