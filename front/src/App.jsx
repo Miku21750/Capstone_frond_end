@@ -5,7 +5,7 @@ import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
 import { About } from './Pages/about';
 import { UploadPenyakit } from './pages/UploadPenyakit';
-import GateKeeping from './utils/gateKeeping';
+import GateKeeping from './utils/GateKeeping';
 import EducationalVideos, { 
   AskDermatologist, 
   DailySkincareRoutine, 
