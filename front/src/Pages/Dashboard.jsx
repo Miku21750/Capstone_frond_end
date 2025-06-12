@@ -189,7 +189,7 @@ const DashboardContent = ({
             ref={avatarRef} 
             className="h-24 w-24 ring-2 ring-emerald-500"
           >
-            <AvatarImage src={`http://localhost:4000${user.avatar}`} alt={`${user.name}'s avatar`} />
+            <AvatarImage src={`${import.meta.env.VITE_API_BASE_URL}${user.avatar}`} alt={`${user.name}'s avatar`} />
             <AvatarFallback>{user.name ? user.name.charAt(0) : 'U'}</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
@@ -355,7 +355,7 @@ const DashboardContent = ({
                   </CardHeader>
                   <CardContent className="flex flex-col sm:flex-row gap-4 p-4 pt-0">
                     <img
-                      src={`http://localhost:4000${scan.path}`}
+                      src={`${import.meta.env.VITE_API_BASE_URL}${scan.path}`}
                       alt={`Scan result for ${scan.prediction || 'N/A'}`}
                       className="h-40 w-full sm:h-32 sm:w-32 object-cover rounded-lg flex-shrink-0"
                       loading="lazy"
@@ -451,7 +451,7 @@ const DashboardContent = ({
             <div className="flex-1 space-y-4">
               <div className="relative w-32 h-32 group cursor-pointer mx-auto md:mx-0">
                 <img
-                  src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `http://localhost:4000${user.avatar}`)}
+                  src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `${import.meta.env.VITE_API_BASE_URL}${user.avatar}`)}
                   alt="Profile Avatar"
                   className="w-full h-full object-cover rounded-lg border-2 border-gray-300 text-center"
                   onClick={() => document.getElementById("avatarInput").click()}
