@@ -50,13 +50,14 @@ export function LoginForm({ className, ...props }) {
     }
   };
   return (
-    <div className={cn("flex  gap-6 items-center justify-around h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover", className)} {...props}>
+    <div className={cn("flex flex-col sm:flex-row  gap-6 items-center justify-around h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover p-5 bg-fixed", className)} {...props}>
       <CookieConsent />
+      <div className="text-center text-white">
+        <h1 className="text-5xl font-bold text-white">Masuk ke Akun Anda</h1>
+        <p className="text-white">Masukkan email dan kata sandi Anda untuk mengakses akun.</p>
+        <img src="/2.svg" alt="" className="w-1/2 mx-auto hidden md:block" />
+      </div>
       <Card className={'p-5 shadow-2xl shadow-fuchsia-200 w-fit  '}>
-        {/* <CardHeader className={'flex flex-col gap-10'}>
-          <CardTitle className={'text-4xl w-full'}></CardTitle>
-
-        </CardHeader> */}
         <CardContent>
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
@@ -71,9 +72,9 @@ export function LoginForm({ className, ...props }) {
                   <Label className={'text-xl'} htmlFor="password">
                     Password
                   </Label>
-                  <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
+                  {/* <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
                     Lupa kata sandi Anda?
-                  </a>
+                  </a> */}
                 </div>
                 <Input className={'p-5 md:text-xl'} id="password" type="password" required />
               </div>
@@ -95,11 +96,7 @@ export function LoginForm({ className, ...props }) {
           </form>
         </CardContent>
       </Card>
-      <div className="text-center text-white">
-        <h1 className="text-5xl font-bold text-white">Masuk ke Akun Anda</h1>
-        <p className="text-white">Masukkan email dan kata sandi Anda untuk mengakses akun.</p>
-        <img src="/2.svg" alt="" className="w-1/2 mx-auto" />
-      </div>
+
     </div>
   );
 }
@@ -161,14 +158,15 @@ export function RegisterForm({ className, ...props }) {
     setSelectedGender(e.target.value);
   };
   return (
-    <div className={cn("flex  gap-6 items-center justify-around h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover", className)} {...props}>
+    <div className={cn("flex flex-col sm:flex-row  gap-6 items-center h-fit sm:h-screen justify-around p-5 bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover bg-fixed ", className)} {...props}>
+      <div className="text-center text-white">
+        <h1 className="text-5xl font-bold text-white">Buat Akun Baru</h1>
+        <p className="text-white">
+          Isi detail pada <span className="font-bold">formulir</span> untuk membuat akun Anda.
+        </p>
+        <img src="/1.svg" alt="" className='hidden md:block w-1/2 mx-auto'/>
+      </div>
       <Card className={'p-5 shadow-2xl shadow-fuchsia-200 w-fit  '}>
-        {/* <CardHeader className={'flex flex-col gap-10'}>
-          <CardTitle className={'text-4xl text-center'}></CardTitle>
-          <CardDescription>
-            
-          </CardDescription>
-        </CardHeader> */}
         <CardContent>
           <form onSubmit={handleRegister}>
             <div className="flex flex-col gap-6">
@@ -253,13 +251,7 @@ export function RegisterForm({ className, ...props }) {
           </form>
         </CardContent>
       </Card>
-      <div className="text-center text-white">
-        <h1 className="text-5xl font-bold text-white">Buat Akun Baru</h1>
-        <p className="text-white">
-          Isi detail pada <span className="font-bold">formulir</span> untuk membuat akun Anda.
-        </p>
-        <img src="/1.svg" alt="" />
-      </div>
+      
     </div>
   );
 }

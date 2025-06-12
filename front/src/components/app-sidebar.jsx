@@ -33,6 +33,10 @@ const data = {
           title: 'Ringkasan',
           url: '/education',
         },
+        {
+          title: 'Educational Videos',
+          url: '/education/educational-video',
+        }
       ],
     },
     {
