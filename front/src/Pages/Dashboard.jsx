@@ -193,7 +193,7 @@ const DashboardContent = ({
       <main className="flex-1 p-4 md:p-6 overflow-auto">
         <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 tracking-tight pt-10 md:pt-0">Selamat Datang kembali, {user.name} 👋</h1>
 
-        <Tabs defaultValue="profile">
+        <Tabs defaultValue="profil">
           <TabsList className="mb-4 md:mb-6 bg-white rounded-lg shadow flex-wrap justify-center sm:justify-start">
             {['profil', 'pemindaian', 'tindakan'].map((tab) => (
               <TabsTrigger key={tab} value={tab} className="text-base px-4 py-2 sm:px-6 sm:py-2 capitalize min-w-[100px]">
