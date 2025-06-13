@@ -1,8 +1,14 @@
 const Hapi = require("@hapi/hapi")
 const Inert = require("@hapi/inert")
 const connectDB = require("./db");
-const userRoutes = require("./routes/user");
 const HapiJwt = require("@hapi/jwt");
+
+const userRoutes = require("./routes/user");
+const detectSkinRoutes = require("./routes/detectSkin");
+const feedbackRoutes = require("./routes/feedback");
+const scrapingRoutes = require("./routes/scraping");
+const staticRoutes = require("./routes/static");
+
 
 require('dotenv').config(); 
 const init = async () => {
@@ -40,7 +46,13 @@ const init = async () => {
     });
 
     // server.auth.default('jwt');
-    server.route(userRoutes)
+    server.route([
+        ...userRoutes,
+        ...detectSkinRoutes,
+        ...feedbackRoutes,
+        ...scrapingRoutes,
+        ...staticRoutes,
+    ]);
 
     await server.start();
     console.log("Server running on %s", server.info.uri);

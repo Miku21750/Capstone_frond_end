@@ -48,7 +48,7 @@ export const About = () => {
         </div>
       </section>
 
-      <section className="h-fit flex flex-col items-center bg-[#FAF8F1] bg-grey px-4 py-12">
+      <section className="h-fit flex flex-col items-center bg-[#FAF8F1] bg-grey px-4 py-12" id='meetTeam'>
         <h1 className="text-5xl  font-bold font-sans text-[#002d52] mb-10">Meet the Team</h1>
         {/* Card 1 */}
         <div className="flex flex-wrap justify-center gap-10 w-full max-w-screen-xl">

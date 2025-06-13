@@ -625,7 +625,7 @@ export const Dashboard = () => {
 
     const fetchUserProfile = async () => {
       try {
-        const res = await ApiRequest.get('/api/user/detail');
+        const res = await ApiRequest.get('/api/users/detail');
         setUser(res.data);
         setFormData({
           name: res.data.name || '',
@@ -698,7 +698,7 @@ export const Dashboard = () => {
     }
 
     try {
-      await ApiRequest.put('/api/user/detail', form, {
+      await ApiRequest.put('/api/users/detail', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -715,7 +715,7 @@ export const Dashboard = () => {
       setPhotoFile(null);
       setPhotoPreview(null);
 
-      const refreshed = await ApiRequest.get('/api/user/detail');
+      const refreshed = await ApiRequest.get('/api/users/detail');
       setUser(refreshed.data);
     } catch (error) {
       console.error('Request error:', error);
@@ -739,7 +739,7 @@ export const Dashboard = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await ApiRequest.delete(`/api/dataPhoto/${id}`);
+          await ApiRequest.delete(`/api/photos/${id}`);
           setScans((prev) => prev.filter((scan) => scan._id !== id));
           Swal.fire('Deleted!', 'Your scan has been deleted.', 'success');
         } catch (error) {

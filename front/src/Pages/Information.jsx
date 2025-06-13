@@ -12,7 +12,7 @@ export default function Information() {
     const [searchKeyword, setSearchKeyword] = useState("");
 
     useEffect(() =>{
-        ApiRequest.get('/api/list-skin-condition')
+        ApiRequest.get('/api/skin-conditions')
             .then(res => setConditions(res.data))
             .catch(err => console.error("Failed to fetch conditions", err))
     },[])

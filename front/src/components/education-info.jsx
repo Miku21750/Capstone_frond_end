@@ -30,7 +30,7 @@ export const SkinCondition = () => {
       });
     }
 
-    ApiRequest.get('/api/list-skin-condition')
+    ApiRequest.get('/api/skin-conditions')
       .then((res) => {
         setConditions(res.data);
         const matched = res.data.find((condition) => slugify(condition.name) === name);

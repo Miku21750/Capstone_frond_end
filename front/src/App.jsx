@@ -26,6 +26,9 @@ import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
 import { FeedbackPage } from './components/feedbacks';
 import { NearbyClinics } from './Pages/Maps';
+import Terms from './Pages/Terms';
+import PrivacyPage from './Pages/Privacy';
+import CookiePage from './Pages/Cookies';
 function App() {
   return (
     <>
@@ -34,6 +37,9 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
             <Route path='/feedback' element={<FeedbackPage />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/cookieterm" element={<CookiePage />} />
           </Route>
           <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
