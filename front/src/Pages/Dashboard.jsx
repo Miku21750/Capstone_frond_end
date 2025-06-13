@@ -195,14 +195,14 @@ const DashboardContent = ({
 
         <Tabs defaultValue="profile">
           <TabsList className="mb-4 md:mb-6 bg-white rounded-lg shadow flex-wrap justify-center sm:justify-start">
-            {['profil', 'pemindaian', ' tindakan'].map((tab) => (
+            {['profil', 'pemindaian', 'tindakan'].map((tab) => (
               <TabsTrigger key={tab} value={tab} className="text-base px-4 py-2 sm:px-6 sm:py-2 capitalize min-w-[100px]">
                 {tab.replace(/^\w/, (c) => c.toUpperCase())}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          <TabsContent value="profile">
+          <TabsContent value="profil">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
               <Card
                 className="col-span-1 md:col-span-2 lg:col-span-2 shadow-md bg-white rounded-lg"
@@ -286,7 +286,7 @@ const DashboardContent = ({
             </div>
           </TabsContent>
 
-          <TabsContent value="scans">
+          <TabsContent value="pemindaian">
             <ScrollArea className="h-[calc(100vh-200px)] pr-4">
               {scans.length > 0 ? scans.map((scan, i) => 
               {
@@ -363,7 +363,7 @@ const DashboardContent = ({
             </ScrollArea>
           </TabsContent>
 
-          <TabsContent value="actions">
+          <TabsContent value="tindakan">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
