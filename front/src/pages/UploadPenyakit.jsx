@@ -18,14 +18,30 @@ export function UploadPenyakit() {
   const canvasRef = useRef(null);
   const selectRef = useRef(null);
   const cameraRef = useRef(null);
-
+  
   const [isCameraOn, setIsCameraOn] = useState(false); // Initially camera is off
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState(false);
   const [resAI, setData] = useState({});
   const [permissionDenied, setPermissionDenied] = useState(false); // New state for permission status
-
+  
+  const [slug, setSlug] = useState(null); // new
+  const predictionSlugMap = {
+    "Acne": "acne",
+    "Cellulitis": "cellulitis",
+    "Impetigo": "impetigo",
+    "Eczema": "eczema",
+    "Athlete’s Foot": "athletes-foot",
+    "Nail Fungus": "nail-ringworm-pathology",
+    "Ringworm": "body-ringworm",
+    "Cutaneous Larva Migrans": "cutaneous-larva-migrans",
+    "Chickenpox": "chickenpox",
+    "Shingles": "shingles"
+  };
+  
+  
   // Function to initialize and launch the camera
+  
   const launchCamera = useCallback(async () => {
     setPermissionDenied(false); // Reset permission denied status
     try {
@@ -80,6 +96,20 @@ export function UploadPenyakit() {
 
   // Effect to stop camera when component unmounts
   useEffect(() => {
+    Swal.fire({
+      title: 'Tips Foto yang Baik',
+      html: `
+        <ul style="text-align: left;">
+          <li>Ambil foto dengan pencahayaan cukup</li>
+          <li>Fokuskan kamera pada area kulit yang bermasalah</li>
+          <li>Hindari blur atau goyangan saat mengambil foto</li>
+          <li>Gunakan background yang bersih bila memungkinkan</li>
+        </ul>
+      `,
+      icon: 'info',
+      confirmButtonText: 'Lanjutkan',
+    });
+
     return () => {
       cameraRef.current?.stop();
     };
@@ -101,6 +131,29 @@ export function UploadPenyakit() {
     formData.append('file', file, 'penyakit.jpg');
     formData.append('image', file); // Keep this for potential backend needs
 
+    //validasi
+    const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+    if (!validTypes.includes(file.type)) {
+      Swal.fire({
+        title: 'Format Tidak Didukung',
+        text: 'Silakan unggah gambar dalam format JPG atau PNG.',
+        icon: 'error',
+      });
+      return;
+    }
+
+    const maxSizeMB = 5;
+    if (file.size > maxSizeMB * 1024 * 1024) {
+      Swal.fire({
+        title: 'Ukuran Terlalu Besar',
+        text: `Ukuran gambar maksimal ${maxSizeMB}MB. Silakan unggah gambar yang lebih kecil.`,
+        icon: 'error',
+      });
+      return;
+    }
+
+
+
     try {
       Swal.fire({
         title: 'Mengunggah...',
@@ -115,6 +168,25 @@ export function UploadPenyakit() {
 
       if (resAI?.data) {
         const { prediction, confidence, penjelasan, obat, cara_pakai } = resAI.data;
+
+        //check if confidnece is below threshold
+        const normalize = (text) => text.replace(/[’‘]/g, "'").trim();
+        const predictionName = normalize(prediction);
+        const slugFromMap = predictionSlugMap[predictionName] || predictionName.toLowerCase().replace(/\s+/g, '-');
+        setSlug(slugFromMap); 
+
+        const confidenceValue = parseFloat(confidence);
+        console.log('Raw confidence:', confidence);
+        console.log('Parsed confidence:', confidenceValue);
+
+        if ((confidenceValue * 100).toFixed(2) <= 40) {
+          Swal.fire({
+            title: 'Coba Lagi',
+            text: 'Tingkat kepercayaan AI terlalu rendah. Silakan unggah foto yang lebih jelas.\n\nJika masalah berlanjut, silakan hubungi admin.\n\nTerima kasih.\n\n confidence: ' + (confidenceValue * 100).toFixed(2) + '%',
+            icon: 'warning',
+          });
+          return; // Stop execution here
+        }
         // Append AI response data to formData for the second API call
         formData.append('prediction', prediction);
         formData.append('confidence', confidence);
@@ -150,6 +222,7 @@ export function UploadPenyakit() {
       });
       return;
     }
+    
     setLoading(true);
     try {
       const blob = await cameraRef.current.takePicture();
@@ -172,6 +245,8 @@ export function UploadPenyakit() {
       await uploadImage(file);
     }
   };
+
+  
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100 px-4 py-6">
@@ -272,6 +347,13 @@ export function UploadPenyakit() {
             <p><strong>Penjelasan:</strong> {resAI.penjelasan || 'Tidak ada penjelasan.'}</p>
             <p><strong>Obat:</strong> {resAI.obat || 'Tidak ada rekomendasi obat.'}</p>
             <p><strong>Cara Pakai:</strong> {resAI.cara_pakai || 'Tidak ada cara pakai.'}</p>
+            <Button
+              variant="link"
+              className="text-blue-600 underline px-0"
+              onClick={() => navigate(`/education/skin-conditions/${slug}`)}
+            >
+              Pelajari lebih lanjut
+            </Button>
           </div>
           <DialogFooter className="flex justify-end mt-6">
             <Button variant="outline" onClick={() => {

@@ -162,7 +162,7 @@ const DashboardContent = ({
   color, dailyStatsMap, diseaseNames, diseasePerDayChartData, chartData,
   cardRefs, 
   avatarRef, 
-  isEditProfileDialogOpen
+  isEditProfileDialogOpen, predictionSlugMap,
 }) => {
   const { toggleSidebar, isMobile } = useSidebar(); 
 
@@ -286,7 +286,7 @@ const DashboardContent = ({
                     </ResponsiveContainer>
                   </div>
 
-                  <div>
+                  {/* <div>
                     <p className="text-md md:text-lg font-medium mb-2">Average Confidence Over Time</p>
                     <ResponsiveContainer width="100%" height={250}>
                       <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -298,7 +298,7 @@ const DashboardContent = ({
                         <Line type="monotone" dataKey="confidence" stroke="#00bcd4" strokeWidth={2} />
                       </LineChart>
                     </ResponsiveContainer>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
 
@@ -334,7 +334,13 @@ const DashboardContent = ({
           <TabsContent value="scans">
             
             <ScrollArea className="h-[calc(100vh-200px)] pr-4">
-              {scans.length > 0 ? scans.map((scan, i) => (
+              {scans.length > 0 ? scans.map((scan, i) => 
+              {
+                
+                const normalize = (text) => text.replace(/[’‘]/g, "'").trim();
+                const predictionName = normalize(scan.prediction);
+                const slug = predictionSlugMap[predictionName] || predictionName.toLowerCase().replace(/\s+/g, '-');
+                return (
                 <Card
                   key={scan._id}
                   ref={(el) => {
@@ -364,11 +370,22 @@ const DashboardContent = ({
                       <div>
                         <p className="font-medium text-gray-600">Result:</p>
                         <p className="text-base font-semibold text-gray-800">{scan.prediction || 'N/A'}</p>
+                        {scan.prediction && (
+                          <Button
+                            variant="link"
+                            className="text-blue-600 underline px-0"
+                            onClick={() =>
+                              navigate(`/education/skin-conditions/${slug}`)
+                            }
+                          >
+                            Pelajari lebih lanjut
+                          </Button>
+                        )}
                       </div>
-                      <div>
+                      {/* <div>
                         <p className="font-medium text-gray-600">Confidence:</p>
                         <p className="text-base text-gray-800">{scan.confidence ? `${(parseFloat(scan.confidence) * 100).toFixed(2)}%` : 'N/A'}</p>
-                      </div>
+                      </div> */}
                       <div>
                         <p className="font-medium text-gray-600">Detail:</p>
                         <p className="text-base text-gray-800">{scan.penjelasan || 'No details available.'}</p>
@@ -384,7 +401,8 @@ const DashboardContent = ({
                     </div>
                   </CardContent>
                 </Card>
-              ))
+              )}
+            )
                 :
                 <p className="text-center text-gray-500 py-10">No scans yet. Start by scanning your skin in the "Actions" tab!</p>
               }
@@ -831,18 +849,18 @@ export const Dashboard = () => {
     ? new Date(sortedScans[0].uploadedAt).toLocaleDateString()
     : "-";
 
-  const averageConfidence = useMemo(() =>
-    scans.length
-      ? (
-        (scans.reduce((acc, scan) => {
-          const conf = parseFloat(scan.confidence);
-          return !isNaN(conf) ? acc + conf : acc;
-        }, 0) /
-          scans.length) *
-        100
-      ).toFixed(2)
-      : '0.00'
-    , [scans]);
+  // const averageConfidence = useMemo(() =>
+  //   scans.length
+  //     ? (
+  //       (scans.reduce((acc, scan) => {
+  //         const conf = parseFloat(scan.confidence);
+  //         return !isNaN(conf) ? acc + conf : acc;
+  //       }, 0) /
+  //         scans.length) *
+  //       100
+  //     ).toFixed(2)
+  //     : '0.00'
+  //   , [scans]);
 
   const calculateBMI = (weightKg, heightCm) => {
     if (!weightKg || !heightCm || heightCm === 0) return 0;
@@ -878,13 +896,13 @@ export const Dashboard = () => {
         map[date] = {
           date,
           scans: 0,
-          confidenceSum: 0,
+          // confidenceSum: 0,
           diseases: {},
         };
       }
       map[date].scans += 1;
-      const conf = parseFloat(scan.confidence || 0);
-      map[date].confidenceSum += !isNaN(conf) ? conf : 0;
+      // const conf = parseFloat(scan.confidence || 0);
+      // map[date].confidenceSum += !isNaN(conf) ? conf : 0;
       const disease = scan.prediction || 'Unknown';
       map[date].diseases[disease] = (map[date].diseases[disease] || 0) + 1;
     });
@@ -909,7 +927,7 @@ export const Dashboard = () => {
     Object.values(dailyStatsMap).map((entry) => ({
       date: entry.date,
       scans: entry.scans,
-      confidence: (entry.confidenceSum / entry.scans) || 0,
+      // confidence: (entry.confidenceSum / entry.scans) || 0,
     }))
     , [dailyStatsMap]);
 
@@ -947,7 +965,7 @@ export const Dashboard = () => {
         ['Total Scans', totalScans],
         ['Last Scan', lastScanDate],
         ['Scan Frequency', scanFrequency],
-        ['Average Scan Confidence', `${averageConfidence}%`],
+        // ['Average Scan Confidence', `${averageConfidence}%`],
       ],
       bg: 'bg-sky-100',
     },
@@ -969,6 +987,20 @@ export const Dashboard = () => {
     { label: 'About', path: '/about' },
     { label: 'Education', path: '/education' },
   ];
+
+  const predictionSlugMap = {
+    "Acne": "acne",
+    "Cellulitis": "cellulitis",
+    "Impetigo": "impetigo",
+    "Eczema": "eczema",
+    "Athlete’s Foot": "athletes-foot",
+    "Nail Fungus": "nail-ringworm-pathology",
+    "Ringworm": "body-ringworm",
+    "Cutaneous Larva Migrans": "cutaneous-larva-migrans",
+    "Chickenpox": "chickenpox",
+    "Shingles": "shingles"
+  };
+
 
   return (
     <SidebarProvider>
@@ -1006,7 +1038,7 @@ export const Dashboard = () => {
           averageGapDays={averageGapDays}
           scanFrequency={scanFrequency}
           lastScanDate={lastScanDate}
-          averageConfidence={averageConfidence}
+          // averageConfidence={averageConfidence}
           calculateBMI={calculateBMI}
           getBMICategory={getBMICategory}
           getBMISuggestions={getBMISuggestions}
@@ -1020,6 +1052,7 @@ export const Dashboard = () => {
           cardRefs={cardRefs} 
           avatarRef={avatarRef} 
           isEditProfileDialogOpen={isEditProfileDialogOpen}
+          predictionSlugMap={predictionSlugMap}
         />
       </div>
     </SidebarProvider>
