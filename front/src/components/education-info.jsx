@@ -177,7 +177,7 @@ export const SkinCondition = () => {
               {selectedCondition.images.map((image, index) => (
                 <figure key={index} className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-100">
                   <img
-                    src={`${import.meta.env.VITE_API_BASE_URL}${image.localPath}`}
+                    src={image.supabaseUrl || image.src || `${import.meta.env.VITE_API_BASE_URL}${image.localPath}`}
                     alt={image.alt || 'Skin condition image'}
                     title={image.title || image.alt || 'Skin condition image'}
                     className="w-full h-48 sm:h-56 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
