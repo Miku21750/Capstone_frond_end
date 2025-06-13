@@ -69,7 +69,7 @@ export const Navigation = () => {
           {/* Left section: Sidebar toggle and main navigation (desktop) */}
           <div className="flex items-center gap-4">
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+            <nav className="hidden md:flex items-center space-x-2 xl:space-x-4">
               {navLinks.map((link) => (
                 <Button
                   key={link.path}
