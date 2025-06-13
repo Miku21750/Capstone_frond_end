@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect, useState, useLayoutEffect, useRef, useMemo, useCallback } from 'react';
 import gsap from 'gsap';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,23 +6,21 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Bar, BarChart, ReferenceArea, ReferenceLine } from 'recharts';
-import Swal from "sweetalert2";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Progress } from "@/components/ui/progress";
-import { Sidebar, SidebarProvider, SidebarTrigger, SidebarContent, SidebarHeader, SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarSeparator, useSidebar, SidebarFooter, SidebarMenuItem } from "@/components/ui/sidebar";
-import { Stethoscope, Sun, Timer, User2, Mars, Venus, HeartPulse, Trash2, MenuIcon, X } from "lucide-react";
-import ApiRequest from "@/api";
-import { useNavigate } from "react-router";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import Swal from 'sweetalert2';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Progress } from '@/components/ui/progress';
+import { Sidebar, SidebarProvider, SidebarTrigger, SidebarContent, SidebarHeader, SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarSeparator, useSidebar, SidebarFooter, SidebarMenuItem } from '@/components/ui/sidebar';
+import { Stethoscope, Sun, Timer, User2, Mars, Venus, HeartPulse, Trash2, MenuIcon, X } from 'lucide-react';
+import ApiRequest from '@/api';
+import { useNavigate } from 'react-router';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import DatePicker from "@/components/ui/calendar";
-import { Separator } from "@/components/ui/separator";
+import DatePicker from '@/components/ui/calendar';
+import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 
-
 export const BMIChart = ({ bmi }) => {
-
   const bmiRanges = [
     { name: 'Underweight', min: 0.0, max: 18.4, color: '#3b82f6' },
     { name: 'Normal', min: 18.5, max: 24.9, color: '#22c55e' },
@@ -30,12 +28,9 @@ export const BMIChart = ({ bmi }) => {
     { name: 'Obese', min: 30.0, max: 45.0, color: '#ef4444' },
   ];
 
-
-
-
   const chartData = [
     { bmiValue: 0.0, dummyY: 0 },
-    { bmiValue: 5.0, dummyY: 0 }, 
+    { bmiValue: 5.0, dummyY: 0 },
     { bmiValue: 10.0, dummyY: 0 }, // Intermediate point
     { bmiValue: 18.4, dummyY: 0 }, // End of Underweight
     { bmiValue: 18.5, dummyY: 0 }, // Start of Normal
@@ -50,37 +45,29 @@ export const BMIChart = ({ bmi }) => {
     { bmiValue: 45.0, dummyY: 0 }, // End of chart domain
   ];
 
-  
   const clampedBmi = Math.max(0, Math.min(bmi, 45));
 
   const CustomTooltip = ({ active, payload, label }) => {
-    if (active && label !== undefined) { 
-      const hoveredBmi = parseFloat(label); 
-      const currentRange = bmiRanges.find(
-        (range) => hoveredBmi >= range.min && hoveredBmi <= range.max
-      );
+    if (active && label !== undefined) {
+      const hoveredBmi = parseFloat(label);
+      const currentRange = bmiRanges.find((range) => hoveredBmi >= range.min && hoveredBmi <= range.max);
 
       return (
         <div className="bg-white border border-gray-300 p-3 rounded shadow-lg text-sm min-w-[150px]">
-          
           <p className="font-semibold text-gray-800 mb-1">{`BMI: ${hoveredBmi.toFixed(1)}`}</p>
 
           {currentRange && (
             <>
-              
-              <p className="text-gray-600 mb-1">{`Category: `}<span style={{ color: currentRange.color, fontWeight: 'bold' }}>{currentRange.name}</span></p>
-              
+              <p className="text-gray-600 mb-1">
+                {`Category: `}
+                <span style={{ color: currentRange.color, fontWeight: 'bold' }}>{currentRange.name}</span>
+              </p>
+
               <p className="text-gray-500 text-xs">{`Range: ${currentRange.min.toFixed(1)} - ${currentRange.max.toFixed(1)}`}</p>
             </>
           )}
 
-          
-          
-          {bmi > 0 && Math.abs(hoveredBmi - bmi) < 0.2 && (
-            <p className="text-purple-700 font-bold mt-2 pt-2 border-t border-gray-200">
-              {`Your BMI: ${bmi.toFixed(1)}`}
-            </p>
-          )}
+          {bmi > 0 && Math.abs(hoveredBmi - bmi) < 0.2 && <p className="text-purple-700 font-bold mt-2 pt-2 border-t border-gray-200">{`Your BMI: ${bmi.toFixed(1)}`}</p>}
         </div>
       );
     }
@@ -89,19 +76,8 @@ export const BMIChart = ({ bmi }) => {
 
   return (
     <ResponsiveContainer width="100%" height={90}>
-      <LineChart
-        data={chartData}
-        margin={{ top: 15, right: 10, left: 10, bottom: 5 }}
-      >
-        <XAxis
-          type="number"
-          dataKey="bmiValue" 
-          domain={[0, 45]}
-          tickCount={6}
-          axisLine={true}
-          tickLine={true}
-          label={{ value: 'BMI Scale', position: 'insideBottom', offset: -5, fill: '#333', fontSize: 12 }}
-        />
+      <LineChart data={chartData} margin={{ top: 15, right: 10, left: 10, bottom: 5 }}>
+        <XAxis type="number" dataKey="bmiValue" domain={[0, 45]} tickCount={6} axisLine={true} tickLine={true} label={{ value: 'BMI Scale', position: 'insideBottom', offset: -5, fill: '#333', fontSize: 12 }} />
         <YAxis hide />
 
         <Line type="monotone" dataKey="dummyY" strokeOpacity={0} dot={false} activeDot={false} />
@@ -121,12 +97,11 @@ export const BMIChart = ({ bmi }) => {
               fill: range.color,
               fontSize: 10,
               dy: -5,
-              offset: (range.max + range.min) / 2
+              offset: (range.max + range.min) / 2,
             }}
           />
         ))}
 
-        
         {bmi > 0 && (
           <ReferenceLine
             x={clampedBmi}
@@ -143,13 +118,12 @@ export const BMIChart = ({ bmi }) => {
             }}
           />
         )}
-        
+
         <Tooltip cursor={{ stroke: '#ccc', strokeWidth: 1 }} content={<CustomTooltip />} />
       </LineChart>
     </ResponsiveContainer>
   );
 };
-
 
 const DashboardContent = ({
   user, scans, sections, navigateButton, navigate, handleLogout,
@@ -162,41 +136,33 @@ const DashboardContent = ({
   color, dailyStatsMap, diseaseNames, diseasePerDayChartData, chartData,
   cardRefs, 
   avatarRef, 
-  isEditProfileDialogOpen
+  isEditProfileDialogOpen, predictionSlugMap,
 }) => {
-  const { toggleSidebar, isMobile } = useSidebar(); 
+  const { toggleSidebar, isMobile } = useSidebar();
 
   return (
     <>
-      
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-lg"
-        onClick={toggleSidebar}
-        aria-label="Toggle sidebar"
-      >
+      <button className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-lg" onClick={toggleSidebar} aria-label="Toggle sidebar">
         <MenuIcon className="h-6 w-6" />
       </button>
 
-      
       <Sidebar className="z-50">
         <SidebarHeader className="pt-6 pb-2">
-          <CardTitle className="text-center text-2xl font-semibold">
-            Your Profile
-          </CardTitle>
+          <CardTitle className="text-center text-2xl font-semibold">Profil Anda</CardTitle>
         </SidebarHeader>
         <SidebarContent className="flex flex-col gap-4 items-center text-center pb-6 overflow-hidden">
           <Avatar
             ref={avatarRef} 
             className="h-24 w-24 ring-2 ring-emerald-500"
           >
-            <AvatarImage src={`http://localhost:4000${user.avatar}`} alt={`${user.name}'s avatar`} />
+            <AvatarImage src={`${import.meta.env.VITE_API_BASE_URL}${user.avatar}`} alt={`${user.name}'s avatar`} />
             <AvatarFallback>{user.name ? user.name.charAt(0) : 'U'}</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
             <p className="font-medium text-lg">{user.name}</p>
             <p className="text-sm text-muted-foreground">{user.email}</p>
             <p className="text-sm flex items-center justify-center gap-1">
-              {user.age} {user.gender === "female" ? <Venus className="text-pink-500 h-5 w-5" /> : <Mars className="text-blue-500 h-5 w-5" />}
+              {user.age} {user.gender === 'female' ? <Venus className="text-pink-500 h-5 w-5" /> : <Mars className="text-blue-500 h-5 w-5" />}
             </p>
           </div>
           <SidebarSeparator className="my-2" />
@@ -224,35 +190,33 @@ const DashboardContent = ({
         </SidebarContent>
       </Sidebar>
 
-      <main className="flex-1 p-4 md:p-6 overflow-auto"> 
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 tracking-tight pt-10 md:pt-0">
-          Welcome back, {user.name} 👋
-        </h1>
+      <main className="flex-1 p-4 md:p-6 overflow-auto">
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 tracking-tight pt-10 md:pt-0">Selamat Datang kembali, {user.name} 👋</h1>
 
-        <Tabs defaultValue="profile">
+        <Tabs defaultValue="profil">
           <TabsList className="mb-4 md:mb-6 bg-white rounded-lg shadow flex-wrap justify-center sm:justify-start">
-            {["profile", "scans", "actions"].map((tab) => (
-              <TabsTrigger
-                key={tab}
-                value={tab}
-                className="text-base px-4 py-2 sm:px-6 sm:py-2 capitalize min-w-[100px]"
-              >
+            {['profil', 'pemindaian', 'tindakan'].map((tab) => (
+              <TabsTrigger key={tab} value={tab} className="text-base px-4 py-2 sm:px-6 sm:py-2 capitalize min-w-[100px]">
                 {tab.replace(/^\w/, (c) => c.toUpperCase())}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          <TabsContent value="profile">
+          <TabsContent value="profil">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
-              <Card className="col-span-1 md:col-span-2 lg:col-span-2 shadow-md bg-white rounded-lg"
-                ref={(el) => { if (el) cardRefs.current.push(el); }}> 
+              <Card
+                className="col-span-1 md:col-span-2 lg:col-span-2 shadow-md bg-white rounded-lg"
+                ref={(el) => {
+                  if (el) cardRefs.current.push(el);
+                }}
+              >
                 <CardHeader className="bg-indigo-100 flex flex-row justify-between items-center p-4 rounded-t-lg">
-                  <CardTitle className="text-lg md:text-xl font-semibold">Health Overview & Activity</CardTitle>
+                  <CardTitle className="text-lg md:text-xl font-semibold">Tinjauan & Aktivitas Kesehatan</CardTitle>
                   <Sun className="h-6 w-6 text-yellow-500" />
                 </CardHeader>
                 <CardContent className="py-6 px-4 md:px-6 space-y-8">
                   <div>
-                    <p className="text-md md:text-lg font-medium mb-2">Scans Per Day</p>
+                    <p className="text-md md:text-lg font-medium mb-2">Pemindaian Per Hari</p>
                     <ResponsiveContainer width="100%" height={250}>
                       <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -266,7 +230,7 @@ const DashboardContent = ({
                   </div>
 
                   <div>
-                    <p className="text-md md:text-lg font-medium mb-2">Diseases per Day</p>
+                    <p className="text-md md:text-lg font-medium mb-2">Penyakit per Hari</p>
                     <ResponsiveContainer width="100%" height={300}>
                       <BarChart data={diseasePerDayChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -275,18 +239,13 @@ const DashboardContent = ({
                         <Tooltip />
                         <Legend />
                         {diseaseNames.map((disease, index) => (
-                          <Bar
-                            key={disease}
-                            dataKey={disease}
-                            stackId={undefined}
-                            fill={['#8884d8', '#82ca9d', '#ffc658', '#ff7300', '#387908'][index % 5]}
-                          />
+                          <Bar key={disease} dataKey={disease} stackId={undefined} fill={['#8884d8', '#82ca9d', '#ffc658', '#ff7300', '#387908'][index % 5]} />
                         ))}
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
 
-                  <div>
+                  {/* <div>
                     <p className="text-md md:text-lg font-medium mb-2">Average Confidence Over Time</p>
                     <ResponsiveContainer width="100%" height={250}>
                       <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -298,7 +257,7 @@ const DashboardContent = ({
                         <Line type="monotone" dataKey="confidence" stroke="#00bcd4" strokeWidth={2} />
                       </LineChart>
                     </ResponsiveContainer>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
 
@@ -308,7 +267,7 @@ const DashboardContent = ({
                   ref={(el) => {
                     if (el) cardRefs.current.push(el);
                   }}
-                  className={`shadow-md bg-white rounded-lg flex flex-col ${section.span ? "col-span-full" : ""}`}
+                  className={`shadow-md bg-white rounded-lg flex flex-col ${section.span ? 'col-span-full' : ''}`}
                 >
                   <CardHeader className={`${section.bg} flex flex-row justify-between items-center p-4 rounded-t-lg`}>
                     <CardTitle className="text-lg md:text-xl font-semibold">{section.title}</CardTitle>
@@ -318,11 +277,7 @@ const DashboardContent = ({
                     {section.content.map(([label, value], i) => (
                       <div key={i} className="flex flex-col">
                         <p className="text-sm font-medium text-gray-600">{label}:</p>
-                        {typeof value === 'string' || typeof value === 'number' ? (
-                          <p className="text-base text-gray-800">{value}</p>
-                        ) : (
-                          <div className="pt-2">{value}</div>
-                        )}
+                        {typeof value === 'string' || typeof value === 'number' ? <p className="text-base text-gray-800">{value}</p> : <div className="pt-2">{value}</div>}
                       </div>
                     ))}
                   </CardContent>
@@ -331,10 +286,15 @@ const DashboardContent = ({
             </div>
           </TabsContent>
 
-          <TabsContent value="scans">
-            
+          <TabsContent value="pemindaian">
             <ScrollArea className="h-[calc(100vh-200px)] pr-4">
-              {scans.length > 0 ? scans.map((scan, i) => (
+              {scans.length > 0 ? scans.map((scan, i) => 
+              {
+                
+                const normalize = (text) => text.replace(/[’‘]/g, "'").trim();
+                const predictionName = normalize(scan.prediction);
+                const slug = predictionSlugMap[predictionName] || predictionName.toLowerCase().replace(/\s+/g, '-');
+                return (
                 <Card
                   key={scan._id}
                   ref={(el) => {
@@ -355,20 +315,31 @@ const DashboardContent = ({
                   </CardHeader>
                   <CardContent className="flex flex-col sm:flex-row gap-4 p-4 pt-0">
                     <img
-                      src={`http://localhost:4000${scan.path}`}
+                      src={`${import.meta.env.VITE_API_BASE_URL}${scan.path}`}
                       alt={`Scan result for ${scan.prediction || 'N/A'}`}
                       className="h-40 w-full sm:h-32 sm:w-32 object-cover rounded-lg flex-shrink-0"
                       loading="lazy"
                     />
                     <div className="space-y-2">
                       <div>
-                        <p className="font-medium text-gray-600">Result:</p>
+                        <p className="font-medium text-gray-600">Hasil:</p>
                         <p className="text-base font-semibold text-gray-800">{scan.prediction || 'N/A'}</p>
+                        {scan.prediction && (
+                          <Button
+                            variant="link"
+                            className="text-blue-600 underline px-0"
+                            onClick={() =>
+                              navigate(`/education/skin-conditions/${slug}`)
+                            }
+                          >
+                            Pelajari lebih lanjut
+                          </Button>
+                        )}
                       </div>
-                      <div>
+                      {/* <div>
                         <p className="font-medium text-gray-600">Confidence:</p>
                         <p className="text-base text-gray-800">{scan.confidence ? `${(parseFloat(scan.confidence) * 100).toFixed(2)}%` : 'N/A'}</p>
-                      </div>
+                      </div> */}
                       <div>
                         <p className="font-medium text-gray-600">Detail:</p>
                         <p className="text-base text-gray-800">{scan.penjelasan || 'No details available.'}</p>
@@ -384,39 +355,40 @@ const DashboardContent = ({
                     </div>
                   </CardContent>
                 </Card>
-              ))
+              )}
+            )
                 :
-                <p className="text-center text-gray-500 py-10">No scans yet. Start by scanning your skin in the "Actions" tab!</p>
+                <p className="text-center text-gray-500 py-10">Belum ada pemindaian. Mulailah dengan memindai kulit Anda di tab "Tindakan"!</p>
               }
             </ScrollArea>
           </TabsContent>
 
-          <TabsContent value="actions">
+          <TabsContent value="tindakan">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
-                  title: 'Scan Your Skin',
-                  description: 'Upload a new photo of your skin condition and get analysis.',
-                  button: 'Upload & Scan',
+                  title: 'Pindai Kulit Anda',
+                  description: 'Unggah foto terbaru kondisi kulit Anda dan dapatkan analisis.',
+                  button: 'Unggah & Pindai',
                   url: '/upload-penyakit',
                 },
                 {
-                  title: "Update Profile Info",
-                  description: "Keep your profile up to date for better recommendations.",
-                  button: "Edit Profile",
+                  title: 'Perbarui Info Profil',
+                  description: 'Jaga profil Anda tetap terbaru untuk rekomendasi yang lebih baik.',
+                  button: 'Edit Profil',
                   onClick: () => setIsEditProfileDialogOpen(true),
                 },
                 {
-                  title: 'Check the Nearest Clinic',
-                  description: 'Find the nearest clinic for your skin condition.',
-                  button: 'Find Clinic',
+                  title: 'Periksa Klinik Terdekat',
+                  description: 'Temukan klinik terdekat untuk kondisi kulit Anda.',
+                  button: 'Cari Klinik',
                   url: '/maps',
                 },
               ].map((action, i) => (
                 <Card
                   key={i}
                   ref={(el) => {
-                    if (el) cardRefs.current.push(el); 
+                    if (el) cardRefs.current.push(el);
                   }}
                   className="shadow-md bg-white rounded-lg flex flex-col"
                 >
@@ -425,13 +397,18 @@ const DashboardContent = ({
                   </CardHeader>
                   <CardContent className="p-4 pt-0 flex-grow flex flex-col justify-between">
                     <p className="text-gray-700 mb-4">{action.description}</p>
-                    <Button className="w-full" onClick={() => {
-                      if (action.onClick) {
-                        action.onClick();
-                      } else if (action.url) {
-                        navigate(action.url);
-                      }
-                    }} >{action.button}</Button>
+                    <Button
+                      className="w-full"
+                      onClick={() => {
+                        if (action.onClick) {
+                          action.onClick();
+                        } else if (action.url) {
+                          navigate(action.url);
+                        }
+                      }}
+                    >
+                      {action.button}
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -440,24 +417,21 @@ const DashboardContent = ({
         </Tabs>
       </main>
 
-      
       <Dialog open={isEditProfileDialogOpen} onOpenChange={setIsEditProfileDialogOpen}>
         <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-          <DialogTitle>Edit Profile</DialogTitle>
-          <DialogDescription>
-            Update your profile information to keep it current.
-          </DialogDescription>
+          <DialogTitle>Edit Profil</DialogTitle>
+          <DialogDescription>Perbarui informasi profil Anda agar tetap terkini.</DialogDescription>
           <div className="flex flex-col md:flex-row gap-6 py-4">
             <div className="flex-1 space-y-4">
               <div className="relative w-32 h-32 group cursor-pointer mx-auto md:mx-0">
                 <img
-                  src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `http://localhost:4000${user.avatar}`)}
+                  src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `${import.meta.env.VITE_API_BASE_URL}${user.avatar}`)}
                   alt="Profile Avatar"
                   className="w-full h-full object-cover rounded-lg border-2 border-gray-300 text-center"
-                  onClick={() => document.getElementById("avatarInput").click()}
+                  onClick={() => document.getElementById('avatarInput').click()}
                 />
 
-                {(!removePhoto && (photoPreview || user.avatar)) && (
+                {!removePhoto && (photoPreview || user.avatar) && (
                   <button
                     className="absolute top-1 right-1 bg-white rounded-full shadow p-1 text-red-500 hover:bg-red-100 z-10 text-xs"
                     onClick={(e) => {
@@ -489,79 +463,86 @@ const DashboardContent = ({
               </div>
 
               <div>
-                <Label htmlFor="full-name" className="block mb-1">Full Name</Label>
+                <Label htmlFor="full-name" className="block mb-1">
+                  Nama Lengkap
+                </Label>
                 <Input id="full-name" placeholder="Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
               </div>
               <div>
-                <Label htmlFor="email" className="block mb-1">Email</Label>
+                <Label htmlFor="email" className="block mb-1">
+                  Email
+                </Label>
                 <Input id="email" placeholder="Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
               <div>
-                <Label htmlFor="phone" className="block mb-1">Phone Number</Label>
+                <Label htmlFor="phone" className="block mb-1">
+                  Nomor Telepon
+                </Label>
                 <Input id="phone" placeholder="Phone Number" type="tel" value={formData.phoneNumber} onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })} />
               </div>
               <div>
-                <Label htmlFor="address" className="block mb-1">Address</Label>
+                <Label htmlFor="address" className="block mb-1">
+                  Alamat
+                </Label>
                 <Input id="address" placeholder="Address" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
               </div>
             </div>
 
-
             <div className="flex-1 space-y-4">
               <div>
-                <Label htmlFor="date-picker" className="block mb-1">Date of Birth</Label>
+                <Label htmlFor="date-picker" className="block mb-1">
+                  Tanggal lahir
+                </Label>
                 <DatePicker id="date-picker" value={birthDate} onChange={setBirthDate} />
               </div>
               <div>
-                <Label htmlFor="gender" className="block mb-1">Gender</Label>
+                <Label htmlFor="gender" className="block mb-1">
+                  Jenis kelamin
+                </Label>
                 <div className="flex justify-around items-center gap-2 mt-2">
-                  <label className="flex flex-col items-center gap-1 cursor-pointer p-2 rounded-lg transition-all duration-200 w-20"
+                  <label
+                    className="flex flex-col items-center gap-1 cursor-pointer p-2 rounded-lg transition-all duration-200 w-20"
                     style={{
-                      border: selectedGender === "male" ? "3px solid #60a5fa" : "2px solid #e5e7eb",
-                      boxShadow: selectedGender === "male" ? "0 0 0 2px #bfdbfe" : "none",
-                    }}>
-                    <Input
-                      onChange={handleGenderChange}
-                      type="radio"
-                      name="gender"
-                      value="male"
-                      checked={selectedGender === "male"}
-                      className="hidden"
-                    />
-                    <p className="text-base font-semibold">Male</p>
-                    <Mars className={`h-6 w-6 transition-all ${selectedGender === "male" ? "text-blue-500" : "text-gray-400"}`} />
+                      border: selectedGender === 'male' ? '3px solid #60a5fa' : '2px solid #e5e7eb',
+                      boxShadow: selectedGender === 'male' ? '0 0 0 2px #bfdbfe' : 'none',
+                    }}
+                  >
+                    <Input onChange={handleGenderChange} type="radio" name="gender" value="male" checked={selectedGender === 'male'} className="hidden" />
+                    <p className="text-base font-semibold">Cowok</p>
+                    <Mars className={`h-6 w-6 transition-all ${selectedGender === 'male' ? 'text-blue-500' : 'text-gray-400'}`} />
                   </label>
-                  <label className="flex flex-col items-center gap-1 cursor-pointer p-2 rounded-lg transition-all duration-200 w-20"
+                  <label
+                    className="flex flex-col items-center gap-1 cursor-pointer p-2 rounded-lg transition-all duration-200 w-20"
                     style={{
-                      border: selectedGender === "female" ? "3px solid #f87171" : "2px solid #e5e7eb",
-                      boxShadow: selectedGender === "female" ? "0 0 0 2px #fecaca" : "none",
-                    }}>
-                    <Input
-                      onChange={handleGenderChange}
-                      type="radio"
-                      name="gender"
-                      value="female"
-                      checked={selectedGender === "female"}
-                      className="hidden"
-                    />
-                    <p className="text-base font-semibold">Female</p>
-                    <Venus className={`h-6 w-6 transition-all ${selectedGender === "female" ? "text-pink-500" : "text-gray-400"}`} />
+                      border: selectedGender === 'female' ? '3px solid #f87171' : '2px solid #e5e7eb',
+                      boxShadow: selectedGender === 'female' ? '0 0 0 2px #fecaca' : 'none',
+                    }}
+                  >
+                    <Input onChange={handleGenderChange} type="radio" name="gender" value="female" checked={selectedGender === 'female'} className="hidden" />
+                    <p className="text-base font-semibold">Cewek</p>
+                    <Venus className={`h-6 w-6 transition-all ${selectedGender === 'female' ? 'text-pink-500' : 'text-gray-400'}`} />
                   </label>
                 </div>
               </div>
               <div>
-                <Label htmlFor="height" className="block mb-1">Height (cm)</Label>
+                <Label htmlFor="height" className="block mb-1">
+                  Tinggi (cm)
+                </Label>
                 <Input id="height" placeholder="Height in cm" type={'number'} value={formData.height} onChange={(e) => setFormData({ ...formData, height: e.target.value })} />
               </div>
               <div>
-                <Label htmlFor="weight" className="block mb-1">Weight (kg)</Label>
+                <Label htmlFor="weight" className="block mb-1">
+                  Berat (kg)
+                </Label>
                 <Input id="weight" placeholder="Weight in kg" type={'number'} value={formData.weight} onChange={(e) => setFormData({ ...formData, weight: e.target.value })} />
               </div>
             </div>
           </div>
           <DialogFooter className="flex flex-col sm:flex-row-reverse sm:space-x-2 sm:space-x-reverse space-y-2 sm:space-y-0 pt-4">
-            <Button onClick={handleSubmit}>Confirm</Button>
-            <Button variant="outline" onClick={() => setIsEditProfileDialogOpen(false)}>Cancel</Button>
+            <Button onClick={handleSubmit}>Konfirmasi</Button>
+            <Button variant="outline" onClick={() => setIsEditProfileDialogOpen(false)}>
+              Kembali
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -575,16 +556,16 @@ export const Dashboard = () => {
   const [birthDate, setBirthDate] = useState(null);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phoneNumber: "",
-    address: "",
-    height: "",
-    weight: "",
-    gender: "",
+    name: '',
+    email: '',
+    phoneNumber: '',
+    address: '',
+    height: '',
+    weight: '',
+    gender: '',
   });
 
-  const [selectedGender, setSelectedGender] = useState("");
+  const [selectedGender, setSelectedGender] = useState('');
   const [user, setUser] = useState({
     name: 'Loading....',
     age: '',
@@ -606,28 +587,23 @@ export const Dashboard = () => {
 
   const avatarRef = useRef(null);
   const cardRefs = useRef([]);
-  
 
   useLayoutEffect(() => {
-    
     cardRefs.current = [];
 
     const ctx = gsap.context(() => {
-      
       if (avatarRef.current) {
         gsap.from(avatarRef.current, {
           y: -20,
           opacity: 0,
           duration: 1,
           ease: 'power3.out',
-          overwrite: 'auto', 
+          overwrite: 'auto',
         });
       }
 
-      
       if (cardRefs.current.length > 0) {
-        
-        gsap.to(cardRefs.current, { clearProps: 'all', duration: 0 }); 
+        gsap.to(cardRefs.current, { clearProps: 'all', duration: 0 });
 
         gsap.from(cardRefs.current, {
           y: 30,
@@ -640,25 +616,24 @@ export const Dashboard = () => {
       }
     });
 
-    
     return () => ctx.revert();
-  }, [user, scans]); 
+  }, [user, scans]);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     setIsLoggedIn(!!token);
 
     const fetchUserProfile = async () => {
       try {
-        const res = await ApiRequest.get("/api/user/detail");
+        const res = await ApiRequest.get('/api/user/detail');
         setUser(res.data);
         setFormData({
-          name: res.data.name || "",
-          email: res.data.email || "",
-          phoneNumber: res.data.phoneNumber || "",
-          address: res.data.address || "",
-          height: res.data.height || "",
-          weight: res.data.weight || "",
+          name: res.data.name || '',
+          email: res.data.email || '',
+          phoneNumber: res.data.phoneNumber || '',
+          address: res.data.address || '',
+          height: res.data.height || '',
+          weight: res.data.weight || '',
         });
         if (res.data.birthDate) {
           setBirthDate(new Date(res.data.birthDate));
@@ -710,29 +685,29 @@ export const Dashboard = () => {
       form.append(key, formData[key]);
     }
     if (birthDate) {
-      form.append("birthDate", birthDate.toISOString());
+      form.append('birthDate', birthDate.toISOString());
     }
     if (photoFile) {
-      form.append("avatar", photoFile);
+      form.append('avatar', photoFile);
     }
     if (removePhoto) {
-      form.append("removePhoto", "true");
+      form.append('removePhoto', 'true');
     }
     if (selectedGender) {
-      form.append("gender", selectedGender);
+      form.append('gender', selectedGender);
     }
 
     try {
-      await ApiRequest.put("/api/user/detail", form, {
+      await ApiRequest.put('/api/user/detail', form, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       Swal.fire({
-        icon: "success",
-        title: "Profile Updated",
-        text: "Your profile information has been updated successfully.",
+        icon: 'success',
+        title: 'Perbarui Profil',
+        text: 'Informasi profil Anda berhasil diperbarui.',
       });
 
       setIsEditProfileDialogOpen(false);
@@ -740,71 +715,59 @@ export const Dashboard = () => {
       setPhotoFile(null);
       setPhotoPreview(null);
 
-      const refreshed = await ApiRequest.get("/api/user/detail");
+      const refreshed = await ApiRequest.get('/api/user/detail');
       setUser(refreshed.data);
     } catch (error) {
-      console.error("Request error:", error);
+      console.error('Request error:', error);
       Swal.fire({
-        icon: "error",
-        title: "Update Failed",
-        text: error.response?.data?.message || "Something went wrong.",
+        icon: 'error',
+        title: 'Gagal Memperbarui',
+        text: error.response?.data?.message || 'Terjadi kesalahan.',
       });
     }
   }, [formData, birthDate, photoFile, removePhoto, selectedGender]);
 
   const handleDeleteScan = useCallback(async (id) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Apakah Anda yakin?',
+      text: 'Tindakan ini tidak dapat dibatalkan!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Ya, hapus!',
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           await ApiRequest.delete(`/api/dataPhoto/${id}`);
           setScans((prev) => prev.filter((scan) => scan._id !== id));
-          Swal.fire(
-            'Deleted!',
-            'Your scan has been deleted.',
-            'success'
-          );
+          Swal.fire('Deleted!', 'Your scan has been deleted.', 'success');
         } catch (error) {
-          console.error("Failed to delete scan:", error);
-          Swal.fire(
-            'Error!',
-            error.response?.data?.message || "Something went wrong while deleting the scan.",
-            'error'
-          );
+          console.error('Failed to delete scan:', error);
+          Swal.fire('Error!', error.response?.data?.message || 'Something went wrong while deleting the scan.', 'error');
         }
       }
     });
   }, []);
 
-  const sortedScans = useMemo(() =>
-    [...scans].sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())
-    , [scans]);
+  const sortedScans = useMemo(() => [...scans].sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()), [scans]);
 
   const lastDiagnosis = sortedScans[0]?.prediction || '-';
   const lastMedication = sortedScans[0]?.obat || '-';
   const lastInstruction = sortedScans[0]?.cara_pakai || '-';
 
-  const uniqueConditionsCount = useMemo(() =>
-    new Set(scans.map((scan) => scan.prediction)).size
-    , [scans]);
+  const uniqueConditionsCount = useMemo(() => new Set(scans.map((scan) => scan.prediction)).size, [scans]);
 
-  const conditionCounts = useMemo(() =>
-    scans.reduce((acc, scan) => {
-      acc[scan.prediction] = (acc[scan.prediction] || 0) + 1;
-      return acc;
-    }, {})
-    , [scans]);
+  const conditionCounts = useMemo(
+    () =>
+      scans.reduce((acc, scan) => {
+        acc[scan.prediction] = (acc[scan.prediction] || 0) + 1;
+        return acc;
+      }, {}),
+    [scans]
+  );
 
-  const mostCommonCondition = useMemo(() =>
-    Object.entries(conditionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '-'
-    , [conditionCounts]);
+  const mostCommonCondition = useMemo(() => Object.entries(conditionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '-', [conditionCounts]);
 
   const totalScans = scans.length;
   const averageGapDays = useMemo(() => {
@@ -821,28 +784,22 @@ export const Dashboard = () => {
   }, [sortedScans]);
 
   const scanFrequency =
-    averageGapDays === 0
-      ? "Only 1 scan"
-      : averageGapDays < 7
-        ? `Every ${averageGapDays.toFixed(1)} day${averageGapDays < 2 ? "" : "s"}`
-        : `Every ${(averageGapDays / 7).toFixed(1)} week${averageGapDays / 7 < 2 ? "" : "s"}`;
+    averageGapDays === 0 ? 'Only 1 scan' : averageGapDays < 7 ? `Every ${averageGapDays.toFixed(1)} day${averageGapDays < 2 ? '' : 's'}` : `Every ${(averageGapDays / 7).toFixed(1)} week${averageGapDays / 7 < 2 ? '' : 's'}`;
 
-  const lastScanDate = sortedScans.length
-    ? new Date(sortedScans[0].uploadedAt).toLocaleDateString()
-    : "-";
+  const lastScanDate = sortedScans.length ? new Date(sortedScans[0].uploadedAt).toLocaleDateString() : '-';
 
-  const averageConfidence = useMemo(() =>
-    scans.length
-      ? (
-        (scans.reduce((acc, scan) => {
-          const conf = parseFloat(scan.confidence);
-          return !isNaN(conf) ? acc + conf : acc;
-        }, 0) /
-          scans.length) *
-        100
-      ).toFixed(2)
-      : '0.00'
-    , [scans]);
+  // const averageConfidence = useMemo(() =>
+  //   scans.length
+  //     ? (
+  //       (scans.reduce((acc, scan) => {
+  //         const conf = parseFloat(scan.confidence);
+  //         return !isNaN(conf) ? acc + conf : acc;
+  //       }, 0) /
+  //         scans.length) *
+  //       100
+  //     ).toFixed(2)
+  //     : '0.00'
+  //   , [scans]);
 
   const calculateBMI = (weightKg, heightCm) => {
     if (!weightKg || !heightCm || heightCm === 0) return 0;
@@ -860,11 +817,11 @@ export const Dashboard = () => {
   };
 
   const getBMISuggestions = (bmi) => {
-    if (bmi === 0) return "Please enter your height and weight to calculate BMI and get health tips.";
-    if (bmi < 18.5) return "Consider eating more frequently and focus on nutrient-dense foods.";
-    if (bmi < 25) return "Keep up the good work! Maintain your routine.";
-    if (bmi < 30) return "Watch your portions and increase physical activity.";
-    return "Consult a healthcare provider and consider a structured weight loss program.";
+    if (bmi === 0) return 'Please enter your height and weight to calculate BMI and get health tips.';
+    if (bmi < 18.5) return 'Consider eating more frequently and focus on nutrient-dense foods.';
+    if (bmi < 25) return 'Keep up the good work! Maintain your routine.';
+    if (bmi < 30) return 'Watch your portions and increase physical activity.';
+    return 'Consult a healthcare provider and consider a structured weight loss program.';
   };
 
   const bmi = useMemo(() => calculateBMI(user.weight, user.height), [user.weight, user.height]);
@@ -878,38 +835,38 @@ export const Dashboard = () => {
         map[date] = {
           date,
           scans: 0,
-          confidenceSum: 0,
+          // confidenceSum: 0,
           diseases: {},
         };
       }
       map[date].scans += 1;
-      const conf = parseFloat(scan.confidence || 0);
-      map[date].confidenceSum += !isNaN(conf) ? conf : 0;
+      // const conf = parseFloat(scan.confidence || 0);
+      // map[date].confidenceSum += !isNaN(conf) ? conf : 0;
       const disease = scan.prediction || 'Unknown';
       map[date].diseases[disease] = (map[date].diseases[disease] || 0) + 1;
     });
     return map;
   }, [scans]);
 
-  const diseaseNames = useMemo(() =>
-    Array.from(new Set(scans.map(scan => scan.prediction)))
-    , [scans]);
+  const diseaseNames = useMemo(() => Array.from(new Set(scans.map((scan) => scan.prediction))), [scans]);
 
-  const diseasePerDayChartData = useMemo(() =>
-    Object.entries(dailyStatsMap).map(([date, counts]) => {
-      const entry = { date };
-      diseaseNames.forEach((disease) => {
-        entry[disease] = counts.diseases[disease] || 0;
-      });
-      return entry;
-    })
-    , [dailyStatsMap, diseaseNames]);
+  const diseasePerDayChartData = useMemo(
+    () =>
+      Object.entries(dailyStatsMap).map(([date, counts]) => {
+        const entry = { date };
+        diseaseNames.forEach((disease) => {
+          entry[disease] = counts.diseases[disease] || 0;
+        });
+        return entry;
+      }),
+    [dailyStatsMap, diseaseNames]
+  );
 
   const chartData = useMemo(() =>
     Object.values(dailyStatsMap).map((entry) => ({
       date: entry.date,
       scans: entry.scans,
-      confidence: (entry.confidenceSum / entry.scans) || 0,
+      // confidence: (entry.confidenceSum / entry.scans) || 0,
     }))
     , [dailyStatsMap]);
 
@@ -929,36 +886,36 @@ export const Dashboard = () => {
       bg: 'bg-emerald-100',
     },
     {
-      title: 'Recent Diagnosis Summary',
+      title: 'Ringkasan Diagnosis Terbaru',
       icon: <Stethoscope className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Most Common Condition', mostCommonCondition],
-        ['Last Diagnosed', lastDiagnosis],
-        ['Most Recent Medication', lastMedication],
-        ['Application Instructions', lastInstruction],
-        ['Total Conditions Identified', uniqueConditionsCount],
+        ['Kondisi yang Paling Umum', mostCommonCondition],
+        ['Diagnosa Terakhir', lastDiagnosis],
+        ['Obat Terakhir yang Digunakan', lastMedication],
+        ['Petunjuk Penggunaan', lastInstruction],
+        ['Total Kondisi yang Dikenali', uniqueConditionsCount],
       ],
       bg: 'bg-pink-100',
     },
     {
-      title: 'App Activity',
+      title: 'Aktivitas Aplikasi',
       icon: <Timer className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Total Scans', totalScans],
-        ['Last Scan', lastScanDate],
-        ['Scan Frequency', scanFrequency],
-        ['Average Scan Confidence', `${averageConfidence}%`],
+        ['Total Pemindaian', totalScans],
+        ['Pemindaian Terakhir', lastScanDate],
+        ['Frekuensi Pemindaian', scanFrequency],
+        // ['Rata-rata Tingkat Kepercayaan Pemindaian', `${averageConfidence}%`],
       ],
       bg: 'bg-sky-100',
     },
     {
-      title: 'BMI & Health Status',
+      title: 'BMI & Status Kesehatan',
       icon: <HeartPulse className="h-6 w-6 text-gray-500" />,
       content: [
-        ['Current BMI', bmi === 0 ? 'N/A' : bmi],
-        ['Category', <span className={`font-bold ${color}`}>{category}</span>],
-        ['Health Tips', getBMISuggestions(bmi)],
-        ['Chart', <BMIChart bmi={bmi} key={bmi} />],
+        ['BMI Saat Ini', bmi === 0 ? 'N/A' : bmi],
+        ['Kategori', <span className={`font-bold ${color}`}>{category}</span>],
+        ['Tips Kesehatan', getBMISuggestions(bmi)],
+        ['Grafik', <BMIChart bmi={bmi} key={bmi} />],
       ],
       bg: 'bg-lime-100',
     },
@@ -969,6 +926,20 @@ export const Dashboard = () => {
     { label: 'About', path: '/about' },
     { label: 'Education', path: '/education' },
   ];
+
+  const predictionSlugMap = {
+    "Acne": "acne",
+    "Cellulitis": "cellulitis",
+    "Impetigo": "impetigo",
+    "Eczema": "eczema",
+    "Athlete’s Foot": "athletes-foot",
+    "Nail Fungus": "nail-ringworm-pathology",
+    "Ringworm": "body-ringworm",
+    "Cutaneous Larva Migrans": "cutaneous-larva-migrans",
+    "Chickenpox": "chickenpox",
+    "Shingles": "shingles"
+  };
+
 
   return (
     <SidebarProvider>
@@ -1006,7 +977,7 @@ export const Dashboard = () => {
           averageGapDays={averageGapDays}
           scanFrequency={scanFrequency}
           lastScanDate={lastScanDate}
-          averageConfidence={averageConfidence}
+          // averageConfidence={averageConfidence}
           calculateBMI={calculateBMI}
           getBMICategory={getBMICategory}
           getBMISuggestions={getBMISuggestions}
@@ -1017,9 +988,10 @@ export const Dashboard = () => {
           diseaseNames={diseaseNames}
           diseasePerDayChartData={diseasePerDayChartData}
           chartData={chartData}
-          cardRefs={cardRefs} 
-          avatarRef={avatarRef} 
+          cardRefs={cardRefs}
+          avatarRef={avatarRef}
           isEditProfileDialogOpen={isEditProfileDialogOpen}
+          predictionSlugMap={predictionSlugMap}
         />
       </div>
     </SidebarProvider>

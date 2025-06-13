@@ -8,32 +8,123 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from '@/components/ui/select';
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { Label } from './ui/label';
 import { Star } from 'lucide-react';
+import { toast } from 'sonner';
+import ApiRequest from '@/api';
 export const FeedbackForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
+
+  // State for regions
+  // Using the EMSIFA API for Indonesian regions
+  const [provinces, setProvinces] = useState([]);
+  const [regencies, setRegencies] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [villages, setVillages] = useState([]);
+
+  const [selectedProvince, setSelectedProvince] = useState(null);
+  const [selectedRegency, setSelectedRegency] = useState(null);
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const [selectedVillage, setSelectedVillage] = useState(null);
+
+  useEffect(() => {
+    fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
+      .then(res => res.json())
+      .then(data => setProvinces(data))
+      .catch(err => console.error("Failed to load provinces:", err));
+  }, []);
+
+  useEffect(() => {
+    if (selectedProvince) {
+      fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${selectedProvince.id}.json`)
+        .then(res => res.json())
+        .then(data => setRegencies(data))
+        .catch(err => console.error("Failed to load regencies:", err));
+    } else {
+      setRegencies([]); setDistricts([]); setVillages([]);
+    }
+  }, [selectedProvince]);
+  useEffect(() => {
+    if (selectedRegency) {
+      fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${selectedRegency.id}.json`)
+        .then(res => res.json())
+        .then(data => setDistricts(data))
+        .catch(err => console.error("Failed to load districts:", err));
+    } else {
+      setDistricts([]); setVillages([]);
+    }
+  }, [selectedRegency]);
+
+  useEffect(() => {
+    if (selectedDistrict) {
+      fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/villages/${selectedDistrict.id}.json`)
+        .then(res => res.json())
+        .then(data => setVillages(data))
+        .catch(err => console.error("Failed to load villages:", err));
+    } else {
+      setVillages([]);
+    }
+  }, [selectedDistrict]);
+
+
+
+
+
   const form = useForm({
     defaultValues: {
-      region: '',
+      name: '',
+      province: '',
+      regency: '',
+      district: '',
+      village: '',
       method: 'upload',
       diagnosisHelpful: 3,
       drugAdviceClear: 'yes',
       nearbyHelp: 'yes',
       learnMore: [],
+      email: '',
       comments: '',
       consent: false,
     },
   });
 
-  const onSubmit = (data) => {
-    console.log('Feedback submitted:', data);
-    setSubmitted(true);
+
+  const onSubmit = async (data) => {
+    try {
+      console.log('Feedback submitted:', data);
+      const response = await ApiRequest.post('/api/feedback', data);
+
+      if(!response) throw new Error('Failed to submit feedback');
+      setSubmitted(true);
+      form.reset();
+      toast({
+        title: "✅ Terima kasih!",
+        description: "Masukan Anda membantu meningkatkan akses kesehatan untuk semua orang.",
+        variant: "success",
+      })
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      toast({
+        title: "❌ Gagal mengirim masukan",
+        description: "Silakan coba lagi nanti.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
   };
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => setSubmitted(false), 5000); // auto-hide after 5s
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
   return (
     <>
-<Card className="w-full max-w-4xl mx-auto">
+      <Card className="w-full max-w-4xl mx-auto">
         <CardHeader className="p-4 md:p-6">
           <CardTitle className="text-3xl md:text-4xl font-semibold text-center">
             🗣 Kami Sangat Mengharapkan Masukan Anda
@@ -61,12 +152,104 @@ export const FeedbackForm = () => {
 
                 <FormField
                   control={form.control}
-                  name="region"
+                  name="province"
                   render={({ field }) => (
-                    <FormItem className="col-span-2">
-                      <FormLabel className={'text-base md:text-xl'}>Provinsi / Kota</FormLabel>
-                      <FormControl><Input placeholder="e.g. Nusa Tenggara Timur" {...field} /></FormControl>
-                      <FormMessage />
+                    <FormItem>
+                      <FormLabel>Provinsi</FormLabel>
+                      <Select
+                        onValueChange={(val) => {
+                          const prov = provinces.find((p) => p.id === val);
+                          setSelectedProvince(prov);
+                          form.setValue("province", prov.name);
+                        }}
+                      >
+                        <FormControl>
+                          <SelectTrigger><SelectValue placeholder="Pilih provinsi" /></SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {provinces.map((prov) => (
+                            <SelectItem key={prov.id} value={prov.id}>{prov.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="regency"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Kabupaten / Kota</FormLabel>
+                      <Select
+                        onValueChange={(val) => {
+                          const reg = regencies.find((r) => r.id === val);
+                          setSelectedRegency(reg);
+                          form.setValue("regency", reg.name);
+                        }}
+                        disabled={!regencies.length}
+                      >
+                        <FormControl>
+                          <SelectTrigger><SelectValue placeholder="Pilih kabupaten/kota" /></SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {regencies.map((r) => (
+                            <SelectItem key={r.id} value={r.id}>{r.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="district"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Kecamatan</FormLabel>
+                      <Select
+                        onValueChange={(val) => {
+                          const dist = districts.find((d) => d.id === val);
+                          setSelectedDistrict(dist);
+                          form.setValue("district", dist.name);
+                        }}
+                        disabled={!districts.length}
+                      >
+                        <FormControl>
+                          <SelectTrigger><SelectValue placeholder="Pilih kecamatan" /></SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {districts.map((d) => (
+                            <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="village"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Kelurahan / Desa</FormLabel>
+                      <Select
+                        onValueChange={(val) => {
+                          const village = villages.find((v) => v.id === val);
+                          form.setValue("village", village.name);
+                        }}
+                        disabled={!villages.length}
+                      >
+                        <FormControl>
+                          <SelectTrigger><SelectValue placeholder="Pilih desa/kelurahan" /></SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {villages.map((v) => (
+                            <SelectItem key={v.id} value={v.id}>{v.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </FormItem>
                   )}
                 />

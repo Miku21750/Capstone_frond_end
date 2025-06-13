@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Link } from 'react-router';
 import { useNavigate } from 'react-router';
-
+import CookieConsent from './cookies-consent';
 import ApiRequest from '@/api';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
@@ -51,6 +51,7 @@ export function LoginForm({ className, ...props }) {
   };
   return (
     <div className={cn("flex flex-col sm:flex-row  gap-6 items-center justify-around h-screen bg-[url('/form-bg.svg')] bg-no-repeat bg-center bg-cover p-5 bg-fixed", className)} {...props}>
+      <CookieConsent />
       <div className="text-center text-white">
         <h1 className="text-5xl font-bold text-white">Masuk ke Akun Anda</h1>
         <p className="text-white">Masukkan email dan kata sandi Anda untuk mengakses akun.</p>
