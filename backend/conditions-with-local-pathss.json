@@ -1,0 +1,1530 @@
+[
+  {
+    "name": "Jerawat",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Gangguan folikel\n\n"
+      },
+      {
+        "heading": "Apa itu jerawat?",
+        "level": "h2",
+        "content": "Jerawat adalah gangguan kronis yang umum terjadi pada folikel rambut dan kelenjar sebasea, di mana terjadi pelebaran dan penyumbatan folikel serta peradangan. Terdapat beberapa variasi jerawat.\n\n"
+      },
+      {
+        "heading": "Siapa yang bisa terkena jerawat?",
+        "level": "h2",
+        "content": "Jerawat dapat menyerang pria dan wanita dari semua ras dan etnis. Jerawat umum terjadi pada remaja dan dewasa muda, dengan 85% dari usia 16 hingga 18 tahun mengalami kondisi ini. Namun, jerawat juga dapat muncul pada anak-anak dan orang dewasa dari segala usia.\n\n"
+      },
+      {
+        "heading": "Apa penyebab jerawat?",
+        "level": "h2",
+        "content": "Jerawat disebabkan oleh kombinasi berbagai faktor. Mekanisme pastinya belum sepenuhnya dipahami.\n\n- Kecenderungan genetik (faktor keluarga)\n- Hormon androgen endogen dan eksogen\n- Bakteri penyebab jerawat\n- Aktivasi kekebalan bawaan dengan mediator inflamasi\n- Peregangan dan penyumbatan folikel rambut\n\nKambuhnya jerawat dapat dipicu oleh:\n\n- Penyakit ovarium polikistik\n- Obat-obatan: steroid, hormon, antikonvulsan, inhibitor reseptor faktor pertumbuhan epidermal, dan lainnya\n- Penggunaan kosmetik yang menutup pori-pori\n- Kelembapan lingkungan yang tinggi\n- Pola makan tinggi produk susu dan makanan dengan indeks glikemik tinggi.\n\n"
+      },
+      {
+        "heading": "Jerawat sedang",
+        "level": "h3",
+        "content": "- Seperti pada jerawat ringan ditambah dengan tetrasiklin seperti doksisiklin 50–200 mg per hari selama sekitar 6 bulan\n- Eritromisin atau trimetoprim jika tidak toleran terhadap doksisiklin\n- Terapi antiandrogen jangka panjang dengan siproteron asetat + etinilestradiol atau spironolakton dapat dipertimbangkan pada wanita yang tidak merespon kontrasepsi oral kombinasi dosis rendah, terutama pada wanita dengan ovarium polikistik\n- Isotretinoin sering digunakan jika jerawat menetap atau resisten terhadap pengobatan\n- Suntikan steroid intralesi dapat berguna untuk lesi jerawat besar yang akut\n\n"
+      },
+      {
+        "heading": "Jerawat parah",
+        "level": "h3",
+        "content": "- Rujukan ke dokter spesialis kulit\n- Jika ada demam, nyeri sendi, nyeri tulang, lesi kulit yang ulseratif atau luas, perlu dilakukan pemeriksaan darah dan rujukan bersifat mendesak\n- Antibiotik oral sering digunakan dengan dosis lebih tinggi dari biasanya\n- Isotretinoin oral biasanya direkomendasikan pada pasien yang cocok\n\n"
+      },
+      {
+        "heading": "Bagaimana prognosis jerawat?",
+        "level": "h2",
+        "content": "- Jerawat cenderung membaik setelah usia 25 tahun, tetapi dapat menetap, terutama pada wanita.\n\nPengobatan dengan isotretinoin dapat memberikan remisi jangka panjang pada banyak pasien.\n\n"
+      },
+      {
+        "heading": "Daftar pustaka",
+        "level": "h3",
+        "content": "- Reynolds RV, Yeung H, Cheng CE, dan rekan-rekan. Pedoman perawatan untuk penanganan acne vulgaris. J Am Acad Dermatol. 2024;90(5):1006.e1-1006.e30. PubMed\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Halaman tentang jerawat\n- Komedo\n- Pori-pori membesar\n- Gambar jerawat di wajah\n\n"
+      },
+      {
+        "heading": "Situs web lainnya",
+        "level": "h3",
+        "content": "- Jerawat, Rosasea, dan Dermatitis Perioral — e-kuliah DermNet [YouTube]\n- Jerawat — Medline Plus\n- Jerawat — emedicinehealth\n- Pedoman Klinis — Asosiasi Dermatologi Inggris\n- Jerawat: Lembar Informasi Pasien — The Society for Pediatric Dermatology\n- Informasi untuk pasien: Panduan tentang jerawat — UpToDate untuk pasien\n- Jerawat — American Academy of Dermatology\n- Tinjauan sistematis tentang acne vulgaris — Universitas Nottingham\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/acne/resampled-bak/FitWzY0MCw0ODBd/comed1.jpg",
+        "alt": "Jerawat komedonal",
+        "title": "comed1",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/acne/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/acne/acne1.jpg",
+        "alt": "Acne vulgaris",
+        "title": "Acne vulgaris",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/acne/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/acne/conglob2.jpg",
+        "alt": "Jerawat nodulosistik",
+        "title": "Jerawat nodulosistik",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/acne/2.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Selulitis",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi\n\n"
+      },
+      {
+        "heading": "Apa itu selulitis?",
+        "level": "h2",
+        "content": "Selulitis adalah infeksi bakteri kulit yang umum pada dermis bagian bawah dan jaringan subkutan. Ini menyebabkan area kulit yang memerah, nyeri, bengkak secara lokal, dan gejala sistemik. Jika tidak diobati, selulitis bisa mengancam jiwa.\n\nGejala serupa juga dialami pada infeksi superfisial, erisipelas, sehingga selulitis dan erisipelas sering dianggap bersamaan.\n\n"
+      },
+      {
+        "heading": "Siapa yang dapat terkena selulitis?",
+        "level": "h2",
+        "content": "Selulitis dapat menyerang orang dari segala usia dan ras.\n\nFaktor risiko selulitis meliputi:\n\n- Pernah mengalami selulitis\n- Retakan di jari kaki atau tumit, misalnya karena kutu air, tinea pedis, atau tumit pecah\n- Penyakit vena, seperti eksim gravitasi, ulkus kaki, dan/atau limfedema\n- Cedera saat ini atau sebelumnya, seperti trauma, luka operasi, radioterapi, penggunaan narkoba suntik\n- Imunodefisiensi, seperti infeksi HIV\n- Obat imunosupresif\n- Diabetes\n- Penyakit ginjal kronis\n- Penyakit hati kronis\n- Obesitas\n- Kehamilan\n- Alkoholisme\n\nBanyak orang keliru mengaitkan selulitis dengan gigitan laba-laba yang tidak terlihat. Gigitan laba-laba yang terdokumentasi tidak menyebabkan selulitis.\n\n"
+      },
+      {
+        "heading": "Apa penyebab selulitis?",
+        "level": "h2",
+        "content": "Bakteri paling umum penyebab selulitis adalah Streptococcus pyogenes (dua pertiga kasus) dan Staphylococcus aureus (sepertiga). Penyebab langka meliputi:\n\n- Pseudomonas aeruginosa, biasanya dari luka tusuk di kaki atau tangan\n- Haemophilus influenzae, pada anak-anak dengan selulitis wajah\n- Anaerob, Eikenella, Streptococcus viridans, akibat gigitan manusia\n- Pasteurella multocida, akibat gigitan kucing atau anjing\n- Vibrio vulnificus, dari paparan air asin, misalnya cedera karang\n- Aeromonas hydrophila dari air tawar atau asin, misalnya setelah gigitan lintah\n- Erysipelothrix (erysipeloid), pada tukang daging\n\nLuka kulit seperti luka operasi dan gigitan serangga juga dapat meningkatkan risiko selulitis.\n\nSelulitis umumnya tidak menular karena menyerang lapisan kulit yang lebih dalam.\n\n"
+      },
+      {
+        "heading": "Apa saja ciri klinis selulitis?",
+        "level": "h2",
+        "content": "Selulitis bisa terjadi di bagian tubuh mana pun, tetapi paling sering menyerang anggota tubuh.\n\n- Biasanya hanya satu sisi; bila terjadi di kedua sisi, kemungkinan disebabkan oleh kondisi lain\n- Bisa muncul sendiri atau memperburuk kondisi kulit atau luka yang sudah ada.\n\nTanda awal sering kali berupa rasa tidak enak badan, demam, menggigil, dan kedinginan. Ini disebabkan oleh bakteri dalam aliran darah (bakteremia). Gejala sistemik kemudian diikuti dengan area kulit yang nyeri, merah, dan bengkak. Tanda lainnya:\n\n- Kulit tampak berlesung (peau d’orange)\n- Hangat saat disentuh\n- Melepuh\n- Luka terbuka dan borok\n- Abses\n- Purpura: petechiae, ekimosis, atau bula hemoragik\n\nSelulitis bisa disertai limfangitis dan limfadenitis, karena bakteri dalam pembuluh dan kelenjar getah bening. Garis merah terlihat dari lokasi infeksi menuju kelenjar getah bening yang nyeri dan bengkak di dekatnya.\n\nSetelah pengobatan berhasil, kulit mungkin mengelupas saat sembuh, dan bisa terasa gatal.\n\n"
+      },
+      {
+        "heading": "Apa saja komplikasi dari selulitis?",
+        "level": "h2",
+        "content": "Selulitis yang berat atau cepat memburuk dapat menyebabkan komplikasi serius yang memerlukan penanganan segera:\n\n- Fasitis nekrotikan (infeksi jaringan lunak serius dengan nyeri berat, pucat, mati rasa, purpura, luka dan nekrosis)\n- Gangren gas\n- Sepsis berat (keracunan darah)\n- Infeksi organ lain, misalnya pneumonia, osteomielitis, meningitis\n- Endokarditis (infeksi katup jantung)\n\nSepsis ditandai oleh demam, tidak enak badan, hilang nafsu makan, mual, lemas, sakit kepala, nyeri otot dan sendi. Infeksi serius menyebabkan tekanan darah rendah (kolaps), sirkulasi kapiler terganggu, gagal jantung, diare, perdarahan saluran cerna, gagal ginjal, dan kehilangan kesadaran.\n\n"
+      },
+      {
+        "heading": "Bagaimana diagnosis selulitis ditegakkan?",
+        "level": "h2",
+        "content": "Diagnosis selulitis terutama berdasarkan gejala klinis dan pemeriksaan fisik. Pemeriksaan penunjang dapat menunjukkan:\n\n- Leukositosis (jumlah sel darah putih meningkat)\n- Peningkatan protein C-reaktif (CRP)\n- Organisme penyebab, ditemukan melalui kultur darah, pustula, krusta, erosi atau luka\n\nPemeriksaan pencitraan mungkin dilakukan, misalnya:\n\n- Rontgen dada jika dicurigai gagal jantung atau pneumonia\n- USG Doppler untuk mendeteksi trombosis vena dalam\n- MRI jika dicurigai fasitis nekrotikan\n\n"
+      },
+      {
+        "heading": "Apa diagnosis banding selulitis?",
+        "level": "h2",
+        "content": "Selulitis sering didiagnosis padahal kondisi kulit inflamasi lain yang menjadi penyebab kemerahan dan bengkak. Kondisi yang menyerupai selulitis ('pseudoselulitis') termasuk:\n\n- Eksim/dermatitis akibat stasis atau kontak\n- Infeksi jamur seperti tinea corporis, tinea pedis\n- Trombosis vena dalam\n- Reaksi obat\n- Psoriasis\n- Lipodermatosklerosis\n- Tromboflebitis\n- Gigitan dan sengatan serangga\n- Kerusakan akibat radiasi\n- Kanker payudara inflamasi (carcinoma erysipeloides)\n\n"
+      },
+      {
+        "heading": "Apa pengobatan selulitis?",
+        "level": "h2",
+        "content": "Selulitis adalah kondisi yang berpotensi serius. Pasien sebaiknya istirahat dan meninggikan anggota tubuh yang terkena. Tepi area yang terinfeksi ditandai untuk memantau perkembangan atau perbaikan.\n\nPengetahuan tentang organisme lokal dan pola resistensinya penting dalam memilih antibiotik. Penanganan selulitis semakin kompleks karena meningkatnya kasus Staphylococcus aureus resisten methicillin (MRSA) dan Streptococcus pyogenes yang resisten makrolida atau eritromisin.\n\n"
+      },
+      {
+        "heading": "Pengobatan selulitis tidak rumit",
+        "level": "h3",
+        "content": "Jika tidak ada tanda penyakit sistemik atau infeksi luas, pasien dengan selulitis ringan dapat diobati dengan antibiotik oral di rumah, minimal 5–10 hari. Kadang pengobatan diteruskan hingga semua tanda infeksi menghilang (kemerahan, nyeri, dan bengkak), bahkan beberapa bulan. Pengobatan juga mencakup:\n\n- Analgesik untuk mengurangi nyeri\n- Cukup minum air\n- Penanganan kondisi kulit yang menyertai, seperti eksim vena atau tinea pedis\n\n"
+      },
+      {
+        "heading": "Pengobatan selulitis dengan gejala sistemik",
+        "level": "h3",
+        "content": "Selulitis berat dengan gejala sistemik diobati dengan cairan, antibiotik intravena, dan oksigen. Pemilihan antibiotik berdasarkan protokol lokal dan hasil kultur:\n\n- Antibiotik berbasis penisilin sering digunakan (misalnya penisilin G atau flucloxacillin)\n- Amoksisilin dan asam klavulanat untuk spektrum luas jika bakteri tidak biasa dicurigai\n- Sefalosporin juga umum digunakan (misalnya seftriakson, sefotaksim, atau sefazolin)\n- Klindamisin, sulfametoksazol/trimetoprim, doksisiklin, dan vankomisin untuk alergi penisilin/sefalosporin atau jika dicurigai MRSA\n- Antibiotik spektrum luas lain: linezolid, ceftaroline, atau daptomisin\n\nKadang ditambahkan probenesid oral untuk mempertahankan kadar antibiotik dalam darah.\n\nAntibiotik oral dapat diberikan jika demam sudah reda, selulitis membaik, dan CRP menurun.\n\n"
+      },
+      {
+        "heading": "Perawatan multidisipliner",
+        "level": "h3",
+        "content": "- Dokter penyakit dalam menangani sepsis.\n- Tim penyakit infeksi memberikan saran mikrobiologi dan antibiotik.\n- Dokter bedah menangani abses, jaringan mati, dan gejala penekanan seperti sindrom kompartemen.\n- Dokter mata terlibat jika selulitis orbital.\n- Dokter kulit dikonsultasikan untuk diagnosis atau alternatif lain.\n- Perawat spesialis memberi saran tentang balutan dan pembalutan.\n\n"
+      },
+      {
+        "heading": "Bagaimana penanganan selulitis berulang?",
+        "level": "h2",
+        "content": "Pasien dengan selulitis berulang sebaiknya:\n\n- Menghindari trauma, memakai lengan panjang dan celana panjang saat aktivitas berisiko seperti berkebun\n- Menjaga kebersihan dan kelembapan kulit, serta merawat kuku\n- Menghindari pengambilan darah dari anggota tubuh yang pernah terkena\n- Mengobati infeksi jamur di tangan dan kaki sejak dini\n- Menjaga agar anggota tubuh yang bengkak tetap terangkat saat istirahat untuk membantu sirkulasi limfa. Mereka dengan limfedema kronis mungkin terbantu oleh pakaian kompresi.\n\nPasien dengan dua atau lebih episode selulitis dapat diberikan antibiotik dosis rendah seperti penisilin V atau eritromisin untuk pencegahan selama satu hingga dua tahun.\n\n"
+      },
+      {
+        "heading": "Referensi",
+        "level": "h3",
+        "content": "- Phoenix G, Das S, Joshi M. Diagnosis dan penanganan selulitis. BMJ. 2012 7 Agustus;345:e4955. doi: 10.1136/bmj.e4955. Ulasan. PubMed PMID: 22872711.\n- Stevens DL, Bisno AL, Chambers HF, Dellinger EP, Goldstein EJ, Gorbach SL, Hirschmann JV, Kaplan SL, Montoya JG, Wade JC; Infectious Diseases Society of America. Pedoman praktik untuk diagnosis dan penanganan infeksi kulit dan jaringan lunak: pembaruan 2014 oleh Infectious Diseases Society of America. Clin Infect Dis. 15 Juli 2014;59(2):e10–52. doi: 10.1093/cid/ciu444. Koreksi: Clin Infect Dis. 1 Mei 2015;60(9):1448. Kesalahan dosis dalam teks artikel. PubMed.\n- Thomas KS, Crook AM, Nunn AJ, Foster KA, dkk. Tim Uji Coba PATCH I dari Jaringan Uji Klinis Dermatologi U.K. Penisilin untuk mencegah selulitis tungkai berulang. N Engl J Med. 2 Mei 2013;368(18):1695–703. Jurnal\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Infeksi kulit streptokokus\n- Erisipelas\n- Impetigo\n- Infeksi luka\n- Dermatitis streptokokus perianal\n- Infeksi bakteri\n- Kursus online infeksi bakteri untuk tenaga kesehatan\n- Kondisi kulit dengan lepuh\n"
+      },
+      {
+        "heading": "Situs web lainnya",
+        "level": "h3",
+        "content": "- Infeksi bakteri pada kulit — Kuliah online DermNet [Youtube]\n- Selulitis — Medline Plus\n- Selulitis — Referensi Medscape\n- Selulitis — emedicinehealth\n- Informasi pasien: Selulitis dan erisipelas (infeksi kulit) (Dasar) — UpToDate (untuk pelanggan)\n- Informasi pasien: Infeksi kulit dan jaringan lunak (selulitis) (Lebih Lanjut) — UpToDate (untuk pelanggan)\n- Selulitis — American Academy of Dermatology\n- Tinjauan sistematik tentang selulitis — University of Nottingham\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy - edisi kedua\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/cellulitis-012.jpg",
+        "alt": "Selulitis pada kaki kiri",
+        "title": "Selulitis pada kaki kiri",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cellulitis/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/bacterial/s/cellulitis2.jpg",
+        "alt": "Selulitis",
+        "title": "Selulitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cellulitis/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/bacterial/cellulitis4.jpg",
+        "alt": "Selulitis",
+        "title": "Selulitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cellulitis/2.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Eksim",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Ruam\n\nTerminologi\n"
+      },
+      {
+        "heading": "Apa itu dermatitis?",
+        "level": "h2",
+        "content": "Dermatitis mengacu pada sekelompok kondisi inflamasi gatal yang ditandai dengan perubahan pada epidermis.\n\nDermatitis dapat diklasifikasikan dalam berbagai cara. Ini dapat diklasifikasikan berdasarkan:\n\n- Penyebab, misalnya, dermatitis kontak alergi, dermatitis fotosensitif\n- Penampilan klinis, misalnya, dermatitis discoid, dermatitis hiperkeratotik, dan pompholyx\n- Lokasi predileksi, misalnya, dermatitis tangan, dermatitis kelopak mata, atau dermatitis tungkai bawah.\n\nDalam banyak kasus, berbagai faktor dapat bertindak bersama sebagai pemicu yang mendasari (alergi, iritan, dan faktor endogen, terutama pada dermatitis tangan).\n\nIstilah dermatitis dan eksim sering digunakan secara bergantian. Semua eksim adalah dermatitis, tetapi tidak semua dermatitis adalah eksim.\n\n- Dermatitis, secara ketat, mencakup segala bentuk peradangan kulit yang memengaruhi epidermis.\n- Eksim berasal dari kata Yunani yang berarti “mendidih atau meluap”, yang secara patologis dimanifestasikan sebagai edema dalam epidermis (disebut spongiosis).\n\nIstilah dermatitis terkadang keliru dikaitkan sebagai eksim yang disebabkan oleh faktor pekerjaan; ini adalah kekeliruan.\n"
+      },
+      {
+        "heading": "Siapa yang terkena dermatitis?",
+        "level": "h2",
+        "content": "Dermatitis adalah kondisi yang umum, memengaruhi sekitar satu dari lima orang pada suatu saat dalam hidup mereka.\n\nJenis-jenis dermatitis tertentu lebih sering muncul pada tahap kehidupan yang berbeda, misalnya:\n\n- Dermatitis atopik dan pityriasis alba lebih umum pada anak-anak\n- Eksim tangan lebih umum pada dewasa muda dan paruh baya\n- Eksim vena atau gravitasi, dermatitis asteatotik, dan eksim nummular lebih sering terjadi pada kelompok usia menengah dan lanjut.\n\nTidak ada faktor ras yang konsisten yang memengaruhi frekuensi penyakit.\n"
+      },
+      {
+        "heading": "Apa ciri klinis dari dermatitis?",
+        "level": "h2",
+        "content": "Dermatitis dapat bersifat akut atau kronis, dan meskipun mekanisme terjadinya mungkin sama, penampakannya bisa sangat berbeda.\n\n- Dermatitis akut akan menunjukkan kemerahan atau pembengkakan, papulasi, vesikulasi, keluarnya cairan, dan bahkan lepuhan.\n- Eksim kronis akan menunjukkan penebalan kulit dengan penonjolan lipatan kulit, hiperkeratosis, pengelupasan, peretakan, ekskoriasi, dan hiperpigmentasi.\n- Dermatitis subakut akan menunjukkan kombinasi dari keduanya.\n"
+      },
+      {
+        "heading": "Bagaimana ciri klinis bervariasi antar kelompok ras?",
+        "level": "h2",
+        "content": "Kemerahan bisa lebih sulit dikenali pada jenis kulit yang lebih gelap.\n\nHipo- dan hiperpigmentasi pasca-inflamasi lebih sering terjadi pada kulit berwarna gelap.\n"
+      },
+      {
+        "heading": "Apa saja jenis dermatitis?",
+        "level": "h2",
+        "content": "Dermatitis eksogen terjadi akibat faktor atau cedera eksternal yang memicu peradangan kulit. Penyebab umum meliputi:\n\n- Dermatitis kontak alergi — akibat sensitisasi imun terhadap alergen, bahkan pada konsentrasi rendah, seperti nikel, pewarna rambut, karet, atau parfum; diidentifikasi melalui uji tempel.\n- Dermatitis kontak iritan — dapat terjadi pada siapa pun yang terpapar iritan dalam konsentrasi cukup lama; iritan termasuk sabun, deterjen, pelarut organik, agen penghilang lemak, abrasif, pengering, debu, urin, bahkan air\n- Dermatitis fotosensitif — dipicu oleh cahaya atau radiasi UV\n- Dermatitis pascatrauma — akibat cedera fisik seperti lecet, luka bakar, atau operasi (misalnya, dermatitis denervasi otonom)\n- Dermatitis akibat infeksi kulit lokal seperti infeksi bakteri, jamur, dan virus misalnya molluscum contagiosum dan penyakit HTLV-1\n- Dermatitis akibat obat.\n\nDermatitis endogen terjadi karena faktor internal yang sering kali belum dipahami sepenuhnya. Jenis umum meliputi:\n\n- Dermatitis atopik — bentuk umum dari dermatitis yang terjadi pada anak-anak dan orang dewasa, sering ditemukan dalam keluarga dengan riwayat asma dan hay fever\n- Dermatitis seboroik — eksim kronis umum yang memengaruhi wajah, kulit kepala, telinga, dan lipatan besar, disebabkan oleh reaksi terhadap jamur yang mengkolonisasi kulit\n- Dermatitis discoid (nummular) — bercak dermatitis berbentuk koin, biasanya memengaruhi anggota tubuh\n- Lichen simplex — dermatitis kronis yang menebal akibat garukan terus-menerus\n- Pityriasis alba — bercak pucat pada pipi\n- Dermatitis tangan — faktor internal, iritan eksternal, dan faktor alergi semuanya dapat berperan, bahkan pada satu individu\n- Dermatitis kelopak mata — juga sering disebabkan oleh faktor campuran\n- Otitis eksterna — dermatitis yang memengaruhi saluran telinga dan daun telinga\n- Dermatitis vena atau gravitasi — akibat gangguan katup vena tungkai bawah\n- Dermatitis plantar juvenil — eksim berkilau dan retak di telapak kaki anak-anak\n- Dermatitis metabolik — terlihat pada beberapa gangguan nutrisi dan endokrin\n- Dermatitis skuamosa superfisial kronis — bercak eksim berbentuk jari yang terjadi di badan\n- Dermatitis asteatotik — dermatitis berbentuk pola paving stone akibat hilangnya minyak kulit karena mandi berlebihan dan penggunaan sabun pada tungkai pada orang tua\n- Dermatitis halo atau nevus Meyerson — dapat mengelilingi tahi lalat jinak\n- Dermatitis eritrodermik — dermatitis berat yang memengaruhi lebih dari 80% kulit.\n"
+      },
+      {
+        "heading": "Apa diagnosis banding dari dermatitis?",
+        "level": "h2",
+        "content": "- Infeksi bakteri — impetigo, eritrasma\n- Infeksi jamur\n- Penyakit jaringan ikat — lupus eritematosus dan dermatomiositis\n- Rosasea\n- Penyakit kulit melepuh — pemfigoid bulosa\n- Tumor kulit — penyakit Bowen, karsinoma sel basal superfisial\n- Limfoma sel-T kutaneus.\n"
+      },
+      {
+        "heading": "Bagaimana dermatitis diperiksa?",
+        "level": "h2",
+        "content": "Riwayat dan pemeriksaan yang rinci sering kali cukup untuk membuat diagnosis yang akurat.\n\nPemeriksaan berikut mungkin diperlukan dalam beberapa kasus:\n\n- Kerokan kulit untuk menyingkirkan infeksi jamur yang menyerupai dermatitis\n- Usap kulit untuk mencari infeksi bakteri atau virus tambahan\n- Uji tempel untuk mengidentifikasi alergen kontak\n- Tes cahaya jika diduga dermatitis fotosensitif\n- Biopsi kulit untuk menyingkirkan kondisi lain yang menyerupai dermatitis\n- Tes darah — IgE (biasanya meningkat pada dermatitis atopik), fungsi tiroid (pada beberapa kasus dermatitis tangan dan dermatitis asteatotik).\n"
+      },
+      {
+        "heading": "Bagaimana dermatitis diobati?",
+        "level": "h2",
+        "content": "Prinsip umum pengobatan dibahas di sini. Penanganan spesifik untuk tiap jenis dermatitis dijelaskan di halaman yang relevan.\n\n- Identifikasi dan hindari alergen potensial — berdasarkan riwayat seperti hobi, produk yang digunakan, dan pekerjaan. Uji tempel akan mengonfirmasi.\n- Identifikasi dan hindari iritan potensial — hindari sabun, gel mandi, debu, pelarut organik, dan bahan pengering.\n- Lindungi kulit dengan alat pelindung diri — terutama untuk dermatitis tangan, dengan penggunaan sarung tangan katun untuk pekerjaan kering, dan sarung tangan katun dengan lapisan penutup yang sesuai dengan alergen atau iritan yang dicurigai.\n"
+      },
+      {
+        "heading": "Terapi topikal",
+        "level": "h3",
+        "content": "- Emolien — digunakan sebagai pengganti sabun, setelah mandi atau mencuci, dan kapan pun kulit terasa kering.\n- Rendaman kalium permanganat — bermanfaat untuk mengeringkan eksim akut yang basah atau melepuh.\n- Perban pasta — membantu penetrasi steroid topikal ke kulit, menenangkan, dan mengurangi trauma kulit akibat garukan.\n- Steroid topikal — umumnya gunakan salep jika kulit kering, dan krim jika kulit basah atau mengeluarkan cairan.\n\nSebagian besar bekerja sama efektifnya meskipun hanya digunakan sekali sehari.\nMembantu mengurangi peradangan kulit yang menyebabkan eksim, dan harus diaplikasikan di area kulit yang meradang (merah dan gatal).\nProduk yang kuat sering digunakan selama 7–14 hari, kemudian frekuensi pemakaian dikurangi menjadi dua hari sekali, lalu dua kali seminggu, dan potensi steroid juga dikurangi.\nPengobatan dengan steroid dua kali seminggu sering direkomendasikan untuk mencegah kekambuhan penyakit dan mencegah flare-up dalam jangka panjang.\n\n- Agen anti-inflamasi topikal\n\nInhibitor kalsineurin seperti pimekrolimus dan takrolimus menekan eksim dan tidak memiliki efek samping jangka panjang seperti steroid kuat, terutama untuk wajah.\nMolekul kecil terbaru seperti inhibitor JAK (ruxolitinib) telah disetujui atau sedang dikembangkan untuk pengobatan dermatitis.\n"
+      },
+      {
+        "heading": "Terapi fisik",
+        "level": "h3",
+        "content": "- Ultraviolet B dan PUVA (Psoralen dan UVA) mungkin bermanfaat untuk dermatitis atopik dan diskoid yang sulit diobati.\n"
+      },
+      {
+        "heading": "Obat sistemik",
+        "level": "h3",
+        "content": "- Antihistamin — untuk meredakan gatal pada eksim, antihistamin yang menyebabkan kantuk umumnya lebih efektif daripada yang tidak.\n- Antibiotik dan antivirus — perlu dipertimbangkan jika eksim terinfeksi oleh bakteri (Staphylococcus) atau herpes simpleks.\n- Terapi imunosupresif — kurang dari 2% penderita eksim kronis tidak dapat dikendalikan dengan terapi di atas. Agen yang mengurangi respons imun yang berlebihan pada dermatitis mungkin membantu. Metotreksat, azatioprin, dan siklosporin adalah agen yang biasanya digunakan.\n- Terapi biologis — pengobatan dengan antibodi yang secara spesifik memblok mediator utama peradangan dalam dermatitis (sitokin) sedang digunakan dan terus dikembangkan untuk dermatitis berat. Pengobatan injeksi ini termasuk dupilumab, tralokinumab, lebrikizumab, dan nemolizumab.\n- Molekul kecil oral — baricitinib, upadacitinib, dan abrocitinib telah disetujui atau sedang dipertimbangkan untuk lisensi dan penggunaan pada dermatitis atopik sedang/berat di banyak negara. Agen ini memblokir jalur JAK/STAT yang mengatur produksi sitokin.\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Dermatitis atopik\n- Dermatitis nummular\n- Dermatitis seboroik\n- Dermatitis tangan\n- Pomfoliks\n- Dermatitis kontak iritan\n- Dermatitis terkait inkontinensia\n- Dermatitis kontak alergi\n- Pityriasis alba\n- Dermatitis skuamosa superfisial kronis\n- Dermatitis plantar juvenil\n- Dermatitis denervasi otonom\n- Kondisi kulit melepuh\n- Steroid topikal\n- Emolien\n- Uji tempel\n- Perban pasta\n- Kalium permanganat\n"
+      },
+      {
+        "heading": "Situs web lain",
+        "level": "h3",
+        "content": "- Eksim — Medline Plus\n- Allergy New Zealand: kelompok dukungan lokal\n- Asosiasi Eksim Selandia Baru\n- National Eczema Association for Science and Education: organisasi dukungan pasien di Amerika Serikat\n- Informasi pasien: Dermatitis Kontak (Dasar-dasar) — UpToDate (untuk pelanggan)\n- Eksim/reaksi kulit — AHA! Swiss Allergy Centre\n- Eksim — American Academy of Dermatology\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/collection/Allergic-contact-dermatitis/allergic-contact-dermatitis-0003.jpg",
+        "alt": "Dermatitis kontak akut yang basah akibat alergi terhadap plester perekat",
+        "title": "Dermatitis kontak alergi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Allergic-contact-dermatitis/allergic-contact-dermatitis-0024.jpg",
+        "alt": "Dermatitis kontak alergi akibat nikel pada bingkai kacamata",
+        "title": "Dermatitis kontak alergi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Allergic-contact-dermatitis/allergic-contact-dermatitis-0025.jpg",
+        "alt": "Eksim gravitasi yang diperburuk oleh alergi kontak terhadap bahan perban",
+        "title": "Dermatitis kontak alergi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Atopic-dermatitis/atopic-dermatitis-0002.jpg",
+        "alt": "Eksim akut yang tergaruk pada sisi ekstensor lutut (pola terbalik)",
+        "title": "Dermatitis atopik",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Atopic-hand-dermatitis/atopic-hand-dermatitis-0001.jpg",
+        "alt": "Retakan pada buku jari akibat eksim tangan atopik bagian punggung",
+        "title": "Dermatitis tangan atopik",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Discoid-eczema/discoid-eczema-0001.jpg",
+        "alt": "Lesi eksim diskoid yang basah pada tungkai",
+        "title": "Eksim diskoid",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/5.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Discoid-eczema/discoid-eczema-0002.jpg",
+        "alt": "Eksim diskoid yang basah dan terinfeksi impetigo pada kaki",
+        "title": "Eksim diskoid",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/6.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Hand-dermatitis/hand-dermatitis-0001.jpg",
+        "alt": "Retakan, penebalan kulit, dan vesikel pada dermatitis kronis ujung jari",
+        "title": "Dermatitis tangan",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/7.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection-O/Hand-dermatitis/hand-dermatitis-00018.jpg",
+        "alt": "Pola diskoid eksim pada punggung tangan",
+        "title": "Dermatitis tangan",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/8.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection-O/Hand-dermatitis/hand-dermatitis-00019.jpg",
+        "alt": "Eksim tangan pada punggung tangan — campuran faktor iritan pada individu atopik",
+        "title": "Dermatitis tangan",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/9.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Pityriasis-alba/pityriasis-alba-0001.jpg",
+        "alt": "Hipopigmentasi dan sisik halus pada pipi akibat pityriasis alba",
+        "title": "Pityriasis alba",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/10.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Seborrhoeic-dermatitis/seborrhoeic-dermatitis-0050.jpg",
+        "alt": "Kemerahan dan sisik di pipi serta lipatan nasolabial akibat dermatitis seboroik",
+        "title": "Dermatitis seboroik",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/eczema/11.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Impetigo",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi\n\n"
+      },
+      {
+        "heading": "Apa itu impetigo?",
+        "level": "h2",
+        "content": "Impetigo adalah infeksi kulit superfisial yang umum dan sangat menular, ditandai dengan pustula dan erosi berkerak berwarna madu.\n\nImpetigo memengaruhi lapisan superfisial epidermis dan biasanya disebabkan oleh Staphylococcus aureus dan Streptococcus pyogenes (Streptokokus beta hemolitik grup A/GABHS). Impetigo dapat diklasifikasikan menjadi impetigo non-bulosa (juga dikenal sebagai 'luka sekolah') dan impetigo bulosa. Ektima adalah bentuk impetigo yang lebih dalam yang menyebabkan erosi kulit hingga ke dermis.\n\nInfeksi sekunder pada luka atau lesi kulit lain oleh patogen yang sama disebut 'impetiginisasi'.\n\nUntuk gambar impetigo lainnya, klik di sini.\n\n"
+      },
+      {
+        "heading": "Siapa yang bisa terkena impetigo?",
+        "level": "h2",
+        "content": "Impetigo paling sering terjadi pada anak-anak, tetapi dapat menyerang segala usia. Penularan biasanya terjadi melalui kontak langsung.\n\nFaktor risiko yang dapat meningkatkan kemungkinan terkena impetigo meliputi:\n\n- Kondisi kulit: dermatitis atopik, dermatitis kontak, skabies, cacar air\n- Trauma kulit: luka robek, gigitan serangga, luka bakar, lecet\n- Imunosupresi\n- Iklim hangat dan lembap\n- Kebersihan yang buruk\n- Lingkungan yang padat penduduk.\n\n"
+      },
+      {
+        "heading": "Apa penyebab impetigo?",
+        "level": "h2",
+        "content": "Impetigo disebabkan oleh Staphylococcus aureus, dan lebih jarang oleh Streptococcus pyogenes.\n\n"
+      },
+      {
+        "heading": "Impetigo non-bulosa",
+        "level": "h3",
+        "content": "- Disebabkan oleh Staphylococcus aureus, Streptococcus pyogenes, atau kombinasi keduanya.\n- Kulit utuh biasanya tahan terhadap kolonisasi bakteri. Gangguan integritas kulit memungkinkan invasi bakteri melalui permukaan yang rusak.\n\n"
+      },
+      {
+        "heading": "Impetigo bulosa",
+        "level": "h3",
+        "content": "- Disebabkan oleh Staphylococcus aureus yang menghasilkan toksin eksfoliatif (eksfoliatin A dan B).\n- Toksin eksfoliatif menargetkan molekul adhesi antar sel (desmoglein–1) yang terdapat di lapisan granular epidermis.\n- Mengakibatkan pemisahan sel-sel epidermis yang menyebabkan pembentukan lepuh.\n- Dapat terjadi pada kulit yang tampak utuh.\n\n"
+      },
+      {
+        "heading": "Impetigo non-bulosa",
+        "level": "h3",
+        "content": "- Paling sering ditemukan di wajah atau ekstremitas, tetapi kulit di bagian tubuh mana pun bisa terlibat.\n- Dimulai dengan makula eritematosa tunggal yang berkembang menjadi pustula atau vesikula.\n- Pustula atau vesikula pecah dan mengeluarkan cairan serosa yang kemudian mengering menjadi kerak berwarna madu yang khas.\n- Eritema di sekitar minimal atau tidak ada.\n- Dapat menyebar dengan cepat dengan lesi satelit akibat autoinokulasi.\n- “Lesi berciuman” muncul di area di mana dua permukaan kulit bersentuhan.\n- Pasien umumnya tampak sehat; mereka mungkin mengalami rasa gatal dan limfadenopati regional.\n\n"
+      },
+      {
+        "heading": "Impetigo bulosa",
+        "level": "h3",
+        "content": "- Biasanya ditemukan di wajah, batang tubuh, ekstremitas, bokong, dan daerah perineum.\n- Dapat menyebar secara distal akibat autoinokulasi.\n- Muncul sebagai bula superfisial berdinding tipis yang berkembang cepat, berukuran kecil hingga besar, dan cenderung pecah secara spontan serta mengeluarkan cairan kuning, menyisakan sisik di pinggiran (kolaret).\n- Lebih mungkin disertai gejala sistemik seperti rasa tidak enak badan, demam, dan limfadenopati.\n\n"
+      },
+      {
+        "heading": "Bagaimana gambaran klinis bervariasi pada berbagai jenis kulit?",
+        "level": "h2",
+        "content": "Makula eritematosa awal pada impetigo non-bulosa mungkin lebih sulit terlihat pada warna kulit yang lebih gelap.\n\n"
+      },
+      {
+        "heading": "Apa komplikasi dari impetigo?",
+        "level": "h2",
+        "content": "- Infeksi menyebar lebih luas: selulitis, limfangitis, dan bakteremia.\n- Sindrom kulit melepuh akibat stafilokokus.\n- Demam scarlet.\n- Glomerulonefritis pasca streptokokus: kondisi ginjal akut yang jarang terjadi setelah infeksi oleh Streptococcus pyogenes (streptokokus grup A). Disebabkan oleh reaksi hipersensitivitas tipe III dan muncul 2–6 minggu setelah infeksi kulit.\n- Sindrom syok toksik streptokokus: komplikasi langka yang menyebabkan ruam eritematosa menyeluruh, hipotensi, dan demam tinggi.\n- Pigmentasi pasca inflamasi.\n- Jaringan parut, terutama pada ektima.\n\n"
+      },
+      {
+        "heading": "Bagaimana impetigo didiagnosis?",
+        "level": "h2",
+        "content": "- Impetigo biasanya didiagnosis secara klinis berdasarkan karakteristik khas seperti di atas.\n- Swab kulit untuk kultur dan sensitivitas mungkin berguna jika impetigo bersifat berulang, luas, atau ada kecurigaan infeksi MRSA.\n- Swab hidung dilakukan pada infeksi berulang karena dapat menunjukkan kolonisasi stafilokokus di hidung yang memerlukan penanganan khusus.\n- Biopsi jarang diperlukan kecuali diagnosis tidak jelas (terutama pada impetigo bulosa) atau tidak merespons pengobatan.\n- Ciri histologis khas dapat ditemukan.\n\n"
+      },
+      {
+        "heading": "Apa diagnosis banding dari impetigo?",
+        "level": "h2",
+        "content": "- Pemfigus foliaceus\n- Pemfigus vulgaris\n- Folikulitis (pustular)\n- Virus herpes simpleks\n\n"
+      },
+      {
+        "heading": "Tindakan umum",
+        "level": "h3",
+        "content": "- Membersihkan area yang terkena secara lembut dan rutin; menghilangkan kerak berwarna madu.\n- Menjaga kebersihan tangan dan memotong kuku secara teratur.\n- Menutup area yang terkena dengan perban kedap air untuk mencegah penyebaran.\n\n"
+      },
+      {
+        "heading": "Tindakan spesifik",
+        "level": "h3",
+        "content": "- Untuk impetigo non-bulosa lokal, disarankan penggunaan antiseptik 2–3 kali sehari selama 5–7 hari (misalnya krim hidrogen peroksida 1% atau salep povidone–iodine 10%).\n- Antibiotik topikal seperti asam fusidat atau mupirocin efektif untuk impetigo non-bulosa, namun penggunaannya mungkin dibatasi di beberapa negara karena resistensi bakteri.\n- Antibiotik topikal dapat dipertimbangkan jika antiseptik tidak efektif atau tidak sesuai (misalnya impetigo di sekitar mata).\n\n- Asam fusidat adalah lini pertama.\n- Mupirocin sering digunakan untuk dugaan infeksi MRSA.\n\n- Direkomendasikan pada impetigo bulosa, impetigo non-bulosa luas (>3 lesi), jika pengobatan topikal gagal, pasien berisiko tinggi mengalami komplikasi, atau jika pasien mengalami gejala sistemik.\n- Flucloxacillin oral sering menjadi antibiotik lini pertama.\n- Alternatif lain mencakup trimetoprim + sulfametoksazol atau eritromisin (misalnya jika alergi penisilin atau untuk infeksi MRSA).\n\n- Hindari menyentuh area yang terkena.\n- Jaga kebersihan tangan; cuci tangan sebelum dan sesudah mengoleskan krim.\n- Gunakan kain bersih setiap kali mencuci dan mengeringkan area yang terkena.\n- Jangan berbagi handuk atau kain lap.\n- Ganti pakaian dan seprai setiap hari; cuci dengan suhu panas.\n- Hindari kontak dekat dengan orang lain — anak sekolah/PAUD sebaiknya tetap di rumah sampai lesi mengering berkerak, atau setelah setidaknya 24 jam pengobatan.\n\n"
+      },
+      {
+        "heading": "Apa hasil dari impetigo?",
+        "level": "h2",
+        "content": "Impetigo biasanya sembuh dengan sendirinya tanpa komplikasi serius. Tanpa pengobatan, impetigo biasanya sembuh dalam 2–3 minggu; dengan pengobatan, lesi akan hilang dalam waktu 10 hari.\n\nHipopigmentasi atau hiperpigmentasi pasca peradangan mungkin terjadi tetapi jaringan parut jarang terjadi.\n\n"
+      },
+      {
+        "heading": "Bibliografi",
+        "level": "h3",
+        "content": "- Bowen AC, Mahé A, Hay RJ, Andrews RM, Steer AC, Tong SYC, Carapetis JR. Epidemiologi Global Impetigo: Tinjauan Sistematis Prevalensi Populasi Impetigo dan Pyoderma. PLoS One. 2015;10(8):e0136789. Jurnal\n- Cole C, Gazewood J: Diagnosis dan Pengobatan Impetigo. Am Fam Physician. 2007;75(6):859–64. Jurnal\n- Hartman-Adams H, Banvard C, Juckett G. Impetigo: diagnosis dan pengobatan. Am Fam Physician. 2014;90(4):229–35. Jurnal\n- Hoffmann TC, Peiris R, Glasziou P, Cleo G, Mar CD. Sejarah alam impetigo non-bullous: tinjauan sistematis waktu resolusi atau perbaikan tanpa pengobatan antibiotik. Br J Gen Pract. 2021;71(704):e237–42. Jurnal\n- Kato F, Kadomoto N, Iwamoto Y, Bunai K, Komatsuzawa H, Sugai M. Mekanisme pengaturan produksi toksin eksfoliatif pada Staphylococcus aureus. Infect Immun. 2011;79:1660–70. Jurnal\n- Williamson D, Ritchie S, Best E, Upton A, Leversha A, Smith A, Thomas M. Sebuah masalah dalam salep: penggunaan antimikroba topikal dan resistensi di Selandia Baru. N Z Med J. 2015;128:103–9. Jurnal\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Ecthyma\n- Infeksi kulit bakteri\n- Staphylococcus aureus resisten methicillin (MRSA)\n- Gambar impetigo\n- Patologi impetigo\n- Kasus bullous impetigo 1\n\n"
+      },
+      {
+        "heading": "Situs lain",
+        "level": "h3",
+        "content": "- Infeksi bakteri kulit — DermNet e-lecture [Youtube]\n- Cara Mengobati & Kapan Harus Mencari Bantuan Untuk Luka Sekolah — Kid Health NZ: Informasi impetigo untuk orang tua.\n- Impetigo: Penggunaan Antimikroba. Pedoman NICE NG153 2020.\n\n\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy - edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0010.jpg",
+        "alt": "Kerak berwarna madu pada dagu akibat impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0004.jpg",
+        "alt": "'Lesi berciuman' di kedua sisi ketiak akibat impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0009.jpg",
+        "alt": "Kerak berwarna madu di sekitar mulut akibat impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0002.jpg",
+        "alt": "Bullous impetigo menyebar luas di punggung",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0003.jpg",
+        "alt": "Lepuh utuh dan erosi pada bullous impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0008.jpg",
+        "alt": "Lesi berkerak berwarna madu pada wajah akibat impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/5.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0006.jpg",
+        "alt": "Lesi berkerak basah pada wajah akibat impetigo",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/6.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0005.jpg",
+        "alt": "Impetigo pada kaki",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/7.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Impetigo/impetigo-0007.jpg",
+        "alt": "Impetigo pada wajah",
+        "title": "Impetigo",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/impetigo/8.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kutu Air (Athlete's Foot)",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi\n\n"
+      },
+      {
+        "heading": "Apa itu kutu air?",
+        "level": "h2",
+        "content": "Kutu air adalah istilah yang sering digunakan untuk menggambarkan infeksi jamur (atau dermatofitosis) pada kaki (tinea pedis).\n\nBiasanya menyebabkan kulit mengelupas dan retak-retak di antara jari kaki (celah jari). Celah antara jari keempat dan kelima adalah yang paling sering terkena.\n\nInfeksi jamur bukan satu-satunya penyebab kulit mengelupas dan retak antara jari kaki, dan istilah kutu air kadang-kadang digunakan untuk kondisi apa pun yang menyebabkan celah jari meradang.\n\n"
+      },
+      {
+        "heading": "Apa penyebab kutu air?",
+        "level": "h2",
+        "content": "Kutu air umumnya disebabkan oleh proliferasi jamur dermatofit dari genus Trichophyton rubrum, Trichophyton interdigitale, dan Epidermophyton floccosum.\n\n"
+      },
+      {
+        "heading": "Faktor predisposisi",
+        "level": "h3",
+        "content": "Kutu air lebih umum terjadi pada mereka yang berolahraga karena:\n\n- Mereka mungkin memakai alas kaki yang tertutup rapat\n- Mereka berkeringat banyak\n- Mereka mungkin tidak mengeringkan kaki dengan baik setelah mandi\n- Mereka terpapar spora jamur di permukaan area bersama.\n\n"
+      },
+      {
+        "heading": "Apa saja ciri klinis kutu air?",
+        "level": "h2",
+        "content": "Ciri klinis kutu air meliputi:\n\n- Kulit lembab, mengelupas di antara jari kaki\n- Warna putih, kuning, atau kehijauan\n- Kadang-kadang, kulit menebal\n- Retakan yang menyakitkan\n- Bau tidak sedap.\n\nKutu air biasanya ringan; kutu air yang sangat meradang biasanya disebabkan oleh infeksi bakteri sekunder.\n\n"
+      },
+      {
+        "heading": "Bagaimana cara mendiagnosis kutu air?",
+        "level": "h2",
+        "content": "Diagnosis biasanya secara klinis, karena kutu air memiliki penampilan khas. Jika tidak merespon pengobatan, dilakukan pemeriksaan untuk mengidentifikasi infeksi spesifik.\n\n- Pengambilan kerokan kulit untuk mikroskopi jamur dan kultur\n- Swab untuk mikroskopi dan kultur bakteri\n- Pemeriksaan dengan sinar Wood (ultraviolet) untuk melihat fluoresensi merah karang, khas eritrasma\n\n"
+      },
+      {
+        "heading": "Apa diagnosis banding kutu air?",
+        "level": "h2",
+        "content": "Kutu air adalah bentuk intertrigo interdigital yang terlokalisasi.\n\nSelain tinea pedis, kulit mengelupas dan retak di antara jari kaki bisa disebabkan oleh:\n\n- Infeksi jamur ragi (candida)\n- Infeksi bakteri (eritrasma, pseudomonas, stafilokokus dan streptokokus)\n- Infeksi jamur kapang\n- Kapalan lunak (penebalan kulit akibat trauma berulang karena jari saling menekan)\n- Cedera, misalnya pengelupasan kulit yang terlalu keras\n- Kondisi kulit seperti psoriasis (bintik bersisik di kulit kepala, siku, dan lutut atau ruam di lipatan tubuh), eksim kaki, atau keratolisis eksfoliatif.\n\n"
+      },
+      {
+        "heading": "Bagaimana pengobatan kutu air?",
+        "level": "h2",
+        "content": "Pengobatan kutu air harus dimulai dengan langkah umum.\n\n- Keringkan dengan hati-hati di antara jari kaki.\n- Gunakan bedak tabur untuk menjaga area tetap kering.\n- Jaga jari-jari kaki tetap terpisah menggunakan bantal kapas atau busa.\n- Pakai sepatu yang longgar di sekitar jari kaki atau bertelanjang kaki.\n- Oleskan agen antijamur topikal. Ini juga dapat mengontrol banyak bakteri yang hidup di kulit lembab di antara jari kaki.\n\nSalep Whitfield (asam salisilat 3%, asam benzoat 6% dalam petrolatum) sangat berguna karena menghilangkan lapisan permukaan kulit yang mengelupas basah (bersifat keratolitik), dan membasmi bakteri serta jamur.\n\nPastikan juga pengobatan efektif untuk lokasi infeksi jamur lain.\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Tinea\n- Tinea pedis\n- Gambar tinea pedis\n- Pengantar infeksi jamur\n- Tes laboratorium untuk infeksi jamur\n- Pengobatan infeksi jamur\n- Lebih banyak gambar tinea pedis\n\n"
+      },
+      {
+        "heading": "Situs lain",
+        "level": "h3",
+        "content": "- Kutu Air – Medline Plus\n- Tinea pedis – Medscape Reference\n- Informasi pasien: Kurap, kutu air, dan gatal selangkangan (Dasar) – UpToDate (berlangganan)\n- Informasi pasien: Kurap (termasuk kutu air dan gatal selangkangan) (Lanjutan) – UpToDate (berlangganan)\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy - edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/athfoot1.jpg",
+        "alt": "Kutu air pada kaki",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/athfoot4.jpg",
+        "alt": "Kutu air pada kaki",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/athfoot5.jpg",
+        "alt": "Kutu air pada kaki",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/athfoot2.jpg",
+        "alt": "Infeksi Pseudomonas",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/athfoot3.jpg",
+        "alt": "Psoriasis",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/athfoot6.jpg",
+        "alt": "Eksim",
+        "title": "Kutu Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/athlete's-foot/5.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kurap Tubuh",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi\n\n"
+      },
+      {
+        "heading": "Apa itu tinea corporis?",
+        "level": "h2",
+        "content": "Tinea corporis adalah infeksi jamur superfisial pada kulit yang dapat memengaruhi bagian tubuh mana pun, kecuali tangan dan kaki, kulit kepala, wajah dan janggut, selangkangan, serta kuku. Infeksi ini biasa disebut ‘kurap’ karena menunjukkan lesi berbentuk cincin yang khas.\n\n"
+      },
+      {
+        "heading": "Siapa yang bisa terkena tinea corporis?",
+        "level": "h2",
+        "content": "Tinea corporis ditemukan di sebagian besar wilayah dunia, terutama di iklim panas dan lembap. Paling sering terlihat pada anak-anak dan dewasa muda, namun semua kelompok usia dapat terinfeksi termasuk bayi baru lahir.\n\nFaktor risiko medis meliputi:\n\n- Riwayat atau infeksi tinea yang sedang berlangsung\n- Diabetes melitus\n- Imunodefisiensi\n- Hiperhidrosis (keringat berlebih)\n- Xerosis (kulit kering)\n- Ikhtiosis (gangguan kulit bersisik)\n\nFaktor risiko lingkungan meliputi:\n\n- Kepadatan rumah tangga\n- Infeksi pada anggota keluarga\n- Memelihara hewan peliharaan di rumah\n- Mengenakan pakaian yang menutup rapat atau tidak menyerap keringat\n- Aktivitas rekreasi yang melibatkan kontak dekat dengan orang lain, termasuk penggunaan ruang ganti bersama\n\nPredisposisi genetik telah diduga, terutama pada tinea imbricata.\n\n"
+      },
+      {
+        "heading": "Apa penyebab tinea corporis?",
+        "level": "h2",
+        "content": "Tinea corporis terutama disebabkan oleh jamur dermatofit dari genus Trichophyton dan Microsporum. Spesies antropofilik T. rubrum adalah penyebab paling umum tinea corporis di seluruh dunia, termasuk di Selandia Baru. Spesies lain yang juga bisa menyebabkan tinea corporis antara lain:\n\n- T. interdigitale\n- T. tonsurans — sekunder akibat tinea capitis atau kontak kulit-ke-kulit\n- M. canis (kucing, anjing), dan lebih jarang spesies zoonotik lainnya termasuk T. verrucosum (sapi), T. equinum (kuda), dan T. erinacei (landak)\n\nTinea corporis menyebar melalui pelepasan spora jamur dari kulit yang terinfeksi. Penularan difasilitasi oleh lingkungan yang hangat dan lembap serta penggunaan bersama barang-barang seperti seprai, handuk, dan pakaian. Infeksi dermatofit di bagian kulit lain, seperti tinea pedis (kurap kaki), juga bisa menyebar. Masa inkubasi adalah 1–3 minggu. Dermatofit menginvasi dan menyebar di lapisan stratum korneum, namun tidak mampu menembus lebih dalam pada kulit yang sehat.\n\n"
+      },
+      {
+        "heading": "Apa saja gejala klinis tinea corporis?",
+        "level": "h2",
+        "content": "Tinea corporis awalnya muncul sebagai bercak merah melingkar tunggal dengan tepi bersisik yang menonjol. Lesi menyebar dari tengah membentuk bentuk cincin dengan bagian tengah yang tampak lebih terang dan pinggiran luar yang bersisik merah (kurap). Tepi lesi bisa berupa papula atau pustula. Rasa gatal umum terjadi. Seiring waktu, dapat muncul banyak lesi yang bisa saling menyatu membentuk pola polisiklik. Penyebaran lesi biasanya asimetris.\n\nLihat juga gambar Tinea corporis\n\n"
+      },
+      {
+        "heading": "Varian klinis tinea corporis",
+        "level": "h3",
+        "content": "Varian klinis tinea corporis dapat mencakup jenis-jenis berikut:\n\n- Kerion — reaksi inflamasi pustular yang hebat akibat jamur zoofilik.\n- Tinea gladiatorum — menyerang peserta olahraga kontak fisik seperti gulat atau seni bela diri karena kontak kulit-ke-kulit. Biasanya disebabkan oleh T. tonsurans.\n- Tinea imbricata — cincin konsentris yang luas membentuk plak polisiklik bersisik tebal akibat T. concentricum. Varian ini sangat gatal. Umum di Kepulauan Pasifik dan wilayah tropis ekuator lainnya.\n- Tinea incognito — tidak menunjukkan ciri khas tinea corporis karena reaksi inflamasi ditekan oleh aplikasi topikal kortikosteroid atau inhibitor kalsineurin. Lesi cenderung luas dengan batas tidak jelas serta tanpa sisik dan kemerahan.\n- Granuloma Majocchi — varian yang melibatkan folikel rambut dan jaringan subkutan, paling sering ditemukan di anggota gerak setelah bercukur. Muncul sebagai papula atau pustula di sekitar folikel. T. rubrum adalah organisme penyebab yang umum.\n- Tinea corporis bulosa — varian langka yang muncul dengan vesikel atau lepuh.\n\n"
+      },
+      {
+        "heading": "Apa komplikasi dari tinea corporis?",
+        "level": "h2",
+        "content": "Tinea corporis menular dan dapat menyebar ke bagian kulit lain maupun ke orang lain.\n\nPasien yang mengalami imunodefisiensi, seperti penderita HIV/AIDS, dapat mengalami infeksi menyeluruh.\n\nDermatofitosis kronis adalah infeksi T. rubrum pada setidaknya empat area tubuh yang berlangsung lama, naik-turun, dan berulang meskipun sudah diobati.\n\nReaksi dermatofitid adalah ruam alergi di lokasi yang jauh akibat infeksi jamur yang meradang.\n\nInfeksi bakteri sekunder dengan Staphylococcus aureus umum terjadi pada anak-anak dengan dermatitis atopik dan tinea corporis.\n\n"
+      },
+      {
+        "heading": "Bagaimana tinea corporis didiagnosis?",
+        "level": "h2",
+        "content": "Tinea corporis perlu dipertimbangkan jika terdapat bercak tunggal atau ruam asimetris, dan dikonfirmasi melalui mikologi untuk menentukan sumber yang mungkin.\n\nPemeriksaan harus mencakup seluruh permukaan kulit, termasuk kulit kepala dan kuku, untuk melihat kemungkinan area lain yang terlibat.\n\nDermatoskopi dapat membantu diagnosis klinis dengan melihat ciri seperti eritema, sisik putih, distribusi pembuluh darah di tepi atau tersebar, papula folikular kecil, bintik cokelat dikelilingi cincin putih-kuning, serta rambut bergelombang atau patah.\n\nKerokan kulit dari tepi lesi bersisik yang dilarutkan dalam kalium hidroksida (KOH) 10–20% dapat diamati di bawah mikroskop cahaya untuk melihat hifa dan spora. Kultur jamur dari kerokan kulit membantu identifikasi organisme penyebab (lihat Uji laboratorium untuk infeksi jamur).\n\nTinea corporis kadang didiagnosis melalui biopsi kulit, yang menunjukkan perubahan histologi khas (lihat Patologi tinea corporis). Histologi biasanya diperlukan untuk diagnosis Granuloma Majocchi.\n\n"
+      },
+      {
+        "heading": "Apa diagnosis banding untuk tinea corporis?",
+        "level": "h2",
+        "content": "Diagnosis banding untuk tinea corporis meliputi:\n\n- Eksim diskuid\n- Psoriasis\n- Pitiriasis rosea (plak herald)\n- Dermatitis seboroik\n\n"
+      },
+      {
+        "heading": "Langkah umum",
+        "level": "h3",
+        "content": "Kulit harus dijaga tetap bersih dan benar-benar kering. Disarankan mengenakan pakaian longgar dan ringan di iklim panas dan lembap. Hindari kontak dekat dengan individu yang terinfeksi serta berbagi barang pribadi. Pemeriksaan anggota keluarga dan hewan peliharaan untuk sumber infeksi dan pengobatan yang sesuai dapat mengurangi risiko infeksi ulang.\n\n"
+      },
+      {
+        "heading": "Langkah khusus",
+        "level": "h3",
+        "content": "Tinea corporis lokal dapat merespons pengobatan antijamur topikal seperti imidazol dan terbinafin. Penggunaan harus mencakup margin yang cukup di sekitar lesi dan dilanjutkan setidaknya 1–2 minggu setelah ruam tampak sembuh. Namun, kekambuhan umum terjadi.\n\nPengobatan antijamur oral biasanya diperlukan jika tinea corporis menyerang area berambut, luas, atau tidak sembuh dengan antijamur topikal. Terapi sistemik juga dibutuhkan untuk Granuloma Majocchi dan tinea imbricata. Agen oral yang direkomendasikan adalah terbinafin dan itrakonazol.\n\n"
+      },
+      {
+        "heading": "Bagaimana hasil pengobatan tinea corporis?",
+        "level": "h2",
+        "content": "Dengan pengobatan yang tepat dan kepatuhan pasien yang baik, tinea corporis dapat disembuhkan. Namun, kekambuhan atau infeksi ulang dapat terjadi jika pengobatan dihentikan terlalu cepat atau sumber infeksi tidak ditemukan dan diatasi.\n\n"
+      },
+      {
+        "heading": "Daftar Pustaka",
+        "level": "h3",
+        "content": "- El-Gohary M, van Zuuren EJ, Fedorowicz Z, et al. Pengobatan antijamur topikal untuk tinea cruris dan tinea corporis. Cochrane Database Syst Rev. 2014;(8):CD009992. doi:10.1002/14651858.CD009992.pub2.\n- Kermani F, Moosazadeh M, Hosseini SA, dkk. Tinea gladiatorum dan kontaminasi dermatofit di antara pegulat dan di ruang latihan gulat: tinjauan sistematis dan meta-analisis. Curr Microbiol. 2020;77(4):602–11. doi:10.1007/s00284-019-01816-3.\n- Leung AK, Lam JM, Leong KF, Hon KL. Tinea corporis: ulasan terkini. Drugs Context. 2020;9:2020-5-6. doi:10.7573/dic.2020-5-6.\n- Moriarty B, Hay R, Morris-Jones R. Diagnosis dan penanganan tinea. BMJ. 2012;345:e4380. doi:10.1136/bmj.e4380.\n- Sahoo AK, Mahajan R. Penanganan tinea corporis, tinea cruris, dan tinea pedis: Tinjauan komprehensif. Indian Dermatol Online J. 2016;7(2):77–86. doi:10.4103/2229-5178.178099.\n- Singh D, Patel DC, Rogers K, dkk. Epidemiologi infeksi dermatofit di Auckland, Selandia Baru. Australas J Dermatol. 2003;44(4):263–6. doi:10.1046/j.1440-0960.2003.00005.x.\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Infeksi jamur pada kulit\n- Gambar infeksi jamur pada kulit\n- Pengantar infeksi jamur\n- Kerion\n- Uji laboratorium untuk infeksi jamur\n- Mikologi infeksi dermatofit\n- Tinea\n- Patologi tinea corporis\n- Pengobatan infeksi jamur\n\n"
+      },
+      {
+        "heading": "Situs web lain",
+        "level": "h3",
+        "content": "- Infeksi jamur pada kulit — Kuliah elektronik DermNet [YouTube]\n- Tinea corporis — Medscape Reference\n- Kurap pada tubuh (tinea corporis) — emedicinehealth\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tincorp8.jpg",
+        "alt": "Tinea corporis",
+        "title": "Tinea corporis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tincorp9-v2.jpg",
+        "alt": "Lesi khas tinea corporis berbentuk bulat",
+        "title": "Tinea corporis – gambar 9 v2",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection/Tinea-corporis/tinea-corporis-00019.jpg",
+        "alt": "Lesi melingkar dengan tepi bersisik pada tinea corporis",
+        "title": "Tinea corporis – gambar 00019",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tincorp16.jpg",
+        "alt": "Pinggiran merah bersisik yang tajam dari tinea corporis",
+        "title": "Tinea corporis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tincorp18.jpg",
+        "alt": "Papula dan pustula pada tinea corporis",
+        "title": "Tinea corporis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tincorp15.jpg",
+        "alt": "Asimetri pada tinea corporis",
+        "title": "Tinea corporis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/5.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/kerion09.jpg",
+        "alt": "Kerion - tinea corporis inflamasi",
+        "title": "Kerion",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/6.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/majocchi14.jpg",
+        "alt": "Granuloma Majocchi - tinea corporis invasif",
+        "title": "Granuloma Majocchi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/7.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tiimsu.jpg",
+        "alt": "Tinea inkognito",
+        "title": "Tinea inkognito",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/body-ringworm/8.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Patologi Cacingan Kuku",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi"
+      },
+      {
+        "heading": "Patologi Onikomikosis",
+        "level": "h1",
+        "content": "Onikomikosis (tinea unguium) adalah infeksi jamur pada dasar kuku, matriks, atau lempeng kuku, yang biasanya disebabkan oleh dermatofita. Candida dan jamur non-dermatofita lebih umum ditemukan di lingkungan tropis."
+      },
+      {
+        "heading": "Histologi onikomikosis",
+        "level": "h2",
+        "content": "Bagian lempeng kuku yang terinfeksi harus diperiksa dengan pewarnaan khusus seperti PAS atau GMS untuk menilai keberadaan bentuk jamur. Sering kali kuku mengandung serum dan kumpulan neutrofil serta bentuk jamur yang menembus jaringan kuku (gambar 1). Pewarnaan PAS pada gambar 2 menunjukkan dermatofita yang menembus lempeng kuku."
+      },
+      {
+        "heading": "Studi khusus untuk onikomikosis",
+        "level": "h2",
+        "content": "Pewarnaan PAS atau GMS sangat penting untuk diagnosis dan memperlihatkan organisme yang menembus jaringan kuku."
+      },
+      {
+        "heading": "Diagnosis Banding Patologi Onikomikosis",
+        "level": "h2",
+        "content": "Kolonisasi non-dermatofita – Non-dermatofita sering mengolonisasi ruang subungual. Namun, kecuali mereka terbukti menembus lempeng kuku, mereka tidak dianggap sebagai penyebab onikomikosis.\n\nPsoriasis – Kumpulan neutrofil dapat terlihat, tetapi pewarnaan PAS/GMS akan negatif terhadap organisme.\n\nKeratolisis berlubang – Bakteri penyebab akan terlihat dengan pewarnaan gram sebagai bentuk bakteri filamen tipis."
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Glosarium dermatopatologi\n- Onikomikosis\n- Indeks dermatopatologi"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy – edisi kedua"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/pathology/e/tinea-unguium-figure-1.jpg",
+        "alt": "Gambar 1",
+        "title": "Patologi Onikomikosis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/nail-ringworm-pathology/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/pathology/e/tinea-unguium-figure-2.jpg",
+        "alt": "Gambar 2",
+        "title": "Patologi Onikomikosis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/nail-ringworm-pathology/1.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Cacingan pada Wajah",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi"
+      },
+      {
+        "heading": "Tinea faciei",
+        "level": "h1",
+        "content": "Terakhir Ditinjau: Juli, 2024"
+      },
+      {
+        "heading": "Apa itu tinea faciei?",
+        "level": "h2",
+        "content": "Tinea faciei adalah istilah untuk infeksi jamur dermatofita pada wajah. Ini tidak mencakup infeksi pada area janggut dan kumis, yang disebut tinea barbae. Tinea faciei jarang terjadi dan sering salah diagnosis pada awalnya.\n\nTinea faciei dapat disebabkan oleh jamur antropofilik (dari manusia) seperti *Trichophyton rubrum (T. rubrum)*. Infeksi sering berasal dari kaki (tinea pedis) atau kuku (tinea unguium). Jamur zoofilik (dari hewan) seperti *Microsporum canis (M. canis)* yang berasal dari kucing dan anjing, serta *T. verrucosum* dari sapi ternak juga sering menjadi penyebab."
+      },
+      {
+        "heading": "Ciri Klinis Tinea Faciei",
+        "level": "h2",
+        "content": "Tinea faciei menyerupai tinea corporis (kurap). Dapat bersifat akut (timbul tiba-tiba dan menyebar cepat) atau kronis (penyebaran lambat dari ruam ringan yang nyaris tidak meradang). Terdapat bercak merah bersisik berbentuk bulat atau oval, seringkali kurang merah dan bersisik di bagian tengah atau sembuh di bagian tengah. Lesi biasanya asimetris dan sering muncul hanya di satu sisi wajah. Seringkali diperburuk oleh paparan sinar matahari. Dapat juga muncul sebagai kerion (abses jamur).\n\nSangat penting untuk memeriksa dan mengobati infeksi tinea di tempat lain (periksa kaki, lipat paha, dan kuku), serta pada infeksi yang dicurigai berasal dari hewan (zoofilik), identifikasi, isolasi, dan obati hewan sumber infeksi.\n\nTinea faciei sering salah didiagnosis sebagai kondisi non-jamur seperti:\n\n- Dermatitis atopik\n- Dermatitis seboroik\n- Psoriasis\n- Rosasea\n- Keratosis aktinik\n- Dermatitis alergi kontak\n- Dermatitis perioral\n- Lupus eritematosus kutaneus\n- Erupsi cahaya polimorfik\n\nKesalahan diagnosis sangat umum terjadi pada pasien yang diobati dengan steroid topikal atau oral (tinea incognita)."
+      },
+      {
+        "heading": "Diagnosis Tinea Faciei",
+        "level": "h2",
+        "content": "Diagnosis tinea faciei dikonfirmasi melalui mikroskopi dan kultur atau PCR dari kerokan kulit."
+      },
+      {
+        "heading": "Pengobatan Tinea Faciei",
+        "level": "h2",
+        "content": "Tinea faciei biasanya diobati dengan agen antijamur topikal, namun jika pengobatan tidak berhasil, dapat dipertimbangkan pemberian obat antijamur oral seperti terbinafine dan itraconazole.\n\nDalam beberapa tahun terakhir, resistensi terhadap obat antijamur telah membuat pengobatan menjadi lebih menantang."
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Tinea\n- Pengantar infeksi jamur\n- Tes laboratorium untuk infeksi jamur\n- Pengobatan infeksi jamur"
+      },
+      {
+        "heading": "Situs Web Lain",
+        "level": "h3",
+        "content": "- Infeksi jamur pada kulit — Kuliah e-learning DermNet [YouTube]\n- Tinea faciei — Referensi Medscape"
+      },
+      {
+        "heading": "Buku tentang Penyakit Kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy - edisi kedua"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tfgir.jpg",
+        "alt": "Tinea faciei",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tcchi.jpg",
+        "alt": "Tinea faciei",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tinea-faciei2.jpg",
+        "alt": "Tinea faciei",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tinea-faciei1.jpg",
+        "alt": "Tinea faciei",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tfker.jpg",
+        "alt": "Kerion",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tfldy.jpg",
+        "alt": "Tinea faciei",
+        "title": "Tinea faciei",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-face/5.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kurap pada Kaki",
+    "sections": [
+      {
+        "heading": "Pendahuluan",
+        "level": "h2",
+        "content": "Infeksi"
+      },
+      {
+        "heading": "Apa itu tinea pedis?",
+        "level": "h2",
+        "content": "Tinea pedis adalah infeksi kaki yang disebabkan oleh jamur dermatofita. Ini merupakan infeksi dermatofita paling umum dan sangat sering terjadi di lingkungan perkotaan yang panas dan tropis.\n\n- Keterlibatan antarjari paling sering terlihat (presentasi ini juga dikenal sebagai kaki atlet, meskipun beberapa orang menggunakan istilah ini untuk segala jenis tinea pedis).\n- Tinea pedis dapat disertai dengan tinea cruris, tinea manuum, atau tinea unguium."
+      },
+      {
+        "heading": "Apa penyebab tinea pedis?",
+        "level": "h2",
+        "content": "Tiga jenis jamur dermatofita paling umum yang menyebabkan tinea pedis adalah:\n\n- Trichophyton (T.) rubrum\n- T. interdigitale, sebelumnya disebut T. mentagrophytes var. interdigitale\n- Epidermophyton floccosum\n\nLihat lebih banyak gambar tinea pedis ..."
+      },
+      {
+        "heading": "Siapa yang bisa terkena tinea pedis?",
+        "level": "h2",
+        "content": "Tinea pedis biasanya terjadi pada pria dan remaja/dewasa muda, tetapi juga bisa menyerang wanita, anak-anak, dan orang tua. Infeksi biasanya ditularkan melalui kontak langsung dengan organisme penyebab, misalnya menggunakan handuk bersama, atau berjalan tanpa alas kaki di ruang ganti umum.\n\nFaktor risiko lainnya meliputi:\n\n- Sepatu tertutup (misalnya, sepatu bot industri berat)\n- Keringat berlebih (hiperhidrosis)\n- Imunodefisiensi atau diabetes melitus\n- Penggunaan kortikosteroid sistemik atau obat imunosupresif\n- Sirkulasi darah perifer yang buruk atau limfedema."
+      },
+      {
+        "heading": "Apa saja gejala klinis tinea pedis?",
+        "level": "h2",
+        "content": "Tinea pedis cenderung asimetris, dan bisa hanya di satu sisi. Biasanya muncul dalam tiga bentuk:\n\n- Rasa gatal, erosi dan/atau sisik di antara jari-jari kaki, terutama jari ke-4 dan ke-5\n- Sisik yang menutupi telapak dan sisi kaki (tipe hiperkeratotik/moccasin, biasanya disebabkan oleh T. rubrum)\n- Lepuhan kecil hingga sedang, biasanya di bagian dalam kaki (tipe vesikulobulosa).\n\nKadang-kadang juga dapat menyebabkan luka basah dan ulserasi di antara jari-jari kaki (tipe ulseratif), atau pustula (lebih umum pada tinea pedis akibat T. interdigitale dibandingkan T. rubrum)."
+      },
+      {
+        "heading": "Bagaimana cara mendiagnosis tinea pedis?",
+        "level": "h2",
+        "content": "Diagnosis tinea pedis sebagian besar dapat ditegakkan secara klinis berdasarkan ciri-ciri khas. Lokasi lain seperti kuku kaki, selangkangan, dan telapak tangan juga harus diperiksa untuk infeksi jamur, yang dapat mendukung diagnosis tinea pedis.\n\nDiagnosis dikonfirmasi melalui pengikisan kulit, yang diperiksa menggunakan mikroskop dengan larutan kalium hidroksida (dimana dapat terlihat hifa tersegmentasi) dan dikultur (mikologi). Kultur mungkin tidak diperlukan jika elemen jamur khas terlihat pada mikroskop."
+      },
+      {
+        "heading": "Apa diagnosis banding tinea pedis?",
+        "level": "h2",
+        "content": "Diagnosis banding tinea pedis meliputi:\n\n- Eksim kaki — terutama pomfoliks (pedopomfoliks), atau dermatitis kontak iritan akibat kelembapan terus-menerus di antara jari kaki yang rapat\n- Dermatitis kontak alergi terhadap komponen sepatu (seperti akselerator karet, lem sepatu, kalium dikromat dalam penyamakan kulit, atau pewarna kain)\n- Psoriasis (psoriasis plantar)\n- Pustulosis plantar\n- Keratoderma plantar.\n\nGangguan inflamasi ini biasanya bersifat simetris dan bilateral. Hasil mikologi negatif."
+      },
+      {
+        "heading": "Bagaimana pengobatan tinea pedis?",
+        "level": "h2",
+        "content": "Langkah awal harus mencakup:\n\n- Mengeringkan kaki secara menyeluruh, terutama di antara jari-jari\n- Menghindari penggunaan sepatu tertutup\n- Menggunakan pelindung seperti sandal di tempat umum.\n\nPengobatan topikal antijamur sekali atau dua kali sehari biasanya cukup. Termasuk golongan azol, allylamin, butenafin, ciclopirox, dan tolnaftate. Lama pengobatan biasanya 2 hingga 4 minggu, tetapi pengobatan dosis tunggal juga bisa efektif untuk infeksi ringan.\n\nJika tidak membaik, pengobatan antijamur oral dapat diberikan selama beberapa minggu. Termasuk:\n\n- Terbinafin\n- Itrakonazol\n- Flukonazol\n- Griseofulvin (mungkin kurang efektif dibandingkan agen oral lain dan tidak tersedia di beberapa negara).\n\nPasien dengan tipe hiperkeratotik mungkin juga memerlukan krim keratolitik topikal yang mengandung asam salisilat atau urea."
+      },
+      {
+        "heading": "Bagaimana mencegah kekambuhan tinea pedis?",
+        "level": "h2",
+        "content": "Untuk meminimalkan kekambuhan tinea pedis:\n\n- Keringkan kaki dan jari-jari secara menyeluruh setelah mandi\n- Gunakan bedak kaki pengering sekali atau dua kali sehari\n- Hindari memakai sepatu tertutup terlalu lama\n- Keringkan sepatu dan boots dengan baik\n- Bersihkan kamar mandi dan lantai shower menggunakan produk yang mengandung pemutih\n- Taburkan bedak antijamur di sepatu.\n\nJika pengobatan tidak berhasil, pertimbangkan kemungkinan infeksi ulang, infeksi jamur kuku yang belum diobati, anggota keluarga yang juga terinfeksi tapi belum ditangani, atau diagnosis lain."
+      },
+      {
+        "heading": "Referensi",
+        "level": "h3",
+        "content": "- Crawford F, Hollis S. Perawatan topikal untuk infeksi jamur kulit dan kuku kaki. Cochrane Database Syst Rev. 2007; 18(3): CD001434.\n- Korting HC, dkk. Krim terbinafine 1% selama satu minggu efektif untuk tinea pedis interdigital. Med Mycol. 2001; 39(4): 335–40.\n- Gupta AK, Cooper EA. Pembaruan terapi antijamur untuk dermatofitosis. Mycopathologia. 2008; 166 (5-6): 353.\n- Bell-Syer SE, dkk. Pengobatan oral untuk infeksi jamur pada kaki. Cochrane Database Syst Rev. 2012; 10: CD003584.\n- Kircik LH, Onumah N. Penggunaan krim naftifin hidroklorida 2% dan krim urea 39% untuk tinea pedis dengan komplikasi hiperkeratosis. J Drugs Dermatol. 2014; 13(2): 162–5."
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Tinea\n- Pengantar infeksi jamur\n- Pemeriksaan laboratorium untuk infeksi jamur\n- Pengobatan infeksi jamur\n- Gambar lainnya dari tinea pedis\n- Mikologi infeksi dermatofita\n- Kondisi yang memengaruhi kaki"
+      },
+      {
+        "heading": "Situs lainnya",
+        "level": "h3",
+        "content": "- Infeksi jamur kulit — Kuliah e-DermNet [Youtube]\n- Tinea pedis — Referensi Medscape\n- Informasi pasien: Kurap, kaki atlet, dan tinea cruris (Dasar) – UpToDate (untuk pelanggan)\n- Informasi pasien: Kurap (termasuk kaki atlet dan tinea cruris) (Lanjutan) — UpToDate (untuk pelanggan)\n- Manajemen Tinea Pedis — International Foundation for Dermatology"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy - edisi kedua"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tinped1.jpg",
+        "alt": "Tinea pedis tipe mokasin",
+        "title": "Tinea pedis tipe mokasin",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tpsev.jpg",
+        "alt": "Tinea pedis",
+        "title": "Tinea pedis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tpto.jpg",
+        "alt": "Tinea pedis",
+        "title": "Tinea pedis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tinped4.jpg",
+        "alt": "Tinea pedis",
+        "title": "Tinea pedis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tinped2.jpg",
+        "alt": "Tinea pedis",
+        "title": "Tinea pedis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/s/tinped3.jpg",
+        "alt": "Tinea pedis",
+        "title": "Tinea pedis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-foot/5.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kurap Kulit Kepala",
+    "sections": [
+      {
+        "heading": "Pengantar",
+        "level": "h2",
+        "content": "Infeksi\n\n"
+      },
+      {
+        "heading": "Apa itu tinea capitis?",
+        "level": "h2",
+        "content": "Tinea capitis adalah infeksi jamur pada kulit kepala, yang melibatkan kulit dan rambut. Hal ini juga dikenal sebagai kurap kulit kepala. Gejala tinea capitis meliputi kerontokan rambut, area bersisik kering, kemerahan, dan gatal. Tinea barbae pada dasarnya merupakan kondisi yang sama, namun terjadi di area jenggot.\n\nKlik di sini untuk melihat lebih banyak gambar\n\n"
+      },
+      {
+        "heading": "Siapa yang dapat terkena tinea capitis?",
+        "level": "h2",
+        "content": "Tinea capitis paling sering terjadi pada anak-anak prapubertas, dan puncak insidensinya terjadi pada usia tiga sampai tujuh tahun. Tinea capitis juga dapat terjadi pada orang dewasa, terutama pada mereka yang kekebalannya lemah. Tinea capitis terjadi di sebagian besar belahan dunia, meskipun prevalensi spesies jamur penyebab tinea capitis dapat bervariasi secara geografis. Faktor risiko meliputi kontak dengan hewan, kepadatan keluarga, status sosial ekonomi rendah, iklim yang hangat dan lembap, dan olahraga yang melibatkan kontak fisik. Penggunaan antijamur, pergerakan populasi, dan perbaikan kebersihan turut mempengaruhi pola infeksinya.\n\n"
+      },
+      {
+        "heading": "Apa penyebab tinea capitis?",
+        "level": "h2",
+        "content": "Tinea capitis disebabkan oleh dermatofit, yaitu jamur yang dapat menyerang jaringan yang mengandung keratin, seperti rambut dan kuku. Meskipun lebih dari 40 spesies dermatofit dapat terjadi, hanya beberapa saja yang terkait tinea capitis. Dermatofit dapat dibagi menjadi 3 kelompok berdasarkan inang, yaitu anthropophilik (manusia), zoophilik (hewan), dan geophilik (tanah).\n\nDi Selandia Baru, Eropa, dan Asia, penyebab paling sering adalah spesies zoophil Microsporum canis, yang berasal dari kucing.\n\nContoh dermatofit zoophil lain yang dapat menjadi penyebab tinea capitis:\n\n- M. nanum (inang — babi)\n- M. distortum (varian dari M. canis)\n- T. equinium (inang — kuda)\n- T. verrucosum (inang — sapi).\n\nTrichophyton tonsurans adalah dermatofit anthropophil yang paling sering menjadi penyebab tinea capitis di Amerika Serikat. T. violaceum adalah jamur anthropophil yang sering ditemukan di Selandia Baru pada pasien imigran dari Afrika atau Timur Tengah.\n\nContoh dermatofit anthropophil lain yang dapat menjadi penyebab tinea capitis:\n\n- T. soudanese\n- T. schoenleinii\n- T. rubrum\n- M. audouinii.\n\nDermatofit geophil, seperti M. gypseum, berasal dari tanah dan merupakan penyebab tinea capitis yang jarang terjadi.\n\n"
+      },
+      {
+        "heading": "Bagaimana tinea capitis menyebar?",
+        "level": "h2",
+        "content": "Tinea capitis merupakan infeksi menular. Jenis anthropophil menyebar melalui kontak langsung dengan penderita, termasuk pembawa tanpa gejala, atau benda yang terkontaminasi (fomit). Fomit yang dapat menjadi perantara dermatofita anthropophil antara lain sisir, topi, handuk, tempat tidur, sofa, dan mainan; spora dapat bertahan hidup di benda-benda tersebut selama berbulan-bulan. Jenis zoophil dapat ditularkan dari hewan yang terinfeksi, termasuk hewan peliharaan (terutama kucing) atau kucing dan anjing liar. Jenis zoophil juga dapat menyebar dari orang ke orang.\n\n"
+      },
+      {
+        "heading": "Bagaimana terjadinya infeksi tinea capitis?",
+        "level": "h2",
+        "content": "Setelah terjadi invasi pada stratum korneum kulit kepala (lihat struktur kulit normal), jamur menyebar ke bawah folikel rambut dan batang rambut. Jamur menembus kutikula dan dapat menyerang batang rambut dengan tiga cara:\n\n- Infeksi ectothrix: dermatofita tumbuh di folikel dan menutupi permukaan rambut. Spora tampak di luar batang rambut dan kutikula rusak. M. canis merupakan dermatofita ectothrix.\n- Infeksi endothrix: dermatofita menyerang batang rambut dan tumbuh di dalamnya. Spora dipertahankan di dalam batang rambut, dan kutikula tidak rusak. T. tonsurans merupakan dermatofita endothrix.\n- Infeksi favus: merupakan infeksi dermatofita kronis yang disebabkan T. schoenleinii dan ditandai dengan kelompok hifa pada akar rambut, disertai ruang-ruang udara di batang rambut. Klinis tampak kerak kuning di sekitar batang rambut.\n\n"
+      },
+      {
+        "heading": "Apa saja gejala klinis tinea capitis?",
+        "level": "h2",
+        "content": "Gejala klinis bervariasi sesuai spesies dermatofita, tipe invasi, dan luasnya respon peradangan inang. Dalam segala bentuk, terjadi kerontokan rambut parsial disertai peradangan.\n\nGambaran klinis dapat dibagi secara luas menjadi varian non-inflamasi dan inflamasi.\n\n"
+      },
+      {
+        "heading": "Non-inflamasi",
+        "level": "h3",
+        "content": "Bentuk non-inflamasi dari tinea capitis meliputi:\n\n- Grey patch: terjadi skuama halus pada kulit kepala dan patch alopesia, tampak abu-abu karena spora melapisi rambut yang terlibat. Eritema dapat terjadi, biasanya minimal pada anthropophil namun dapat lebih luas pada zoophil atau geophil.\n- Black dot: terjadi skuama halus dan patch alopesia, tampak berbintik hitam. “Titik” merupakan batang rambut yang patah akibat infeksi endothrix.\n- Diffuse scale: menyerupai ketombe; alopesia kadang masih tampak, kadang tidak.\n\n"
+      },
+      {
+        "heading": "Inflamasi",
+        "level": "h3",
+        "content": "Bentuk inflamasi dari tinea capitis meliputi:\n\n- Pustular diffusa: terjadi alopesia patch disertai pustula atau folikulitis. Infeksi bakteri atau jamur lain dapat terjadi.\n- Kerion: merupakan reaksi peradangan yang berat akibat respons kekebalan yang terlambat terhadap jamur. Polanya terjadi pembengkakan, plak merah, lembek, dan nyeri, disertai alopesia dan pustula. Jenis ini umumnya disebabkan spesies zoophil dan dapat meninggalkan jaringan parut permanen.\n- Favus: merupakan bentuk peradangan kronis yang jarang terjadi, disebabkan T. schoenleinii. Ditandai rambut kusut dan pembentukan kerak kuning berbentuk cawan (scutula) di sekitar akar rambut. Scutula mengandung hifa dan debris keratin, dan dapat bergabung menjadi massa yang luas.\n\nInfeksi dapat meluas ke area tubuh lain yang ditumbuhi rambut, seperti alis dan bulu mata, dan dapat terjadi pembengkakan kelenjar getah bening regional.\n\n"
+      },
+      {
+        "heading": "Apa saja komplikasi tinea capitis?",
+        "level": "h2",
+        "content": "Alopecia dapat menimbulkan masalah psikososial pada pasien, terutama apabila terjadi alopesia permanen akibat peradangan tinea capitis. Ruam sekunder dapat terjadi pada tinea capitis yang meradang, terutama setelah dimulainya pengobatan antijamur; kondisi ini disebut dermatophytide atau id reaction. Jarang terjadi, eritema nodosum juga dapat terjadi. Infeksi bakteri sekunder dapat terjadi.\n\n"
+      },
+      {
+        "heading": "Bagaimana tinea capitis didiagnosis?",
+        "level": "h2",
+        "content": "Tinea capitis biasanya dicurigai berdasarkan klinis, namun harus dipastikan melalui pemeriksaan mikroskopis dan kultur (lihat pemeriksaan laboratorium pada infeksi jamur).\n\n"
+      },
+      {
+        "heading": "Lampu Wood",
+        "level": "h3",
+        "content": "Pemeriksaan lampu Wood berguna apabila terjadi fluoresensi pada rambut yang terinfeksi, meskipun hanya beberapa jamur yang dapat menyebabkannya. Fluoresensi hijau terang pada rambut yang terinfeksi terjadi pada tinea capitis yang disebabkan oleh spesies Microsporum (M. ferrugineum, audouinii, canis, dan distorum). Dengan menemukan rambut yang terfluoresensi, dapat dibantu pengambilan spesimen yang sesuai untuk pemeriksaan mikroskopis dan kultur. Lampu Wood tidak berguna pada infeksi endothrix nonfluoresen, kecuali T. schoenleinii, yang dapat tampak abu-abu-hijau kusam.\n\n"
+      },
+      {
+        "heading": "Dermoskopi dan trikoskopi",
+        "level": "h3",
+        "content": "Dermoskopi kulit kepala (trikoskopi) merupakan prosedur yang cepat dan non-invasif, berguna untuk memastikan tinea capitis sehingga pengobatan dapat segera dimulai sambil menunggu hasil kultur.\n\nTemuan dermoskopi yang karakteristik tinea capitis, dan memiliki nilai prediktif yang besar (meskipun tidak tampak pada setiap kasus), meliputi:\n\n- Rambut koma (comma) — rambut pendek yang melengkung dan kemudian tumbuh kembali ke kulit kepala, menyerupai koma\n- Rambut corkscrew (pembuka botol) — rambut pendek yang melintir seperti pembuka botol\n- Rambut zig-zag — rambut pendek yang menekuk beberapa kali, tampak zig-zag\n- Rambut seperti barcode (kode Morse)\n- Rambut bengkok\n\nRambut corkscrew merupakan ciri dari infeksi Trichophyton, dan lebih jarang terjadi pada M. canis.\n\nTanda-tanda lain yang sering tampak pada dermoskopi tinea capitis, namun tidak diagnostik, meliputi:\n\n- Sisik, hiperkeratosis folikel, dan krusta\n- Eritema\n- Rambut patah\n- Titik-titik hitam\n\n"
+      },
+      {
+        "heading": "Mikroskopi",
+        "level": "h3",
+        "content": "Mikroskopi dari kerokan kulit kepala atau rambut yang dicabut dapat segera memastikan diagnosis tinea capitis. Spesimen diberi kalium hidroksida dan kemudian diamati di bawah mikroskop cahaya untuk menemukan hifa dan spora.\n\n"
+      },
+      {
+        "heading": "Kultur",
+        "level": "h3",
+        "content": "Kultur jamur berguna untuk identifikasi patogen penyebab, dan dapat membantu menemukan sumber penularan. Tapi, proses kultur dapat memakan waktu hingga 4 minggu, sehingga pengobatan biasanya dimulai sebelum hasil tersedia.\n\n"
+      },
+      {
+        "heading": "Teknik diagnostik molekuler",
+        "level": "h3",
+        "content": "Polymerase Chain Reaction (PCR) dapat menjadi cara yang lebih cepat dan lebih sensitif untuk mendeteksi dermatofit, namun saat ini masih jarang tersedia secara luas.\n\n"
+      },
+      {
+        "heading": "Biopsi kulit kepala",
+        "level": "h3",
+        "content": "Kadang, tinea capitis didiagnosis melalui biopsy kulit apabila terjadi keraguan, dan pada pemeriksaan histopatologis dapat tampak perbedaannya (lihat patologi tinea capitis).\n\n"
+      },
+      {
+        "heading": "Apa saja diagnosis banding tinea capitis?",
+        "level": "h2",
+        "content": "Diagnosis banding tinea capitis luas dan mencakup kondisi yang dapat terjadi pada kulit kepala berupa alopesia, peradangan, atau skuama, misalnya:\n\n- Alopecia areata dan trikotilomania; terjadi alopesia patchy namun tidak bersisik\n- Dermatitis seboroik, dermatitis atopik, dan psoriasis kulit kepala; dapat menyerupai tinea non-inflamasi, tapi sisik biasanya lebih luas\n- Diskoid lupus eritematosus dan lichen planopilaris; dapat menimbulkan alopesia sikatriks (permanen)\n- Folikulitis bakteri, impetigo, pioderma, dan abses piodermik; dapat tampak mirip tinea capitis inflamasi\n\n"
+      },
+      {
+        "heading": "Bagaimana pengobatan tinea capitis?",
+        "level": "h2",
+        "content": "Tinea capitis selalu membutuhkan setidaknya 4 minggu pengobatan antijamur sistemik, karena pengobatan topikal saja tidak dapat mencapai akar folikel rambut. Griseofulvin dahulu merupakan pilihan pertama, namun saat ini tidak tersedia di beberapa negara, termasuk Selandia Baru. Antijamur yang lebih baru, seperti terbinafin, itrakonazol, dan flukonazol, setidaknya sama efektifnya dengan Griseofulvin pada **Trichophyton**, namun kurang efektif pada **Microsporum**.\n\nAgen topikal, seperti povidone-iodine, ketokonazol, dan selenium sulfida, dapat digunakan sebagai terapi tambahan untuk mengurangi penularan spora.\n\nSeluruh anggota keluarga harus diskrining dan diobati apabila terinfeksi. Penggunaan benda secara bergantian, seperti sisir, topi, dan bantal, harus dihindari dan dibersihkan secara menyeluruh.\n\nBila terjadi infeksi zoofilik, hewan peliharaan harus dibawa ke dokter hewan dan diberi pengobatan yang sesuai.\n\n"
+      },
+      {
+        "heading": "Bagaimana prognosis tinea capitis?",
+        "level": "h2",
+        "content": "Tinea capitis non-inflamasi umumnya memiliki prognosis yang baik apabila diterapi secara dini dan tepat. Tinea capitis inflamasi yang berat dapat meninggalkan alopesia permanen.\n\n"
+      },
+      {
+        "heading": "Bibliography",
+        "level": "h3",
+        "content": "- Chen X, Jiang X, Yang M, et al. Systemic antifungal therapy for tinea capitis in children. Cochrane Database Syst Rev. 2016;(5):CD004685. doi:10.1002/14651858.CD004685.pub3. PubMed\n- Fuller LC, Barton RC, Mohd Mustapa MF, Proudfoot LE, Punjabi SP, Higgins EM. British Association of Dermatologists' guidelines for the management of tinea capitis 2014. Br J Dermatol. 2014;171(3):454–63. doi:10.1111/bjd.13196. PubMed\n- Leung AKC, Hon KL, Leong KF, Barankin B, Lam JM. Tinea capitis: an updated review. Recent Pat Inflamm Allergy Drug Discov. 2020;14(1):58–68. doi:10.2174/1872213X14666200106145624. PubMed\n- Khosravi AR, Shokri H, Vahedi G. Factors in etiology and predisposition of adult tinea capitis and review of published literature. Mycopathologia. 2016;181(5-6):371–8. doi:10.1007/s11046-016-0004-9. PubMed\n- Zhan P, Liu W. The changing face of dermatophytic infections worldwide. Mycopathologia. 2017;182(1-2):77–86. doi:10.1007/s11046-016-0082-8. PubMed\n- Singh D, Patel DC, Rogers K, Wood N, Riley D, Morris AJ. Epidemiology of dermatophyte infection in Auckland, New Zealand. Australas J Dermatol. 2003;44(4):263–6. doi:10.1046/j.1440-0960.2003.00005.x. PubMed\n- Hay RJ. Tinea capitis: current status. Mycopathologia. 2017;182(1-2):87–93. doi:10.1007/s11046-016-0058-8. PubMed Central\n- Waśkiel-Burnat A, Rakowska A, Sikora M, Ciechanowicz P, Olszewska M, Rudnicka L. Trichoscopy of tinea capitis: a systematic review. Dermatol Ther (Heidelb). 2020;10(1):43–52. doi:10.1007/s13555-019-00350-1. PubMed\n\n"
+      },
+      {
+        "heading": "On DermNet",
+        "level": "h3",
+        "content": "- Tinea\n- Trikoskopi pada alopesia non-cicatricial\n- Pengantar infeksi jamur\n- Mikologi dermatofita\n- Pemeriksaan laboratorium untuk infeksi jamur\n- Kerion\n\n"
+      },
+      {
+        "heading": "Other websites",
+        "level": "h3",
+        "content": "- Infeksi jamur pada kulit — Kuliah online DermNet [Youtube]\n- Tinea capitis — Medscape Reference\n- Ringworm pada kulit kepala — emedicinehealth\n- Tinea capitis — British Association of Dermatologists\n- Penatalaksanaan Tinea Capitis — International Foundation for Dermatology\n\n"
+      },
+      {
+        "heading": "Books about skin diseases",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/tinea-capitis-001.jpg",
+        "alt": "Tinea Capitis",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/hair-nails-sweat/tinea-capitis.jpg",
+        "alt": "Tinea Capitis",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/site-age-specific/tinea-capitis-4.jpg",
+        "alt": "Tinea Capitis",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tincap3.jpg",
+        "alt": "Kurap kulit kepala bercak abu-abu",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/blackdot-tinea-1.jpg",
+        "alt": "Kurap kulit kepala bintik hitam",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/inflm.jpg",
+        "alt": "",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/5.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/tcuvl.jpg",
+        "alt": "Tinea Capitis",
+        "title": "Tinea Capitis",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/6.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/blackdot-tinea-2.jpg",
+        "alt": "",
+        "title": "Tinea Capitis Dermoskopi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/7.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/fungal/blackdot-tinea-3.jpg",
+        "alt": "",
+        "title": "Tinea Capitis Dermoskopi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/8.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/tinea-capitis-001-trichoscopy.jpg",
+        "alt": "",
+        "title": "Tinea Capitis Dermoskopi",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/9.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/tinea-capitis-ectothrix-hair.jpg",
+        "alt": "Invasi Ectothrix oleh hifa jamur pada batang rambut",
+        "title": "Invasi Ectothrix oleh hifa jamur pada batang rambut",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/10.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/tinea-capitis-endothrix-hair.jpg",
+        "alt": "Invasi Endothrix pada batang rambut oleh Trichophyton tonsurans",
+        "title": "Invasi Endothrix pada batang rambut oleh Trichophyton tonsurans",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/ringworm-of-the-scalp/11.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Larva Migrans Kulit",
+    "sections": [
+      {
+        "heading": "Pengantar",
+        "level": "h2",
+        "content": "Infestasi\n\n"
+      },
+      {
+        "heading": "Apa itu larva migrans kulit?",
+        "level": "h2",
+        "content": "Larva migrans kulit adalah infeksi kulit akibat larva cacing tambang yang biasanya hidup pada kucing, anjing, dan hewan lain. Manusia dapat terinfeksi apabila berjalan tanpa alas kaki di pantai berpasir atau bersentuhan dengan tanah lembab yang terkontaminasi kotoran hewan. Penyakit ini juga dikenal sebagai creeping eruption karena, setelah terinfeksi, larva bergerak di bawah permukaan kulit dan menimbulkan garis merah gatal.\n\nPembengkakan yang berpindah, yang disebut larva migrans profunda, dijabarkan di halaman DermNet tentang gnathostomiasis.\n\n"
+      },
+      {
+        "heading": "Apa penyebab larva migrans kulit?",
+        "level": "h2",
+        "content": "Banyak jenis cacing tambang dapat menyebabkan larva migrans kulit. Penyebab yang paling umum meliputi:\n\n- Ancylostoma braziliense: cacing tambang pada kucing dan anjing, ditemukan di Amerika Serikat bagian tengah dan selatan, Amerika Tengah, Amerika Selatan, dan Karibia\n- Ancylostoma caninum: cacing tambang anjing, ditemukan di Australia\n- Uncinaria stenocephala: cacing tambang anjing, ditemukan di Eropa\n- Bunostomum phlebotomum: cacing tambang sapi\n\n"
+      },
+      {
+        "heading": "Siapa yang berisiko terkena larva migrans kulit?",
+        "level": "h2",
+        "content": "Orang-orang dari segala umur, jenis kelamin, dan ras dapat terpapar larva migrans kulit apabila terjadi kontak dengan larva cacing. Penyakit ini paling sering terjadi di daerah tropis dan subtropis. kelompok yang paling rentan meliputi:\n\n- Pengunjung pantai dan orang-orang yang berjalan tanpa alas kaki\n- Anak-anak yang bermain di bak pasir\n- Petani\n- Tukang kebun\n- Tukang pipa\n- Pemburu\n- Tukang listrik\n- Tukang kayu\n- Pengendali hama.\n\nSebagian besar kasus larva migrans yang terjadi di Selandia Baru terjadi pada orang-orang yang baru kembali dari luar negeri, namun kadang terjadi juga pada orang-orang yang tidak pernah keluar dari negara tersebut.\n\n"
+      },
+      {
+        "heading": "Bagaimana terjadi infeksi cacing tambang?",
+        "level": "h2",
+        "content": "Telur cacing dikeluarkan bersama kotoran hewan dan menetas di tanah yang hangat, lembab, dan berpasir. Setelah terjadi kontak kulit manusia, larva dapat menembus kulit melalui folikel rambut, retakan, atau kulit yang masih utuh. Dalam beberapa hari sampai beberapa bulan setelah infeksi awal, larva mulai bermigrasi di bawah kulit. Dalam inang hewan, larva dapat menembus lapisan kulit yang lebih dalam (dermis) dan masuk ke peredaran darah dan getah bening. Setelah mencapai usus, larva menjadi matang secara seksual dan bertelur, kemudian dikeluarkan lagi melalui kotoran.\n\nNamun pada manusia, larva jarang menembus membran basement dan biasanya tetap terbatas pada lapisan kulit terluarnya. Lihat patologi larva migrans.\n\n"
+      },
+      {
+        "heading": "Apa saja gejala dan tandanya?",
+        "level": "h2",
+        "content": "Ruam non-spesifik terjadi di tempat larva menembus kulit. Pasien mungkin merasakan kesemutan atau gatal sekitar 30 menit setelah penetrasi. Setelah itu, larva dapat menjadi dorman (tidur) berminggu-minggu atau segera mulai bergerak dan membuat terowongan selebar 2–3 mm, menyerupai ulat, sepanjang 3–4 cm dari tempat penetrasi. Jalur ini sedikit menonjol, merah, dan gatal. Dalam beberapa hari, apabila larva yang terlibat lebih dari satu, dapat terbentuk serangkaian terowongan yang melengkung dan tidak teratur.\n\nBagian tubuh yang paling sering terkena larva migrans kulit adalah telapak kaki, sela jari, tangan, lutut, dan bokong.\n\n"
+      },
+      {
+        "heading": "Apa saja pengobatan yang tersedia?",
+        "level": "h2",
+        "content": "Larva migrans kulit dapat sembuh sendiri. Manusia merupakan inang ‘jalan buntu’ sehingga larva nantinya mati. Lamanya perjalanan penyakit bervariasi, bergantung pada spesies larva yang terlibat. Dalam kebanyakan kasus, lesi akan sembuh tanpa pengobatan dalam 4–8 minggu.\n\nNamun, tersedia pengobatan yang dapat digunakan untuk mempercepat proses penyembuhan:\n\n- Anthelmintik seperti tiabendazol, albendazol, mebendazol, dan ivermectin. Tiabendazol topikal dianggap sebagai pilihan pertama pada lesi yang masih awal dan terlokalisasi. Pengobatan oral diberikan apabila larva migrans kulit luas atau pengobatan topikal tidak berhasil. Gatal dapat mereda secara signifikan 24–48 jam setelah pengobatan dimulai, dan sebagian besar lesi sembuh dalam 1 minggu.\n- Jika tersedia, perawatan fisik seperti krioterapi nitrogen cair atau laser karbon dioksida dapat digunakan untuk membunuh larva.\n- Antihistamin dan kortikosteroid topikal juga dapat digunakan bersama antiparasit untuk meringankan gatal.\n- Infeksi bakteri sekunder mungkin membutuhkan antibiotik yang sesuai.\n\n"
+      },
+      {
+        "heading": "Referensi",
+        "level": "h3",
+        "content": "- Textbook of Dermatology. Ed Rook A, Wilkinson DS, Ebling FJB, Champion RH, Burton JL. Fourth edition. Blackwell Scientific Publications.\n- Caumes E. Pengobatan cutaneous larva migrans. Clin Infect Dis. 2000 May;30(5):811–4. Review. Medline\n- Soriano, L. F. dan Piansay-Soriano, M. E. (2016), Pengobatan cutaneous larva migrans dengan sesi tunggal laser karbon dioksida: sebuah studi pada sepuluh kasus di Filipina. J Cosmet Dermatol. DOI:10.1111/jocd.12296\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Kursus infestasi arthropoda online untuk profesional kesehatan\n- Patologi larva migrans kulit\n- Cacing tambang\n- Gnathostomiasis\n\n"
+      },
+      {
+        "heading": "Situs lain",
+        "level": "h3",
+        "content": "- Cutaneous Larvae Migrans — Medscape Reference\n\n\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/arthropods/larva-mig1.jpg",
+        "alt": "Larva migrans kulit",
+        "title": "Larva migrans kulit",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cutaneous-larva-migrans/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/arthropods/larva-migrans.jpg",
+        "alt": "Larva migrans kulit",
+        "title": "Larva migrans kulit",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cutaneous-larva-migrans/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/arthropods/larva-mig2.jpg",
+        "alt": "Larva migrans kulits",
+        "title": "Larva migrans kulit",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/cutaneous-larva-migrans/2.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Cacar air",
+    "sections": [
+      {
+        "heading": "Pengantar",
+        "level": "h2",
+        "content": "Infeksi\n\nRuam\n\n"
+      },
+      {
+        "heading": "Apa itu Cacar Air?",
+        "level": "h2",
+        "content": "Cacar air adalah penyakit infeksi virus yang mudah menular dan ditandai demam akut dan ruam melepuh, umumnya terjadi pada anak-anak. Cacar air juga dikenal sebagai varicella.\n\nNama tersebut mungkin berasal dari istilah Perancis chiche pois, yaitu kacang polong. Teori lain menyebut kata 'chicken' berasal dari bahasa gaul yang berarti 'anak'.\n\n"
+      },
+      {
+        "heading": "Siapa yang Rentan Cacar Air?",
+        "level": "h2",
+        "content": "Cacar air terjadi di seluruh dunia, menyerang orang-orang dari segala ras, jenis kelamin, dan usia. Sebagian besar terjadi pada anak-anak di bawah 10 tahun.\n\n Setelah seseorang terinfeksi cacar air, umumnya dia tidak akan terinfeksi lagi, karena terjadi kekebalan seumur hidup.\n\n Individu dengan kekebalan rendah rentan terhadap virus ini dan harus mengambil langkah pencegahan apabila terjadi kontak.\n\n"
+      },
+      {
+        "heading": "Apa Penyebab Cacar Air?",
+        "level": "h2",
+        "content": "Cacar air disebabkan oleh infeksi primer varicella-zoster, anggota keluarga Herpesviridae. Virus ini kadang disebut herpesvirus tipe 3.\n\nCacar air dapat menyebar secara mudah dari orang ke orang melalui droplet pernapasan yang keluar saat penderita batuk atau bersin, atau melalui kontak langsung dengan cairan lepuh yang terbuka.\n\nSeseorang yang tidak kebal terhadap virus ini memiliki 70–80% kemungkinan terinfeksi apabila terpapar penderita pada awal sakit.\n\n"
+      },
+      {
+        "heading": "Apa Tanda Klinis Cacar Air?",
+        "level": "h2",
+        "content": "Pada anak-anak, cacar air biasanya dimulai dari bintil merah gatal yang kemudian berubah menjadi lepuh, pertama kali tampak di perut, punggung, dan wajah, kemudian menyebar ke bagian tubuh lain. Lepuh juga dapat terjadi di dalam mulut.\n\nPola penyebaran dapat bervariasi pada setiap anak. Beberapa mungkin hanya memiliki sedikit lepuh, sedangkan yang lain dapat dipenuhi hingga 500 lepuh di seluruh tubuh. Lepuh cenderung gatal dan tidak nyaman.\n\nBeberapa anak juga dapat menunjukkan gejala tambahan, seperti demam, sakit kepala, gejala flu, muntah, dan diare.\n\nCacar air umumnya lebih berat pada orang dewasa dan dapat menjadi fatal pada kasus yang terjadi komplikasi. Sebagian besar orang dewasa yang terinfeksi cacar air menunjukkan gejala prodromal (gejala awal) 48 jam sebelum ruam, yaitu demam, lemas, sakit kepala, kehilangan nafsu makan, dan sakit perut. Cacar air pada orang dewasa biasanya lebih berat dan dapat menjadi fatal pada kasus yang terjadi komplikasi.\n\nLepuh akan sembuh dalam satu sampai tiga minggu, namun dapat meninggalkan beberapa bekas luka. Bekas luka tersebut dapat cekung (anetoderma) atau menonjol (jaringan parut hipertrofik). Jaringan parut lebih tampak apabila terjadi infeksi bakteri pada luka.\n\n"
+      },
+      {
+        "heading": "Lesi mukosa mulut akibat cacar air",
+        "level": "h3",
+        "content": "Lihat lebih banyak gambar varicella …\n\n"
+      },
+      {
+        "heading": "Bagaimana Cacar Air Didiagnosis?",
+        "level": "h2",
+        "content": "Diagnosis cacar air biasanya ditegakkan berdasarkan tampilan ruam yang khas dan ditemukannya lesi pada tahapan yang berbeda secara bersamaan. Petunjuk lain untuk diagnosis adalah pasien pernah terpapar penderita yang terinfeksi pada masa inkubasi 10–21 hari. Pasien juga dapat menunjukkan gejala prodromal. Lihat juga patologi cacar air.\n\nPemeriksaan laboratorium sering dilakukan untuk memastikan diagnosis.\n\n- PCR dapat mendeteksi virus varicella pada lesi kulit dan merupakan metode diagnostik paling akurat.\n- Kultur cairan lepuh lebih jarang digunakan karena prosesnya lebih lambat.\n- Pemeriksaan serologis (IgM dan IgG) berguna pada ibu hamil, atau sebelum pemberian imunosupresan, demi menentukan kebutuhan imunisasi sebelumnya.\n\n"
+      },
+      {
+        "heading": "Apa Komplikasi Cacar Air?",
+        "level": "h2",
+        "content": "Pada anak-anak yang sehat, cacar air umumnya merupakan penyakit yang dapat sembuh sendiri. Komplikasi yang mungkin terjadi antara lain:\n\n- Infeksi bakteri sekunder pada luka kulit akibat garukan\n\nInfeksi dapat menimbulkan abses, selulitis, fasciitis nekrotikan, dan gangren\n- Dehidrasi akibat muntah dan diare\n- Eksaserbasi asma\n- Pneumonia virus\n- Luka cacar dapat sembuh disertai jaringan parut.\n\nBeberapa komplikasi lebih sering terjadi pada penderita immunocompromised dan orang dewasa.\n\n- Infeksi varicella primer yang menyebar; dapat menimbulkan morbiditas yang signifikan\n- Komplikasi pada susunan saraf pusat, seperti sindrom Reye, sindrom Guillain-Barré, dan ensefalitis\n- Trombositopenia dan purpura\n\nCacar Air pada Kehamilan\n\n- Ibu hamil yang tidak kebal sebaiknya menghindari kontak langsung dengan penderita cacar air dan sering mencuci tangan saat menangani makanan, hewan, dan anak-anak. Pajanan varicella pada kehamilan dapat menimbulkan pneumonia viral, persalinan prematur, dan kematian maternal.\n- Sekitar 25% janin dari ibu yang terpapar dapat terinfeksi. Hal ini umumnya tidak berbahaya. Bayi dapat tampak sehat, atau nantinya dapat terjadi herpes zoster pada usia dini tanpa riwayat cacar air primer. Selain itu, dapat terjadi sindrom varicella kongenital, yaitu salah satu infeksi TORCH.\n- Sindrom varicella kongenital terjadi pada 2% janin yang terpapar pada 20 minggu pertama kehamilan. Hal ini dapat mengakibatkan abortus, korioretinitis janin, katarak, atrofi anggota tubuh, atrofi korteks serebrum dan mikrosefali, jaringan parut kulit, dan kecacatan neurologis.\n- Kematian pada bayi yang terinfeksi varicella dapat mencapai 30%.\n\nCacar Air Perinatal\n\n- Jika seorang ibu menderita cacar air sesaat sebelum melahirkan atau pada 28 hari setelah melahirkan, bayinya dapat terpapar penyakit yang parah.\n\nHerpes Zoster (Cacar Ular)\n\n- Setelah terinfeksi, virus varicella-zoster dapat dorman di ganglion sensoris.\n- Virus dapat aktif kembali bertahun-tahun kemudian, menimbulkan herpes zoster. Herpes zoster tampak sebagai vesikel yang terkelompok pada satu dermatom.\n- Infeksi lain yang terjadi akibat reaktivasi virus dapat berupa neuralgia pascaherpes, vaskulopati, mielopati, nekrosis retina, serebelitis, dan zoster sine herpete.\n\n"
+      },
+      {
+        "heading": "Bagaimana Pengobatan Cacar Air?",
+        "level": "h2",
+        "content": "Bagi pasien yang sehat, pengobatan cacar air umumnya bersifat simtomatik.\n\n- Gunting kuku anak pendek untuk mencegah garukan.\n- Mandi air hangat dan oles pelembab.\n- Paracetamol dapat digunakan untuk menurunkan demam dan mengurangi nyeri.\n\nPenggunaan NSAID di luar rumah sakit sebaiknya dihindari karena dapat meningkatkan risiko komplikasi kulit yang parah, seperti streptococcus kelompok A.\nAspirin tidak boleh digunakan pada anak-anak karena dapat terjadi sindrom Reye.\n- Lotion kalamin dan antihistamin oral dapat digunakan untuk meredakan gatal.\n- Pengobatan antivirus aciclovir dapat dipertimbangkan pada penderita di atas 12 tahun, demi mengurangi durasi demam.\n\nPasien cacar air yang immunocompromised membutuhkan aciclovir intravena.\n\nBila terjadi paparan tak disengaja, pemberian varicella-zoster immunoglobulin (VZIG) dapat mencegah atau meringankan penyakit apabila diberikan 96 jam sejak kontak. Hal ini diterapkan pada penderita yang tidak punya riwayat cacar air (atau tidak punya antibodi varicella-zoster berdasarkan pemeriksaan darah), pada kehamilan, 28 hari pertama setelah melahirkan, dan pasien dengan gangguan kekebalan.\n\n"
+      },
+      {
+        "heading": "Bagaimana Mencegah Penularan Cacar Air?",
+        "level": "h2",
+        "content": "Seseorang yang menderita cacar air dapat menularkan penyakit 1–2 hari sebelum ruam tampak dan terus menular sampai lepuh mengering. Hal ini dapat terjadi 5–10 hari. Anak-anak sebaiknya tidak masuk sekolah, dan orang dewasa yang menderita cacar air dan bekerja dekat anak-anak juga harus tinggal di rumah.\n\nDibutuhkan 10–21 hari sejak terjadi kontak hingga seseorang menunjukkan gejala. Masa inkubasi inilah yang dibutuhkan virus untuk bereplikasi dan kemudian menimbulkan gejala pada inang.\n\nCacar air dapat menimbulkan komplikasi pada penderita yang kekebalannya rendah dan pada ibu hamil. Dalam kondisi terjadi wabah, penderita yang rentan sebaiknya tidak datang atau menjaga jarak. Setelah terjadi paparan, segera temui dokter untuk mendapatkan pencegahan apabila memang dibutuhkan.\n\n"
+      },
+      {
+        "heading": "Vaksinasi Cacar Air",
+        "level": "h2",
+        "content": "Vaksin tersedia dan direkomendasikan untuk mencegah cacar air.\n\nCacar air dapat dicegah secara signifikan melalui vaksin hidup varicella yang dilemahkan. Vaksin disubsidi ('rutin') pada bayi 15 bulan di Selandia Baru, dan juga tersedia bagi kelompok lain yang tidak kebal, pasien immunocompromised, dan kelompok risiko. Jika Anda berada di Selandia Baru, silakan merujuk pada Immunisation Advisory Centre untuk informasi terkini.\n\n"
+      },
+      {
+        "heading": "Referensi",
+        "level": "h3",
+        "content": "- Leung, Jessica, et al. Evaluation of laboratory methods for diagnosis of varicella. Clinical Infectious Diseases 51.1 (2010): 23-32. PubMed\n- Mueller, Niklaus H., et al. Varicella zoster virus infection: clinical features, molecular pathogenesis of disease, and latency. Neurologic clinics 26.3 (2008): 675-697. PubMed\n- Fan, Feinan, et al. Laboratory diagnosis of HSV and varicella zoster virus infections. Future Virology 9.8 (2014): 721-731.\n- Nagel, Maria A., and Don Gilden. Neurological complications of VZV reactivation. Current opinion in neurology 27.3 (2014): 356. PubMed\n- Chickenpox (varicella zoster) in neonates. Health.vic. Neonatal eHandbook. Diakses 16 Desember 2018 di https://www2.health.vic.gov.au/hospitals-and-health-services/patient-care/perinatal-reproductive/neonatal-ehandbook/infections/chickenpox-varicella\n- Lamont RF, Sobel JD, Carrington D, et al. Varicella-zoster virus (chickenpox) infection in pregnancy. BJOG. 2011;118(10):1155-62. PMC.\n- Cobelli Kett J. Perinatal Varicella. Pediatrics in Review Jan 2013, 34 (1) 49-51; DOI: 10.1542/pir.34-1-49. PubMed. Jurnal\n- Mikaeloff Y, Kezouh A, Suissa S. Penggunaan nonsteroidal anti-inflamasi dan risiko komplikasi kulit dan jaringan lunak yang parah pada pasien dengan varicella atau zoster [perbaikan diterbitkan di Br J Clin Pharmacol. 2010 Juni;69(6):722]. Br J Clin Pharmacol. 2008;65(2):203-209. DOI:10.1111/j.1365-2125.2007.02997.x Jurnal\n\n"
+      },
+      {
+        "heading": "DermNet",
+        "level": "h3",
+        "content": "- Herpes Zoster\n- Patologi Herpesvirus\n- Sindrom Ramsay Hunt\n- Infeksi TORCH\n- Penyakit kulit melepuh\n- Sengatan ubur-ubur Australia\n- Patologi Cacar Air\n\n"
+      },
+      {
+        "heading": "Situs lain",
+        "level": "h3",
+        "content": "- Gangguan kulit melepuh — DermNet e-lecture [Youtube]\n- Cacar air — Kidshealth.org.nz\n- Cacar air — Medline Plus\n- Cacar air — Organisasi Kesehatan Dunia (WHO)\n- Cacar air — Medscape Reference\n- Varicella — Buku Pedoman Imunisasi 2017, Kementerian Kesehatan Selandia Baru\n- Cacar air (Varicella) — Pusat Penasehat Imunisasi, University of Auckland\n- Cacar air — emedicinehealth\n- Cacar air — NHS Choices\n- Informasi pasien: Cacar air (Dasar) — UpToDate\n- Informasi pasien: Cacar air (Lanjutan) — UpToDate (untuk pelanggan)\n- Infeksi virus pada kehamilan — Therapeutics in Dermatology\n- Informasi penyakit cacar air dan vaksin — video dari Pusat Penasehat Imunisasi, Selandia Baru\n- Cara merawat cacar air — video dari American Academy of Dermatology\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/collection-O/Chickenpox/chickenpox-00044.jpg",
+        "alt": "Cacar air di punggung",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/w/varicella120.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/w/varicella106.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/collection-O/Chickenpox/chickenpox-00045.jpg",
+        "alt": "Cacar air di wajah",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/w/varicella123.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/s/varicella2.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/5.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/w/varicella111.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/6.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/w/varicella126.jpg",
+        "alt": "Cacar Air",
+        "title": "Cacar Air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/7.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/manualthumbnails/dermal-infiltrative/img/s/chickenpox-scars-s.jpg",
+        "alt": "Bekas luka akibat cacar air",
+        "title": "Bekas luka cacar air",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/8.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/doctors/viral-infections/images/hvz2.jpg",
+        "alt": "Herpes Zoster",
+        "title": "Herpes Zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/chickenpox/9.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Herpes Zoster (Cacar Ular/Shingles)",
+    "sections": [
+      {
+        "heading": "Pengantar",
+        "level": "h2",
+        "content": "Infeksi\n\nRuam\n\n"
+      },
+      {
+        "heading": "Apa itu herpes zoster?",
+        "level": "h2",
+        "content": "Herpes zoster adalah ruam melepuh dan menyakitkan yang terjadi akibat reaktivasi virus varicella-zoster (VZV). Herpes zoster juga disebut shingles.\n\nVZV juga disebut herpesvirus 3 dan merupakan anggota dari ordo Herpesvirales, yaitu kelompok virus DNA untai ganda.\n\n"
+      },
+      {
+        "heading": "Siapa saja yang dapat terkena herpes zoster?",
+        "level": "h2",
+        "content": "Siapa pun yang pernah menderita varicella (cacar air) dapat kemudian mengembangkan herpes zoster. Zoster dapat terjadi pada masa kanak-kanak, tetapi lebih sering terjadi pada orang dewasa, terutama yang lebih tua. Orang-orang yang menderita kanker memiliki risiko 40% lebih besar terkena zoster. Pasien yang pernah menderita zoster jarang terjadi lagi; kemungkinan terjadi episode kedua sekitar 1%.\n\nHerpes zoster sering terjadi pada orang-orang dengan kekebalan yang lemah.\n\n"
+      },
+      {
+        "heading": "Apa penyebab herpes zoster?",
+        "level": "h2",
+        "content": "Setelah terjadi infeksi primer—varicella—VZV masih dorman (tidur) di sel-sel syaraf akar dorsalis di sumsum tulang belakang. Setelah bertahun-tahun, dapat terjadi reaktivasi dan menyebar melalui syaraf sensorik ke kulit, sehingga terjadi herpes zoster.\n\nBelum jelas apa yang menjadi penyebab reaktivasi pada syaraf tertentu. Beberapa faktor yang kadang menjadi pemicu antara lain:\n\n- Tekanan pada akar syaraf\n- Radioterapi pada akar syaraf yang terkena\n- Operasi tulang belakang\n- Infeksi\n- Cedera (tidak selalu pada tulang belakang)\n- Kontak dengan penderita varicella atau herpes zoster\n\n"
+      },
+      {
+        "heading": "Apa saja gejala klinis herpes zoster?",
+        "level": "h2",
+        "content": "Herpes zoster ditandai dengan distribusi dermatom, yaitu lepuh terjadi pada kulit yang dipersarafi satu atau dua syaraf sensorik. Hal ini umumnya terjadi secara unilateral, dengan batas yang tegas di tengah tubuh.\n\nGambaran klinis herpes zoster bergantung pada umur dan kondisi kesehatan pasien, dan dermatom mana yang terlibat.\n\nTanda pertama herpes zoster biasanya berupa nyeri setempat tanpa disertai perih atau kelainan kulit. Nyeri dapat terjadi pada satu titik, atau menyebar. Pasien mungkin juga akan merasa tidak enak badan, demam, dan sakit kepala. Kelenjar getah bening di dekat area yang terkena sering membengkak dan terasa sakit.\n\nSatu sampai tiga hari setelah terjadi nyeri, ruam melepuh mulai tampak di area kulit yang sakit. Ruam diawali bintil merah. Bintil terus bermunculan beberapa hari pada area syaraf yang terlibat, kemudian masing-masing melepuh atau bernanah, lalu mengering.\n\nDada (toraks), leher (cervical), dahi (ophthalmic), dan punggung bawah/sacral merupakan area yang paling sering terkena pada segala usia. Frekuensi herpes zoster ophthalmic meningkat seiring bertambahnya umur. Herpes zoster kadang dapat menimbulkan lepuh di dalam mulut, telinga, dan juga dapat terjadi pada area kelamin. Terkadang terjadi nyeri tanpa disertai ruam—herpes zoster “sine eruptione”—atau terjadi ruam tanpa nyeri, yang lebih sering terjadi pada anak-anak.\n\nNyeri dan gejala umum mereda perlahan seiring sembuhnya lesi. Dalam kasus yang tidak rumit, kesembuhan terjadi 2–3 minggu pada pasien muda, dan 3–4 minggu pada pasien yang lebih tua.\n\nLihat lebih banyak gambar herpes zoster.\n\n"
+      },
+      {
+        "heading": "Apa saja komplikasi herpes zoster?",
+        "level": "h2",
+        "content": "- Keterlibatan beberapa dermatom, atau kadang terjadi erupsi bilateral\n- Komplikasi pada mata apabila cabang ophthalmic dari saraf trigeminal (saraf kranial kelima) terlibat\n- Lepuh yang lebih luas dan butuh waktu berminggu-minggu untuk sembuh, kemudian terjadi jaringan parut\n- Kelemahan otot terjadi pada sekitar 1 dari 20 pasien. Kelumpuhan wajah (Ramsay Hunt) adalah yang paling sering terjadi. Dalam 50% pasien terjadi perbaikan sempurna, dan pada hampir semuanya terjadi perbaikan\n- Infeksi organ internal, termasuk saluran pencernaan, paru-paru, dan otak (ensefalitis)\n\nHerpes zoster dapat menular pada orang yang tidak pernah menderita varicella (cacar air).\n\nHerpes zoster pada awal kehamilan dapat membahayakan janin, tetapi hal ini jarang terjadi. Herpes zoster pada akhir kehamilan dapat menyebabkan cacar air pada janin atau bayi yang baru lahir. Herpes zoster kemudian dapat terjadi pada bayi.\n\n"
+      },
+      {
+        "heading": "Neuralgia Pasca Herpes",
+        "level": "h3",
+        "content": "Neuralgia pasca herpes didefinisikan sebagai nyeri yang terus terjadi atau kambuh di area yang sama, lebih dari sebulan setelah herpes zoster terjadi. Hal ini menjadi lebih sering terjadi seiring bertambahnya usia, terjadi pada sekitar sepertiga pasien di atas 40 tahun. Hal ini lebih mungkin terjadi apabila terjadi herpes zoster pada wajah. Neuralgia pasca herpes dapat berupa sensasi terbakar terus-menerus, sensitivitas yang meningkat, atau nyeri menusuk. Kulit di area yang terkena sering mati rasa atau luar biasa sensitif apabila disentuh. Terkadang, bukan nyeri yang terjadi, tapi gatal terus-menerus (pruritus neuropatik).\n\n"
+      },
+      {
+        "heading": "Pencegahan Herpes Zoster",
+        "level": "h3",
+        "content": "Karena risiko komplikasi herpes zoster lebih besar pada orang yang lebih tua, penderita di atas 60 tahun dapat mempertimbangkan vaksin zoster, yang dapat menurunkan kejadian herpes zoster hingga 50%. Pasien yang masih terkena herpes zoster meskipun divaksinasi biasanya menunjukkan gejala yang lebih ringan, dan neuralgia pasca herpes lebih jarang terjadi. Di Selandia Baru, vaksin zoster dibiayai mulai 1 April 2018 untuk pasien berusia 66-80 tahun.\n\nVaksin zoster tidak boleh diberikan pada pasien yang kekebalannya rendah, karena dapat terjadi herpes zoster diseminata.\n\n"
+      },
+      {
+        "heading": "Tindakan umum",
+        "level": "h3",
+        "content": "- Istirahat dan pereda nyeri\n- Mengoleskan salep pelindung pada ruam, seperti petroleum jelly\n- Antibiotik oral apabila terjadi infeksi sekunder\n\n"
+      },
+      {
+        "heading": "Tindakan spesifik",
+        "level": "h3",
+        "content": "Pengobatan antivirus dapat mengurangi nyeri dan durasi gejala apabila dimulai 1–3 hari setelah timbulnya herpes zoster. Aciclovir 800mg 5 kali sehari selama 7 hari paling sering diresepkan. Valaciclovir dan famciclovir juga berguna. Penggunaan steroid sistemik masih kontroversial.\n\n"
+      },
+      {
+        "heading": "Neuralgia Pasca Herpes",
+        "level": "h3",
+        "content": "- Pengobatan antivirus dini\n- Pengolesan anestesi lokal\n- Capsaicin topical\n- Antidepresan trisiklik, misalnya amitriptilin\n- Obat antikonvulsan, seperti gabapentin dan pregabalin\n- Transcutaneous electrical nerve stimulation (TENS) atau akupunktur\n- Botulinum toxin pada area yang sakit\n\nNSAID dan opioid umumnya tidak berguna.\n\n"
+      },
+      {
+        "heading": "Referensi",
+        "level": "h3",
+        "content": "- Merck Sharp & Dohme (New Zealand) Limited. 2016. Zostavax Data Sheet. 18 April 2016. URL: medsafe.govt.nz/profs/Datasheet/z/zostavaxinj.pdf (diakses 12 Juli 2017).\n- Qian J, Heywood AE, Karki S, et al. Risk of herpes zoster prior to and following cancer diagnosis and treatment: a population-based prospective cohort study. J Infect Dis. 2019;220(1):3–11. doi:10.1093/infdis/jiy625.\n\n"
+      },
+      {
+        "heading": "Di DermNet",
+        "level": "h3",
+        "content": "- Neuralgia Pasca Herpes\n- Ramsay Hunt\n- Cacar Air\n- Patologi Infeksi Herpes\n- Gambar Herpes Zoster\n- Dermatom\n\n"
+      },
+      {
+        "heading": "Situs lain",
+        "level": "h3",
+        "content": "- Herpes Zoster — DermNet e-lecture [Youtube]\n- Herpes Zoster – Medscape Reference\n- Herpes Viruses Association UK\n- Shingles - American Academy of Dermatology\n- Zoster (Herpes Zoster/Shingles) — Immunisation Handbook 2017, Kementerian Kesehatan Selandia Baru\n- Shingles (Herpes Zoster) Vaccination — CDC\n- Zostavax Vaccine for Shingles — Do Not Use in Immunocompromised Patients. Medsafe Prescriber Update 38(3): 41-42 September 2017.\n\n"
+      },
+      {
+        "heading": "Buku tentang penyakit kulit",
+        "level": "h3",
+        "content": "- Buku tentang kulit\n- Dermatology Made Easy — edisi kedua\n\n"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/zoster-13.jpg",
+        "alt": "Herpes zoster",
+        "title": "Herpes zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/0.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/s/hz2.jpg",
+        "alt": "",
+        "title": "Herpes Zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/1.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/zoster-12.jpg",
+        "alt": "Herpes zoster",
+        "title": "Herpes zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/2.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/doctors/viral-infections/images/hvz2.jpg",
+        "alt": "Herpes zoster",
+        "title": "Herpes zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/3.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/zoster-14.jpg",
+        "alt": "Herpes zoster",
+        "title": "Herpes zoster",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/4.jpg"
+      },
+      {
+        "src": "https://dermnetnz.org/assets/Uploads/viral/zoster3.jpg",
+        "alt": "",
+        "title": "Herpes Zoster (Cacar Ular/Sindrom Herpes Zoster)",
+        "supabaseUrl": "https://iephiifiontddlioawfd.supabase.co/storage/v1/object/public/conditions/shingles/5.jpg"
+      }
+    ]
+  }
+]

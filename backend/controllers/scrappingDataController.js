@@ -6,7 +6,7 @@ const path = require("path")
 const Hapi = require("@hapi/hapi")
 const Inert = require("@hapi/inert")
 
-const CACHE_FILE = path.join(__dirname, "conditions-with-local-paths.json");
+const CACHE_FILE = path.join(__dirname, "conditions-with-supabase-paths.json");
 const BASE_URL = "https://dermnetnz.org";
 const BATCH_DELAY = 500; // ms
 const BATCH_SIZE = 5;

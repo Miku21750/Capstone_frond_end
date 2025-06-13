@@ -260,7 +260,7 @@ export function UploadPenyakit() {
           <div className="flex justify-center mb-4">
             {resAI.path && (
               <img
-                src={`http://localhost:4000${resAI.path}`}
+                src={`${import.meta.env.VITE_API_BASE_URL}${resAI.path}`}
                 alt="Hasil Analisis"
                 className="w-full max-w-sm md:max-w-md rounded-lg shadow-lg object-contain"
               />
