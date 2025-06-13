@@ -26,13 +26,9 @@ import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
 import { FeedbackPage } from './components/feedbacks';
 import { NearbyClinics } from './Pages/Maps';
-// import GoogleTranslate from './components/translate'; 
-
-// import './utils/il8n'
 function App() {
   return (
     <>
-        {/* <GoogleTranslate /> */}
           <Routes>
             <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />

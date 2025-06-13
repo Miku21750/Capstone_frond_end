@@ -246,8 +246,6 @@ export function UploadPenyakit() {
     }
   };
 
-  
-
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100 px-4 py-6">
       <div className="flex flex-col items-center text-center space-y-4 mb-8 lg:mb-0 lg:mr-8 max-w-md">

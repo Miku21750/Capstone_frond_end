@@ -21,7 +21,6 @@ export function SiteHeader(
   }, []);
 
   
-  
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);

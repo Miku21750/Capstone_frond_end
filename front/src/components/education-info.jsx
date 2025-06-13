@@ -11,12 +11,7 @@ import ApiRequest from '@/api';
 
 import Swal from 'sweetalert2';
 
-
 export const SkinCondition = () => {
-
-
-  
-
   const { name } = useParams();
   const [conditions, setConditions] = useState([]);
   const [selectedCondition, setSelectedCondition] = useState(null);
@@ -513,7 +508,6 @@ export const LifestyleChoices = () => {
 };
 
 import { CheckCircle, Shield, Glasses, Clock3 } from 'lucide-react';
-// import GoogleTranslate from './translate';
 const steps = [
   {
     title: 'Gunakan Tabir Surya Setiap Hari',
