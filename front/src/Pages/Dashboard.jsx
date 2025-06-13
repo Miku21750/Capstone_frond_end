@@ -126,52 +126,17 @@ export const BMIChart = ({ bmi }) => {
 };
 
 const DashboardContent = ({
-  user,
-  scans,
-  sections,
-  navigateButton,
-  navigate,
-  handleLogout,
-  setIsEditProfileDialogOpen,
-  formData,
-  setFormData,
-  birthDate,
-  setBirthDate,
-  photoFile,
-  setPhotoFile,
-  photoPreview,
-  setPhotoPreview,
-  removePhoto,
-  setRemovePhoto,
-  selectedGender,
-  handleGenderChange,
-  handleSubmit,
-  handleDeleteScan,
-  sortedScans,
-  lastDiagnosis,
-  lastMedication,
-  lastInstruction,
-  uniqueConditionsCount,
-  conditionCounts,
-  mostCommonCondition,
-  totalScans,
-  averageGapDays,
-  scanFrequency,
-  lastScanDate,
-  averageConfidence,
-  calculateBMI,
-  getBMICategory,
-  getBMISuggestions,
-  bmi,
-  category,
-  color,
-  dailyStatsMap,
-  diseaseNames,
-  diseasePerDayChartData,
-  chartData,
-  cardRefs,
-  avatarRef,
-  isEditProfileDialogOpen,
+  user, scans, sections, navigateButton, navigate, handleLogout,
+  setIsEditProfileDialogOpen, formData, setFormData, birthDate, setBirthDate,
+  photoFile, setPhotoFile, photoPreview, setPhotoPreview, removePhoto, setRemovePhoto,
+  selectedGender, handleGenderChange, handleSubmit, handleDeleteScan, sortedScans,
+  lastDiagnosis, lastMedication, lastInstruction, uniqueConditionsCount, conditionCounts,
+  mostCommonCondition, totalScans, averageGapDays, scanFrequency, lastScanDate,
+  averageConfidence, calculateBMI, getBMICategory, getBMISuggestions, bmi, category,
+  color, dailyStatsMap, diseaseNames, diseasePerDayChartData, chartData,
+  cardRefs, 
+  avatarRef, 
+  isEditProfileDialogOpen, predictionSlugMap,
 }) => {
   const { toggleSidebar, isMobile } = useSidebar();
 
@@ -186,8 +151,11 @@ const DashboardContent = ({
           <CardTitle className="text-center text-2xl font-semibold">Profil Anda</CardTitle>
         </SidebarHeader>
         <SidebarContent className="flex flex-col gap-4 items-center text-center pb-6 overflow-hidden">
-          <Avatar ref={avatarRef} className="h-24 w-24 ring-2 ring-emerald-500">
-            <AvatarImage src={`http://localhost:4000${user.avatar}`} alt={`${user.name}'s avatar`} />
+          <Avatar
+            ref={avatarRef} 
+            className="h-24 w-24 ring-2 ring-emerald-500"
+          >
+            <AvatarImage src={`${import.meta.env.VITE_API_BASE_URL}${user.avatar}`} alt={`${user.name}'s avatar`} />
             <AvatarFallback>{user.name ? user.name.charAt(0) : 'U'}</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
@@ -277,8 +245,8 @@ const DashboardContent = ({
                     </ResponsiveContainer>
                   </div>
 
-                  <div>
-                    <p className="text-md md:text-lg font-medium mb-2">Kepercayaan Rata-rata Dari Waktu ke Waktu</p>
+                  {/* <div>
+                    <p className="text-md md:text-lg font-medium mb-2">Average Confidence Over Time</p>
                     <ResponsiveContainer width="100%" height={250}>
                       <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -289,7 +257,7 @@ const DashboardContent = ({
                         <Line type="monotone" dataKey="confidence" stroke="#00bcd4" strokeWidth={2} />
                       </LineChart>
                     </ResponsiveContainer>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
 
@@ -320,51 +288,78 @@ const DashboardContent = ({
 
           <TabsContent value="scans">
             <ScrollArea className="h-[calc(100vh-200px)] pr-4">
-              {scans.length > 0 ? (
-                scans.map((scan, i) => (
-                  <Card
-                    key={scan._id}
-                    ref={(el) => {
-                      if (el) cardRefs.current.push(el);
-                    }}
-                    className="mb-4 shadow-md bg-white rounded-lg"
-                  >
-                    <CardHeader className="flex flex-row items-center justify-between p-4 pb-2">
-                      <CardTitle className="text-lg">{new Date(scan.uploadedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardTitle>
-                      <Button onClick={() => handleDeleteScan(scan._id)} variant="ghost" className="text-red-500 hover:bg-red-50 focus:ring-red-500 p-2" aria-label={`Delete scan from ${new Date(scan.uploadedAt).toLocaleDateString()}`}>
-                        <Trash2 className="h-5 w-5" />
-                      </Button>
-                    </CardHeader>
-                    <CardContent className="flex flex-col sm:flex-row gap-4 p-4 pt-0">
-                      <img src={`http://localhost:4000${scan.path}`} alt={`Scan result for ${scan.prediction || 'N/A'}`} className="h-40 w-full sm:h-32 sm:w-32 object-cover rounded-lg flex-shrink-0" loading="lazy" />
-                      <div className="space-y-2">
-                        <div>
-                          <p className="font-medium text-gray-600">Hasil:</p>
-                          <p className="text-base font-semibold text-gray-800">{scan.prediction || 'N/A'}</p>
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-600">Penyakit:</p>
-                          <p className="text-base text-gray-800">{scan.confidence ? `${(parseFloat(scan.confidence) * 100).toFixed(2)}%` : 'N/A'}</p>
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-600">Detail:</p>
-                          <p className="text-base text-gray-800">{scan.penjelasan || 'No details available.'}</p>
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-600">Obat:</p>
-                          <p className="text-base text-gray-800">{scan.obat || 'No medication suggested.'}</p>
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-600">Cara Pakai:</p>
-                          <p className="text-base text-gray-800">{scan.cara_pakai || 'No instructions provided.'}</p>
-                        </div>
+              {scans.length > 0 ? scans.map((scan, i) => 
+              {
+                
+                const normalize = (text) => text.replace(/[’‘]/g, "'").trim();
+                const predictionName = normalize(scan.prediction);
+                const slug = predictionSlugMap[predictionName] || predictionName.toLowerCase().replace(/\s+/g, '-');
+                return (
+                <Card
+                  key={scan._id}
+                  ref={(el) => {
+                    if (el) cardRefs.current.push(el); 
+                  }}
+                  className="mb-4 shadow-md bg-white rounded-lg"
+                >
+                  <CardHeader className="flex flex-row items-center justify-between p-4 pb-2">
+                    <CardTitle className="text-lg">{new Date(scan.uploadedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardTitle>
+                    <Button
+                      onClick={() => handleDeleteScan(scan._id)}
+                      variant="ghost"
+                      className="text-red-500 hover:bg-red-50 focus:ring-red-500 p-2"
+                      aria-label={`Delete scan from ${new Date(scan.uploadedAt).toLocaleDateString()}`}
+                    >
+                      <Trash2 className='h-5 w-5' />
+                    </Button>
+                  </CardHeader>
+                  <CardContent className="flex flex-col sm:flex-row gap-4 p-4 pt-0">
+                    <img
+                      src={`${import.meta.env.VITE_API_BASE_URL}${scan.path}`}
+                      alt={`Scan result for ${scan.prediction || 'N/A'}`}
+                      className="h-40 w-full sm:h-32 sm:w-32 object-cover rounded-lg flex-shrink-0"
+                      loading="lazy"
+                    />
+                    <div className="space-y-2">
+                      <div>
+                        <p className="font-medium text-gray-600">Hasil:</p>
+                        <p className="text-base font-semibold text-gray-800">{scan.prediction || 'N/A'}</p>
+                        {scan.prediction && (
+                          <Button
+                            variant="link"
+                            className="text-blue-600 underline px-0"
+                            onClick={() =>
+                              navigate(`/education/skin-conditions/${slug}`)
+                            }
+                          >
+                            Pelajari lebih lanjut
+                          </Button>
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                <p className="text-center text-gray-500 py-10">Belum ada pemindaian. Mulailah dengan memindai kulit Anda di tab "Tindakan"!</p>
+                      {/* <div>
+                        <p className="font-medium text-gray-600">Confidence:</p>
+                        <p className="text-base text-gray-800">{scan.confidence ? `${(parseFloat(scan.confidence) * 100).toFixed(2)}%` : 'N/A'}</p>
+                      </div> */}
+                      <div>
+                        <p className="font-medium text-gray-600">Detail:</p>
+                        <p className="text-base text-gray-800">{scan.penjelasan || 'No details available.'}</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-600">Obat:</p>
+                        <p className="text-base text-gray-800">{scan.obat || 'No medication suggested.'}</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-600">Cara Pakai:</p>
+                        <p className="text-base text-gray-800">{scan.cara_pakai || 'No instructions provided.'}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               )}
+            )
+                :
+                <p className="text-center text-gray-500 py-10">Belum ada pemindaian. Mulailah dengan memindai kulit Anda di tab "Tindakan"!</p>
+              }
             </ScrollArea>
           </TabsContent>
 
@@ -430,8 +425,8 @@ const DashboardContent = ({
             <div className="flex-1 space-y-4">
               <div className="relative w-32 h-32 group cursor-pointer mx-auto md:mx-0">
                 <img
-                  src={photoPreview || (removePhoto ? '/user-avatar.jpg' : `http://localhost:4000${user.avatar}`)}
-                  alt="Profil Avatar"
+                  src={photoPreview || (removePhoto ? "/user-avatar.jpg" : `${import.meta.env.VITE_API_BASE_URL}${user.avatar}`)}
+                  alt="Profile Avatar"
                   className="w-full h-full object-cover rounded-lg border-2 border-gray-300 text-center"
                   onClick={() => document.getElementById('avatarInput').click()}
                 />
@@ -793,20 +788,18 @@ export const Dashboard = () => {
 
   const lastScanDate = sortedScans.length ? new Date(sortedScans[0].uploadedAt).toLocaleDateString() : '-';
 
-  const averageConfidence = useMemo(
-    () =>
-      scans.length
-        ? (
-            (scans.reduce((acc, scan) => {
-              const conf = parseFloat(scan.confidence);
-              return !isNaN(conf) ? acc + conf : acc;
-            }, 0) /
-              scans.length) *
-            100
-          ).toFixed(2)
-        : '0.00',
-    [scans]
-  );
+  // const averageConfidence = useMemo(() =>
+  //   scans.length
+  //     ? (
+  //       (scans.reduce((acc, scan) => {
+  //         const conf = parseFloat(scan.confidence);
+  //         return !isNaN(conf) ? acc + conf : acc;
+  //       }, 0) /
+  //         scans.length) *
+  //       100
+  //     ).toFixed(2)
+  //     : '0.00'
+  //   , [scans]);
 
   const calculateBMI = (weightKg, heightCm) => {
     if (!weightKg || !heightCm || heightCm === 0) return 0;
@@ -842,13 +835,13 @@ export const Dashboard = () => {
         map[date] = {
           date,
           scans: 0,
-          confidenceSum: 0,
+          // confidenceSum: 0,
           diseases: {},
         };
       }
       map[date].scans += 1;
-      const conf = parseFloat(scan.confidence || 0);
-      map[date].confidenceSum += !isNaN(conf) ? conf : 0;
+      // const conf = parseFloat(scan.confidence || 0);
+      // map[date].confidenceSum += !isNaN(conf) ? conf : 0;
       const disease = scan.prediction || 'Unknown';
       map[date].diseases[disease] = (map[date].diseases[disease] || 0) + 1;
     });
@@ -869,15 +862,13 @@ export const Dashboard = () => {
     [dailyStatsMap, diseaseNames]
   );
 
-  const chartData = useMemo(
-    () =>
-      Object.values(dailyStatsMap).map((entry) => ({
-        date: entry.date,
-        scans: entry.scans,
-        confidence: entry.confidenceSum / entry.scans || 0,
-      })),
-    [dailyStatsMap]
-  );
+  const chartData = useMemo(() =>
+    Object.values(dailyStatsMap).map((entry) => ({
+      date: entry.date,
+      scans: entry.scans,
+      // confidence: (entry.confidenceSum / entry.scans) || 0,
+    }))
+    , [dailyStatsMap]);
 
   const sections = [
     {
@@ -913,7 +904,7 @@ export const Dashboard = () => {
         ['Total Pemindaian', totalScans],
         ['Pemindaian Terakhir', lastScanDate],
         ['Frekuensi Pemindaian', scanFrequency],
-        ['Rata-rata Tingkat Kepercayaan Pemindaian', `${averageConfidence}%`],
+        // ['Rata-rata Tingkat Kepercayaan Pemindaian', `${averageConfidence}%`],
       ],
       bg: 'bg-sky-100',
     },
@@ -935,6 +926,20 @@ export const Dashboard = () => {
     { label: 'About', path: '/about' },
     { label: 'Education', path: '/education' },
   ];
+
+  const predictionSlugMap = {
+    "Acne": "acne",
+    "Cellulitis": "cellulitis",
+    "Impetigo": "impetigo",
+    "Eczema": "eczema",
+    "Athlete’s Foot": "athletes-foot",
+    "Nail Fungus": "nail-ringworm-pathology",
+    "Ringworm": "body-ringworm",
+    "Cutaneous Larva Migrans": "cutaneous-larva-migrans",
+    "Chickenpox": "chickenpox",
+    "Shingles": "shingles"
+  };
+
 
   return (
     <SidebarProvider>
@@ -972,7 +977,7 @@ export const Dashboard = () => {
           averageGapDays={averageGapDays}
           scanFrequency={scanFrequency}
           lastScanDate={lastScanDate}
-          averageConfidence={averageConfidence}
+          // averageConfidence={averageConfidence}
           calculateBMI={calculateBMI}
           getBMICategory={getBMICategory}
           getBMISuggestions={getBMISuggestions}
@@ -986,6 +991,7 @@ export const Dashboard = () => {
           cardRefs={cardRefs}
           avatarRef={avatarRef}
           isEditProfileDialogOpen={isEditProfileDialogOpen}
+          predictionSlugMap={predictionSlugMap}
         />
       </div>
     </SidebarProvider>

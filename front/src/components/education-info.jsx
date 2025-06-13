@@ -110,8 +110,6 @@ export const SkinCondition = () => {
     <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-screen bg-[#E9F3F4] text-gray-800">
       {/* Main content area */}
       <section className="flex-1 w-auto lg:mr-80 px-4 py-8 lg:px-8 lg:py-12">
-
-
         <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-6 sm:mb-10 leading-tight">
           {selectedCondition.name}
         </h1>
@@ -174,7 +172,7 @@ export const SkinCondition = () => {
               {selectedCondition.images.map((image, index) => (
                 <figure key={index} className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-100">
                   <img
-                    src={`http://localhost:4000${image.localPath}`}
+                    src={image.supabaseUrl || image.src || `${import.meta.env.VITE_API_BASE_URL}${image.localPath}`}
                     alt={image.alt || 'Skin condition image'}
                     title={image.title || image.alt || 'Skin condition image'}
                     className="w-full h-48 sm:h-56 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
@@ -864,3 +862,56 @@ export const AskDermatologist = () => {
     </div>
   );
 };
+
+const videos = [
+  { id: 1, title: "Mengenali Jerawat: Penyebab & Perawatan", url: "https://youtu.be/Hxom8pws-10" },
+  { id: 2, title: "Penanganan Eksim: Kiat & Pengobatan", url: "https://youtu.be/psBKIhBIKs8" },
+  { id: 3, title: "Penyebab dan Cara Mengobati Impetigo", url: "https://youtu.be/3m5BD0NOVO4" },
+  { id: 4, title: "Menemukan Salulitis – Gambaran Umum Gejala", url: "https://youtu.be/4T5kVUaM29E" },
+  { id: 5, title: "Kutu Air (Tinea Pedis), Infeksi Jamur", url: "https://youtu.be/1rewPzxYQ0E" },
+  { id: 6, title: "Infeksi Jamur pada Kulit, Ringworm", url: "https://youtu.be/az_5-PR7Ye0" },
+  { id: 7, title: "Pengenalan Cutanus Larva Migrans", url: "https://youtu.be/-p-Nz12YWfk" },
+  { id: 8, title: "Mitos atau Fakta? Penyakit Cacar Air", url: "https://youtu.be/xaEujbRF4mA" },
+  { id: 9, title: "Waspada Herpes Zoster atau Cacar Ular", url: "https://youtu.be/c-9fe_p8N8M" },
+];
+
+
+function getYoutubeId(url) {
+  const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
+  return match ? match[1] : "";
+}
+
+export default function EducationalVideos() {
+  return (
+    <section className="min-h-screen bg-muted/40 py-8 px-4 lg:px-16">
+      <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
+        Video Edukasi tentang Kesehatan Kulit 
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {videos.map((video) => {
+          const videoId = getYoutubeId(video.url);
+          return (
+            <Card key={video.id} className="w-full">
+              <CardHeader>
+                <CardTitle className="text-lg">{video.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

@@ -4,12 +4,13 @@ const connectDB = require("./db");
 const userRoutes = require("./routes/user");
 const HapiJwt = require("@hapi/jwt");
 
+require('dotenv').config(); 
 const init = async () => {
     await connectDB();
 
     const server = Hapi.server({
-        port:4000,
-        host:'localhost',
+        port: process.env.PORT || 4000,
+        host:'0.0.0.0',
         routes:{
             cors:{
                 origin: ['*']

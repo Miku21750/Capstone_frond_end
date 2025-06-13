@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { HomePage } from './Pages/Home_Page';
 import { LoginForm, RegisterForm } from './components/sc-form';
 import { Navigation } from './components/navigation';
-import { About } from './Pages/About';
+import { About } from './Pages/about';
 import { UploadPenyakit } from './pages/UploadPenyakit';
-import GateKeeping from './utils/gateKeeping';
-import { 
+import GateKeeping from './utils/GateKeeping';
+import EducationalVideos, { 
   AskDermatologist, 
   DailySkincareRoutine, 
   Faqs, 
@@ -24,18 +24,20 @@ import {
 } from './components/education-info'
 import { Dashboard } from './Pages/Dashboard';
 import Information from './Pages/Information';
+import { FeedbackPage } from './components/feedbacks';
 import { NearbyClinics } from './Pages/Maps';
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Navigation />}>
+          <Routes>
+            <Route path='/' element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path='/about' element={<About />} />
+            <Route path='/feedback' element={<FeedbackPage />} />
           </Route>
           <Route path='/education' element={<Information />} >
             <Route index element={<Overviewinfo/>}/>
+            <Route path='/education/educational-video' element={<EducationalVideos/>}></Route>
             <Route path='/education/prevention-tips/daily-skincare-routine' element={<DailySkincareRoutine />}></Route>
             <Route path='/education/prevention-tips/hygiene-advice' element={<HygieneAdvice />}></Route>
             <Route path='/education/skin-conditions/:name' element={<SkinCondition />}></Route>
@@ -61,7 +63,6 @@ function App() {
             <Route path='/upload-penyakit' element={<UploadPenyakit />}/>
           </Route>
         </Routes>
-      </BrowserRouter>
     </>
   )
 }
